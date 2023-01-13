@@ -1,0 +1,80 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --headings: #47758C;
+    --content: #7A7A7A;
+
+}
+
+header .wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    border-bottom: 1px solid var(--light-blue);
+}
+
+header .wrapper ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .wrapper ul li {
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: capitalize;
+    margin-right: 24px;
+    color: var(--dark-blue);
+    font-weight: 600;
+    letter-spacing: .5px;
+    transition: .4s ease-in;
+}
+
+header .wrapper ul li:hover {
+    opacity: .5;
+}
+
+header .wrapper ul li.register {
+    padding: 12px 20px;
+    background-color: var(--dark-blue);
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+header .wrapper ul.auth select {
+    border: none;
+    padding: 12px;
+    margin-right: 24px;
+    background: none;
+    font-weight: bold;
+}
+
+header .wrapper ul.auth select option {
+    color: var(--dark-blue);
+    padding: 12px;
+}
+
+
+
+header .wrapper select:active {
+    border: none;
+}
+
+header .wrapper ul.auth {
+    align-items: center;
+}
+
+header .wrapper ul li.register:hover,
+header .wrapper ul li.register:focus {
+    opacity: 1;
+    background-color: #25466a;
+    box-shadow: 0 4px 15px 0 #021f3e96;
+
+
+}

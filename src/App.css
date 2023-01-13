@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+    width: 90%;
+    max-width: 1350px;
+    margin: 0 auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+@font-face {
+    font-family: 'poppinsbold';
+    src: url('./components/assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/poppins-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+
+@font-face {
+    font-family: 'poppinsmedium';
+    src: url('./components/assets/fonts/poppins-medium-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/poppins-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-.App-link {
-  color: #61dafb;
+
+
+
+@font-face {
+    font-family: 'poppinsregular';
+    src: url('./components/assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/poppins-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+@font-face {
+    font-family: 'poppinssemibold';
+    src: url('./components/assets/fonts/poppins-semibold-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/poppins-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'poppinsbold';
+}
+
+body {
+    font-family: 'poppinsregular';
 }

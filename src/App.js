@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+// import Header from "./components/screens/Header/Header";
+import Home from "./components/screens/Home/Spotlight/Home";
+import { Helmet } from "react-helmet";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>HimTrek - Your Travelling Partner </title>
+        <link
+          rel="icon"
+          href={require("./components/assets/images/himtrek-logo.svg").default}
+        />
+      </Helmet>
+      <Home />
+    </>
   );
 }
 
