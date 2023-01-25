@@ -31,6 +31,10 @@ section#about .wrapper {
 
 section#about .wrapper .text-container {
     width: 45%;
+    background-image: url(../../../assets/images/Aeroplane\ -bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 section#about .wrapper .text-container p {

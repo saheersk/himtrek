@@ -7,6 +7,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import TopPackage from "../TopPackage/TopPackage";
+import Events from "../Events/Events";
 
 function Home() {
   useEffect(() => {
@@ -69,7 +71,11 @@ function Home() {
                   <span>explore</span>
                 </div>
               </div>
-              <div className="branding-text" data-aos="fade-up" data-aos-delay="400">
+              <div
+                className="branding-text"
+                data-aos="fade-up"
+                data-aos-delay="400"
+              >
                 <p>
                   Make Your Tour <span> Amazing!</span>{" "}
                 </p>
@@ -85,6 +91,8 @@ function Home() {
         </section>
       </section>
       <About />
+      <TopPackage />
+      <Events />
     </>
   );
 }

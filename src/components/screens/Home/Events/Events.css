@@ -1,0 +1,148 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+section#events {
+    padding: 80px 0;
+}
+
+section#events .head {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section#events .head h3 {
+    font-size: 24px;
+    text-transform: capitalize;
+    color: var(--dark-blue);
+}
+
+section#events ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+section#events ul li {
+    cursor: pointer;
+    display: flex;
+    background: var(--light-blue);
+    width: 600px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius: 20px;
+}
+
+section#events ul li:hover .preview img {
+    transform: scale(1.03);
+}
+
+section#events ul li:nth-child(2n) {
+    margin-right: 0;
+}
+
+section#events ul li .preview {
+    max-width: 200px;
+    margin-right: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+
+}
+
+section#events ul li .preview img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+
+}
+
+section#events ul li .text-container {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+section#events ul li .text-container h4 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+section#events ul li .text-container p {
+    font-size: 16px;
+}
+
+section#events ul li .text-container .date {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 40px;
+}
+
+section#events ul li .text-container .date span {
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+}
+
+section#events ul li .text-container .date small {
+    font-size: 30px;
+    font-weight: 600;
+    margin-left: 6px;
+    color: #fff;
+}
+
+section#events .button {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 50px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+section#events .button:hover h5::before {
+    width: 140px;
+    border-radius: 30px;
+}
+
+section#events .button small {
+    width: 25px;
+    margin-left: 10px;
+    z-index: 4;
+}
+
+section#events .button h5 {
+    font-size: 18px;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 4;
+    color: var(--dark-blue);
+    font-weight: 400;
+}
+
+section#events .button h5::before {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--light-blue);
+    display: inline-block;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: -20px;
+    z-index: -1;
+    transition: .3s ease;
+}
+
+section#events .button small img {
+    width: 100%;
+    display: block;
+}
