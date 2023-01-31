@@ -3,6 +3,7 @@ import "./App.css";
 // import Header from "./components/screens/Header/Header";
 import Home from "./components/screens/Home/Spotlight/Home";
 import { Helmet } from "react-helmet";
+import Cart from "./components/screens/Cart/Cart";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         />
       </Helmet>
       <Home />
+      <Cart />
     </>
   );
 }
