@@ -1,0 +1,154 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+section#home {
+    background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
+}
+
+
+section#spotlight .wrapper {
+    display: flex;
+    height: calc(100vh - 100px);
+    /* align-items: center; */
+    justify-content: space-between;
+}
+
+section#spotlight .wrapper .content-box {
+    width: 45%;
+    margin-right: 40px;
+    padding-top: 100px;
+}
+
+section#spotlight .wrapper .content-box h3 {
+    font-size: 56px;
+    line-height: 1.2em;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: var(--dark-blue);
+
+}
+
+section#spotlight .wrapper .content-box h3 span {
+    color: var(--orenge);
+}
+
+section#spotlight .wrapper .content-box p {
+    color: var(--shade-blue);
+    width: 90%;
+    line-height: 1.3em;
+    margin-bottom: 40px;
+}
+
+section#spotlight .wrapper .image-container {
+    width: 55%;
+}
+
+
+section#spotlight .wrapper .image-container img {
+    width: 100%;
+    display: block;
+}
+
+section#spotlight .wrapper .filter-box {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    padding: 20px 20px;
+    border-radius: 12px;
+}
+
+section#spotlight .wrapper .filter-box input[type="text"] {
+    border: none;
+    outline: none;
+    font-size: 18px;
+    width: fit-content;
+}
+
+section#spotlight .wrapper .filter-box .items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+section#spotlight .wrapper .filter-box .item {
+    margin-right: 34px;
+    text-align: center;
+}
+
+section#spotlight .wrapper .filter-box .item h5 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+
+}
+
+section#spotlight .wrapper .filter-box .item h5 .icon {
+    width: 20px;
+    margin-left: 6px;
+    transform: rotate(-180deg);
+}
+
+section#spotlight .wrapper .filter-box .item h5 .icon img {
+    width: 100%;
+    display: block;
+}
+
+section#spotlight .wrapper .filter-box .item select {
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+section#spotlight .wrapper .filter-box .item select option {
+    font-size: 14px;
+    text-transform: capitalize;
+
+}
+
+section#spotlight .wrapper .filter-box .button span {
+    cursor: pointer;
+    font-size: 16px;
+    text-transform: capitalize;
+    background-image: linear-gradient(to right, var(--shade-blue), var(--dark-blue), var(--light-blue), var(--dark-blue));
+    background-size: 300% 100%;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+
+
+
+}
+
+section#spotlight .wrapper .filter-box .button span:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, var(--shade-blue), var(--dark-blue), var(--light-blue), var(--dark-blue));
+    box-shadow: 0 4px 15px 0 #021f3e96;
+}
+
+section#spotlight .wrapper .branding-text p {
+    color: var(--shade-blue);
+    margin-top: 26px;
+    font-size: 16px;
+    font-weight: 600;
+    opacity: .4;
+}
+
+section#spotlight .wrapper .branding-text span {
+    color: var(--orenge);
+}

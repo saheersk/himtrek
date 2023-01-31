@@ -1,0 +1,157 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+section#about {
+    padding: 80px 0;
+    background: #e0e0e0;
+
+}
+
+section#about .head {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+section#about .head h3 {
+    font-size: 26px;
+    color: var(--dark-blue);
+    text-transform: capitalize;
+}
+
+section#about .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section#about .wrapper .text-container {
+    width: 45%;
+}
+
+section#about .wrapper .text-container p {
+    font-size: 16px;
+    color: var(--dark-blue);
+    line-height: 1.4em;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+section#about .wrapper .text-container ul {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+section#about .wrapper .text-container ul li {
+    width: 150px;
+    margin-right: 20px;
+    text-align: center;
+    padding: 20px 20px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff;
+}
+
+section#about .wrapper .text-container ul li h4 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    color: var(--dark-blue);
+}
+
+section#about .wrapper .text-container ul li span {
+    font-size: 16px;
+    color: var(--dark-blue);
+    text-transform: capitalize;
+}
+
+section#about .wrapper .text-container button {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    background: transparent;
+    border: none;
+    color: var(--orenge);
+    padding: 12px 14px;
+    border-radius: 50px;
+    transition: .3s ease;
+    cursor: pointer;
+}
+
+section#about .wrapper .text-container button img {
+    width: 20px;
+    margin-left: 6px;
+    transition: .4s ease;
+    animation: arrows 1s infinite;
+}
+
+section#about .wrapper .text-container button:hover {
+    background: var(--light-blue);
+}
+
+
+section#about .wrapper .image-container {
+    width: 43%;
+    display: flex;
+}
+
+section#about .wrapper .image-container .hero-image {
+    margin-right: 20px;
+    display: block;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+
+section#about .wrapper .image-container .preview {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+section#about .wrapper .image-container img {
+    cursor: pointer;
+    width: 100%;
+    display: block;
+    border-radius: 30px;
+    transition: .5s ease-in-out;
+    opacity: 1;
+}
+
+
+section#about .wrapper .image-container img:hover {
+    transform: scale(1.1);
+    opacity: .8;
+}
+
+@keyframes arrows {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(4px);
+    }
+
+    50% {
+        transform: translateX(0);
+    }
+
+    70% {
+        transform: translateX(4);
+    }
+
+    90% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(4);
+    }
+}
