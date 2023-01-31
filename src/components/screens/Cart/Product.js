@@ -28,16 +28,16 @@ function product() {
                 <small>Persons</small>
               </div>
               <div className="qty-count">
-                <div className="sub">
+                <div className="qty-button">
                   <img
-                    src={require("../../assets/images/sub.svg").default}
+                    src={require("../../assets/images/minus-solid.svg").default}
                     alt="Minus"
                   />
                 </div>
                 <span className="count">3</span>
-                <div className="plus">
+                <div className="qty-button">
                   <img
-                    src={require("../../assets/images/plus.svg").default}
+                    src={require("../../assets/images/plus-solid.svg").default}
                     alt="Minus"
                   />
                 </div>
