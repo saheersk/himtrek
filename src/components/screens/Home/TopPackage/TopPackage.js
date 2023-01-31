@@ -3,6 +3,7 @@ import "./ToPackage.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import PackageCard from "./PackageCard";
 
 function TopPackage() {
   useEffect(() => {
@@ -17,50 +18,10 @@ function TopPackage() {
           </div>
           <div className="content">
             <ul>
-              <li data-aos="fade-up">
-                <div className="image-box">
-                  <img
-                    src={require("../../../assets/images/all-india.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="shade">
-                  <span>explore</span>
-                </div>
-              </li>
-              <li data-aos="fade-up" data-aos-delay="100">
-                <div className="image-box">
-                  <img
-                    src={require("../../../assets/images/all-india.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="shade">
-                  <span>explore</span>
-                </div>
-              </li>
-              <li data-aos="fade-up" data-aos-delay="200">
-                <div className="image-box">
-                  <img
-                    src={require("../../../assets/images/all-india.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="shade">
-                  <span>explore</span>
-                </div>
-              </li>
-              <li data-aos="fade-up" data-aos-delay="300">
-                <div className="image-box">
-                  <img
-                    src={require("../../../assets/images/all-india.png")}
-                    alt=""
-                  />
-                </div>
-                <div className="shade">
-                  <span>explore</span>
-                </div>
-              </li>
+              <PackageCard />
+              <PackageCard />
+              <PackageCard />
+              <PackageCard />
             </ul>
           </div>
           <div className="button">
