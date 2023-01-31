@@ -9,6 +9,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import TopPackage from "../TopPackage/TopPackage";
 import Events from "../Events/Events";
+import PackageList from "../PackageList/PackageList";
 
 function Home() {
   useEffect(() => {
@@ -93,6 +94,7 @@ function Home() {
       <About />
       <TopPackage />
       <Events />
+      <PackageList />
     </>
   );
 }

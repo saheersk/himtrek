@@ -65,7 +65,7 @@ function Events() {
                     <h4>Kakkadampoyil</h4>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
+                      Nemo,
                     </p>
                   </div>
                   <div className="date">
@@ -86,7 +86,7 @@ function Events() {
                     <h4>Kakkadampoyil</h4>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
+                      Nemo,
                     </p>
                   </div>
                   <div className="date">

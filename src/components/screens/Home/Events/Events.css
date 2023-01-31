@@ -30,11 +30,16 @@ section#events ul {
 section#events ul li {
     cursor: pointer;
     display: flex;
-    background: var(--light-blue);
+    background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
     width: 600px;
     margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
+    transition: .3s ease-in;
+}
+
+section#events ul li:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 section#events ul li:hover .preview img {
@@ -62,6 +67,7 @@ section#events ul li .preview img {
 }
 
 section#events ul li .text-container {
+    width: 80%;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
@@ -82,7 +88,9 @@ section#events ul li .text-container .date {
     align-items: center;
     justify-content: end;
     padding-right: 40px;
+    transition: .6s ease;
 }
+
 
 section#events ul li .text-container .date span {
     font-size: 26px;
@@ -95,6 +103,10 @@ section#events ul li .text-container .date small {
     font-weight: 600;
     margin-left: 6px;
     color: #fff;
+}
+
+section#events ul li:hover .date{
+    transform: rotateX(360deg);
 }
 
 section#events .button {
