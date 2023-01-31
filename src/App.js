@@ -3,6 +3,7 @@ import Home from "./components/screens/Home/Spotlight/Home";
 import { Helmet } from "react-helmet";
 import Cart from "./components/screens/Cart/Cart";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route  path='/cart/' element={<Cart />} />
+          <Route  path='/package-single/' element={<PackageSingle />} />
         </Routes>
       </Router>
     </div>
