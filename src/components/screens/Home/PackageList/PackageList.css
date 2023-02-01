@@ -1,10 +1,4 @@
-:root {
-    --dark-blue: #021F3E;
-    --light-blue: #92ADBB;
-    --shade-blue: #47758C;
-    --content: #7A7A7A;
-    --orenge: #C77935;
-}
+
 
 section#package-list {
     padding: 80px 0;
