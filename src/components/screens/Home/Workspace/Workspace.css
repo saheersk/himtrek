@@ -1,0 +1,138 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+section#workspace {
+    padding: 80px 0;
+    background-color: #efefef;
+}
+
+section#workspace .top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section#workspace .top-container h4 {
+    font-size: 24px;
+    text-transform: capitalize;
+    color: var(--shade-blue);
+}
+
+section#workspace .top-container p {
+    width: 50%;
+    line-height: 1.3em;
+    font-size: 20px;
+    text-align: justify;
+    color: var(--content);
+}
+
+section#workspace .features {
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+section#workspace .features .image-container {
+    display: flex;
+}
+
+section#workspace .features .image-container .image-box {
+    width: 400px;
+    margin-right: 20px;
+    padding: 3px;
+    border: 2px dashed var(--shade-blue);
+    border-radius: 24px;
+}
+
+section#workspace .features .image-container .image-box:last-child {
+    margin-right: 0;
+}
+
+section#workspace .features .image-container .image-box img {
+    display: block;
+    width: 100%;
+    border-radius: 20px;
+}
+
+section#workspace .features ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+section#workspace .features ul li img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+section#workspace .banner-image {
+    width: 100%;
+}
+
+section#workspace .banner-image img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+section#workspace .banner {
+    position: relative;
+    width: 90%;
+    margin: 60px auto 0;
+
+}
+
+section#workspace .banner .text-box {
+    position: absolute;
+    padding-left: 30px;
+    width: 40%;
+    height: 100%;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    background-image: linear-gradient(to right, var(--shade-blue), rgba(0, 0, 0, 0));
+    border-radius: 22px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section#workspace .banner .text-box h4 {
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+section#workspace .banner .text-box p {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.3em;
+    margin-bottom: 20px;
+    text-transform: capitalize;
+}
+
+section#workspace .banner .text-box .button {
+    cursor: pointer;
+    color: #fff;
+    border-radius: 30px;
+    border: 1px solid #fff;
+    display: inline;
+    width: fit-content;
+    padding: 12px 20px;
+    transition: .3s ease-in;
+    text-transform: capitalize;
+
+}
+
+section#workspace .banner .text-box .button:hover {
+    background: #fff;
+    color: #000;
+}

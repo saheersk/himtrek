@@ -89,14 +89,15 @@ section#preference .content-container .card .text-box {
     padding: 16px;
     position: absolute;
     bottom: 0;
-    background-image: linear-gradient(to top, #fff, #ffffff00);
+    background-image: linear-gradient(to top, rgb(0, 0, 0), #ffffff00);
     border-radius: 20px;
 }
 
 section#preference .content-container .card .text-box h4 {
     font-size: 20px;
     text-transform: capitalize;
-    color: var(--dark-blue);
+    color: #fff;
+    margin-bottom: 5px;
 }
 
 section#preference .content-container .card .location {
@@ -106,12 +107,14 @@ section#preference .content-container .card .location {
 
 section#preference .content-container .card .location img {
     width: 15px;
+    filter: invert(1);
 }
 
 section#preference .content-container .card .location span {
     font-size: 16px;
     text-transform: capitalize;
     margin-left: 6px;
+    color: #fff;
 
 }
 
@@ -122,6 +125,7 @@ section#preference .content-container .card .price {
 section#preference .content-container .card .price span {
     font-size: 18px;
     font-weight: 600;
+    color: #fff;
 }
 
 section#preference .button {

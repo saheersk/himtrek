@@ -1,11 +1,21 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/screens/Home/Spotlight/Home";
 import { Helmet } from "react-helmet";
 import Cart from "./components/screens/Cart/Cart";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 
+import { ColorRing } from "react-loader-spinner";
+
 function App() {
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+  }, []);
   return (
     <>
       <Helmet>
@@ -17,14 +27,28 @@ function App() {
         />
       </Helmet>
       <div className="App">
-      <Router>
-        <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route  path='/cart/' element={<Cart />} />
-          <Route  path='/package-single/' element={<PackageSingle />} />
-        </Routes>
-      </Router>
-    </div>
+        {loading ? (
+          <div className="loader-box">
+            <ColorRing
+              visible={true}
+              height="100"
+              width="100"
+              ariaLabel="blocks-loading"
+              wrapperStyle={{}}
+              wrapperClass="blocks-wrapper"
+              colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+            />
+          </div>
+        ) : (
+          <Router>
+            <Routes>
+              <Route exact path="/" element={<Home />} />
+              <Route path="/cart/" element={<Cart />} />
+              <Route path="/package-single/" element={<PackageSingle />} />
+            </Routes>
+          </Router>
+        )}
+      </div>
     </>
   );
 }

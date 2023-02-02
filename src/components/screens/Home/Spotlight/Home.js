@@ -11,6 +11,8 @@ import TopPackage from "../TopPackage/TopPackage";
 import Events from "../Events/Events";
 import PackageList from "../PackageList/PackageList";
 import Preferences from "../Preferences/Preferences";
+import Workspace from "../Workspace/Workspace";
+import Footer from "../../Footer/Footer";
 
 function Home() {
   useEffect(() => {
@@ -97,6 +99,8 @@ function Home() {
       <Events />
       <PackageList />
       <Preferences />
+      <Workspace />
+      <Footer />
     </>
   );
 }

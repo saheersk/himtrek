@@ -4,7 +4,7 @@ import "./Events.css";
 function Event() {
   return (
     <>
-      <li data-aos="fade-right">
+      <li data-aos="fade-up">
         <div className="preview">
           <img
             src={require("../../../assets/images/event.png")}
