@@ -89,7 +89,7 @@ section#preference .content-container .card .text-box {
     padding: 16px;
     position: absolute;
     bottom: 0;
-    background-image: linear-gradient(to top, #fff, #ffffff00);
+    background-image: linear-gradient(to top, rgb(107, 96, 96), #ffffff00);
     border-radius: 20px;
 }
 
