@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 import Privacy from "./components/screens/Agreement/Privacy";
 import Cancellation from "./components/screens/Agreement/Cancellation";
+import Contact from "./components/screens/Contact/Contact";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/package-single/' element={<PackageSingle />} />
             <Route path='/privacy/' element={<Privacy />} />
             <Route path='/cancellation/' element={<Cancellation />} />
+            <Route path='/contact-us/' element={<Contact />} />
           </Routes>
         </Router>
       </div>

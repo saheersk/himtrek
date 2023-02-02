@@ -1,0 +1,72 @@
+:root {
+    --dark-blue: #021F3E;
+    --bg-light-blue: #92adbb52;
+    --light-blue: #92ADBB;
+    --shade-grey: #ABABAB;
+    --content: #7A7A7A;
+    --orange: #C77935;
+}
+
+#contact-container {
+    background-image: linear-gradient(to bottom left, #92ADBB, #E6E6E6 );
+    height: 100vh;
+}
+#contact-container h4 {
+    text-align: center;
+    font-size: 28px;
+    margin: 50px 0px;
+}
+#contact-container h4 span {
+    color: var(--orange)
+}
+#contact-container .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#contact-container .input-container .left {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 40px 40px;
+    width: 550px;
+}
+#contact-container .input-container .left input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--dark-blue);
+    margin-bottom: 40px;
+    font-size: 18px;
+    padding-bottom: 18px;
+}
+#contact-container .input-container .left input::placeholder {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--shade-grey);
+}
+#contact-container .input-container .left label {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--shade-grey);
+}
+#contact-container .input-container .left textarea {
+    border: none;
+    border-bottom: 1px solid var(--dark-blue);
+    width: 100%;
+}
+#contact-container .input-container .left input[type="submit"] {
+    padding: 10px 0px;
+    color: #fff;
+    background-color: var(--dark-blue);
+    border-radius: 10px;
+    width: 150px;
+    margin-top: 40px;
+}
+#contact-container .input-container .right {
+    width: 500px;
+}
+#contact-container .input-container .right img {
+    width: 100%;
+    display: block;
+}
