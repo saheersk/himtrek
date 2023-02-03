@@ -1,11 +1,11 @@
 import React from "react";
 import "./AboutUs.css";
-import Header from "../../Header/Header";
-import Footer from "../../Footer/Footer";
+// import Header from "../../Header/Header";
+// import Footer from "../../Footer/Footer";
 function AboutUs() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <section id="about-content">
         <div className="wrapper">
           <div className="top-content">
@@ -98,7 +98,7 @@ function AboutUs() {
           </div>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
