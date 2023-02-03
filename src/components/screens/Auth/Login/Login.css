@@ -1,0 +1,58 @@
+.wrapper {
+  padding: 50px;
+}
+#login {
+  display: flex;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 40px;
+}
+
+#login .image-box .main-box {
+  width: 90%;
+}
+#login .image-box .main-box img {
+  width: 100%;
+  display: block;
+}
+#login .container {
+  width: 50%;
+  padding: 80px;
+  background-color: #fff;
+}
+#login .container h4 {
+  font-size: 30px;
+  margin-bottom: 36px;
+}
+#login .container form {
+  width: 100%;
+}
+#login .container form label {
+  display: block;
+  margin-bottom: 32px;
+}
+#login .container form input[type="text"] {
+  border-radius: 40px;
+  padding: 18px 20px;
+  width: 100%;
+  margin-bottom: 30px;
+  display: block;
+  outline: none;
+}
+
+#login .container form span {
+  display: block;
+  text-align: right;
+}
+#login .container form input[type="submit"] {
+  width: 30%;
+  padding: 10px 14px;
+  border-radius: 46px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+#login .container span {
+  display: flex;
+  justify-content: center;
+}
