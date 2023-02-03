@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 50px;
+}
+#otp {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 40px;
+}
+#otp .otp-verification {
+  padding: 50px;
+  width: 50%;
+}
+#otp .otp-verification h4 {
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+#otp .otp-verification p {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+#otp .otp-verification form {
+  width: 70%;
+}
+#otp .otp-verification form input {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 12px;
+  margin-right: 18px;
+  outline: none;
+  margin-bottom: 30px;
+}
+#otp .otp-verification form h5 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: right;
+}
+#otp .otp-verification form input[type="submit"] {
+  width: 50%;
+  padding: 10px 14px;
+  border-radius: 46px;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}

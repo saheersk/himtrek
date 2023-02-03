@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet";
 import Cart from "./components/screens/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/screens/Auth/Login/Login";
+import SignUp from "./components/screens/Auth/SignUp/SignUp";
+import Otp from "./components/screens/Auth/Otp/Otp";
+import AboutUs from "./components/screens/Auth/AboutUs/AboutUs";
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 import Privacy from "./components/screens/Agreement/Privacy";
 import Cancellation from "./components/screens/Agreement/Cancellation";
@@ -53,6 +56,9 @@ function App() {
               <Route path="/cancellation/" element={<Cancellation />} />
               <Route path="/contact-us/" element={<Contact />} />
               <Route path="/login/" element={<Login />} />
+              <Route path="/signup/" element={<SignUp />} />
+              <Route path="/otp/" element={<Otp />} />
+              <Route path="/about-us/" element={<AboutUs />} />
             </Routes>
           </Router>
         )}
