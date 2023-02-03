@@ -1,7 +1,6 @@
 import React from "react";
 import "./Preferences.css";
 
-import { TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 
 function PreferedPackage() {

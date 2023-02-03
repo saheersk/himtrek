@@ -16,7 +16,7 @@ function Workspace() {
             </p>
           </div>
           <div className="features">
-            <ul>
+            <ul data-aos="fade-up">
               <li>
                 {" "}
                 <img
@@ -58,7 +58,7 @@ function Workspace() {
             </div>
           </div>
           <div className="banner">
-            <div className="banner-image" data-aos="fade-up">
+            <div className="banner-image">
               <img
                 src={require("../../../assets/images/banner.png")}
                 alt="Banner"
