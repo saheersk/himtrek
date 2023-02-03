@@ -20,7 +20,7 @@ export default function SignUp() {
                 <input type="text" placeholder="Re-enter password" />
                 <div className="singup-button">
                   <input type="submit" value="Go to Home" />
-                  <input type="submit" value="Register" />
+                  <input type="submit" value="Register" className="register" />
                 </div>
               </form>
             </div>
