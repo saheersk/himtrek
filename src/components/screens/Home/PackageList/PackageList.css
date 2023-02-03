@@ -1,0 +1,171 @@
+
+
+section#package-list {
+    padding: 80px 0;
+    background-image: url(../../../../components/assets/images/slides-bg.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 200px;
+}
+
+section#package-list .head {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+section#package-list .head h3 {
+    font-size: 24px;
+    color: var(--dark-blue);
+    text-transform: capitalize;
+}
+
+section#package-list .package {
+    width: 90%;
+    margin: 0 auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ababab51;
+    border-radius: 20px;
+    padding: 12px 20px 12px 12px;
+    margin-bottom: 24px;
+    transition: .3s ease;
+}
+
+section#package-list .package:hover {
+    transform: scale(1.01);
+}
+
+section#package-list .image-box {
+    width: 200px;
+}
+
+section#package-list .image-box img {
+    width: 100%;
+}
+
+section#package-list .package {
+    display: flex;
+}
+
+section#package-list .package-box .package .left-box {
+    display: flex;
+}
+
+section#package-list .package-box .package .text-box {
+    margin-left: 26px;
+    padding-top: 50px;
+    width: 40%;
+}
+
+section#package-list .package-box .package .text-box h3 {
+    text-transform: capitalize;
+    margin-bottom: 18px;
+    font-size: 20px;
+}
+
+section#package-list .package-box .package .text-box p {
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    line-height: 1.3em;
+    font-size: 16px;
+}
+
+section#package-list .package-box .package .text-box ul {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: fit-content;
+    padding: 10px 0;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+section#package-list .package-box .package .text-box ul li {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    border-right: 2px solid var(--dark-blue);
+    padding: 0 10px;
+}
+
+section#package-list .package-box .package .text-box ul li:last-child {
+    border-right: none;
+
+}
+
+section#package-list .package-box .package .text-box ul li img {
+    width: 16px;
+}
+
+section#package-list .package-box .package .text-box ul li span {
+    font-size: 14px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    font-weight: bold;
+
+}
+
+section#package-list .package-box .package .price {
+    text-align: center;
+    background: var(--light-blue);
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: .4s ease-in-out;
+
+}
+
+section#package-list .package-box .package .price h4 {
+    font-size: 26px;
+    transition: .4s ease-in-out;
+}
+
+section#package-list .package-box .package .price img {
+    width: 30px;
+    filter: invert(1);
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .4s ease-in-out;
+}
+
+section#package-list .package-box .package .price:hover img {
+    left: 50%;
+}
+
+section#package-list .package-box .package .price:hover {
+    background: var(--dark-blue);
+}
+
+section#package-list .package-box .package .price:hover h4 {
+    transform: translateX(200px);
+}
+
+section#package-list .button {
+    display: flex;
+    justify-content: center;
+}
+
+section#package-list .button span {
+    cursor: pointer;
+    padding: 16px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--dark-blue);
+    text-transform: capitalize;
+    transition: .3s ease-in-out;
+    ;
+
+}
+
+section#package-list .button span:hover {
+    background-color: var(--light-blue);
+    color: #fff;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import Event from "./Event";
 import "./Events.css";
 
 function Events() {
@@ -11,90 +12,10 @@ function Events() {
           </div>
           <div className="content">
             <ul>
-              <li data-aos="fade-right">
-                <div className="preview">
-                  <img
-                    src={require("../../../assets/images/event.png")}
-                    alt="Preview"
-                  />
-                </div>
-                <div className="text-container">
-                  <div className="text box">
-                    <h4>Kakkadampoyil</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
-                    </p>
-                  </div>
-                  <div className="date">
-                    <span>Dec</span>
-                    <small>21</small>
-                  </div>
-                </div>
-              </li>
-              <li data-aos="fade-left">
-                <div className="preview">
-                  <img
-                    src={require("../../../assets/images/event.png")}
-                    alt="Preview"
-                  />
-                </div>
-                <div className="text-container">
-                  <div className="text box">
-                    <h4>Kakkadampoyil</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
-                    </p>
-                  </div>
-                  <div className="date">
-                    <span>Dec</span>
-                    <small>21</small>
-                  </div>
-                </div>
-              </li>
-              <li data-aos="fade-right" data-aos-delay="100">
-                <div className="preview">
-                  <img
-                    src={require("../../../assets/images/event.png")}
-                    alt="Preview"
-                  />
-                </div>
-                <div className="text-container">
-                  <div className="text box">
-                    <h4>Kakkadampoyil</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
-                    </p>
-                  </div>
-                  <div className="date">
-                    <span>Dec</span>
-                    <small>21</small>
-                  </div>
-                </div>
-              </li>
-              <li data-aos="fade-left" data-aos-delay="100">
-                <div className="preview">
-                  <img
-                    src={require("../../../assets/images/event.png")}
-                    alt="Preview"
-                  />
-                </div>
-                <div className="text-container">
-                  <div className="text box">
-                    <h4>Kakkadampoyil</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Nemo, nulla!
-                    </p>
-                  </div>
-                  <div className="date">
-                    <span>Dec</span>
-                    <small>21</small>
-                  </div>
-                </div>
-              </li>
+              <Event />
+              <Event />
+              <Event />
+              <Event />
             </ul>
           </div>
           <div className="button">

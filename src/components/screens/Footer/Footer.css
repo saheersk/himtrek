@@ -1,0 +1,186 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+section#footer {
+    padding: 80px 0 40px;
+
+}
+
+section#footer .top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+section#footer .top-container .logo-box {
+    width: 100px;
+}
+
+section#footer .top-container .logo-box img {
+    width: 100%;
+    display: block;
+}
+
+section#footer .top-container .left-container p {
+    font-size: 16px;
+    color: var(--content);
+    width: 60%;
+    line-height: 1.3em;
+
+}
+
+section#footer .top-container .right-container h4 {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 6px;
+}
+
+section#footer .top-container .right-container hr {
+    width: 50px;
+    height: 3px;
+    background: var(--orenge);
+    margin-bottom: 16px;
+}
+
+section#footer .top-container .right-container span {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 12px;
+    transition: .3s ease;
+}
+
+section#footer .top-container .right-container span:hover {
+    color: var(--orenge);
+}
+
+section#footer .link-container {
+    background: url(../../assets/images/footer-bg.png), linear-gradient(to top, #92ADBB, #E6E6E6);
+    padding: 50px 50px;
+    border-radius: 25px;
+    background-position: right;
+    background-size: contain;
+    background-repeat: no-repeat;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+section#footer .link-container .inter-links {
+    display: flex;
+}
+
+section#footer .link-container .nav-links {
+    display: flex;
+}
+
+section#footer .link-container .item {
+    width: 300px;
+}
+
+section#footer .link-container .item h5 {
+    color: var(--dark-blue);
+    text-transform: capitalize;
+    margin-bottom: 16px;
+    font-size: 16px;
+}
+
+section#footer .link-container .item span {
+    cursor: pointer;
+    display: block;
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    transition: .3s ease;
+}
+
+section#footer .link-container .item span:hover {
+    color: var(--orenge);
+}
+
+section#footer .link-container .item ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+section#footer .link-container .item ul li {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    width: 110px;
+    margin: 5px 5px 5px 5px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+section#footer .link-container .item ul li:hover img {
+    transform: scale(1.06);
+}
+
+section#footer .link-container .item ul li img {
+    width: 100%;
+    display: block;
+    transition: .3s ease;
+    border-radius: 20px;
+}
+
+section#footer .link-container .social {
+    display: flex;
+
+}
+
+section#footer .link-container .social span {
+    cursor: pointer;
+    width: 30px;
+    display: block;
+    margin-right: 30px;
+    position: relative;
+    z-index: 6;
+}
+
+section#footer .link-container .social span::after {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    background: var(--orenge);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: .3s ease;
+    z-index: -1;
+    opacity: 0;
+}
+
+section#footer .link-container .social span:hover::after {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+
+}
+
+section#footer .link-container .social span img {
+    width: 100%;
+    display: block;
+}
+
+section#footer .copyright {
+    text-align: center;
+    display: block;
+    margin-top: 50px;
+    font-size: 16px;
+    color: var(--dark-blue);
+}
+
+section#footer .copyright small {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+section#footer {}
