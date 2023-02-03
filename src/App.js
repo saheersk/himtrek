@@ -5,6 +5,9 @@ import { Helmet } from "react-helmet";
 import Cart from "./components/screens/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
+import Privacy from "./components/screens/Agreement/Privacy";
+import Cancellation from "./components/screens/Agreement/Cancellation";
+import Contact from "./components/screens/Contact/Contact";
 
 import { ColorRing } from "react-loader-spinner";
 
@@ -20,7 +23,7 @@ function App() {
     <>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>HimTrek - Your Travelling Partner </title>
+        <title>HimTrek - Your Traveling Partner </title>
         <link
           rel="icon"
           href={require("./components/assets/images/himtrek-logo.svg").default}
@@ -45,6 +48,9 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route path="/cart/" element={<Cart />} />
               <Route path="/package-single/" element={<PackageSingle />} />
+              <Route path="/privacy/" element={<Privacy />} />
+              <Route path="/cancellation/" element={<Cancellation />} />
+              <Route path="/contact-us/" element={<Contact />} />
             </Routes>
           </Router>
         )}

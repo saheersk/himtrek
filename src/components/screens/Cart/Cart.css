@@ -1,6 +1,10 @@
 :root {
     --dark-blue: #021F3E;
     --bg-light-blue: #92adbb52;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orange: #C77935;
 }
 .cart-container {
     width: 80%;
