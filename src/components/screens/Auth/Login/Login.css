@@ -9,33 +9,35 @@
 }
 
 #login .image-box .main-box {
-  width: 90%;
+  width: 100%;
 }
 #login .image-box .main-box img {
   width: 100%;
   display: block;
 }
 #login .container {
-  width: 50%;
-  padding: 80px;
+  width: 60%;
+  padding: 60px;
   background-color: #fff;
 }
 #login .container h4 {
   font-size: 30px;
-  margin-bottom: 36px;
+  margin-bottom: 20px;
 }
 #login .container form {
   width: 100%;
 }
 #login .container form label {
   display: block;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  font-weight: 600;
 }
 #login .container form input[type="text"] {
   border-radius: 40px;
   padding: 18px 20px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: block;
   outline: none;
 }
@@ -43,16 +45,64 @@
 #login .container form span {
   display: block;
   text-align: right;
+  color: #949494;
 }
 #login .container form input[type="submit"] {
   width: 30%;
-  padding: 10px 14px;
+  padding: 12px 18px;
   border-radius: 46px;
   display: flex;
   justify-content: center;
   margin: 30px auto;
+  border: 3px solid #021f3e;
+  color: #021f3e;
+  font-size: 18px;
+  font-weight: 600;
 }
 #login .container span {
   display: flex;
   justify-content: center;
+  color: #949494;
+}
+
+/* responsive start */
+
+@media all and (max-width: 1280px) {
+  #login .container {
+    padding: 55px;
+  }
+}
+@media all and (max-width: 980px) {
+  #login .image-box {
+    display: none;
+  }
+  #login .container {
+    width: 80%;
+  }
+}
+@media all and (max-width: 760px) {
+  #login .container {
+    width: 100%;
+    padding: 40px;
+  }
+}
+@media all and (max-width: 640px) {
+  #login .container h4 {
+    font-size: 26px;
+  }
+  #login .container form label {
+    font-size: 16px;
+  }
+  #login .container h4 {
+    line-height: 1.5em;
+  }
+}
+@media all and (max-width: 480px) {
+  #login .container {
+    padding: 20px;
+  }
+  #login .container form input[type="submit"] {
+    font-size: 16px;
+    width: 40%;
+  }
 }
