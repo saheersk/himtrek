@@ -56,6 +56,7 @@ function App() {
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/cancellation/" element={<Cancellation />} />
               <Route path="/contact-us/" element={<Contact />} />
+              <Route path="/discover/" element={<Discover />} />
             </Routes>
           </Router>
         )}
