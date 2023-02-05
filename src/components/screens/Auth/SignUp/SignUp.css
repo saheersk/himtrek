@@ -1,0 +1,125 @@
+.wrapper {
+  padding: 50px;
+}
+#signup {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 40px;
+}
+#signup .signup-form {
+  padding: 40px;
+  width: 50%;
+}
+#signup .signup-form h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+  line-height: 1.5em;
+}
+#signup .signup-form h6 {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+#signup .signup-form h6 span {
+  color: #7979ef;
+  margin-left: 8px;
+}
+#signup .signup-form form input {
+  border-radius: 40px;
+  padding: 14px 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  display: block;
+  outline: none;
+}
+#signup .signup-form form .singup-button {
+  display: flex;
+  justify-content: center;
+}
+#signup .signup-form form .singup-button input {
+  background-color: #fff;
+  color: #021f3e;
+  font-weight: 600;
+  font-size: 16px;
+  width: 35%;
+  margin: 0 18px 0 0;
+}
+#signup .signup-form form .singup-button input.register {
+  background-color: #021f3e;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+#signup .signup-image {
+  width: 50%;
+}
+#signup .signup-image .image-box {
+  width: 100%;
+}
+#signup .signup-image .image-box img {
+  display: block;
+  width: 100%;
+}
+
+/* responsive start */
+
+@media all and (max-width: 1080px) {
+  #signup .signup-form {
+    padding: 20px;
+  }
+}
+@media all and (max-width: 980px) {
+  #signup .signup-form {
+    padding: 60px 20px;
+  }
+  #signup .signup-image {
+    display: none;
+  }
+  #signup {
+    justify-content: center;
+  }
+  #signup .signup-form {
+    width: 80%;
+  }
+}
+@media all and (max-width: 670px) {
+  #signup .signup-form {
+    width: 100%;
+  }
+  #signup .signup-form form .singup-button input {
+    font-size: 14px;
+  }
+  #signup .signup-form form .singup-button input.register {
+    font-size: 14px;
+  }
+}
+@media all and (max-width: 480px) {
+  #signup .signup-form form .singup-button {
+    flex-direction: column;
+    align-items: center;
+  }
+  #signup .signup-form form .singup-button input {
+    margin: 0;
+  }
+  #signup .signup-form form .singup-button input.register {
+    margin-top: 18px;
+  }
+  #signup .signup-form form .singup-button input {
+    width: 55%;
+  }
+  #signup .signup-form form input {
+    padding: 12px 14px;
+  }
+  #signup .signup-form h2 {
+    font-size: 26px;
+  }
+}
+
+@media all and (max-width: 480px) {
+  #signup .signup-form h6 {
+    font-size: 12px;
+  }
+  #signup .signup-form form .singup-button input {
+    width: 60%;
+  }
+}
