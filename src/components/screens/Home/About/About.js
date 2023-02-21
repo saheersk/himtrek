@@ -3,6 +3,7 @@ import "./About.css";
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 function About() {
   useEffect(() => {
@@ -39,11 +40,14 @@ function About() {
               </li>
             </ul>
             <button>
-              more about{" "}
-              <img
-                src={require("../../../assets/images/arrow-right-solid.png")}
-                alt="Arrow"
-              />
+              <Link to="/about-us">
+                {" "}
+                more about{" "}
+                <img
+                  src={require("../../../assets/images/arrow-right-solid.png")}
+                  alt="Arrow"
+                />
+              </Link>
             </button>
           </div>
           <div className="image-container">

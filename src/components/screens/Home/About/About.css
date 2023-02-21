@@ -81,11 +81,16 @@ section#about .wrapper .text-container button {
     text-transform: capitalize;
     background: transparent;
     border: none;
-    color: var(--orenge);
     padding: 12px 14px;
     border-radius: 50px;
     transition: .3s ease;
     cursor: pointer;
+}
+
+section#about .wrapper .text-container button a {
+    display: flex;
+    color: var(--orenge);
+
 }
 
 section#about .wrapper .text-container button img {

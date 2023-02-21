@@ -90,7 +90,8 @@ section#footer .link-container .item h5 {
     font-size: 16px;
 }
 
-section#footer .link-container .item span {
+section#footer .link-container .item span a {
+    color: var(--dark-blue);
     cursor: pointer;
     display: block;
     margin-bottom: 12px;
@@ -98,7 +99,7 @@ section#footer .link-container .item span {
     transition: .3s ease;
 }
 
-section#footer .link-container .item span:hover {
+section#footer .link-container .item span a:hover {
     color: var(--orenge);
 }
 

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Login.css";
 
+import { Link } from "react-router-dom";
+
 function Login() {
   return (
     <>
@@ -22,7 +24,7 @@ function Login() {
                 <span>Forgot Your Password</span>
                 <input type="submit" value="Login" />
               </form>
-              <span>Create Account</span>
+              <Link to="/signup">Create Account</Link>
             </div>
           </section>
         </div>

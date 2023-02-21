@@ -57,6 +57,10 @@ function App() {
               <Route path="/cancellation/" element={<Cancellation />} />
               <Route path="/contact-us/" element={<Contact />} />
               <Route path="/discover/" element={<Discover />} />
+              <Route path="/login/" element={<Login />} />
+              <Route path="/signup" element={<SignUp />} />
+              <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />} />
             </Routes>
           </Router>
         )}

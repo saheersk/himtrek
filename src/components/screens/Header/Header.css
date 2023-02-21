@@ -19,7 +19,7 @@ header .wrapper ul {
     justify-content: space-between;
 }
 
-header .wrapper ul li {
+header .wrapper ul a {
     cursor: pointer;
     font-size: 16px;
     text-transform: capitalize;
@@ -30,11 +30,11 @@ header .wrapper ul li {
     transition: .4s ease-in;
 }
 
-header .wrapper ul li:hover {
+header .wrapper ul a:hover {
     opacity: .5;
 }
 
-header .wrapper ul li.register {
+header .wrapper ul a.register {
     padding: 12px 20px;
     background-color: var(--dark-blue);
     color: #fff;
