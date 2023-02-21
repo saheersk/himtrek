@@ -21,16 +21,17 @@
   margin-bottom: 20px;
 }
 #signup .signup-form h6 span {
-  color: #7979ef;
+  color: #021f3e;
   margin-left: 8px;
 }
 #signup .signup-form form input {
   border-radius: 40px;
-  padding: 14px 16px;
+  padding: 18px 16px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 28px;
   display: block;
   outline: none;
+  border: 2px solid #000;
 }
 #signup .signup-form form .singup-button {
   display: flex;
