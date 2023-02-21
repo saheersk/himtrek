@@ -21,7 +21,7 @@ function Login() {
                 <input type="text" />
                 <label htmlFor="">Password</label>
                 <input type="text" />
-                <span>Forgot Your Password</span>
+                <span>Forgot Your Password ?</span>
                 <input type="submit" value="Login" />
               </form>
               <Link to="/signup">Create Account</Link>
