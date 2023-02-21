@@ -14,6 +14,7 @@ import Cancellation from "./components/screens/Agreement/Cancellation";
 import Contact from "./components/screens/Contact/Contact";
 
 import { ColorRing } from "react-loader-spinner";
+import Discover from "./components/screens/Discover/Discover";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -55,10 +56,7 @@ function App() {
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/cancellation/" element={<Cancellation />} />
               <Route path="/contact-us/" element={<Contact />} />
-              <Route path="/login/" element={<Login />} />
-              <Route path="/signup/" element={<SignUp />} />
-              <Route path="/otp/" element={<Otp />} />
-              <Route path="/about-us/" element={<AboutUs />} />
+              <Route path="/discover/" element={<Discover />} />
             </Routes>
           </Router>
         )}
