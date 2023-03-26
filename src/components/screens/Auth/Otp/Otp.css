@@ -1,5 +1,5 @@
-.wrapper {
-  padding: 50px;
+.otp-page{
+    height: 100vh;
 }
 #otp {
   display: flex;
@@ -32,8 +32,8 @@
 }
 #otp .otp-verification form input {
   display: inline-block;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   border-radius: 12px;
   margin-right: 18px;
   outline: none;
@@ -47,7 +47,7 @@
   color: #cf0000;
 }
 #otp .otp-verification form input[type="submit"] {
-  width: 50%;
+  width: 45%;
   padding: 10px 14px;
   border-radius: 46px;
   display: flex;

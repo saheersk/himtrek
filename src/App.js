@@ -15,6 +15,7 @@ import Contact from "./components/screens/Contact/Contact";
 
 import { ColorRing } from "react-loader-spinner";
 import Discover from "./components/screens/Discover/Discover";
+import Career from "./components/screens/Career/Career";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -59,8 +60,10 @@ function App() {
               <Route path="/discover/" element={<Discover />} />
               <Route path="/login/" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/otp/" element={<Otp />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/career" element={<Career />} />
             </Routes>
           </Router>
         )}

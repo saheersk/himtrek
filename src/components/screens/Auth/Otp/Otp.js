@@ -20,6 +20,8 @@ function Otp() {
                 <input type="text" />
                 <input type="text" />
                 <input type="text" />
+                <input type="text" />
+                <input type="text" />
                 <h5>Resent OTP</h5>
                 <input type="submit" value="Submit" />
               </form>
