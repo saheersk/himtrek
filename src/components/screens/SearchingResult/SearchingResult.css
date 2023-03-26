@@ -8,7 +8,7 @@
 
 #searching-results .place-cards {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 20px 0 70px 0;
 
@@ -34,7 +34,6 @@
     cursor: pointer;
     width: 240px;
     background: #fff;
-    margin-right: 20px;
     margin-bottom: 20px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 14px 14px;
@@ -101,4 +100,29 @@
 .place-card .text-box .bottom-box .button:hover {
     background: var(--orenge);
     color: #FFF;
+}
+
+/* responsive-screen */
+@media all and (max-width: 768px) {
+    .place-card {
+        width: 200px;
+    }
+
+    #searching-results .place-cards {
+        padding-bottom: 0;
+    }
+
+    .place-card .text-box h4 {
+        font-size: 16px;
+    }
+
+    .place-card .text-box .bottom-box span {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .place-card {
+        width: 188px;
+    }
 }
