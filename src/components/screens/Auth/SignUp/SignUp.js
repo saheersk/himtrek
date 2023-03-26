@@ -13,11 +13,16 @@ export default function SignUp() {
                 already a member?<span>login</span>
               </h6>
               <form action="">
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="Email" />
-                <input type="text" placeholder="Mobile" />
-                <input type="text" placeholder="Password" />
-                <input type="text" placeholder="Re-enter password" />
+                <input type="text" name="full-name" placeholder="Name" />
+                <input type="text" name="email" placeholder="Email" />
+                <input type="text" name="contact-number" placeholder="Mobile" />
+                <input type="text" name="username" placeholder="Username" />
+                <input type="text" name="password" placeholder="Password" />
+                <input
+                  type="text"
+                  name="re-password"
+                  placeholder="Re-enter password"
+                />
                 <div className="singup-button">
                   <input type="submit" value="Go to Home" />
                   <input type="submit" value="Register" className="register" />

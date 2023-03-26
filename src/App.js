@@ -55,6 +55,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/cart/" element={<Cart />} />
+              <Route path="/result" element={<SearchingResult />} />
               <Route path="/package-single/" element={<PackageSingle />} />
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/cancellation/" element={<Cancellation />} />
@@ -62,9 +63,9 @@ function App() {
               <Route path="/discover/" element={<Discover />} />
               <Route path="/login/" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/otp/" element={<Otp />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/results" element={<SearchingResult />} />
             </Routes>
           </Router>
         )}
