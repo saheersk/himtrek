@@ -16,10 +16,7 @@ function Footer() {
                   alt="Circle"
                 />
               </div>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum,
-                inventore?
-              </p>
+              <p>Lorem ipsum, dolor sit amet consectetur</p>
             </div>
             <div className="right-container">
               <h4>contact</h4>
@@ -67,7 +64,7 @@ function Footer() {
                   </span>
                 </div>
               </div>
-              <div className="item">
+              <div className="item foot-print">
                 <h5>our footprints</h5>
                 <ul>
                   <li>

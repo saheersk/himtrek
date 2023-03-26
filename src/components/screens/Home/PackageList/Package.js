@@ -17,12 +17,9 @@ function Package() {
             </div>
             <div className="text-box">
               <h3>thajmahal and delhi</h3>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Sapiente sit vitae corporis consequatur voluptatibus harum.
-              </p>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
               <ul>
-                <li>
+                <li className="wrapper-box">
                   <li className="time">
                     {" "}
                     <img
@@ -46,7 +43,7 @@ function Package() {
             </div>
           </div>
           <div className="price">
-            <h4>1000</h4>
+            <h4>₹ 1000</h4>
             <img
               src={require("../../../assets/images/cart.svg").default}
               alt="Package"

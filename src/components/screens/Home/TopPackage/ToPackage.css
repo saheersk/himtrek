@@ -141,3 +141,41 @@ section#top-package .button small img {
     width: 100%;
     display: block;
 }
+
+/* responsive-screen */
+@media all and (max-width: 640px) {
+    section#top-package .content ul li {
+        margin-right: 20px;
+    }
+}
+
+@media all and (max-width: 560px) {
+    section#top-package .head h3 {
+        font-size: 20px;
+    }
+
+    section#top-package .content ul {
+        flex-wrap: wrap;
+    }
+
+    section#top-package .content ul li {
+        width: 130px;
+        margin-bottom: 20px;
+    }
+
+    section#top-package .button h5 {
+        font-size: 16px;
+    }
+
+    section#top-package .content ul li span {
+        font-size: 16px;
+    }
+
+}
+
+@media all and (max-width: 480px) {
+    section#top-package .content ul li:nth-child(2n) {
+        margin-right: 0;
+    }
+
+}

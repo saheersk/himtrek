@@ -1,0 +1,58 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+.not-found .image-container img {
+    width: 100%;
+    display: block;
+
+}
+
+.not-found .image-container {
+    width: 400px;
+    margin: 60px auto 40px;
+    ;
+
+}
+
+.not-found {
+    text-align: center;
+    height: 100vh;
+    background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
+
+}
+
+.not-found h3 {
+    font-size: 24px;
+    text-transform: capitalize;
+    color: var(--dark-blue);
+}
+
+.not-found a.button {
+    display: block;
+    padding: 14px 20px;
+    border-radius: 20px;
+    background-color: var(--dark-blue);
+    color: #fff;
+    width: 50%;
+    margin: 40px auto;
+
+}
+
+/* responsive-screen
+ */
+@media all and (max-width: 640px) {
+    .not-found .image-container {
+        width: 300px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    .not-found .image-container {
+        width: 240px;
+    }
+}

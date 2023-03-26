@@ -8,13 +8,13 @@ f:root {
 
 section#home {
     background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
+    height: 100vh;
 }
 
 
 section#spotlight .wrapper {
     display: flex;
     height: calc(100vh - 100px);
-    /* align-items: center; */
     justify-content: space-between;
 }
 
@@ -25,7 +25,7 @@ section#spotlight .wrapper .content-box {
 }
 
 section#spotlight .wrapper .content-box h3 {
-    font-size: 56px;
+    font-size: 52px;
     line-height: 1.2em;
     font-weight: bold;
     margin-bottom: 40px;
@@ -55,11 +55,12 @@ section#spotlight .wrapper .image-container img {
 }
 
 section#spotlight .wrapper .filter-box {
+    width: 500px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    background: #fff;
-    padding: 20px 20px;
+    background: #ffffffb1;
+    padding: 20px 30px;
     border-radius: 12px;
 }
 
@@ -67,14 +68,15 @@ section#spotlight .wrapper .filter-box input[type="text"] {
     border: none;
     outline: none;
     font-size: 18px;
-    width: fit-content;
+    width: 100px;
+    background: none;
 }
 
 section#spotlight .wrapper .filter-box .items {
     display: flex;
     align-items: center;
-    justify-content: center;
     text-align: center;
+    width: 400px;
 }
 
 section#spotlight .wrapper .filter-box .item {
@@ -106,7 +108,9 @@ section#spotlight .wrapper .filter-box .item select {
     border: none;
     outline: none;
     font-size: 18px;
+    background: none;
 }
+
 section#spotlight .wrapper .filter-box .item select option {
     font-size: 14px;
     text-transform: capitalize;
@@ -142,13 +146,117 @@ section#spotlight .wrapper .filter-box .button span:hover {
 }
 
 section#spotlight .wrapper .branding-text p {
-    color: var(--shade-blue);
+    color: var(--dark-blue);
     margin-top: 26px;
     font-size: 16px;
     font-weight: 600;
-    opacity: .4;
+    opacity: 0.8;
 }
 
 section#spotlight .wrapper .branding-text span {
     color: var(--orenge);
+}
+
+/* responsive-screen */
+@media all and (max-width: 980px) {
+    header .wrapper ul a {
+        margin-right: 20px;
+    }
+
+    section#home {
+        background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: darken;
+        background-image: url(../../../assets/images/spotlight.jpg);
+    }
+
+    section#spotlight .wrapper .image-container {
+        display: none;
+    }
+
+    section#spotlight .wrapper .content-box {
+        width: 100%;
+        text-align: center;
+    }
+
+    section#spotlight .wrapper .content-box p {
+        margin: 40px auto 40px;
+    }
+
+    section#spotlight .wrapper .filter-box {
+        margin: 0 auto;
+
+    }
+
+}
+
+@media all and (max-width: 768px) {
+    section#spotlight .wrapper .content-box h3 {
+        font-size: 50px;
+    }
+
+    section#home {
+        background-image: url(../../../assets/images/spotlight.jpg);
+    }
+}
+
+@media all and (max-width: 640px) {
+    section#spotlight .wrapper .content-box h3 {
+        font-size: 44px;
+    }
+
+    section#spotlight .wrapper .content-box {
+        margin-right: 0;
+    }
+
+    section#spotlight .wrapper .filter-box .items {
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 560px) {
+    section#spotlight .wrapper .content-box h3 {
+        font-size: 40px;
+    }
+
+    section#spotlight .wrapper .filter-box {
+        width: 100%;
+        flex-direction: column;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+
+    section#spotlight .wrapper .filter-box .button span {
+        display: block;
+        font-size: 16px;
+    }
+
+    section#spotlight .wrapper .filter-box .items {
+        margin-bottom: 30px;
+        justify-content: center;
+    }
+}
+
+@media all and (max-width: 360px) {
+    section#spotlight .wrapper .content-box h3 {
+        font-size: 38px;
+    }
+
+    section#spotlight .wrapper .content-box p {
+        font-size: 14px;
+    }
+
+    section#spotlight .wrapper .filter-box .item h5 {
+        font-size: 14px;
+    }
+
+    section#spotlight .wrapper .filter-box input[type="text"] {
+        font-size: 14px;
+    }
+
+    section#spotlight .wrapper .filter-box .item select {
+        font-size: 14px;
+
+    }
 }

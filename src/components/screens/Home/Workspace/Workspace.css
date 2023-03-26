@@ -73,11 +73,17 @@ section#workspace .features ul li img {
 
 section#workspace .banner-image {
     width: 100%;
+    height: 350px;
+    border-radius: 20px;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../../../assets/images/banner.jpg);
 }
 
 section#workspace .banner-image img {
     width: 100%;
-    display: block;
+
+    display: none;
     border-radius: 20px;
 }
 
@@ -135,4 +141,104 @@ section#workspace .banner .text-box .button {
 section#workspace .banner .text-box .button:hover {
     background: #fff;
     color: #000;
+}
+
+/* responsive-screen */
+@media all and (max-width: 980px) {
+    section#workspace .top-container h4 {
+        width: 47%;
+        line-height: 1.3em;
+    }
+
+    section#workspace .features {
+        flex-direction: column;
+    }
+
+    section#workspace .features ul {
+        margin-bottom: 20px;
+    }
+
+    section#workspace .features .image-container .image-box {
+        width: 100%;
+    }
+
+    section#workspace .banner {
+        width: 100%;
+    }
+
+    section#workspace .banner .text-box {
+        width: 65%;
+    }
+
+    section#workspace .banner .text-box h4 {
+        font-size: 20px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    section#workspace .banner-image {
+        max-height: 250px;
+    }
+}
+
+@media all and (max-width: 640px) {
+    section#workspace .top-container {
+        flex-direction: column;
+    }
+
+    section#workspace .top-container h4 {
+        width: 100%;
+    }
+
+    section#workspace .top-container p {
+        width: 100%;
+    }
+
+    section#workspace .features {
+        margin-top: 30px;
+    }
+
+    section#workspace .banner .text-box {
+        width: 74%;
+    }
+
+    section#workspace .top-container h4 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    section#workspace .top-container p {
+        font-size: 16px;
+    }
+
+    section#workspace .banner .text-box h4 {
+        font-size: 18px;
+    }
+
+    section#workspace .banner .text-box p {
+        font-size: 14px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    section#workspace .banner-image {
+        max-height: 200px;
+    }
+
+    section#workspace .banner .text-box {
+        padding-left: 20px;
+    }
+
+    section#workspace .features .image-container {
+        flex-direction: column;
+    }
+
+    section#workspace .features .image-container .image-box {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    section#workspace .features .image-container .image-box:last-child {
+        margin-bottom: 0;
+    }
 }

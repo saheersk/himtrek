@@ -15,6 +15,8 @@ import Contact from "./components/screens/Contact/Contact";
 
 import { ColorRing } from "react-loader-spinner";
 import Discover from "./components/screens/Discover/Discover";
+import NotFoundPage from "./components/screens/NotFoundPage/NotFoundPage";
+import SearchingResult from "./components/screens/SearchingResult/SearchingResult";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -22,7 +24,7 @@ function App() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2500);
+    });
   }, []);
   return (
     <>
@@ -51,6 +53,7 @@ function App() {
           <Router>
             <Routes>
               <Route exact path="/" element={<Home />} />
+              <Route path="*" element={<NotFoundPage />} />
               <Route path="/cart/" element={<Cart />} />
               <Route path="/package-single/" element={<PackageSingle />} />
               <Route path="/privacy/" element={<Privacy />} />
@@ -61,6 +64,7 @@ function App() {
               <Route path="/signup" element={<SignUp />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/results" element={<SearchingResult />} />
             </Routes>
           </Router>
         )}

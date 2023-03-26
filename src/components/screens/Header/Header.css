@@ -14,6 +14,16 @@ header .wrapper {
     border-bottom: 1px solid var(--light-blue);
 }
 
+
+header .wrapper .logo {
+    width: 100px;
+}
+
+header .wrapper .logo img {
+    width: 100%;
+    display: block;
+}
+
 header .wrapper ul {
     display: flex;
     justify-content: space-between;
@@ -78,3 +88,50 @@ header .wrapper ul li.register:focus {
 
 
 }
+
+header .wrapper .hamburger {
+    display: none;
+    width: 30px;
+}
+
+header .wrapper .hamburger span {
+    width: 100%;
+    display: block;
+    height: 3px;
+    background-color: #000;
+}
+
+header .wrapper .hamburger span:nth-child(2) {
+    margin: 6px 0;
+}
+
+
+
+
+/* responsive-screen */
+@media all and (max-width: 1280px) {
+    header .wrapper ul a {
+        margin-right: 20px;
+    }
+
+
+}
+
+@media all and (max-width: 980px) {
+    header .wrapper .hamburger {
+        display: block;
+    }
+
+    header .wrapper ul.nav,
+    header .wrapper ul.auth select,
+    header .wrapper ul.auth {
+        display: none;
+    }
+
+    header .wrapper .logo {
+        width: 80px;
+    }
+
+}
+
+@media all and (max-width: 640px) {}

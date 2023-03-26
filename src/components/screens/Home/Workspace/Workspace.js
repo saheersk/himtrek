@@ -11,8 +11,7 @@ function Workspace() {
             <p data-aos="fade-up">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione
               officia soluta amet quis earum molestiae cumque facilis dolore
-              inventore veniam impedit totam assumenda recusandae explicabo
-              omnis sed cum, fugit ab.
+              inventore veniam.
             </p>
           </div>
           <div className="features">
@@ -59,18 +58,14 @@ function Workspace() {
           </div>
           <div className="banner">
             <div className="banner-image">
-              <img
-                src={require("../../../assets/images/banner.png")}
-                alt="Banner"
-              />
-            </div>
-            <div className="text-box">
-              <h4>work with free mind!</h4>
-              <p>
-                The HimTrek give a space for remote workers with our package and
-                spacial space.
-              </p>
-              <div className="button">view package</div>
+              <div className="text-box">
+                <h4>work with free mind!</h4>
+                <p>
+                  The HimTrek give a space for remote workers with our package
+                  and spacial space.
+                </p>
+                <div className="button">view package</div>
+              </div>
             </div>
           </div>
         </div>

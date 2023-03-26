@@ -33,6 +33,11 @@ function Header() {
               register
             </Link>
           </ul>
+          <div className="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </header>
     </>

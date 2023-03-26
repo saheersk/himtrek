@@ -7,7 +7,7 @@ function Event() {
       <li data-aos="fade-up">
         <div className="preview">
           <img
-            src={require("../../../assets/images/event.png")}
+            src={require("../../../assets/images/workspace1.jpg")}
             alt="Preview"
           />
         </div>

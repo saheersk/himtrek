@@ -1,0 +1,104 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+#searching-results .place-cards {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: 20px 0 70px 0;
+
+}
+
+#searching-results .top-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+}
+
+#searching-results .top-box h4 {
+    font-size: 18px;
+    text-transform: capitalize;
+}
+
+#searching-results .top-box span {
+    cursor: pointer;
+}
+
+.place-card {
+    cursor: pointer;
+    width: 240px;
+    background: #fff;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 14px 14px;
+    border-radius: 20px;
+    transition: .3s ease-in;
+}
+
+.place-card:hover {
+    transform: scale(1.03);
+}
+
+.place-card:nth-child(5n) {
+    margin-right: 0;
+}
+
+.place-card .image-box {
+    margin-bottom: 20px;
+}
+
+.place-card .text-box h4 {
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--dark-blue);
+}
+
+.place-card .text-box span {
+    color: var(--content);
+    margin-bottom: 12px;
+    display: block;
+}
+
+.place-card .text-box .bottom-box span {
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.place-card .text-box .bottom-box span small {
+    color: var(--orenge);
+    font-size: 18px;
+}
+
+.place-card img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+.place-card .text-box .bottom-box .button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 16px;
+    border: 1px solid var(--orenge);
+    color: var(--orenge);
+    font-weight: 600;
+    transition: .3S ease-in-out;
+}
+
+
+.place-card .text-box .bottom-box .button:hover {
+    background: var(--orenge);
+    color: #FFF;
+}

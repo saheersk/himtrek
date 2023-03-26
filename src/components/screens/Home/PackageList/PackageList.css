@@ -74,8 +74,9 @@ section#package-list .package-box .package .text-box p {
 section#package-list .package-box .package .text-box ul {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     background-color: #fff;
-    width: fit-content;
+    width: 380px;
     padding: 10px 0;
     border-radius: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -91,6 +92,7 @@ section#package-list .package-box .package .text-box ul li {
 
 section#package-list .package-box .package .text-box ul li:last-child {
     border-right: none;
+    margin-right: 0;
 
 }
 
@@ -167,4 +169,121 @@ section#package-list .button span {
 section#package-list .button span:hover {
     background-color: var(--light-blue);
     color: #fff;
+}
+
+/* responsive-screen */
+@media all and (max-width: 980px) {
+
+
+    section#package-list .package-box .package .text-box {
+        width: 65%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    section#package-list .package a {
+        flex-direction: column;
+    }
+
+    section#package-list .package-box .package .price {
+        height: 70px;
+    }
+
+    section#package-list .package-box .package .price h4 {
+        font-size: 20px;
+    }
+
+    section#package-list .image-box {
+        width: 130px;
+    }
+
+    section#package-list .package-box .package .left-box {
+        margin-bottom: 24px;
+    }
+
+    section#package-list .package-box .package .text-box {
+        padding-top: 20px;
+    }
+}
+
+@media all and (max-width: 640px) {
+    section#package-list .package-box .package .left-box {
+        flex-direction: column;
+    }
+
+    section#package-list .package-box .package .text-box {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    section#package-list .image-box {
+        display: none;
+    }
+
+    section#package-list .package-box .package .text-box {
+        padding-top: 0;
+    }
+
+    section#package-list .package a {
+        width: 100%;
+        padding: 30px 34px;
+    }
+
+    section#package-list .package-box .package .text-box p {
+        width: 100%;
+    }
+
+    section#package-list .package-box .package .text-box ul {
+        width: 100%;
+    }
+
+    section#package-list .package-box .package .price {
+        height: 50px;
+    }
+
+    section#package-list .button span {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 560px) {
+    section#package-list .head h3 {
+        font-size: 20px;
+    }
+
+    section#package-list .package-box .package .text-box ul li span {
+        font-size: 14px;
+    }
+
+    section#package-list .package-box .package .text-box ul li img {
+        width: 14px;
+    }
+
+    section#package-list .package-box .package .text-box ul li.wrapper-box {
+        flex-direction: column;
+    }
+
+    section#package-list .package-box .package .text-box ul li.wrapper-box li {
+        margin-bottom: 20px;
+        border-right: none;
+    }
+
+    section#package-list .package-box .package .text-box ul li.wrapper-box li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media all and (max-width: 480px) {
+    section#package-list .package-box .package .text-box h3 {
+        font-size: 18px;
+
+    }
+
+    section#package-list .package-box .package .text-box p {
+        font-size: 14px;
+    }
+
+    section#package-list .button span {
+        padding: 14px 20px;
+    }
 }

@@ -14,8 +14,6 @@ function Events() {
             <ul>
               <Event />
               <Event />
-              <Event />
-              <Event />
             </ul>
           </div>
           <div className="button">

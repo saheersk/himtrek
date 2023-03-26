@@ -89,7 +89,6 @@ section#preference .content-container .card .text-box {
     padding: 16px;
     position: absolute;
     bottom: 0;
-    background-image: linear-gradient(to top, #fff, #ffffff00);
     border-radius: 20px;
 }
 
@@ -176,4 +175,84 @@ section#preference .button h5::before {
 section#preference .button small img {
     width: 100%;
     display: block;
+}
+
+/* responsive-screen */
+@media all and (max-width: 768px) {
+    section#preference .content-container .cards {
+        flex-wrap: wrap;
+    }
+
+    section#preference .content-container .card {
+        width: 265px;
+        margin-bottom: 20px;
+    }
+
+    section#preference .content-container ul {
+        width: 100%;
+    }
+
+    section#preference .content-container ul li {
+        padding: 16px 27px;
+    }
+
+    section#preference .content-container .card:nth-child(3),
+    section#preference .content-container .card:nth-child(4) {
+        margin-bottom: 0;
+    }
+
+
+}
+
+@media all and (max-width: 560px) {
+    section#preference .head h3 {
+        font-size: 20px;
+    }
+
+    section#preference .content-container ul {
+        flex-direction: column;
+    }
+
+    section#preference .content-container ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    section#preference .content-container .card .text-box h4 {
+        font-size: 16px;
+    }
+
+    section#preference .content-container .card {
+        width: 210px;
+    }
+
+    section#preference .button h5 {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    section#preference .content-container .card {
+        width: 140px;
+    }
+
+    section#preference .content-container .card .text-box h4 {
+        font-size: 14px;
+    }
+
+    section#preference .content-container .card .location img {
+        width: 10px;
+
+    }
+
+    section#preference .content-container .card .location span {
+        font-size: 12px;
+
+    }
+
+    section#preference .content-container .card .price span {
+        font-size: 16px;
+        margin-top: 12px;
+        display: block;
+    }
 }

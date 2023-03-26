@@ -5,6 +5,8 @@ import About from "../About/About";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Typewriter from "typewriter-effect";
+
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TopPackage from "../TopPackage/TopPackage";
@@ -19,6 +21,7 @@ function Home() {
     AOS.init();
   }, []);
   const [startDate, setStartDate] = useState(new Date());
+
   return (
     <>
       <section id="home">
@@ -27,7 +30,21 @@ function Home() {
           <div className="wrapper">
             <div className="content-box">
               <h3 data-aos="fade-up">
-                Discover New Destinations<span>...</span>
+                Discover New{" "}
+                <Typewriter
+                  options={{
+                    strings: [
+                      "Distinations...",
+                      "Trips...",
+                      "Vibes...",
+                      "Trek...",
+                      "Adventure...",
+                    ],
+                    pauseFor: 3000,
+                    autoStart: true,
+                    loop: true,
+                  }}
+                />
               </h3>
               <p data-aos="fade-up" data-aos-delay="200">
                 A team devoted and experienced tourism professionals will
