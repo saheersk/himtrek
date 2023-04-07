@@ -66,6 +66,7 @@ function App() {
               <Route path="/otp/" element={<Otp />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/searchingresult" element={<SearchingResult />} />
             </Routes>
           </Router>
         )}
