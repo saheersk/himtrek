@@ -18,7 +18,7 @@ function Login() {
               <h4>Login to Your account</h4>
               <form action="">
                 <label htmlFor="">Email</label>
-                <input type="text" />
+                <input type="email" />
                 <label htmlFor="">Password</label>
                 <input type="text" />
                 <span>Forgot Your Password ?</span>

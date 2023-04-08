@@ -13,7 +13,7 @@
   margin: 0 auto;
 }
 #login .image-box {
-  width: 43%;
+  width: 45%;
 }
 #login .image-box .main-box {
   max-width: 100%;
@@ -21,13 +21,13 @@
 
 #login .image-box .main-box img {
   max-width: 100%;
-  height: auto;
+  height: 500px;
   display: block;
 }
 
 #login .container {
   width: 60%;
-  padding: 30px;
+  padding: 40px;
   background-color: #fff;
 }
 
@@ -47,7 +47,8 @@
   font-weight: 600;
 }
 
-#login .container form input[type="text"] {
+#login .container form input[type="text"],
+[type="email"] {
   border-radius: 40px;
   padding: 14px 18px;
   width: 100%;
@@ -84,5 +85,63 @@
 
 /* responsive start */
 
-@media all and (max-width: 1280px) {
+@media all and (max-width: 1150px) {
+    #login {
+        width: 90%;
+    }
+    #login .container h4{
+        font-size: 26px;
+    }
+}
+@media all and (max-width: 1000px){
+    #login .image-box{
+        display: none;
+    }
+    #login{
+        align-items: center;
+    }
+    #login .container {
+        width: 80%;
+    }
+}
+@media all and (max-width: 850px){
+    #login .container {
+        width: 100%;
+    }
+
+}
+@media all and (max-width: 680px){
+    .login-page{
+        padding: 100px 30px;
+    }
+    #login {
+        width: 100%;
+    }
+    #login .container h4 {
+        font-size: 22px;
+    }
+    #login .container form label {
+        font-size: 14px;
+    }
+    #login .container form span {
+        font-size: 14px;
+    }
+    #login .container form input[type="text"], [type="email"]{
+        padding: 12px;
+    }
+    #login .container form input[type="submit"] {
+        font-size: 14px;
+        padding: 12px;
+    }
+    #login .container a{
+        font-size: 14px;
+    }
+    #login .container{
+        padding: 30px 20px;
+    }
+}
+@media all and (max-width: 380px){
+    .login-page{
+        padding: 100px 0;
+    }
 }
