@@ -1,0 +1,129 @@
+#payment {
+  padding: 100px 60px;
+  height: 100vh;
+}
+#payment .paymentsuccess {
+  height: 500px;
+  width: 70%;
+  margin: 0 auto;
+  padding: 50px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 12px;
+}
+#payment .paymentsuccess h2 {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+#payment .paymentsuccess .container-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+#payment .paymentsuccess .container-box .left {
+  width: 50%;
+}
+#payment .paymentsuccess .container-box .left h3 {
+  font-size: 28px;
+  margin-bottom: 24px;
+}
+#payment .paymentsuccess .container-box .left h6 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+#payment .paymentsuccess .container-box .left button {
+  background-color: #c77933;
+  color: #fff;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 14px;
+}
+#payment .paymentsuccess .container-box .right {
+  width: 50%;
+}
+#payment .paymentsuccess .container-box .right .image-box {
+  width: 90%;
+}
+#payment .paymentsuccess .container-box .right .image-box img {
+  width: 100%;
+  display: block;
+}
+#payment .paymentsuccess p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+@media all and (max-width: 1280px) {
+  #payment .paymentsuccess {
+    width: 80%;
+  }
+}
+@media all and (max-width: 1150px) {
+  #payment .paymentsuccess {
+    width: 100%;
+  }
+}
+@media all and (max-width: 950px) {
+  #payment .paymentsuccess {
+    height: 450px;
+  }
+  #payment .paymentsuccess .container-box .left h3 {
+    font-size: 22px;
+  }
+  #payment .paymentsuccess .container-box .left h6 {
+    font-size: 16px;
+    line-height: 1.2em;
+  }
+}
+@media all and (max-width: 750px) {
+  #payment {
+    padding: 100px 0;
+  }
+  #payment .paymentsuccess {
+    padding: 50px 40px;
+  }
+}
+@media all and (max-width: 610px) {
+  #payment .paymentsuccess .container-box .left h3 {
+    font-size: 20px;
+  }
+  #payment .paymentsuccess .container-box .left h6 {
+    font-size: 14px;
+  }
+  #payment .paymentsuccess .container-box {
+    margin-bottom: 40px;
+  }
+}
+@media all and (max-width: 560px) {
+    #payment .paymentsuccess h2 {
+        font-size: 26px;
+    }
+    #payment .paymentsuccess {
+        height: 500px;
+      }
+      #payment .paymentsuccess .container-box {
+        margin-bottom: 30px;
+      }
+  #payment .paymentsuccess .container-box {
+    flex-direction: column-reverse;
+  }
+  #payment .paymentsuccess {
+    padding: 30px 10px;
+  }
+  #payment .paymentsuccess .container-box .right{
+    margin-bottom: 20px;
+  }
+  #payment .paymentsuccess .container-box .left{
+    text-align: center;
+  }
+  #payment .paymentsuccess .container-box .left {
+    width: 80%;
+  }
+  #payment .paymentsuccess p{
+    font-size: 14px;
+    line-height: 1.2em;
+  }
+}

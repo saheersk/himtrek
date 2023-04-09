@@ -17,6 +17,7 @@ import Discover from "./components/screens/Discover/Discover";
 import NotFoundPage from "./components/screens/NotFoundPage/NotFoundPage";
 import SearchingResult from "./components/screens/SearchingResult/SearchingResult";
 import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
+import PaymentSuccess from "./components/screens/Payment/PaymentSuccess";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -67,6 +68,7 @@ function App() {
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/searchingresult" element={<SearchingResult />} />
+              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             </Routes>
           </Router>
         )}
