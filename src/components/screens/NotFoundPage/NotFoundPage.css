@@ -40,7 +40,12 @@
     color: #fff;
     width: 50%;
     margin: 40px auto;
+    transition: .3s ease-in;
 
+}
+
+.not-found a.button:hover {
+    background: #05407b;
 }
 
 /* responsive-screen

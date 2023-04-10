@@ -2,6 +2,7 @@ import React from "react";
 import "./Header.css";
 
 import { Link } from "react-router-dom";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 function Header() {
   return (
@@ -17,6 +18,7 @@ function Header() {
             </Link>
           </h1>
           <ul className="nav">
+            <Link to="/discover">my order</Link>
             <Link to="/discover">discover</Link>
             <Link to="/about-us">about</Link>
             <Link to="/packages">packages</Link>
@@ -33,11 +35,8 @@ function Header() {
               register
             </Link>
           </ul>
-          <div className="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+
+          <HamburgerMenu />
         </div>
       </header>
     </>

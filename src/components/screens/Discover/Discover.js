@@ -1,20 +1,17 @@
 import React from "react";
 import Header from "../Header/Header";
+import Carousel from "react-elastic-carousel";
 
 import "./Discover.css";
-
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Footer from "../Footer/Footer";
 
 function Discover() {
-  var settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
+  const breakPoints = [
+    { width: 1, itemsToShow: 1 },
+    { width: 550, itemsToShow: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 },
+  ];
   return (
     <>
       <Header />
@@ -104,7 +101,12 @@ function Discover() {
             </h4>
           </div>
           <ul className="client-slider">
-            <Slider {...settings}>
+            <Carousel
+              itemsToShow={3}
+              enableSwipe={true}
+              enableAutoPlay={true}
+              breakPoints={breakPoints}
+            >
               <li>
                 <div className="avatar">
                   <img
@@ -201,10 +203,11 @@ function Discover() {
                   <small>Rating : 4.5</small>
                 </div>
               </li>
-            </Slider>
+            </Carousel>
           </ul>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

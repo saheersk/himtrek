@@ -1,135 +1,151 @@
 .signup-page {
-  height: 100vh;
-  padding: 100px 0;
+    height: 100vh;
+    padding: 100px 0;
 }
 
 #signup {
-  display: flex;
-  justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  border-radius: 40px;
-  height: 500px;
-  width: 70%;
-  margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 40px;
+    height: 500px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 #signup .signup-form {
-  padding: 26px;
-  width: 50%;
+    padding: 26px;
+    width: 50%;
 }
 
 #signup .signup-form h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  line-height: 1.5em;
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5em;
 }
 
 #signup .signup-form h6 {
-  font-size: 14px;
-  margin-bottom: 20px;
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
 #signup .signup-form h6 span {
-  color: #021f3e;
-  margin-left: 8px;
+    color: #021f3e;
+    margin-left: 8px;
 }
 
 #signup .signup-form form input {
-  border-radius: 40px;
-  padding: 12px 14px;
-  width: 100%;
-  margin-bottom: 12px;
-  display: block;
-  outline: none;
-  border: 2px solid #000;
+    border-radius: 40px;
+    padding: 12px 14px;
+    width: 100%;
+    margin-bottom: 12px;
+    display: block;
+    outline: none;
+    border: 2px solid #000;
 }
 
 #signup .signup-form form .singup-button {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#signup .signup-form form .singup-button input {
-  background-color: #fff;
-  color: #021f3e;
-  font-weight: 600;
-  font-size: 16px;
-  width: 30%;
-  margin: 0 18px 0 0;
-  padding: 10px;
+#signup .signup-form form a {
+    border: 1px solid #021f3e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #021f3e;
+    font-weight: 600;
+    font-size: 16px;
+    width: 40%;
+    padding: 10px;
 }
 
 #signup .signup-form form .singup-button input.register {
-  background-color: #021f3e;
-  color: #fff;
-  font-weight: 600;
-  font-size: 16px;
-  padding: 10px;
+    background-color: #021f3e;
+    color: #fff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px;
+    margin: 0 0 0 10px;
 }
 
 #signup .signup-image {
-  width: 50%;
+    width: 50%;
 }
 
 #signup .signup-image .image-box {
-  width: 100%;
+    width: 100%;
 }
 
 #signup .signup-image .image-box img {
-  display: block;
-  width: 100%;
-  height: 500px;
+    display: block;
+    width: 100%;
+    height: 500px;
 }
 
 /* responsive start */
 
 @media all and (max-width: 1280px) {
-  #signup .signup-form form .singup-button input {
-    font-size: 14px;
-    width: 36%;
-  }
-  #signup .signup-form form .singup-button input.register {
-    font-size: 14px;
-    width: 36%;
-  }
+    #signup .signup-form form .singup-button input {
+        font-size: 14px;
+        width: 36%;
+    }
+
+    #signup .signup-form form .singup-button input.register {
+        font-size: 14px;
+        width: 36%;
+    }
 }
+
 @media all and (max-width: 1100px) {
-  #signup {
-    width: 90%;
-  }
+    #signup {
+        width: 90%;
+    }
 }
+
 @media all and (max-width: 860px) {
-  #signup .signup-image {
-    display: none;
-  }
-  #signup {
-    width: 70%;
-  }
-  #signup .signup-form {
-    padding: 30px;
-    width: 100%;
-  }
+    #signup .signup-image {
+        display: none;
+    }
+
+    #signup {
+        width: 70%;
+    }
+
+    #signup .signup-form {
+        padding: 30px;
+        width: 100%;
+    }
 }
+
 @media all and (max-width: 600px) {
-  #signup {
-    width: 90%;
-  }
+    #signup {
+        width: 90%;
+    }
 }
+
 @media all and (max-width: 480px) {
-  #signup {
-    width: 100%;
-  }
+    #signup {
+        width: 100%;
+    }
 }
+
 @media all and (max-width: 360px) {
-  #signup .signup-form h2 {
-    font-size: 18px;
-  }
-  #signup .signup-form form .singup-button input {
-    font-size: 12px;
-    padding: 6px;
-  }
-  #signup .signup-form form .singup-button input.register {
-    font-size: 12px;
-    padding: 6px;
-  }
+    #signup .signup-form h2 {
+        font-size: 18px;
+    }
+
+    #signup .signup-form form .singup-button input {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    #signup .signup-form form .singup-button input.register {
+        font-size: 12px;
+        padding: 6px;
+    }
 }

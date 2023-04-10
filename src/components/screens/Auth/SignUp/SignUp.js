@@ -1,5 +1,6 @@
 import React from "react";
 import "./SignUp.css";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   return (
@@ -24,7 +25,7 @@ export default function SignUp() {
                   placeholder="Re-enter password"
                 />
                 <div className="singup-button">
-                  <input type="submit" value="Go to Home" />
+                  <Link to="/">Go to Home</Link>
                   <input type="submit" value="Register" className="register" />
                 </div>
               </form>

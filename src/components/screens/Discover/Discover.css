@@ -96,7 +96,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    z-index: 44;
+    z-index: 4;
     font-size: 20px;
     font-weight: 600;
 }
@@ -213,4 +213,36 @@
     font-size: 16px;
     color: var(--orenge);
     font-weight: 600;
+}
+
+@media all and (max-width: 768px) {
+    #discover .main-city .cards {
+        flex-wrap: wrap;
+    }
+
+    #discover .main-city .big-item {
+        width: 100%;
+    }
+
+    #discover .main-city .city-item {
+        width: 47%;
+    }
+}
+
+@media all and (max-width: 640px) {
+
+    #discover .head h4,
+    #client-box .head h4 {
+        font-size: 20px;
+    }
+
+    #discover .main-city .city-item {
+        width: 46%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #discover .main-city .city-item {
+        width: 100%;
+    }
 }

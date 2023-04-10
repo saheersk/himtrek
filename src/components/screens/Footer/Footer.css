@@ -8,6 +8,7 @@
 
 section#footer {
     padding: 80px 0 40px;
+    background-color: #011121;
 
 }
 
@@ -29,7 +30,7 @@ section#footer .top-container .logo-box img {
 
 section#footer .top-container .left-container p {
     font-size: 16px;
-    color: var(--content);
+    color: var(--light-blue);
     width: 60%;
     line-height: 1.3em;
 
@@ -39,6 +40,7 @@ section#footer .top-container .right-container h4 {
     font-size: 20px;
     text-transform: capitalize;
     margin-bottom: 6px;
+    color: var(--light-blue);
 }
 
 section#footer .top-container .right-container hr {
@@ -55,6 +57,8 @@ section#footer .top-container .right-container span {
     display: block;
     margin-bottom: 12px;
     transition: .3s ease;
+    color: var(--light-blue);
+
 }
 
 section#footer .top-container .right-container span:hover {
@@ -176,19 +180,20 @@ section#footer .copyright {
     display: block;
     margin-top: 50px;
     font-size: 16px;
-    color: var(--dark-blue);
+    color: var(--light-blue);
+
 }
 
 section#footer .copyright small {
     font-size: 16px;
     font-weight: 600;
+    color: var(--light-blue);
+
 }
 
 /* responsive-screen */
 
 @media all and (max-width: 980px) {
-
-
     section#footer .link-container .item {
         width: 180px;
     }

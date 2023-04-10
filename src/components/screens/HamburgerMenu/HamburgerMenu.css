@@ -1,0 +1,149 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+.hamburger-menu {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu .name-box {
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+.hamburger-menu .name-box span {
+    color: var(--orenge);
+}
+
+.hamburger-menu__button {
+    display: block;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    z-index: 55;
+}
+
+.hamburger-menu__icon {
+    display: block;
+    width: 100%;
+    height: 3px;
+    border-radius: 20px;
+    background: #333;
+    transition: all 0.2s ease-in-out;
+}
+
+.hamburger-menu__button.open .hamburger-menu__icon:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background: var(--orenge);
+}
+
+.hamburger-menu__button.open .hamburger-menu__icon:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu__button.open .hamburger-menu__icon:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    background: var(--orenge);
+}
+
+.hamburger-menu__icon:nth-child(2) {
+    margin: 6px 0;
+
+}
+
+.hamburger-menu__nav {
+    position: fixed;
+    padding: 100px 40px 0 40px;
+    top: 0;
+    right: -100%;
+    background: #f9f9f9;
+    width: 70%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 44;
+    transition: all 0.2s ease-in-out;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.hamburger-menu__nav ul {
+    display: block;
+    flex-direction: column;
+}
+
+.hamburger-menu__nav.open {
+    right: 0;
+}
+
+.hamburger-menu__nav ul a {
+    margin-bottom: 40px;
+    color: #021F3E;
+}
+
+.hamburger-menu__nav ul a:hover {
+    color: var(--orenge);
+}
+
+ul.authentication {
+    margin-top: 60px;
+}
+
+ul.authentication a {
+    display: block;
+    text-align: center;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 22;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+@media all and (max-width: 980px) {
+    .hamburger-menu {
+        display: flex;
+    }
+
+    .hamburger-menu__nav {
+        width: 40%;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    .hamburger-menu__nav {
+        width: 60%;
+    }
+}
+
+@media all and (max-width: 560px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    .hamburger-menu__nav {
+        width: 80%;
+    }
+    header .wrapper ul a{
+        font-size: 16px;
+    }
+}
