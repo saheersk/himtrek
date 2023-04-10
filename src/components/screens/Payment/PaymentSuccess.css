@@ -36,9 +36,9 @@
 #payment .paymentsuccess .container-box .left button {
   background-color: #c77933;
   color: #fff;
-  padding: 12px 16px;
+  padding: 12px 20px;
   border: none;
-  border-radius: 14px;
+  border-radius: 20px;
 }
 #payment .paymentsuccess .container-box .right {
   width: 50%;
