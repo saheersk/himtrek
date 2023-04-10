@@ -11,7 +11,7 @@ export default function SignUp() {
             <div className="signup-form">
               <h2>Create a new account.</h2>
               <h6>
-                already a member?<span>login</span>
+                already a member?<Link to="/login/">Login</Link>
               </h6>
               <form action="">
                 <input type="text" name="full-name" placeholder="Name" />
