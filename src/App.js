@@ -6,7 +6,6 @@ import Cart from "./components/screens/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/screens/Auth/Login/Login";
 import SignUp from "./components/screens/Auth/SignUp/SignUp";
-import Otp from "./components/screens/Auth/Otp/Otp";
 import AboutUs from "./components/screens/Auth/AboutUs/AboutUs";
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 import Privacy from "./components/screens/Agreement/Privacy";
@@ -17,6 +16,8 @@ import { ColorRing } from "react-loader-spinner";
 import Discover from "./components/screens/Discover/Discover";
 import NotFoundPage from "./components/screens/NotFoundPage/NotFoundPage";
 import SearchingResult from "./components/screens/SearchingResult/SearchingResult";
+import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
+import PaymentSuccess from "./components/screens/Payment/PaymentSuccess";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -63,10 +64,11 @@ function App() {
               <Route path="/discover/" element={<Discover />} />
               <Route path="/login/" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/otp/" element={<Otp />} />
+              <Route path="/otp/" element={<AutoFillOTP />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/searchingresult" element={<SearchingResult />} />
+              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
             </Routes>
           </Router>
         )}
