@@ -17,7 +17,8 @@ function product() {
               <p>Date : 12 Jan 2023 to 25 - Jan 2023</p>
             </div>
            </div>
-            <div className="item-qty">
+          <div className="price-details">
+          <div className="item-qty">
               <div className="person-count">
                 <div className="person">
                   <img
@@ -49,6 +50,7 @@ function product() {
             <div className="delete">
                 <img src={require("../../assets/images/delete.png")} alt="Delete" />
             </div>
+          </div>
           </div>
           <hr />
     </>
