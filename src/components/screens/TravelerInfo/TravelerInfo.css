@@ -1,0 +1,157 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orenge: #C77935;
+}
+
+
+#traveler-info .participant-info {
+    padding: 50px 40px;
+    margin: 50px 0;
+    background: #f2f2f2;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+}
+
+#traveler-info .participant-info h3 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--orenge);
+    margin-bottom: 40px;
+}
+
+#traveler-info .participant-info form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#traveler-info .participant-info form .item {
+    width: 20%;
+    margin-bottom: 24px;
+}
+
+#traveler-info .participant-info form .item input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--orenge);
+    width: 100%;
+}
+
+#traveler-info .participant-info form .item label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+
+}
+
+#traveler-info .participant-info .price-box {
+    margin-top: 40px;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 10px;
+}
+
+#traveler-info .participant-info .price-box h4 {
+    font-size: 24px;
+    color: var(--orenge);
+}
+
+#traveler-info .participant-info .contact-detials h4 {
+    font-size: 20px;
+    color: var(--orenge);
+    text-align: center;
+    margin-top: 60px;
+}
+
+#traveler-info .participant-info .contact-detials p {
+    text-align: center;
+    font-size: 16px;
+    color: var(--content);
+    margin-top: 14px;
+}
+
+#traveler-info .participant-info .contact-detials form {
+    margin-top: 50px;
+}
+
+#traveler-info .participant-info .additional-detials {
+    margin: 40px 0;
+}
+
+#traveler-info .participant-info .additional-detials h4 {
+    color: var(--orenge);
+    font-size: 20px;
+    text-align: center;
+}
+
+#traveler-info .participant-info .additional-detials p {
+    color: var(--content);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#traveler-info .participant-info .additional-detials form {
+    margin-top: 40px;
+}
+
+#traveler-info .participant-info .additional-detials form .item {
+    display: flex;
+    width: 50%;
+}
+
+#traveler-info .participant-info .additional-detials form label {
+    margin-right: 20px;
+}
+
+#traveler-info .participant-info .comments h4 {
+    text-align: center;
+    font-size: 20px;
+    color: var(--orenge);
+    margin-bottom: 12px;
+}
+
+#traveler-info .participant-info .comments p {
+    text-align: center;
+    color: var(--content);
+    margin-bottom: 30px;
+}
+
+#traveler-info .participant-info .comments form input {
+    width: 70%;
+    padding: 24px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--orenge);
+}
+
+#traveler-info .button {
+    text-align: center;
+}
+
+#traveler-info .button a {
+    text-align: center;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 40px;
+    padding: 12px 20px;
+    background: var(--orenge);
+    color: #fff;
+    border-radius: 10px;
+    transition: .3s ease-in-out;
+
+}
+
+#traveler-info .button a:hover {
+    background: #542d0c;
+}
+
+#traveler-info .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
