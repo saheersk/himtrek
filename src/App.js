@@ -18,7 +18,6 @@ import NotFoundPage from "./components/screens/NotFoundPage/NotFoundPage";
 import SearchingResult from "./components/screens/SearchingResult/SearchingResult";
 import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
 import PaymentSuccess from "./components/screens/Payment/PaymentSuccess";
-import DepartureInfo from "./components/screens/DepartureInfo/DepartureInfo";
 import TravelerInfo from "./components/screens/TravelerInfo/TravelerInfo";
 import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassword";
 
@@ -72,7 +71,6 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/searchingresult" element={<SearchingResult />} />
               <Route path="/paymentsuccess" element={<PaymentSuccess />} />
-              <Route path="/departure-info" element={<DepartureInfo />} />
               <Route path="/traveler-info" element={<TravelerInfo />} />
               <Route path="/forgotpassword" element={<ForgotPassword />} />
             </Routes>
