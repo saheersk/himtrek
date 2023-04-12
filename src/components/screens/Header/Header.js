@@ -18,10 +18,10 @@ function Header() {
             </Link>
           </h1>
           <ul className="nav">
-            <Link to="/discover">my order</Link>
             <Link to="/discover">discover</Link>
             <Link to="/about-us">about</Link>
             <Link to="/packages">packages</Link>
+            <Link to="/discover">my order</Link>
             <Link to="/contact">contact</Link>
           </ul>
           <ul className="auth">
