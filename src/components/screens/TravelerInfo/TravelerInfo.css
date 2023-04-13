@@ -159,12 +159,14 @@
     font-size: 16px;
     color: var(--content);
     margin-top: 14px;
+    line-height: 1.3em;
 }
 
 #traveler-info .participant-info .contact-detials .form-box {
     margin-top: 50px;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 
@@ -183,6 +185,7 @@
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
+    line-height: 1.3em;
 }
 
 #traveler-info .participant-info .additional-detials {
@@ -213,6 +216,7 @@
     text-align: center;
     color: var(--content);
     margin-bottom: 30px;
+    line-height: 1.3em;
 }
 
 #traveler-info .participant-info .comments input {
@@ -334,4 +338,82 @@
 
 #traveler-info .confirm-box .button a:hover {
     background: #542d0c;
+}
+
+/* responsive */
+@media all and (max-width: 980px) {
+    .date-container {
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    #traveler-info .participant-info form .item {
+        width: 30%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        width: 72%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .date-container .content-box {
+        flex-direction: column;
+    }
+
+    .date-container .confirmation-box {
+        margin-left: 0;
+        margin-top: 50px;
+        width: 60%;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .date-container .confirmation-box {
+        width: 70%;
+    }
+
+    #traveler-info .participant-info form .item {
+        width: 46%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        width: 80%;
+    }
+
+    #traveler-info .participant-info .comments h4,
+    #traveler-info .participant-info .additional-detials h4,
+    #traveler-info .participant-info .contact-detials h4,
+    #traveler-info .participant-info h3,
+    .date-container h3 {
+        font-size: 18px;
+    }
+
+    .date-container .confirmation-box h4 {
+        font-size: 16px;
+    }
+
+    .date-container .confirmation-box h5 {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #traveler-info .participant-info form .item {
+        width: 100%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        flex-direction: column;
+    }
+
+    #traveler-info .participant-info .comments p,
+    #traveler-info .participant-info .additional-detials p,
+    #traveler-info .participant-info .contact-detials p {
+        font-size: 14px;
+    }
+
+    #traveler-info .participant-info .price-box h4 {
+        font-size: 20px;
+    }
 }

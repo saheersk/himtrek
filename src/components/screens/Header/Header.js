@@ -22,6 +22,7 @@ function Header() {
             <Link to="/about-us">about</Link>
             <Link to="/packages">packages</Link>
             <Link to="/discover">my order</Link>
+            <Link to="/cart/">cart</Link>
             <Link to="/contact">contact</Link>
           </ul>
           <ul className="auth">
@@ -30,10 +31,15 @@ function Header() {
               <option value="eng">ENG</option>
               <option value="eng">ENG</option>
             </select>
-            <Link to="/login">login</Link>
-            <Link to="/signup" className="register">
-              register
-            </Link>
+            <li className="user-name">
+              <span>Adam John</span>
+            </li>
+            <li className="authentication">
+              <Link to="/login">login</Link>
+              <Link to="/signup" className="register">
+                register
+              </Link>
+            </li>
           </ul>
 
           <HamburgerMenu />

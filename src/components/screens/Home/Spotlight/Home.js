@@ -85,6 +85,8 @@ function Home() {
                     <DatePicker
                       selected={startDate}
                       onChange={(date) => setStartDate(date)}
+                      dateFormat="dd/MM/yyy"
+                      minDate={new Date()}
                     />
                   </div>
                 </div>

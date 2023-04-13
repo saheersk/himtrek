@@ -49,26 +49,24 @@ function TravelerInfo() {
         <Header />
         <div className="wrapper">
           <section id="departure-info">
-            <div className="wrapper">
-              <div className="date-container">
-                <h3>Pick a departure date</h3>
-                <div className="content-box">
-                  <div className="calender-box">
-                    <Calendar
-                      value={date}
-                      onChange={handleDateChange}
-                      minDate={new Date()}
-                    />
-                  </div>
-                  <div className="confirmation-box">
-                    <h4>Available options for {date}</h4>
-                    <div className="package-info">
-                      <div className="info-box">
-                        <h5>Triund Trek</h5>
-                        <span>999</span>
-                      </div>
-                      <h2>{date}</h2>
+            <div className="date-container">
+              <h3>Pick a departure date</h3>
+              <div className="content-box">
+                <div className="calender-box">
+                  <Calendar
+                    value={date}
+                    onChange={handleDateChange}
+                    minDate={new Date()}
+                  />
+                </div>
+                <div className="confirmation-box">
+                  <h4>Available options for {date}</h4>
+                  <div className="package-info">
+                    <div className="info-box">
+                      <h5>Triund Trek</h5>
+                      <span>999</span>
                     </div>
+                    <h2>{date}</h2>
                   </div>
                 </div>
               </div>

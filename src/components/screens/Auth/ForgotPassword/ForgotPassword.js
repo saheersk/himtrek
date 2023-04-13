@@ -13,17 +13,24 @@ function ForgotPassword() {
     re_passwprd: "",
   });
   const isTenDigit = /^\d{10}$/.test(formData.phone);
-  console.log(formData);
 
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
-    Swal.fire({
-      icon: "success",
-      title: "Your Password is Changed!",
-      text: "Your Password is successfully changed.",
-    });
-    navigate("/");
+    if (formData.password === formData.re_passwprd) {
+      Swal.fire({
+        icon: "success",
+        title: "Your Password is Changed!",
+        text: "Your Password is successfully changed.",
+      });
+      navigate("/");
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Opps!",
+        text: "You entered passords are not match.",
+      });
+    }
   };
   const formHandle = (e) => {
     e.preventDefault();
@@ -32,7 +39,7 @@ function ForgotPassword() {
       Swal.fire({
         icon: "success",
         title: "OTP Sent",
-        text: `OTP Sent to +91 ${formData.phone}"`,
+        text: `OTP Sent to +91 ${formData.phone}`,
       });
     } else {
       Swal.fire({
@@ -42,6 +49,7 @@ function ForgotPassword() {
       });
     }
   };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
