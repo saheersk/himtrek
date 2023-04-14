@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTravelDos, fetchTravelWonts } from "../../../../Redux/Package/TravelIncludes";
 import "./PackageSingle.css";
 
-function Additions() {
+function Additions({ slug }) {
+  const dispatch = useDispatch();
+  const dos = useSelector((state) => state.travelInclude.dos);
+  const wonts = useSelector((state) => state.travelInclude.wonts);
+
+  useEffect(() => {
+    dispatch(fetchTravelDos(slug));
+    dispatch(fetchTravelWonts(slug));
+  }, [slug, dispatch]);
+
   return <>
      <div className="additions">
             <h5>INCLUSIONS/EXCLUSIONS</h5>
@@ -10,53 +21,35 @@ function Additions() {
               <div className="item ">
                 <h6>What is included in the tour</h6>
                 <ul>
-                  <li>
-                    <img
-                      src={require("../../../assets/images/tick.svg").default}
-                      alt="Tick"
-                    />
-                    Accommodation on sharing basis.
-                  </li>
-                  <li>
-                    <img
-                      src={require("../../../assets/images/tick.svg").default}
-                      alt="Tick"
-                    />
-                    Accommodation on sharing basis.
-                  </li>
-                  <li>
-                    <img
-                      src={require("../../../assets/images/tick.svg").default}
-                      alt="Tick"
-                    />
-                    Accommodation on sharing basis.
-                  </li>
+                  {dos.map((item) => {
+                    return (
+                      <li key={item?.id}>
+                      <img
+                        src={require("../../../assets/images/tick.svg").default}
+                        alt="Tick"
+                      />
+                      {item?.dos}
+                    </li>
+                    )
+                  })}
+                  
                 </ul>
               </div>
               <div className="item ">
-                <h6>What is included in the tour</h6>
+                <h6>What is not included in the tour</h6>
                 <ul>
-                  <li>
+                  {wonts.map((item) => {
+                    return (
+                      <li key={item?.id}>
                     <img
                       src={require("../../../assets/images/cross.svg").default}
                       alt="Cross"
                     />
-                    Accommodation on sharing basis.
+                    {item?.wont}
                   </li>
-                  <li>
-                    <img
-                      src={require("../../../assets/images/cross.svg").default}
-                      alt="Cross"
-                    />
-                    Accommodation on sharing basis.
-                  </li>
-                  <li>
-                    <img
-                      src={require("../../../assets/images/cross.svg").default}
-                      alt="Cross"
-                    />
-                    Accommodation on sharing basis.
-                  </li>
+                    )
+                  })}
+                  
                 </ul>
               </div>
             </div>
