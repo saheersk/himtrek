@@ -2,8 +2,11 @@ import React from "react";
 import Header from "../Header/Header";
 import "./Cart.css";
 import Product from "./Product"
+import { useSelector } from "react-redux";
 
 function Cart() {
+  const package_price_per_person = useSelector((cart) => cart.cart.package_price_per_person);
+
   return (
     <>
       <Header />
@@ -17,11 +20,11 @@ function Cart() {
       </section>
         <div className="checkout-banner">
           <div className="left">
-            <h6>Total</h6>
-            <span><small>₹</small> 10000</span>
+            <h6>Package Price Per Person</h6>
+            <span><small>₹</small> {package_price_per_person}</span>
           </div>
           <div className="right">
-            <button>checkout</button>
+            <button>Checkout</button>
           </div>
         </div>
     </>

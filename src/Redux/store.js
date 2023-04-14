@@ -4,6 +4,7 @@ import stateReducer from './Home/state'
 import eventReducer from './Home/event'
 import packageReducer from './Home/package'
 import cartReducer from './Cart/cart'
+import contactReducer from './Contact/contact'
 
 const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
         state: stateReducer,
         event: eventReducer,
         package: packageReducer,
-        cart: cartReducer
+        cart: cartReducer,
+        contact: contactReducer
     },
 });
 

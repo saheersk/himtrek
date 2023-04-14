@@ -89,6 +89,18 @@ header .wrapper ul li.register:focus {
 
 }
 
+header .wrapper .user-name {
+    display: none;
+}
+
+header .wrapper .user-name span {
+    display: block;
+    font-weight: 600;
+    color: var(--dark-blue);
+    font-size: 18px;
+    margin-right: 20px;
+}
+
 header .wrapper .hamburger {
     display: none;
     width: 30px;

@@ -1,9 +1,9 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { BASE_URL } from '../../axiosConfig';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { BASE_URL } from "../../axiosConfig";
 
 export const fetchPackage = createAsyncThunk(
-  'events/fetchPackage',
+  "events/fetchPackage",
   async () => {
     const response = await axios.get(`${BASE_URL}/packages/travel-packages/`);
     return response.data.data;
@@ -11,7 +11,7 @@ export const fetchPackage = createAsyncThunk(
 );
 
 const packageSlice = createSlice({
-  name: 'packages',
+  name: "packages",
   initialState: {
     packages: [],
   },
@@ -23,7 +23,7 @@ const packageSlice = createSlice({
         state.packages = action.payload;
       })
       .addCase(fetchPackage.rejected, (state, action) => {});
-  }
+  },
 });
 
 export default packageSlice.reducer;

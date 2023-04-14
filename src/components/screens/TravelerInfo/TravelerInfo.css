@@ -6,6 +6,85 @@
     --orenge: #C77935;
 }
 
+#departure-info {
+    padding: 40px 0;
+}
+
+.date-container {
+    padding: 80px 50px;
+    background: #f2f2f2;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+}
+
+.date-container .content-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-container h3 {
+    text-align: center;
+    color: var(--orenge);
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+.date-container .confirmation-box {
+    margin-left: 50px;
+    padding: 30px 30px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 20px;
+    width: 40%;
+}
+
+.date-container .confirmation-box h4 {
+    font-size: 18px;
+}
+
+.date-container .confirmation-box .info-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
+.date-container .confirmation-box h5 {
+    font-size: 20px;
+    color: var(--orenge);
+}
+
+.date-container .confirmation-box span {
+    color: var(--content);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.date-container .confirmation-box h2 {
+    font-size: 18px;
+    margin-bottom: 50px;
+    color: #288321;
+}
+
+.date-container .confirmation-box a {
+    background: var(--orenge);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    transition: .3s ease;
+}
+
+.date-container .confirmation-box a:hover {
+    background: #905826;
+}
+
+.react-calendar {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px !important;
+    transition: 1s ease !important;
+
+}
 
 #traveler-info .participant-info {
     padding: 50px 40px;
@@ -23,7 +102,7 @@
     margin-bottom: 40px;
 }
 
-#traveler-info .participant-info form {
+#traveler-info .participant-info form .participant-detials {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -41,6 +120,13 @@
     border: 1px solid var(--orenge);
     width: 100%;
 }
+
+#traveler-info .participant-info form .item span {
+    margin-top: 10px;
+    display: inline-block;
+    color: #B33A3A;
+}
+
 
 #traveler-info .participant-info form .item label {
     display: block;
@@ -73,11 +159,16 @@
     font-size: 16px;
     color: var(--content);
     margin-top: 14px;
+    line-height: 1.3em;
 }
 
-#traveler-info .participant-info .contact-detials form {
+#traveler-info .participant-info .contact-detials .form-box {
     margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
+
 
 #traveler-info .participant-info .additional-detials {
     margin: 40px 0;
@@ -94,20 +185,25 @@
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
+    line-height: 1.3em;
 }
 
-#traveler-info .participant-info .additional-detials form {
+#traveler-info .participant-info .additional-detials {
     margin-top: 40px;
 }
 
-#traveler-info .participant-info .additional-detials form .item {
+#traveler-info .participant-info .additional-detials .item {
     display: flex;
+    justify-content: center;
     width: 50%;
+    margin: 50px auto 80px;
 }
 
-#traveler-info .participant-info .additional-detials form label {
+#traveler-info .participant-info .additional-detials label {
     margin-right: 20px;
+    display: block;
 }
+
 
 #traveler-info .participant-info .comments h4 {
     text-align: center;
@@ -120,21 +216,23 @@
     text-align: center;
     color: var(--content);
     margin-bottom: 30px;
+    line-height: 1.3em;
 }
 
-#traveler-info .participant-info .comments form input {
-    width: 70%;
+#traveler-info .participant-info .comments input {
+    width: 100%;
+    margin: 0 auto;
     padding: 24px 20px;
     border-radius: 10px;
     border: 1px solid var(--orenge);
 }
 
-#traveler-info .button {
-    text-align: center;
-}
 
-#traveler-info .button a {
+#traveler-info input[type="submit"] {
+    cursor: pointer;
     text-align: center;
+    border: none;
+    width: 150px;
     display: inline-block;
     font-size: 18px;
     margin-top: 40px;
@@ -146,7 +244,7 @@
 
 }
 
-#traveler-info .button a:hover {
+#traveler-info input[type="submit"]:hover {
     background: #542d0c;
 }
 
@@ -154,4 +252,168 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+#traveler-info .confirm-box {
+    width: 50%;
+    background: #f2f2f2;
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin: 0 auto;
+    position: fixed;
+    transform: scale(1.6);
+    transition: .2s ease;
+    z-index: 4;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+#traveler-info .confirm-box-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    width: 100%;
+    background-color: #fff;
+    transition: .5s ease-in-out;
+
+}
+
+#traveler-info .confirm-box-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+#traveler-info .confirm-box-overlay.open .confirm-box {
+    transform: scale(1);
+}
+
+#traveler-info .confirm-box .item-box-date {
+    margin: 40px 0;
+}
+
+#traveler-info .confirm-box h4 {
+    text-align: center;
+    color: var(--orenge);
+    font-size: 20px;
+}
+
+#traveler-info .confirm-box h3 {
+    text-align: center;
+    color: var(--orenge);
+    margin-bottom: 50px;
+}
+
+#traveler-info .confirm-box .item-box {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+#traveler-info .confirm-box .button {
+    text-align: center;
+}
+
+#traveler-info .confirm-box .button a {
+    padding: 12px 20px;
+    background: var(--orenge);
+    border-radius: 10px;
+    color: #fff;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    transition: .3s ease;
+}
+
+#traveler-info .confirm-box .button a.back {
+    background: #fff;
+    border: 1px solid var(--orenge);
+    color: var(--orenge);
+    margin-right: 20px;
+
+}
+
+#traveler-info .confirm-box .button a:hover {
+    background: #542d0c;
+}
+
+/* responsive */
+@media all and (max-width: 980px) {
+    .date-container {
+        width: 100%;
+        padding: 50px 0;
+    }
+
+    #traveler-info .participant-info form .item {
+        width: 30%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        width: 72%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .date-container .content-box {
+        flex-direction: column;
+    }
+
+    .date-container .confirmation-box {
+        margin-left: 0;
+        margin-top: 50px;
+        width: 60%;
+    }
+}
+
+@media all and (max-width: 640px) {
+    .date-container .confirmation-box {
+        width: 70%;
+    }
+
+    #traveler-info .participant-info form .item {
+        width: 46%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        width: 80%;
+    }
+
+    #traveler-info .participant-info .comments h4,
+    #traveler-info .participant-info .additional-detials h4,
+    #traveler-info .participant-info .contact-detials h4,
+    #traveler-info .participant-info h3,
+    .date-container h3 {
+        font-size: 18px;
+    }
+
+    .date-container .confirmation-box h4 {
+        font-size: 16px;
+    }
+
+    .date-container .confirmation-box h5 {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 480px) {
+    #traveler-info .participant-info form .item {
+        width: 100%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        flex-direction: column;
+    }
+
+    #traveler-info .participant-info .comments p,
+    #traveler-info .participant-info .additional-detials p,
+    #traveler-info .participant-info .contact-detials p {
+        font-size: 14px;
+    }
+
+    #traveler-info .participant-info .price-box h4 {
+        font-size: 20px;
+    }
 }

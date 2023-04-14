@@ -30,10 +30,11 @@ function Header() {
             </Link>
           </h1>
           <ul className="nav">
-            <Link to="/discover">my order</Link>
             <Link to="/discover">discover</Link>
             <Link to="/about-us">about</Link>
             <Link to="/packages">packages</Link>
+            <Link to="/discover">my order</Link>
+            <Link to="/cart/">cart</Link>
             <Link to="/contact">contact</Link>
           </ul>
           <ul className="auth">
@@ -42,13 +43,18 @@ function Header() {
               <option value="eng">ENG</option>
               <option value="eng">ENG</option>
             </select>
+
             {is_LoggedIn ? (
               <div>
-                <Link to="/login">Username</Link>
-                <span to="/signup" className="register" onClick={() => handleLogout()} >
-                  Logout
-                </span>
-              </div>
+              <li className="user-name">
+              <span>Adam John</span>
+            </li>
+            <li className="authentication">
+              <small onClick={() => handleLogout()}  className="register">
+                Logout
+              </small>
+              </li>
+            </div>
             ) : (
               <div>
                 <Link to="/login">login</Link>
@@ -58,7 +64,6 @@ function Header() {
               </div>
             )}
           </ul>
-
           <HamburgerMenu />
         </div>
       </header>

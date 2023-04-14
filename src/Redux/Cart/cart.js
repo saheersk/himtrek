@@ -1,12 +1,12 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { BASE_URL } from '../../axiosConfig';
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { BASE_URL } from "../../axiosConfig";
 
 export const fetchCartProduct = createAsyncThunk(
-  'events/fetchCartProduct',
+  "events/fetchCartProduct",
   async (token) => {
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     };
     const response = await axios.get(`${BASE_URL}/packages/cart/`, config);
     return response.data.data[0];
@@ -14,40 +14,51 @@ export const fetchCartProduct = createAsyncThunk(
 );
 
 export const removeFromCart = createAsyncThunk(
-  'events/removeFromCart',
-  async (productId, token) => {
-    console.log(productId, "===id");
-    console.log(token, "===token");
+  "events/removeFromCart",
+  async ({ productId, token }) => {
 
     const config = {
-      headers: { Authorization: `Bearer ${token}` }
+      headers: { Authorization: `Bearer ${token}` },
     };
-    await axios.post(`${BASE_URL}/packages/cart/remove/${productId}/`, config);
-    console.log(productId);
+    await axios.delete(
+      `${BASE_URL}/packages/cart/remove/${productId}/`,
+      config
+    );
     return productId;
   }
 );
 
 const cartSlice = createSlice({
-  name: 'cartProducts',
+  name: "cartProducts",
   initialState: {
     products: "",
+    package_price_per_person: 0,
+    is_Products: false,
   },
   reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCartProduct.pending, (state) => {})
       .addCase(fetchCartProduct.fulfilled, (state, action) => {
-        state.products = action.payload;
+        if (action.payload !== undefined) {
+          state.products = action.payload;
+          state.package_price_per_person = action.payload.package.price
+          state.is_Products = true;
+        }
+        else {
+          state.is_Products = false;
+        }
       })
       .addCase(fetchCartProduct.rejected, (state, action) => {})
       .addCase(removeFromCart.pending, (state) => {})
       .addCase(removeFromCart.fulfilled, (state, action) => {
-        state.products = state.products.filter(product => product.id !== action.payload);
-        console.log(state.products);
+        if (state.products.id === action.payload) {
+          state.products = "";
+          state.is_Products = false;
+        }
       })
-      .addCase(removeFromCart.rejected, (state, action) => {})
-  }
+      .addCase(removeFromCart.rejected, (state, action) => {});
+  },
 });
 
 export default cartSlice.reducer;

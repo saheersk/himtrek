@@ -19,6 +19,17 @@ function Gear() {
               <span>₹10000 / Day</span>
               <button>Add with Package</button>
             </div>
+            <div className="item">
+              <div className="product-img">
+                <img
+                  src={require("../../../assets/images/gopro.png")}
+                  alt="Gopro"
+                />
+              </div>
+              <h6>GoPro Hero 7</h6>
+              <span>₹10000 / Day</span>
+              <button>Add with Package</button>
+            </div>
           </div>
         </div>
       </div>
