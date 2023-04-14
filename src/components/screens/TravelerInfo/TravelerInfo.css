@@ -10,11 +10,11 @@
     padding: 40px 0;
 }
 
-.date-container {
-    padding: 80px 50px;
+#traveler-info .all-container {
     background: #f2f2f2;
-    border-radius: 20px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 20px;
+    padding: 80px 50px 0 50px;
 
 
 }
@@ -86,12 +86,21 @@
 
 }
 
+#traveler-info .head {
+    padding: 60px 0 30px 0;
+    text-align: center;
+
+
+}
+
+#traveler-info .head h3 {
+    font-size: 24px;
+    color: var(--dark-blue);
+}
+
 #traveler-info .participant-info {
     padding: 50px 40px;
     margin: 50px 0;
-    background: #f2f2f2;
-    border-radius: 20px;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
 }
 
@@ -317,7 +326,9 @@
     text-align: center;
 }
 
-#traveler-info .confirm-box .button a {
+#traveler-info .confirm-box .button button {
+    cursor: pointer;
+    border: none;
     padding: 12px 20px;
     background: var(--orenge);
     border-radius: 10px;
@@ -328,7 +339,7 @@
     transition: .3s ease;
 }
 
-#traveler-info .confirm-box .button a.back {
+#traveler-info .confirm-box .button button.back {
     background: #fff;
     border: 1px solid var(--orenge);
     color: var(--orenge);

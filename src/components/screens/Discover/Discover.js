@@ -4,6 +4,9 @@ import Carousel from "react-elastic-carousel";
 
 import "./Discover.css";
 import Footer from "../Footer/Footer";
+import ClientCard from "./ClientCard";
+import CityCards from "./CityCards";
+import CityCardsLeft from "./CityCardsLeft";
 
 function Discover() {
   const breakPoints = [
@@ -22,64 +25,8 @@ function Discover() {
           </div>
           <div className="content-box">
             <div className="main-city">
-              <div className="cards">
-                <div className="city-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-                <div className="city-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-                <div className="big-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-              </div>
-              <div className="cards">
-                <div className="big-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-                <div className="city-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-                <div className="city-item">
-                  <div className="image-box">
-                    <img
-                      src={require("../../assets/images/mumbai.png")}
-                      alt="Images"
-                    />
-                  </div>
-                  <span>Mumbai</span>
-                </div>
-              </div>
+              <CityCards />
+              <CityCardsLeft />
             </div>
           </div>
           <div className="button">
@@ -107,102 +54,11 @@ function Discover() {
               enableAutoPlay={true}
               breakPoints={breakPoints}
             >
-              <li>
-                <div className="avatar">
-                  <img
-                    src={require("../../assets/images/client.png")}
-                    alt="Arrow"
-                  />
-                </div>
-                <div className="text-box">
-                  <h4>john doe</h4>
-                  <span>
-                    <img
-                      src={require("../../assets/images/loc.svg").default}
-                      alt="Arrow"
-                    />
-                    karnataka
-                  </span>
-                  <h5>visited : Banglore</h5>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ut, voluptatibus?
-                  </p>
-                  <small>Rating : 4.5</small>
-                </div>
-              </li>
-              <li>
-                <div className="avatar">
-                  <img
-                    src={require("../../assets/images/client.png")}
-                    alt="Arrow"
-                  />
-                </div>
-                <div className="text-box">
-                  <h4>john doe</h4>
-                  <span>
-                    <img
-                      src={require("../../assets/images/loc.svg").default}
-                      alt="Arrow"
-                    />
-                    karnataka
-                  </span>
-                  <h5>visited : Banglore</h5>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ut, voluptatibus?
-                  </p>
-                  <small>Rating : 4.5</small>
-                </div>
-              </li>
-              <li>
-                <div className="avatar">
-                  <img
-                    src={require("../../assets/images/client.png")}
-                    alt="Arrow"
-                  />
-                </div>
-                <div className="text-box">
-                  <h4>john doe</h4>
-                  <span>
-                    <img
-                      src={require("../../assets/images/loc.svg").default}
-                      alt="Arrow"
-                    />
-                    karnataka
-                  </span>
-                  <h5>visited : Banglore</h5>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ut, voluptatibus?
-                  </p>
-                  <small>Rating : 4.5</small>
-                </div>
-              </li>
-              <li>
-                <div className="avatar">
-                  <img
-                    src={require("../../assets/images/client.png")}
-                    alt="Arrow"
-                  />
-                </div>
-                <div className="text-box">
-                  <h4>john doe</h4>
-                  <span>
-                    <img
-                      src={require("../../assets/images/loc.svg").default}
-                      alt="Arrow"
-                    />
-                    karnataka
-                  </span>
-                  <h5>visited : Banglore</h5>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                    Ut, voluptatibus?
-                  </p>
-                  <small>Rating : 4.5</small>
-                </div>
-              </li>
+              <ClientCard />
+              <ClientCard />
+              <ClientCard />
+              <ClientCard />
+              <ClientCard />
             </Carousel>
           </ul>
         </div>

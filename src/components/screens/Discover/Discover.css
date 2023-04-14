@@ -151,7 +151,7 @@
     align-items: center;
 }
 
-#client-box .client-slider li {
+#client-box .client-slider .client-card {
     padding: 20px 30px;
     background: #fff;
     width: 300px;
@@ -161,25 +161,25 @@
     margin-right: 20px;
 }
 
-#client-box .client-slider li .avatar {
+#client-box .client-slider .client-card .avatar {
     width: 100px;
     margin: 0 auto 20px;
 }
 
-#client-box .client-slider li h4 {
+#client-box .client-slider .client-card h4 {
     text-transform: capitalize;
     font-size: 16px;
     margin-bottom: 10px;
     color: var(--orenge);
 }
 
-#client-box .client-slider li .avatar img {
+#client-box .client-slider .client-card .avatar img {
     width: 100%;
     display: block;
     border-radius: 50%;
 }
 
-#client-box .client-slider li span {
+#client-box .client-slider .client-card span {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -187,20 +187,20 @@
     margin-bottom: 24px;
 }
 
-#client-box .client-slider li span img {
+#client-box .client-slider .client-card span img {
     filter: invert(1);
     width: 10px;
     margin-right: 6px;
 }
 
-#client-box .client-slider li h5 {
+#client-box .client-slider .client-card h5 {
     text-transform: capitalize;
     font-size: 14px;
     margin-bottom: 10px;
     color: #7A7A7A;
 }
 
-#client-box .client-slider li p {
+#client-box .client-slider .client-card p {
     text-transform: capitalize;
     line-height: 1.3em;
     font-size: 14px;
@@ -208,7 +208,7 @@
     margin-bottom: 12px;
 }
 
-#client-box .client-slider li small {
+#client-box .client-slider .client-card small {
     text-transform: capitalize;
     font-size: 16px;
     color: var(--orenge);
