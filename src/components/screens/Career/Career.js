@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Career.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCareer } from "../../../Redux/Career/career";
 
 function Career() {
+  const dispatch = useDispatch();
+  const career = useSelector((state) => state.career.career);
+
+  useEffect(() => {
+    dispatch(fetchCareer());
+  }, [dispatch]);
+
   return (
     <>
       <section className="career-spoylight">
@@ -23,42 +32,20 @@ function Career() {
         <div className="wrapper">
           <h3>Available Jobs</h3>
           <ul>
-            <li>
+            {career.map((item) => {
+              return (
+                <li key={item?.id}>
               <div className="text-box">
-                <h4>Designer</h4>
-                <p>new opening for graphic designer</p>
+                <h4>{item?.title}</h4>
+                <p>{item?.designation}</p>
               </div>
               <div className="button">
                 <button>Apply Now</button>
               </div>
             </li>
-            <li>
-              <div className="text-box">
-                <h4>Designer</h4>
-                <p>new opening for graphic designer</p>
-              </div>
-              <div className="button">
-                <button>Apply Now</button>
-              </div>
-            </li>
-            <li>
-              <div className="text-box">
-                <h4>Designer</h4>
-                <p>new opening for graphic designer</p>
-              </div>
-              <div className="button">
-                <button>Apply Now</button>
-              </div>
-            </li>
-            <li>
-              <div className="text-box">
-                <h4>Designer</h4>
-                <p>new opening for graphic designer</p>
-              </div>
-              <div className="button">
-                <button>Apply Now</button>
-              </div>
-            </li>
+              )
+            })}
+            
           </ul>
         </div>
       </section>

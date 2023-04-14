@@ -3,7 +3,7 @@ import "./Preferences.css";
 
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import PreferedPackage from "./PreferedPackage";
+import PreferredPackage from "./PreferedPackage";
 
 function Preferences() {
   return (
@@ -23,15 +23,15 @@ function Preferences() {
                 <Tab>trekking</Tab>
               </TabList>
               <TabPanel className={"cards"}>
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
+                <PreferredPackage />
+                <PreferredPackage />
+                <PreferredPackage />
+                <PreferredPackage />
               </TabPanel>
               <TabPanel className={"cards"}>
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
+                <PreferredPackage />
+                <PreferredPackage />
+                <PreferredPackage />
               </TabPanel>
             </Tabs>
           </div>

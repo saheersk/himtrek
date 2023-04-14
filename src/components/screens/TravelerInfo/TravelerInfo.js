@@ -1,46 +1,116 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
 import Calendar from "react-calendar";
-
+import Swal from "sweetalert2";
+import TravelerPreview from "./TravelerPreview";
+import axios from "axios";
+import { travelerFailure, travelerSuccess } from "../../../Redux/TravelerInfo/travelInfo";
+import { BASE_URL } from "../../../axiosConfig";
+import { useDispatch, useSelector } from "react-redux";
 import "./TravelerInfo.css";
 import "react-calendar/dist/Calendar.css";
-
-import Swal from "sweetalert2";
+import { fetchCartProduct } from "../../../Redux/Cart/cart";
 
 function TravelerInfo() {
-  const [date, setDate] = useState(format(new Date(), "dd MMM"));
+  const dispatch = useDispatch();
+
+  const package_price_per_person = useSelector((cart) => cart.cart.package_price_per_person);
+  const package_price_per_children = useSelector((cart) => cart.cart.package_price_per_children);
+  const package_price_family_of_four = useSelector((cart) => cart.cart.package_price_family_of_four);
+  const product = useSelector((cart) => cart.cart.products);
+  const userData = useSelector((state) => state.user.data);
+
+  const token = userData?.data?.access;
+
+  const [date, setDate] = useState(format(new Date(), "dd MMM Y"));
+  const [endDate, setEndDate] = useState(format(new Date(), "dd MMM Y"));
+
+  const [adults, setAdults] = useState("");
+  const [family, setFamily] = useState("");
+  const [children, setChildren] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [requirements, setRequirements] = useState("");
+  const [comments, setComments] = useState("");
+
+  const params = useParams();
+  const slug = params.id
+
+  let total_price_adult = package_price_per_person * parseInt(adults) 
+  let total_price_children = package_price_per_children * parseInt(children) 
+  let total_price_family = package_price_family_of_four * parseInt(family) 
+
+  let total_price = total_price_adult + total_price_children + total_price_family
+
 
   function handleDateChange(value) {
-    setDate(`${format(value, "dd MMM")}`);
+    let select_date = format(value, "dd MMM Y");
+    let dateObj = new Date(select_date);
+
+    dateObj.setDate(dateObj.getDate() + 5);
+    let end_date = format(dateObj, "dd MMM Y");
+
+    setDate(select_date);
+    setEndDate(end_date);
   }
 
-  const [formData, setFormData] = useState({
-    adults: "",
-    family: "",
-    children: "",
-    fname: "",
-    email: "",
-    phone: "",
-    requirements: "",
-    comments: "",
-  });
+
   const navigate = useNavigate();
 
   const formHandle = (e) => {
     e.preventDefault();
     toggleMenu();
   };
+
+  useEffect(() => {
+    dispatch(fetchCartProduct(token));
+  }, [token, dispatch]);
+
   const confirmHandle = (e) => {
     e.preventDefault();
     toggleMenu();
-    Swal.fire({
-      icon: "success",
-      title: "Added Successfuly",
-      text: " Your detials are added successfuly",
-    });
-    navigate("/my-order");
+
+    axios
+      .post(`${BASE_URL}/packages/checkout/${slug}/`, {
+        selected_date: date,
+        end_date: endDate,
+        adults_count: adults,
+        family_count: family,
+        email,
+        full_name: fullName,
+        contact_number: phone,
+        children_count: children,
+        health_requirement: requirements,
+        special_requests: comments,
+      },{
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        const data = response.data;
+        if (response.data.status_code === 6000) {
+          dispatch(travelerSuccess(data));
+          Swal.fire({
+            icon: "success",
+            title: "Added Successfully",
+            text: " Your details are added successfully",
+          });
+      
+          navigate("/");
+        }
+        else  {
+          dispatch(travelerFailure(data));
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(travelerFailure(error.response.data));
+        }
+      });
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -49,13 +119,14 @@ function TravelerInfo() {
     setIsOpen(!isOpen);
   };
 
+
   return (
     <>
       <section id="traveler-info">
         <Header />
         <div className="wrapper">
           <div className="head">
-            <h3>Complete your detials</h3>
+            <h3>Complete your details</h3>
           </div>
           <div className="all-container">
             <section id="departure-info">
@@ -70,13 +141,16 @@ function TravelerInfo() {
                     />
                   </div>
                   <div className="confirmation-box">
-                    <h4>Available options for {date}</h4>
+                    <h4>Available options for {product?.package?.next_trip_date}</h4>
                     <div className="package-info">
                       <div className="info-box">
-                        <h5>Triund Trek</h5>
-                        <span>999</span>
+                        <h5>{product?.package?.title}</h5>
+                        <span>Total per Adult : {package_price_per_person}</span>
+                      <span>Total per Children : {package_price_per_children}</span>
+                      <span>Total Family of 4 : {package_price_family_of_four}</span>
                       </div>
-                      <h2>{date}</h2>
+                      <h2>Selected date {date}</h2>
+                      <h2>End date {endDate}</h2>
                     </div>
                   </div>
                 </div>
@@ -93,13 +167,8 @@ function TravelerInfo() {
                         type="number"
                         name="adults"
                         id="adults"
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            adults: e.target.value,
-                          })
-                        }
-                        value={formData.adults}
+                        onChange={(e) => setAdults(e.target.value)}
+                        value={adults}
                         required
                       />
                     </div>
@@ -109,13 +178,8 @@ function TravelerInfo() {
                         type="number"
                         name="family"
                         id="family"
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            family: e.target.value,
-                          })
-                        }
-                        value={formData.family}
+                        onChange={(e) => setFamily(e.target.value)}
+                        value={family}
                         required
                       />
                     </div>
@@ -125,22 +189,17 @@ function TravelerInfo() {
                         type="number"
                         name="children"
                         id="children"
-                        placeholder="*Below 6 years only"
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            children: e.target.value,
-                          })
-                        }
-                        value={formData.children}
+                        placeholder="Below 6 years only"
+                        onChange={(e) => setChildren(e.target.value)}
+                        value={children}
                         required
                       />
-                      <span>only below 6 years </span>
+                      <span>*Only below 6 years </span>
                     </div>
                   </div>
 
                   <div className="contact-detials">
-                    <h4>Contact Detials</h4>
+                    <h4>Contact Details</h4>
                     <p>Who do we communicate with about this booking?</p>
                     <div className="form-box">
                       <div className="item">
@@ -150,13 +209,8 @@ function TravelerInfo() {
                           name="name"
                           id="name"
                           required
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              fname: e.target.value,
-                            })
-                          }
-                          value={formData.fname}
+                          onChange={(e) => setFullName(e.target.value)}
+                        value={fullName}
                         />
                       </div>
                       <div className="item">
@@ -166,13 +220,8 @@ function TravelerInfo() {
                           name="email"
                           id="eamil"
                           required
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              email: e.target.value,
-                            })
-                          }
-                          value={formData.email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          value={email}
                         />
                       </div>
                       <div className="item">
@@ -182,13 +231,8 @@ function TravelerInfo() {
                           name="phone"
                           id="phone"
                           required
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              phone: e.target.value,
-                            })
-                          }
-                          value={formData.phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          value={phone}
                         />
                       </div>
                     </div>
@@ -205,13 +249,8 @@ function TravelerInfo() {
                         id=""
                         cols="50"
                         rows="10"
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            requirements: e.target.value,
-                          })
-                        }
-                        value={formData.requirements}
+                        onChange={(e) => setRequirements(e.target.value)}
+                        value={requirements}
                       ></textarea>
                     </div>
                   </div>
@@ -225,18 +264,15 @@ function TravelerInfo() {
                       type="text"
                       name="comments"
                       placeholder="Type your comments"
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          comments: e.target.value,
-                        })
-                      }
-                      value={formData.comments}
+                      onChange={(e) => setComments(e.target.value)}
+                      value={comments}
                     />
                   </div>
                   <div className="bottom">
                     <div className="price-box">
-                      <h4>Total : 9999</h4>
+                      <h4>Total per Adult : {package_price_per_person}</h4>
+                      <h4>Total per Children : {package_price_per_children}</h4>
+                      <h4>Total Family of 4 : {package_price_family_of_four}</h4>
                     </div>
                     <div className="button">
                       <input type="submit" value={"Preview"} />
@@ -247,71 +283,22 @@ function TravelerInfo() {
             </div>
           </div>
         </div>
-        <div className={`confirm-box-overlay ${isOpen ? "open" : ""}`}>
-          <div className="confirm-box">
-            <h3>Are you confirm?</h3>
-            <table>
-              <div className="item-box">
-                <tr>
-                  <td>Full Name : </td>
-                  <td> {formData.fname}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Email : </td>
-                  <td> {formData.email}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Phone : </td>
-                  <td> {formData.phone}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Adults : </td>
-                  <td> {formData.adults}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Children : </td>
-                  <td> {formData.children}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Family : </td>
-                  <td> {formData.family}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Requirements : </td>
-                  <td> {formData.requirements}</td>
-                </tr>
-              </div>
-              <div className="item-box">
-                <tr>
-                  <td>Comments : </td>
-                  <td> {formData.comments}</td>
-                </tr>
-              </div>
-            </table>
-            <div className="item-box-date">
-              <h4>{date} - 2 Day, 1 Night</h4>
-            </div>
-            <div className="button">
-              <button onClick={toggleMenu} className="back">
-                Back
-              </button>
-
-              <button onClick={(e) => confirmHandle(e)}>Confirm</button>
-            </div>
-          </div>
-        </div>
+        <TravelerPreview
+          adults={adults}
+          fullName={fullName}
+          email={email}
+          family={family}
+          requirements={requirements}
+          comments={comments}
+          phone={phone}
+          children={children}
+          date={date}
+          endDate={endDate}
+          isOpen={isOpen}
+          toggleMenu={toggleMenu}
+          confirmHandle={confirmHandle}
+          total_price={total_price}
+        />
       </section>
     </>
   );

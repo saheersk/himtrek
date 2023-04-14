@@ -42,7 +42,7 @@ function Product() {
           <div className="price-details">
             <div className="amount">
               <span className="amount-inr">
-                <small>₹</small> {product?.package?.price}
+                <small>₹</small> {product?.package?.price_for_adult}
               </span>
             </div>
             <div className="delete" onClick={() => RemovePackage(product.id)}>

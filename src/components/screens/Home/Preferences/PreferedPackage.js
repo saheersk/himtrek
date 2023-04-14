@@ -1,34 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Preferences.css";
 
 import "react-tabs/style/react-tabs.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPackage } from "../../../../Redux/Home/package";
 
-function PreferedPackage() {
+function PreferredPackage() {
+  const dispatch = useDispatch();
+  const package_item = useSelector((package_item) => package_item.package.packages);
+
+  useEffect(() => {
+    dispatch(fetchPackage());
+  }, [dispatch]);
+
   return (
     <>
-      <div className="card">
+    {package_item.map((item) => {
+      return (
+        <div className="card" key={item?.id}>
         <div className="image-box">
           <img
-            src={require("../../../assets/images/prefered-package.png")}
-            alt="Package"
+            src={item?.image}
+            alt={item?.title}
           />
         </div>
         <div className="text-box">
-          <h4>harihar fort</h4>
+          <h4>{item?.title}</h4>
           <div className="location">
             <img
               src={require("../../../assets/images/location.svg").default}
               alt="Package"
             />
-            <span>tamilnadu</span>
+            <span>{item?.state}</span>
           </div>
           <div className="price">
-            <span>$600</span>
+            <span>₹ {item?.price_for_adult}</span>
           </div>
         </div>
       </div>
+      )
+    })}
+      
     </>
   );
 }
 
-export default PreferedPackage;
+export default PreferredPackage;
