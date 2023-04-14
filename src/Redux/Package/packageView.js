@@ -10,11 +10,29 @@ export const fetchPackageView = createAsyncThunk(
   }
 );
 
+export const addToCart = createAsyncThunk(
+  'events/addToCart',
+  async ({slug, token}) => {
+    const config = {
+      headers: { Authorization: `Bearer ${token}` },
+    };
+    try {
+    const response = await axios.post(`${BASE_URL}/packages/cart/add/${slug}/`, null, config);
+    console.log(response.data.data);
+    return response.data.data;
+    }
+    catch(error){
+      console.log(error.response);
+    }
+  }
+);
+
 
 const PackageViewSlice = createSlice({
   name: 'packageView',
   initialState: {
     package: '',
+    message: ''
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -23,7 +41,12 @@ const PackageViewSlice = createSlice({
       .addCase(fetchPackageView.fulfilled, (state, action) => {
         state.package = action.payload;
       })
-      .addCase(fetchPackageView.rejected, (state, action) => {});
+      .addCase(fetchPackageView.rejected, (state, action) => {})
+      .addCase(addToCart.pending, (state) => {})
+      .addCase(addToCart.fulfilled, (state, action) => {
+        state.message = action.payload;
+      })
+      .addCase(addToCart.rejected, (state, action) => {})
   }
 });
 

@@ -1,26 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./PackageSingle.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchItinerary } from "../../../../Redux/Package/itinerary";
 
-function Itinerary() {
+function Itinerary({ slug }) {
+  const dispatch = useDispatch();
+  const itinerary = useSelector((state) => state.itinerary.itineraries);
+
+  useEffect(() => {
+    dispatch(fetchItinerary(slug));
+  }, [slug, dispatch]);
+
   return (
     <>
       <div className="bottom">
         <h5>Itinerary</h5>
-        <div className="activities">
-          <h6>Day 1 Manali- Roli Kholi</h6>
-          <span>
-            Drive From Manali To Gulaba| Trek from Gulba To Roli Kholi. (3hrs –
-            4hrs).
-          </span>
-          <p>
-            After ariving meeting point in Manali , will have briefing and
-            orintation betwen trekkers and guides. After picking Packed Lunch
-            drive to Gulaba (Starting point of the trek). Once we are there,
-            we'll begin our trek to our first base camp at Roli Kholi. The
-            dinner are going to be served at ROli Kholi and tents are going to
-            be allotted at the campsite.
-          </p>
-        </div>
+        {itinerary.map((item) => {
+          return (
+            <div className="activities" key={item?.id}>
+            <h6>{item?.title}</h6>
+            <span>
+            {item?.details_of_trip}
+            </span>
+            <p>
+              {item?.description}
+              </p>
+          </div>
+          )
+        })}
+        
       </div>
     </>
   );

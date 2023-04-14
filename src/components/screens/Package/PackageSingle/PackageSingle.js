@@ -6,19 +6,30 @@ import QuickFacts from "./QuickFacts";
 import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchPackageView } from "../../../../Redux/Package/packageView";
+import { addToCart, fetchPackageView } from "../../../../Redux/Package/packageView";
 import { useParams } from "react-router-dom";
 import "./PackageSingle.css";
 
 function PackageSingle() {
   const dispatch = useDispatch();
   const packageView = useSelector((state) => state.packageView.package);
+  const message = useSelector((state) => state.packageView.message);
+  const userData = useSelector((state) => state.user.data);
+
+  const token = userData?.data?.access;
+
+  console.log(message, "===message");
 
   const params = useParams();
+  const slug = params.id
+
+  const handleCart = () => {
+    dispatch(addToCart({slug: slug, token: token}))
+  }
   
   useEffect(() => {
-    dispatch(fetchPackageView(params.id));
-  }, [params, dispatch]);
+    dispatch(fetchPackageView(slug));
+  }, [slug, dispatch]);
   
   return (
     <>
@@ -60,7 +71,7 @@ function PackageSingle() {
             </div>
             <div className="item price">
               <h6>₹ {packageView?.price}</h6>
-              <span>book now</span>
+              <span onClick={()=> handleCart()}>book now</span>
             </div>
           </div>
           <div className="content-box">
@@ -75,16 +86,16 @@ function PackageSingle() {
               <p>
               </p>
             </div>
-            <QuickFacts slug={params.id} />
+            <QuickFacts slug={slug} />
           </div>
-          <Questions slug={params.id} />
-            <Additions slug={params.id}/>
-          <Itinerary slug={params.id} />
-          <Gear slug={params.id} />
+          <Questions slug={slug} />
+            <Additions slug={slug}/>
+          <Itinerary slug={slug} />
+          <Gear slug={slug} />
         </div>
         <div className="info-footer">
           <h5>Manali</h5>
-          <button>Book Now</button>
+          <button onClick={()=> handleCart()}>Book Now</button>
         </div>
       </section>
     </>

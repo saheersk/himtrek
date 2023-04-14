@@ -7,7 +7,10 @@ import cartReducer from './Cart/cart'
 import contactReducer from './Contact/contact'
 import packageViewReducer from './Package/packageView'
 import quickFactReducer from './Package/quickFact'
-import questionReducer from './Package/quickFact'
+import questionReducer from './Package/question'
+import travelIncludeReducer from './Package/TravelIncludes'
+import itineraryReducer from './Package/itinerary'
+import gearReducer from './Package/gears'
 
 const store = configureStore({
     reducer: {
@@ -19,7 +22,10 @@ const store = configureStore({
         contact: contactReducer,
         packageView: packageViewReducer,
         quickFact: quickFactReducer,
-        question: questionReducer
+        question: questionReducer,
+        travelInclude: travelIncludeReducer,
+        itinerary: itineraryReducer,
+        gear: gearReducer
     },
 });
 
