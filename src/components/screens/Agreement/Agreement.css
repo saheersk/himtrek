@@ -8,3 +8,8 @@
     line-height: 1.3em;
     text-align: justify;
 }
+@media all and (max-width: 400px) {
+    #agreement-container h4{
+        font-size: 22px;
+    }
+}
