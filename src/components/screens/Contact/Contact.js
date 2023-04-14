@@ -8,13 +8,15 @@ import { contactFailure, contactSuccess } from "../../../Redux/Contact/contact";
 
 function Contact() {
   const dispatch = useDispatch();
-  // const response = useSelector((state) => state.contact.response); Use for Alert
+  const response = useSelector((state) => state.contact.response);
 
   const [name, setName] = useState("");
   const [organization, setOrganization] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [contact_number, setContact_number] = useState("");
+
+  console.log(response);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +25,7 @@ function Contact() {
         name,
         message,
         email,
-        organization_name: organization ? (organization) : "" ,
+        organization_name: organization ? (organization) : "",
         contact_number,
       })
       .then((response) => {
@@ -31,15 +33,15 @@ function Contact() {
         if (response.data.status_code === 6000) {
           dispatch(contactSuccess(data));
         }
-        else  {
+        else {
           dispatch(contactFailure(data));
         }
-        
+
       })
       .catch((error) => {
         console.log(error);
         if (error.response.status_code === 6001) {
-            dispatch(contactFailure(error.response.data));
+          dispatch(contactFailure(error.response.data));
         }
       });
   };

@@ -5,6 +5,9 @@ import eventReducer from './Home/event'
 import packageReducer from './Home/package'
 import cartReducer from './Cart/cart'
 import contactReducer from './Contact/contact'
+import packageViewReducer from './Package/packageView'
+import quickFactReducer from './Package/quickFact'
+import questionReducer from './Package/quickFact'
 
 const store = configureStore({
     reducer: {
@@ -13,7 +16,10 @@ const store = configureStore({
         event: eventReducer,
         package: packageReducer,
         cart: cartReducer,
-        contact: contactReducer
+        contact: contactReducer,
+        packageView: packageViewReducer,
+        quickFact: quickFactReducer,
+        question: questionReducer
     },
 });
 

@@ -17,7 +17,7 @@ function Package() {
     {package_item.map((item)=> {
       return (
         <div className="package" >
-          <Link to={`/package-single/${item.slug}/`}>
+          <Link to={`/package/view/${item.slug}/`}>
           <div className="left-box">
             <div className="image-box">
               <img

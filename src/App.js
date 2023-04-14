@@ -72,7 +72,7 @@ function App() {
               <Route path="/searchingresult" element={<SearchingResult />} />
               <Route path="/paymentsuccess" element={<PaymentSuccess />} />
               <Route path="/traveler-info" element={<TravelerInfo />} />
-              <Route path="/forgotpassword" element={<ForgotPassword />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
             </Routes>
           </Router>
         )}
