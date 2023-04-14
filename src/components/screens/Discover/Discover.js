@@ -6,7 +6,6 @@ import "./Discover.css";
 import Footer from "../Footer/Footer";
 import ClientCard from "./ClientCard";
 import CityCards from "./CityCards";
-import CityCardsLeft from "./CityCardsLeft";
 
 function Discover() {
   const breakPoints = [
@@ -26,7 +25,6 @@ function Discover() {
           <div className="content-box">
             <div className="main-city">
               <CityCards />
-              <CityCardsLeft />
             </div>
           </div>
           <div className="button">
