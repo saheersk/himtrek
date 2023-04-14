@@ -12,7 +12,6 @@ function PackageList() {
           </div>
           <div className="package-box">
             <Package />
-            <Package />
           </div>
           <div className="button">
             <span>view all packages</span>

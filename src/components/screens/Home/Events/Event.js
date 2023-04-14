@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Events.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchEvent } from "../../../../Redux/Home/event";
 
 function Event() {
+  const dispatch = useDispatch();
+  const event = useSelector((event) => event.event.events);
+
+  useEffect(() => {
+    dispatch(fetchEvent());
+  }, [dispatch]);
+
   return (
     <>
-      <li data-aos="fade-up">
-        <div className="preview">
-          <img
-            src={require("../../../assets/images/workspace1.jpg")}
-            alt="Preview"
-          />
-        </div>
-        <div className="text-container">
-          <div className="text box">
-            <h4>Kakkadampoyil</h4>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo,
-              nulla!
-            </p>
-          </div>
-          <div className="date">
-            <span>Dec</span>
-            <small>21</small>
-          </div>
-        </div>
-      </li>
+      {event.map((event) => {
+        return (
+          <li data-aos="fade-up" key={event?.id}>
+            <div className="preview">
+              <img src={event?.image} alt={event?.title} />
+            </div>
+            <div className="text-container">
+              <div className="text box">
+                <h4>{event?.title}</h4>
+                <p>{event?.description}</p>
+              </div>
+              <div className="date">
+                <span>{event?.added_date}</span>
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </>
   );
 }

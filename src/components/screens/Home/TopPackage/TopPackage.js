@@ -19,9 +19,6 @@ function TopPackage() {
           <div className="content">
             <ul>
               <PackageCard />
-              <PackageCard />
-              <PackageCard />
-              <PackageCard />
             </ul>
           </div>
           <div className="button">

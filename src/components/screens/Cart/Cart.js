@@ -13,9 +13,6 @@ function Cart() {
         </div>
         <div className="cart-box">
           <Product />
-          <Product />
-          <Product />
-          <Product />
         </div>
       </section>
         <div className="checkout-banner">

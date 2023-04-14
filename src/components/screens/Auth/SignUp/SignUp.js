@@ -1,8 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../../../../axiosConfig";
+import { useDispatch, useSelector } from "react-redux";
+import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+  const error_message = useSelector((state) => state.user.message);
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [re_password, setRe_Password] = useState("");
+  const [email, setEmail] = useState("");
+  const [full_name, setFull_name] = useState("");
+  const [contact_number, setContact_number] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(clearMessage());
+    axios
+      .post(`${BASE_URL}/auth/register/`, {
+        username,
+        password,
+        re_password,
+        email,
+        full_name,
+        contact_number,
+      })
+      .then((response) => {
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          dispatch(loginSuccess(data));
+          navigate('/otp/');
+        }
+        else  {
+          dispatch(loginFailure(response.data));
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(loginFailure(error.response.data));
+        }
+      });
+  };
+
   return (
     <>
       <div className="signup-page">
@@ -11,19 +58,46 @@ export default function SignUp() {
             <div className="signup-form">
               <h2>Create a new account.</h2>
               <h6>
-                already a member?<Link to="/login/">Login</Link>
+                Already a member?<Link to="/login/">Login</Link>
               </h6>
-              <form action="">
-                <input type="text" name="full-name" placeholder="Name" />
-                <input type="text" name="email" placeholder="Email" />
-                <input type="text" name="contact-number" placeholder="Mobile" />
-                <input type="text" name="username" placeholder="Username" />
-                <input type="text" name="password" placeholder="Password" />
-                <input
+              <form action="" onSubmit={handleSubmit}>
+              <input
+                  value={full_name}
+                  onChange={(e) => setFull_name(e.target.value)}
                   type="text"
-                  name="re-password"
+                  placeholder="Name"
+                />
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  placeholder="Email"
+                />
+                <input
+                  value={contact_number}
+                  onChange={(e) => setContact_number(e.target.value)}
+                  type="text"
+                  placeholder="Phone number"
+                />
+                <input
+                  onChange={(e) => setUsername(e.target.value)}
+                  value={username}
+                  type="text"
+                  placeholder="Username"
+                />
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  type="password"
+                  placeholder="Password"
+                />
+                <input
+                  onChange={(e) => setRe_Password(e.target.value)}
+                  value={re_password}
+                  type="password"
                   placeholder="Re-enter password"
                 />
+                {error_message && <p>{error_message}</p>}
                 <div className="singup-button">
                   <Link to="/">Go to Home</Link>
                   <input type="submit" value="Register" className="register" />

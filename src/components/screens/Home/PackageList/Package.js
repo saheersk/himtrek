@@ -1,56 +1,68 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchPackage } from "../../../../Redux/Home/package";
 import "./PackageList.css";
 
-import { Link } from "react-router-dom";
-
 function Package() {
+  const dispatch = useDispatch();
+  const package_item = useSelector((package_item) => package_item.package.packages);
+
+  useEffect(() => {
+    dispatch(fetchPackage());
+  }, [dispatch]);
+
   return (
     <>
-      <div className="package">
-        <Link to="/package-single/">
+    {package_item.map((item)=> {
+      return (
+        <div className="package" >
+          <Link to={`/package-single/${item.slug}/`}>
           <div className="left-box">
             <div className="image-box">
               <img
-                src={require("../../../assets/images/all-india.png")}
-                alt="Package"
+                src={item?.image}
+                alt={item?.title}
               />
             </div>
             <div className="text-box">
-              <h3>thajmahal and delhi</h3>
-              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+              <h3>{item?.title}</h3>
+              <p>{item?.title}</p>
               <ul>
                 <li className="wrapper-box">
                   <li className="time">
-                    {" "}
                     <img
                       src={require("../../../assets/images/clock.svg").default}
                       alt="Package"
                     />
-                    <span>7 Days</span>
+                    <span>{item?.days} Days</span>
                   </li>
                   <li className="persons">
                     <img
                       src={require("../../../assets/images/user.svg").default}
                       alt="Package"
                     />
-                    <span>7 persons</span>
+                    <span>{item?.person_slot} Slot</span>
                   </li>
                   <li className="location">
-                    <span>India</span>
+                    <span>{item?.state}</span>
                   </li>
                 </li>
               </ul>
             </div>
           </div>
           <div className="price">
-            <h4>₹ 1000</h4>
+            <h4>₹ {item?.price}</h4>
             <img
               src={require("../../../assets/images/cart.svg").default}
               alt="Package"
             />
           </div>
-        </Link>
+          </Link>
       </div>
+      )
+    })}
+      
     </>
   );
 }

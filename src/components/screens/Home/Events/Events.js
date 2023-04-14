@@ -13,7 +13,6 @@ function Events() {
           <div className="content">
             <ul>
               <Event />
-              <Event />
             </ul>
           </div>
           <div className="button">

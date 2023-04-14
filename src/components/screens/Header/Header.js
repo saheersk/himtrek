@@ -1,10 +1,22 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "../../../Redux/Auth/auth";
 import "./Header.css";
 
-import { Link } from "react-router-dom";
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-
 function Header() {
+  const dispatch = useDispatch();
+  const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
+
+  let navigate = useNavigate()
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    navigate('/');
+  };
+
+
   return (
     <>
       <header>
@@ -30,10 +42,21 @@ function Header() {
               <option value="eng">ENG</option>
               <option value="eng">ENG</option>
             </select>
-            <Link to="/login">login</Link>
-            <Link to="/signup" className="register">
-              register
-            </Link>
+            {is_LoggedIn ? (
+              <div>
+                <Link to="/login">Username</Link>
+                <span to="/signup" className="register" onClick={() => handleLogout()} >
+                  Logout
+                </span>
+              </div>
+            ) : (
+              <div>
+                <Link to="/login">login</Link>
+                <Link to="/signup" className="register">
+                  register
+                </Link>
+              </div>
+            )}
           </ul>
 
           <HamburgerMenu />

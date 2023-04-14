@@ -1,20 +1,62 @@
 import React, { useState, useRef } from "react";
-import swal from "sweetalert";
+import swal from "sweetalert2";
 import "./Otp.css";
+import { BASE_URL } from "../../../../axiosConfig";
+import axios from "axios";
+import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 function AutoFillOTP() {
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.user.message);
+
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const refs = useRef([]);
 
-  const popUp = (e) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    swal({
-      title: "Welcome",
-      text: "Login Successfuly ",
-      icon: "success",
-      button: "OK",
-    });
-    setOtp(["", "", "", "", "", ""]);
+    dispatch(clearMessage());
+
+    const num = otp.join(''); 
+
+    console.log(num);
+
+    axios
+      .post(`${BASE_URL}/auth/verify/`, {
+        otp: num,
+      })
+      .then((response) => {
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          localStorage.setItem('user_data', JSON.stringify(data));
+          dispatch(loginSuccess(data));
+          setOtp(["", "", "", "", "", ""]);
+          swal.fire({
+            title: 'Successful',
+            text: 'OTP verified.',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          }).then((result) => {
+            if (result.value) {
+              navigate('/');
+            }
+          });
+          
+        }
+        else  {
+          dispatch(loginFailure(response.data));
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(loginFailure(error.response.data));
+        }
+      });
   };
 
   const handleChange = (element, index) => {
@@ -56,7 +98,7 @@ function AutoFillOTP() {
             </div>
             <div className="otp-verification">
               <h4>OTP Verification</h4>
-              <p>Type One Type Password sent to your mobile number.</p>
+              <p>One Time Password sent to your mobile number.</p>
               <form action="">
                 {otp.map((data, index) => {
                   return (
@@ -74,10 +116,11 @@ function AutoFillOTP() {
                     />
                   );
                 })}
-                <h5>Resent OTP</h5>
+                {/* <h5>Resent OTP</h5> */}
+                {message && <p>{message}</p>}
                 <input
                   className="btn btn-primary"
-                  onClick={(e) => popUp(e)}
+                  onClick={(e) => handleSubmit(e)}
                   type="submit"
                   value="Submit"
                 />
