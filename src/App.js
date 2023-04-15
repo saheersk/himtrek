@@ -22,6 +22,7 @@ import TravelerInfo from "./components/screens/TravelerInfo/TravelerInfo";
 import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassword";
 import AllEvents from "./components/screens/Events/AllEvents";
 import Career from "./components/screens/Career/Career";
+import CareerSingle from "./components/screens/Career/CareerSingle";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -76,6 +77,7 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/all-events" element={<AllEvents />} />
               <Route path="/career" element={<Career />} />
+              <Route path="/career-single" element={<CareerSingle />} />
             </Routes>
           </Router>
         )}
