@@ -1,34 +1,69 @@
 import React, { useState } from "react";
 import "./ForgotPassword.css";
 import { useNavigate } from "react-router-dom";
-
 import Swal from "sweetalert2";
 import Header from "../../Header/Header";
+import axios from "axios";
+import { BASE_URL } from "../../../../axiosConfig";
+import { useDispatch } from "react-redux";
+import { passwordFailure, passwordSuccess } from "../../../../Redux/Auth/forgotPassword";
 
 function ForgotPassword() {
-  const [formData, setFormData] = useState({
-    phone: "",
-    otp: "",
-    password: "",
-    re_passwprd: "",
-  });
-  const isTenDigit = /^\d{10}$/.test(formData.phone);
+  const dispatch = useDispatch();
+  // const error_message = useSelector((state) => state.user.message);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [phone, setPhone] = useState("");
+  const [otp, setOtp] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+
+  const isTenDigit = /^\d{10}$/.test(phone);
 
   const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (formData.password === formData.re_passwprd) {
-      Swal.fire({
-        icon: "success",
-        title: "Your Password is Changed!",
-        text: "Your Password is successfully changed.",
+    
+    if (password === rePassword) {
+      axios
+      .post(`${BASE_URL}/auth/confirm/change-password/`, {
+        contact_number: "+91" + phone,
+        otp,
+        password,
+        re_password: rePassword,
+      })
+      .then((response) => {
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          dispatch(passwordSuccess(data));
+          Swal.fire({
+            title: 'Successfully Changed your password',
+            text: 'Password changed successfully',
+            icon: 'success',
+            confirmButtonText: 'Ok',
+          }).then((result) => {
+            if (result.value) {
+              navigate('/');
+            }
+          });
+        }
+        else  {
+          dispatch(passwordFailure(response.data));
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(passwordFailure(error.response.data));
+        }
       });
-      navigate("/");
     } else {
       Swal.fire({
         icon: "error",
         title: "Opps!",
-        text: "You entered passords are not match.",
+        text: "You entered passwords are not match.",
       });
     }
   };
@@ -36,21 +71,40 @@ function ForgotPassword() {
     e.preventDefault();
     if (isTenDigit === true) {
       toggleMenu();
-      Swal.fire({
-        icon: "success",
-        title: "OTP Sent",
-        text: `OTP Sent to +91 ${formData.phone}`,
+      
+      axios
+      .post(`${BASE_URL}/auth/verify/change-password/`, {
+        contact_number: "+91" + phone,
+      })
+      .then((response) => {
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          dispatch(passwordSuccess(data));
+          Swal.fire({
+            icon: "success",
+            title: "OTP Sent",
+            text: `OTP Sent to +91 ${phone}`,
+          });
+        }
+        else  {
+          dispatch(passwordFailure(response.data));
+        }
+        
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(passwordFailure(error.response.data));
+        }
       });
     } else {
       Swal.fire({
         icon: "error",
-        title: "Enter Mobile  Number Correclty",
+        title: "Enter Mobile  Number Correctly",
         text: " Enter your correct mobile number",
       });
     }
   };
-
-  const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -70,15 +124,8 @@ function ForgotPassword() {
                   type="text"
                   required
                   placeholder="Enter your mobile number"
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      phone: e.target.value,
-                    })
-                  }
-                  pattern="[0-9]*"
-                  maxLength="10"
-                  value={formData.phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  value={phone}
                 />
                 <button className={`${isOpen ? "disable" : ""}`}>Submit</button>
               </form>
@@ -88,36 +135,21 @@ function ForgotPassword() {
                 <label htmlFor="">OTP</label>
                 <input
                   type="text"
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      otp: e.target.value,
-                    })
-                  }
+                  onChange={(e) => setOtp(e.target.value)}
+                  value={otp}
                   maxLength="6"
-                  value={formData.otp}
                 />
                 <label htmlFor="">Password</label>
                 <input
                   type="password"
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      password: e.target.value,
-                    })
-                  }
-                  value={formData.password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                 />
                 <label htmlFor="">Re-password</label>
                 <input
                   type="password"
-                  onChange={(e) =>
-                    setFormData({
-                      ...formData,
-                      re_passwprd: e.target.value,
-                    })
-                  }
-                  value={formData.re_passwprd}
+                  onChange={(e) => setRePassword(e.target.value)}
+                  value={rePassword}
                 />
 
                 <button onClick={(e) => handleSubmit(e)}>Submit</button>

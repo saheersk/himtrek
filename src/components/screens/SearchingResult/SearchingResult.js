@@ -22,11 +22,6 @@ function SearchingResult() {
           </div>
           <div className="place-cards">
             <PlaceCard />
-            <PlaceCard />
-            <PlaceCard />
-            <PlaceCard />
-            <PlaceCard />
-            <PlaceCard />
           </div>
         </div>
       </section>

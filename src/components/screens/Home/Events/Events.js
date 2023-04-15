@@ -8,7 +8,7 @@ function Events() {
       <section id="events">
         <div className="wrapper">
           <div className="head">
-            <h3>upcomming events</h3>
+            <h3>upcoming events</h3>
           </div>
           <div className="content">
             <ul>

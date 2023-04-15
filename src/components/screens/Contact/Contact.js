@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
-import "./Contact.css";
 import axios from "axios";
 import { BASE_URL } from "../../../axiosConfig";
 import { contactFailure, contactSuccess } from "../../../Redux/Contact/contact";
+import "./Contact.css";
 
 function Contact() {
   const dispatch = useDispatch();

@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import swal from "sweetalert2";
-import "./Otp.css";
 import { BASE_URL } from "../../../../axiosConfig";
 import axios from "axios";
 import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import "./Otp.css";
 
 function AutoFillOTP() {
   const dispatch = useDispatch();
