@@ -18,7 +18,7 @@ function Package() {
     <>
       {package_item.map((item) => {
         return (
-          <div className="package">
+          <div className="package" key={item?.id}>
             <Link to={`/package/view/${item.slug}/`}>
               <div className="left-box">
                 <div className="image-box">
@@ -48,7 +48,7 @@ function Package() {
                 </div>
               </div>
               <div className="price">
-                <h4>₹ {item?.price}</h4>
+                <h4>₹ {item?.price_for_adult}</h4>
                 <img
                   src={require("../../../assets/images/cart.svg").default}
                   alt="Package"

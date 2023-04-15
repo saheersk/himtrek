@@ -1,7 +1,6 @@
 import React from "react";
 import "./Preferences.css";
 
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import PreferedPackage from "./PreferedPackage";
 import CategoryTab from "./CategoryTab";
@@ -17,9 +16,6 @@ function Preferences() {
           <div className="content-container">
             <CategoryTab />
             <div className="content-cards">
-              <PreferedPackage />
-              <PreferedPackage />
-              <PreferedPackage />
               <PreferedPackage />
             </div>
           </div>

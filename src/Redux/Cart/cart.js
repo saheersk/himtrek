@@ -33,6 +33,8 @@ const cartSlice = createSlice({
   initialState: {
     products: "",
     package_price_per_person: 0,
+    package_price_per_children: 0,
+    package_price_family_of_four: 0,
     is_Products: false,
   },
   reducers: {},
@@ -42,7 +44,9 @@ const cartSlice = createSlice({
       .addCase(fetchCartProduct.fulfilled, (state, action) => {
         if (action.payload !== undefined) {
           state.products = action.payload;
-          state.package_price_per_person = action.payload.package.price
+          state.package_price_per_person = action.payload.package.price_for_adult
+          state.package_price_family_of_four = action.payload.package.price_for_family_of_four
+          state.package_price_per_children = action.payload.package.price_for_children_below_six_years
           state.is_Products = true;
         }
         else {

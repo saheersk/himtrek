@@ -11,6 +11,9 @@ import questionReducer from './Package/question'
 import travelIncludeReducer from './Package/TravelIncludes'
 import itineraryReducer from './Package/itinerary'
 import gearReducer from './Package/gears'
+import reviewReducer from './Discover/clientCard'
+import careerReducer from './Career/career'
+import passwordReducer from './Auth/forgotPassword'
 
 const store = configureStore({
     reducer: {
@@ -25,7 +28,10 @@ const store = configureStore({
         question: questionReducer,
         travelInclude: travelIncludeReducer,
         itinerary: itineraryReducer,
-        gear: gearReducer
+        gear: gearReducer,
+        review: reviewReducer,
+        career: careerReducer,
+        password: passwordReducer,
     },
 });
 

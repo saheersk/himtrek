@@ -45,7 +45,8 @@ section#package-list .image-box {
 
 section#package-list .image-box img {
     width: 100%;
-    height: 100%;
+    height: 150px;
+    object-fit: cover;
     border-radius: 20px;
 }
 

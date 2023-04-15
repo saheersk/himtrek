@@ -54,10 +54,7 @@ function Discover() {
               breakPoints={breakPoints}
             >
               <ClientCard />
-              <ClientCard />
-              <ClientCard />
-              <ClientCard />
-              <ClientCard />
+
             </Carousel>
           </ul>
         </div>

@@ -11,7 +11,7 @@ function Gear({ slug }) {
 
   const token = userData?.data?.access;
 
-  console.log(message, "===message");
+  console.log(message, "=====message");
 
   const handleGearCart = (id) => {
     dispatch(addGearToCart({productId: id, token: token}))

@@ -32,7 +32,7 @@ const PackageViewSlice = createSlice({
   name: 'packageView',
   initialState: {
     package: '',
-    message: ''
+    message: '',
   },
   reducers: {},
   extraReducers: (builder) => {
