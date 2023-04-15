@@ -11,7 +11,7 @@ function Package() {
   );
 
   useEffect(() => {
-    dispatch(fetchPackage());
+    dispatch(fetchPackage({ month: "", state: ""}));
   }, [dispatch]);
 
   return (

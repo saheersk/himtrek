@@ -3,7 +3,7 @@
     --light-blue: #47758c;
     --dark-blue: #021f3e;
     --grey: #7a7a7a;
-    --orenge: #C77935;
+    --orange: #C77935;
 
 }
 
@@ -48,7 +48,7 @@
 #banner .cover-img .text-box h3 {
     font-size: 30px;
     margin-bottom: 10px;
-    color: #fff;
+    color: var(--orange);
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -98,7 +98,7 @@
 
 
 #banner .detials-box .item.price h6 {
-    color: var(--orenge);
+    color: var(--orange);
     font-size: 20px;
 }
 
@@ -109,7 +109,7 @@
     cursor: pointer;
     padding: 12px 20px;
     border-radius: 10px;
-    background: var(--orenge);
+    background: var(--orange);
     display: block;
     margin-top: 10px;
     text-transform: uppercase;
@@ -193,7 +193,7 @@
 }
 
 #banner .bottom h5 {
-    color: var(--orenge);
+    color: var(--orange);
     font-size: 22px;
     margin-bottom: 10px;
 }
@@ -227,7 +227,7 @@
 
 #banner .additions h2 {
     font-size: 24px;
-    color: var(--orenge);
+    color: var(--orange);
     margin-bottom: 28px;
 }
 
@@ -311,7 +311,7 @@
 #banner .slide-container .item button {
     padding: 12px 20px;
     color: #fff;
-    background-color: var(--orenge);
+    background-color: var(--orange);
     border: none;
     border-radius: 10px;
     width: 100%;
@@ -337,7 +337,7 @@
 
 #banner .info-footer h5 {
     font-size: 22px;
-    color: var(--orenge);
+    color: var(--orange);
 }
 
 /* responsive-screen */

@@ -3,9 +3,12 @@
     --light-blue: #92ADBB;
     --shade-blue: #47758C;
     --content: #7A7A7A;
-    --orenge: #C77935;
+    --orange: #C77935;
 }
-
+.active {
+    background: #021f3e98;
+    border-radius: 30px;
+}
 section#preference {
     padding: 80px 0;
 }

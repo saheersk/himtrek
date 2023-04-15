@@ -3,7 +3,7 @@ import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
 
 export const fetchState = createAsyncThunk(
-  'states/fetchPlaces',
+  'states/fetchState',
   async () => {
     const response = await axios.get(`${BASE_URL}/packages/state/`);
     return response.data.data;

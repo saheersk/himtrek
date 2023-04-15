@@ -39,16 +39,16 @@ function About() {
                 <span>year of experience</span>
               </li>
             </ul>
+              <Link to="/about-us" >
             <button>
-              <Link to="/about-us">
                 {" "}
                 more about{" "}
                 <img
                   src={require("../../../assets/images/arrow-right-solid.png")}
                   alt="Arrow"
                 />
-              </Link>
             </button>
+              </Link>
           </div>
           <div className="image-container">
             <div className="hero-image">

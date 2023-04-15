@@ -38,7 +38,7 @@ function SearchingResult() {
           </div>
 
           {/* filter-bar */}
-          <div className={`filter-box ${isOpen ? "open" : ""}`}>
+          <div className={`filter-container ${isOpen ? "open" : ""}`}>
             <div className="head">
               <span onClick={toggleMenu}>
                 <img

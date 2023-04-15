@@ -7,7 +7,7 @@ import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchPackageView } from "../../../../Redux/Package/packageView";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
 
 function PackageSingle() {
@@ -20,11 +20,18 @@ function PackageSingle() {
 
   console.log(message, "===message");
 
+ const navigate = useNavigate()
+
   const params = useParams();
   const slug = params.id
 
   const handleCart = () => {
-    dispatch(addToCart({slug: slug, token: token}))
+    if(message === 401) {
+      navigate("/login/");
+    }
+    else {
+      dispatch(addToCart({slug: slug, token: token}))
+    }
   }
   
   useEffect(() => {

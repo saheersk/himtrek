@@ -141,7 +141,7 @@
     color: #FFF;
 }
 
-.filter-box {
+.filter-container {
     width: 30%;
     background: #efefef;
     position: fixed;
@@ -158,49 +158,49 @@
     right: 0;
 }
 
-.filter-box .content-box {
+.filter-container.content-box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: 70vh;
 }
 
-.filter-box .head {
+.filter-container.head {
     display: flex;
     align-items: center;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.filter-box .head h5 {
+.filter-container.head h5 {
     font-size: 24px;
     text-align: center;
     width: 100%;
 }
 
-.filter-box span img {
+.filter-containerspan img {
     width: 100%;
     display: block;
 }
 
-.filter-box span {
+.filter-containerspan {
     cursor: pointer;
     width: 30px;
     display: block;
 }
 
-.filter-box h4 {
+.filter-containerh4 {
     margin-bottom: 20px;
     color: var(--orenge);
 }
 
-.filter-box form .item {
+.filter-containerform .item {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
 }
 
-.filter-box form .item input {
+.filter-containerform .item input {
     padding: 20px;
     height: 24px;
     width: 24px;
@@ -209,7 +209,7 @@
     border: 1px solid var(--orenge);
 }
 
-.filter-box .content-box button {
+.filter-container.content-box button {
     cursor: pointer;
     padding: 12px 20px;
     border: none;
@@ -220,7 +220,7 @@
     transition: .3s ease;
 }
 
-.filter-box .content-box button:hover {
+.filter-container.content-box button:hover {
     background-color: #7f420c;
 }
 

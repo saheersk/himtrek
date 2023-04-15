@@ -72,8 +72,7 @@ function App() {
               <Route path="/otp/" element={<AutoFillOTP />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/searchingresult" element={<SearchingResult />} />
-              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/traveler-info/:id" element={<TravelerInfo />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/all-events" element={<AllEvents />} />

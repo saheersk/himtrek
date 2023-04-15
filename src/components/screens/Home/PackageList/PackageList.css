@@ -1,6 +1,6 @@
 section#package-list {
     padding: 80px 0;
-    background-image: url(../../../../components/assets/images/slides-bg.png);
+    background-image: url("../../../../components/assets/images/slides-bg.png");
     background-position: top right;
     background-repeat: no-repeat;
     background-size: 200px;

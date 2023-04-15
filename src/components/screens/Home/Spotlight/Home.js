@@ -3,7 +3,6 @@ import "./Home.css";
 import Header from "../../Header/Header";
 import About from "../About/About";
 
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Typewriter from "typewriter-effect";
 
@@ -15,13 +14,28 @@ import PackageList from "../PackageList/PackageList";
 import Preferences from "../Preferences/Preferences";
 import Workspace from "../Workspace/Workspace";
 import Footer from "../../Footer/Footer";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchState } from "../../../../Redux/Home/state";
 
 function Home() {
+  const dispatch = useDispatch();
+  const travel_state = useSelector((state) => state.state.states);
+
+  const [state, setState] = useState("");
+  const [month, setMonth] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/result/?state=${state}&month=${month}`);
+  };
+
   useEffect(() => {
     AOS.init();
-  }, []);
-  const [startDate, setStartDate] = useState(new Date());
+    dispatch(fetchState());
+  }, [dispatch]);
 
   return (
     <>
@@ -35,7 +49,7 @@ function Home() {
                 <Typewriter
                   options={{
                     strings: [
-                      "Distinations...",
+                      "Destinations...",
                       "Trips...",
                       "Vibes...",
                       "Trek...",
@@ -56,44 +70,60 @@ function Home() {
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <div className="items">
-                  <div className="item">
-                    <h5>
-                      location{" "}
-                      <div className="icon">
-                        <img
-                          src={require("../../../assets/images/angle-up-solid.png")}
-                          alt=""
-                        />
-                      </div>
-                    </h5>
-                    <select name="" id="location">
-                      <option value="india">Kerala</option>
-                      <option value="india">Delhi</option>
-                      <option value="india">Tamilnadu</option>
-                    </select>
+                 <form action="" onSubmit={(e) => handleSubmit(e)}>
+                  <div className="items">
+                    <div className="item">
+                      <h5>
+                        location{" "}
+                        <div className="icon">
+                          <img
+                            src={require("../../../assets/images/angle-up-solid.png")}
+                            alt=""
+                          />
+                        </div>
+                      </h5>
+                      <select
+                        name="state"
+                        id="location"
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                      >
+                        <option value="">Select State</option>
+                        {travel_state.map((item) => {
+                          return (
+                            <option key={item?.id} value={item?.state}>
+                              {item?.state}
+                            </option>
+                          );
+                        })}
+                      </select>
+                    </div>
+                    <div className="item">
+                      <h5>
+                        Month{" "}
+                        <div className="icon">
+                          <img
+                            src={require("../../../assets/images/angle-up-solid.png")}
+                            alt=""
+                          />
+                        </div>
+                      </h5>
+                      <select
+                        name="month"
+                        id="location"
+                        value={month}
+                        onChange={(e) => setMonth(e.target.value)}
+                      >
+                        <option value="">Select Month</option>
+                        <option value="April">April</option>
+                        <option value="March">March</option>
+                      </select>
+                    </div>
                   </div>
-                  <div className="item">
-                    <h5>
-                      date{" "}
-                      <div className="icon">
-                        <img
-                          src={require("../../../assets/images/angle-up-solid.png")}
-                          alt=""
-                        />
-                      </div>
-                    </h5>
-                    <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
-                      dateFormat="dd/MM/yyy"
-                      minDate={new Date()}
-                    />
+                  <div className="button">
+                    <button type="submit">explore</button>
                   </div>
-                </div>
-                <div className="button">
-                  <Link to="searchingresult">explore</Link>
-                </div>
+                </form>
               </div>
               <div
                 className="branding-text"
