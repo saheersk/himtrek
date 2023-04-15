@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
-import "./Preferences.css";
-
-import "react-tabs/style/react-tabs.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPackage } from "../../../../Redux/Home/package";
+import { Link } from "react-router-dom";
+import "./Preferences.css";
+import "react-tabs/style/react-tabs.css";
 
 function PreferredPackage() {
   const dispatch = useDispatch();
-  const package_item = useSelector((package_item) => package_item.package.packages);
+  const package_item = useSelector(
+    (package_item) => package_item.package.packages
+  );
 
   useEffect(() => {
     dispatch(fetchPackage());
@@ -15,32 +17,30 @@ function PreferredPackage() {
 
   return (
     <>
-    {package_item.map((item) => {
-      return (
-        <div className="card" key={item?.id}>
-        <div className="image-box">
-          <img
-            src={item?.image}
-            alt={item?.title}
-          />
-        </div>
-        <div className="text-box">
-          <h4>{item?.title}</h4>
-          <div className="location">
-            <img
-              src={require("../../../assets/images/location.svg").default}
-              alt="Package"
-            />
-            <span>{item?.state}</span>
+      {package_item.map((item) => {
+        return (
+          <div className="card" key={item?.id}>
+            <Link to={`/package/view/${item?.slug}`}>
+              <div className="image-box">
+                <img src={item?.image} alt={item?.title} />
+              </div>
+              <div className="text-box">
+                <h4>{item?.title}</h4>
+                <div className="location">
+                  <img
+                    src={require("../../../assets/images/location.svg").default}
+                    alt="Package"
+                  />
+                  <span>{item?.state}</span>
+                </div>
+                <div className="price">
+                  <span>₹ {item?.price_for_adult}</span>
+                </div>
+              </div>
+            </Link>
           </div>
-          <div className="price">
-            <span>₹ {item?.price_for_adult}</span>
-          </div>
-        </div>
-      </div>
-      )
-    })}
-      
+        );
+      })}
     </>
   );
 }

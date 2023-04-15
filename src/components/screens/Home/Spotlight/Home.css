@@ -117,7 +117,7 @@ section#spotlight .wrapper .filter-box .item select option {
 
 }
 
-section#spotlight .wrapper .filter-box .button span {
+section#spotlight .wrapper .filter-box .button button {
     cursor: pointer;
     font-size: 16px;
     text-transform: capitalize;
@@ -135,7 +135,7 @@ section#spotlight .wrapper .filter-box .button span {
 
 }
 
-section#spotlight .wrapper .filter-box .button span:hover {
+section#spotlight .wrapper .filter-box .button button:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;

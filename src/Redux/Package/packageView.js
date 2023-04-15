@@ -18,11 +18,12 @@ export const addToCart = createAsyncThunk(
     };
     try {
     const response = await axios.post(`${BASE_URL}/packages/cart/add/${slug}/`, null, config);
-    console.log(response.data.data);
+    console.log(response.data.data, "res");
     return response.data.data;
     }
     catch(error){
-      console.log(error.response);
+      console.log(error.response, "error");
+      return error.response.status
     }
   }
 );

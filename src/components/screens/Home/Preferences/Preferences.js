@@ -4,6 +4,7 @@ import "./Preferences.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import PreferredPackage from "./PreferedPackage";
+import { Link } from "react-router-dom";
 
 function Preferences() {
   return (
@@ -35,6 +36,7 @@ function Preferences() {
               </TabPanel>
             </Tabs>
           </div>
+          <Link to="result">
           <div className="button">
             <h5>explore</h5>
             <small>
@@ -44,6 +46,7 @@ function Preferences() {
               />
             </small>
           </div>
+          </Link>
         </div>
       </section>
     </>
