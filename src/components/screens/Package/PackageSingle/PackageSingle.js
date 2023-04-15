@@ -25,7 +25,7 @@ function PackageSingle() {
  const navigate = useNavigate()
 
   const params = useParams();
-  const slug = params.id
+  const slug = params.slug
 
   const handleCart = () => {
     if(message === 401) {

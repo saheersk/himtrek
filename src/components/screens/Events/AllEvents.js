@@ -14,10 +14,6 @@ function AllEvents() {
           </div>
           <ul className="events container">
             <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
-            <EventCard />
           </ul>
         </div>
       </section>

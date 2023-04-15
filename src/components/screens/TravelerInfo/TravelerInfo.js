@@ -42,7 +42,7 @@ function TravelerInfo() {
   const [gearTotal, setGearTotal] = useState(0);
 
   const params = useParams();
-  const slug = params.id
+  const slug = params.slug
 
   const total_gear_price = gearCart.reduce((acc, item) => {
     const price = item?.gears?.price_per_day * parseInt(item?.days);

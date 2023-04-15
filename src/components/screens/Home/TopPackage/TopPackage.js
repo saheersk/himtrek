@@ -4,6 +4,7 @@ import "./ToPackage.css";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import PackageCard from "./PackageCard";
+import { Link } from "react-router-dom";
 
 function TopPackage() {
   useEffect(() => {
@@ -21,6 +22,7 @@ function TopPackage() {
               <PackageCard />
             </ul>
           </div>
+            <Link to="/result/">
           <div className="button">
             <h5>explore</h5>
             <small>
@@ -30,6 +32,7 @@ function TopPackage() {
               />
             </small>
           </div>
+          </Link>
         </div>
       </section>
     </>

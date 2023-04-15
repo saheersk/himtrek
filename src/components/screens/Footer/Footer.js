@@ -31,13 +31,13 @@ function Footer() {
                 <div className="item">
                   <h5>quick links</h5>
                   <span>
-                    <Link to="/about-us">about</Link>
+                    <Link to="/about-us/">about</Link>
                   </span>
                   <span>
                     <Link to="/discover">discover</Link>
                   </span>
                   <span>
-                    <Link to="/packages">packages</Link>
+                    <Link to="/result">packages</Link>
                   </span>
                   <span>
                     <Link to="/contact">contact</Link>
@@ -56,11 +56,11 @@ function Footer() {
                 <div className="item">
                   <h5>others</h5>
                   <span>
-                    <Link to="/cancellation/">cancellation policy</Link>
+                    <Link to="/career/">Career</Link>
                   </span>
 
                   <span>
-                    <Link to="/privacy/">privacy policy</Link>
+                    <Link to="/all-events/">Event</Link>
                   </span>
                 </div>
               </div>
