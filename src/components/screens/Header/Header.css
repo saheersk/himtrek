@@ -3,6 +3,8 @@
     --light-blue: #92ADBB;
     --headings: #47758C;
     --content: #7A7A7A;
+    --orenge: #C77935;
+
 
 }
 
@@ -38,6 +40,10 @@ header .wrapper ul a {
     font-weight: 600;
     letter-spacing: .5px;
     transition: .4s ease-in;
+}
+
+header .wrapper ul li a.active {
+    color: var(--orenge);
 }
 
 header .wrapper ul a:hover {

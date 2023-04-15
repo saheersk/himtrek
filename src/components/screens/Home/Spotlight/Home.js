@@ -15,6 +15,7 @@ import PackageList from "../PackageList/PackageList";
 import Preferences from "../Preferences/Preferences";
 import Workspace from "../Workspace/Workspace";
 import Footer from "../../Footer/Footer";
+import { Link } from "react-router-dom";
 
 function Home() {
   useEffect(() => {
@@ -91,7 +92,7 @@ function Home() {
                   </div>
                 </div>
                 <div className="button">
-                  <span>explore</span>
+                  <Link to="searchingresult">explore</Link>
                 </div>
               </div>
               <div

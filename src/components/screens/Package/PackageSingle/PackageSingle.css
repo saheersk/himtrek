@@ -48,6 +48,14 @@
     margin-bottom: 10px;
     color: var(--orenge);
     letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#banner .cover-img .text-box p {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #000;
+
 }
 
 #banner .detials-box {
@@ -83,6 +91,7 @@
 
 #banner .detials-box .item span {
     font-size: 16px;
+
 }
 
 
@@ -334,58 +343,72 @@
         width: 90%;
         margin-bottom: 30px;
     }
-    #banner .questions .item{
+
+    #banner .questions .item {
         width: 100%;
     }
 }
-@media all and (max-width: 760px){
-    #banner .additions .container-item .item{
+
+@media all and (max-width: 760px) {
+    #banner .additions .container-item .item {
         width: 45%;
     }
 }
-@media all and (max-width: 670px){
-    #banner .additions .container-item{
+
+@media all and (max-width: 670px) {
+    #banner .additions .container-item {
         flex-direction: column;
     }
-    #banner .additions .container-item .item{
+
+    #banner .additions .container-item .item {
         margin-bottom: 30px;
         width: 100%;
     }
 }
+
 @media all and (max-width: 590px) {
-    #banner .detials-box{
+    #banner .detials-box {
         flex-direction: column;
         width: 70%;
     }
+
     #banner .detials-box .item h6 {
         justify-content: center;
         margin-bottom: 8px;
     }
-    #banner .detials-box .item{
+
+    #banner .detials-box .item {
         margin-bottom: 20px;
     }
-    #banner .info-footer{
+
+    #banner .info-footer {
         padding: 30px 50px;
     }
 }
 
 @media all and (max-width: 480px) {
-    #banner .detials-box{
+    #banner .detials-box {
         flex-direction: column;
         width: 90%;
     }
+
     #banner .cover-img .text-box h3 {
         font-size: 26px;
     }
-    #banner .detials-box .item.price span, #banner .info-footer button{
+
+    #banner .detials-box .item.price span,
+    #banner .info-footer button {
         font-size: 16px;
     }
+
     #banner .detials-box .item h6 img {
         width: 16px;
     }
+
     #banner .detials-box .item h6 {
         font-size: 16px;
     }
+
     #banner .info-footer {
         padding: 30px;
     }

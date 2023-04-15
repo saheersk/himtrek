@@ -20,6 +20,7 @@ import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
 import PaymentSuccess from "./components/screens/Payment/PaymentSuccess";
 import TravelerInfo from "./components/screens/TravelerInfo/TravelerInfo";
 import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassword";
+import AllEvents from "./components/screens/Events/AllEvents";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -73,6 +74,7 @@ function App() {
               <Route path="/paymentsuccess" element={<PaymentSuccess />} />
               <Route path="/traveler-info" element={<TravelerInfo />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/all-events" element={<AllEvents />} />
             </Routes>
           </Router>
         )}

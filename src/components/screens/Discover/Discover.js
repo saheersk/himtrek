@@ -25,6 +25,7 @@ function Discover() {
           <div className="content-box">
             <div className="main-city">
               <CityCards />
+              <CityCards />
             </div>
           </div>
           <div className="button">

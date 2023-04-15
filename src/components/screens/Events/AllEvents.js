@@ -1,11 +1,28 @@
-import React from 'react'
+import React from "react";
+import Header from "../Header/Header";
+import EventCard from "./EventCard";
+import "./AllEvents.css";
 
 function AllEvents() {
   return (
-    <div>
-      
-    </div>
-  )
+    <>
+      <Header />
+      <section id="events">
+        <div className="wrapper">
+          <div className="head">
+            <h3>All Events</h3>
+          </div>
+          <ul className="events container">
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+            <EventCard />
+          </ul>
+        </div>
+      </section>
+    </>
+  );
 }
 
-export default AllEvents
+export default AllEvents;

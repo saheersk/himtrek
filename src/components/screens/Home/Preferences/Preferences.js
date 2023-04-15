@@ -4,6 +4,7 @@ import "./Preferences.css";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import PreferedPackage from "./PreferedPackage";
+import CategoryTab from "./CategoryTab";
 
 function Preferences() {
   return (
@@ -14,26 +15,13 @@ function Preferences() {
             <h3>customize your preference</h3>
           </div>
           <div className="content-container">
-            <Tabs>
-              <TabList>
-                <Tab>trekking</Tab>
-                <Tab>beach</Tab>
-                <Tab>trekking</Tab>
-                <Tab>beach</Tab>
-                <Tab>trekking</Tab>
-              </TabList>
-              <TabPanel className={"cards"}>
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
-              </TabPanel>
-              <TabPanel className={"cards"}>
-                <PreferedPackage />
-                <PreferedPackage />
-                <PreferedPackage />
-              </TabPanel>
-            </Tabs>
+            <CategoryTab />
+            <div className="content-cards">
+              <PreferedPackage />
+              <PreferedPackage />
+              <PreferedPackage />
+              <PreferedPackage />
+            </div>
           </div>
           <div className="button">
             <h5>explore</h5>

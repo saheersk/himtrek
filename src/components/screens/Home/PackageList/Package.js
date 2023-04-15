@@ -25,8 +25,10 @@ function Package() {
                   <img src={item?.image} alt={item?.title} />
                 </div>
                 <div className="text-box">
-                  <h3>{item?.title}</h3>
-                  <p>{item?.title}</p>
+                  <div className="content">
+                    <h3>{item?.title}</h3>
+                    <p>{item?.title}</p>
+                  </div>
                   <ul>
                     <li className="wrapper-box">
                       <li className="time">
