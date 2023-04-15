@@ -3,7 +3,7 @@
     --light-blue: #92ADBB;
     --shade-blue: #47758C;
     --content: #7A7A7A;
-    --orenge: #C77935;
+    --orange: #C77935;
 }
 
 section#events {
@@ -105,7 +105,7 @@ section#events ul li:hover .date {
     transform: rotateX(360deg);
 }
 
-section#events .button {
+section#events .button a {
     display: flex;
     width: fit-content;
     align-items: center;

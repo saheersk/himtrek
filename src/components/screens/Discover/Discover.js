@@ -27,15 +27,6 @@ function Discover() {
               <CityCards />
             </div>
           </div>
-          <div className="button">
-            <span>
-              explore{" "}
-              <img
-                src={require("../../assets/images/arrow-right-solid.png")}
-                alt="Arrow"
-              />
-            </span>
-          </div>
         </div>
       </section>
       <section id="client-box">

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, NavLink } from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { useSelector, useDispatch } from "react-redux";
 import { logoutUser } from "../../../Redux/Auth/auth";
@@ -9,13 +9,12 @@ function Header() {
   const dispatch = useDispatch();
   const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logoutUser());
-    navigate('/');
+    navigate("/");
   };
-
 
   return (
     <>
@@ -30,12 +29,36 @@ function Header() {
             </Link>
           </h1>
           <ul className="nav">
-            <Link to="/discover">discover</Link>
-            <Link to="/about-us">about</Link>
-            <Link to="/packages">packages</Link>
-            <Link to="/discover">my order</Link>
-            <Link to="/cart/">cart</Link>
-            <Link to="/contact">contact</Link>
+            <li>
+              <NavLink exact activeClassName="active" to="/discover">
+                discover
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active" to="/about-us">
+                about
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active" to="/searchingresult">
+                packages
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active" to="/discover">
+                my order
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active" to="/cart/">
+                cart
+              </NavLink>
+            </li>
+            <li>
+              <NavLink activeClassName="active" to="/contact">
+                contact
+              </NavLink>
+            </li>
           </ul>
           <ul className="auth">
             <select name="languages" id="lang">
@@ -46,15 +69,15 @@ function Header() {
 
             {is_LoggedIn ? (
               <div>
-              <li className="user-name">
-              <span>Adam John</span>
-            </li>
-            <li className="authentication">
-              <small onClick={() => handleLogout()}  className="register">
-                Logout
-              </small>
-              </li>
-            </div>
+                <li className="user-name">
+                  <span>Adam John</span>
+                </li>
+                <li className="authentication">
+                  <small onClick={() => handleLogout()} className="register">
+                    Logout
+                  </small>
+                </li>
+              </div>
             ) : (
               <div>
                 <Link to="/login">login</Link>

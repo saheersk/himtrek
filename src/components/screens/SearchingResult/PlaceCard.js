@@ -12,11 +12,12 @@ function PlaceCard() {
   const params = new URLSearchParams(location.search);
   const state = params.get('state');
   const month = params.get('month');
+  const city = params.get('city');
 
   useEffect(() => {
-    dispatch(fetchPackage({month: month, state: state}));
+    dispatch(fetchPackage({month: month, state: state, city: city}));
 
-  }, [dispatch, month, state]);
+  }, [dispatch, month, state, city]);
 
   return (
     <>

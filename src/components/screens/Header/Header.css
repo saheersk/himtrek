@@ -3,6 +3,8 @@
     --light-blue: #92ADBB;
     --headings: #47758C;
     --content: #7A7A7A;
+    --orange: #C77935;
+
 
 }
 
@@ -40,6 +42,10 @@ header .wrapper ul a {
     transition: .4s ease-in;
 }
 
+header .wrapper ul li a.active {
+    color: var(--orange);
+}
+
 header .wrapper ul a:hover {
     opacity: .5;
 }
@@ -51,7 +57,7 @@ header .wrapper ul a.register {
     border-radius: 10px;
     cursor: pointer;
     background-size: 300% 100%;
-    moz-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;

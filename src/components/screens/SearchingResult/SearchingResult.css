@@ -8,10 +8,46 @@
 
 #searching-results .place-cards {
     display: flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 20px 0 70px 0;
 
+}
+
+#searching-results .loc-filter {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#searching-results .loc-filter ul {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-blue);
+    padding: 6px;
+    border-radius: 35px;
+}
+
+#searching-results .loc-filter ul li {
+    cursor: pointer;
+    margin-right: 30px;
+    padding: 10px 20px;
+    border-radius: 35px;
+    width: 150px;
+    text-align: center;
+}
+
+#searching-results .loc-filter ul li:hover,
+#searching-results .loc-filter ul li.active {
+    background-color: var(--shade-blue);
+
+}
+
+#searching-results .loc-filter ul li:last-child {
+    margin-right: 0;
+}
+
+#searching-results .place-card {
+    margin-right: 20px;
 }
 
 #searching-results .top-box {
@@ -51,6 +87,7 @@
 
 .place-card .image-box {
     margin-bottom: 20px;
+    height: 150px;
 }
 
 .place-card .text-box h4 {
@@ -79,6 +116,8 @@
 
 .place-card img {
     width: 100%;
+    height: 150px;
+    object-fit: cover;
     display: block;
     border-radius: 20px;
 }
@@ -101,6 +140,90 @@
     background: var(--orenge);
     color: #FFF;
 }
+
+.filter-container {
+    width: 30%;
+    background: #efefef;
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    padding: 50px 50px;
+    transition: all .4s ease;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}
+
+.filter-box.open {
+    right: 0;
+}
+
+.filter-container.content-box {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 70vh;
+}
+
+.filter-container.head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.filter-container.head h5 {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+}
+
+.filter-containerspan img {
+    width: 100%;
+    display: block;
+}
+
+.filter-containerspan {
+    cursor: pointer;
+    width: 30px;
+    display: block;
+}
+
+.filter-containerh4 {
+    margin-bottom: 20px;
+    color: var(--orenge);
+}
+
+.filter-containerform .item {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-containerform .item input {
+    padding: 20px;
+    height: 24px;
+    width: 24px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 1px solid var(--orenge);
+}
+
+.filter-container.content-box button {
+    cursor: pointer;
+    padding: 12px 20px;
+    border: none;
+    color: #fff;
+    background: var(--orenge);
+    border-radius: 10px;
+    font-size: 18px;
+    transition: .3s ease;
+}
+
+.filter-container.content-box button:hover {
+    background-color: #7f420c;
+}
+
 
 /* responsive-screen */
 @media all and (max-width: 768px) {

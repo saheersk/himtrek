@@ -1,6 +1,7 @@
 import React from "react";
 import Event from "./Event";
 import "./Events.css";
+import { Link } from "react-router-dom";
 
 function Events() {
   return (
@@ -16,13 +17,15 @@ function Events() {
             </ul>
           </div>
           <div className="button">
-            <h5>explore</h5>
-            <small>
-              <img
-                src={require("../../../assets/images/arrow-right-solid.png")}
-                alt="Arrow"
-              />
-            </small>
+            <Link to="/all-events/">
+              <h5>explore</h5>
+              <small>
+                <img
+                  src={require("../../../assets/images/arrow-right-solid.png")}
+                  alt="Arrow"
+                />
+              </small>
+            </Link>
           </div>
         </div>
       </section>

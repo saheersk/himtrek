@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPackage } from "../../../../Redux/Home/package";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Preferences.css";
 import "react-tabs/style/react-tabs.css";
 
@@ -11,9 +11,13 @@ function PreferredPackage() {
     (package_item) => package_item.package.packages
   );
 
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  const category = params.get('category');
+
   useEffect(() => {
-    dispatch(fetchPackage());
-  }, [dispatch]);
+    dispatch(fetchPackage({category: category }));
+  }, [dispatch, category]);
 
   return (
     <>

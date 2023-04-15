@@ -20,6 +20,7 @@ import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
 import PaymentSuccess from "./components/screens/Payment/PaymentSuccess";
 import TravelerInfo from "./components/screens/TravelerInfo/TravelerInfo";
 import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassword";
+import AllEvents from "./components/screens/Events/AllEvents";
 import Career from "./components/screens/Career/Career";
 
 function App() {
@@ -70,10 +71,10 @@ function App() {
               <Route path="/otp/" element={<AutoFillOTP />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/searchingresult" element={<SearchingResult />} />
-              <Route path="/paymentsuccess" element={<PaymentSuccess />} />
+              <Route path="/payment-success" element={<PaymentSuccess />} />
               <Route path="/traveler-info/:id" element={<TravelerInfo />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/all-events" element={<AllEvents />} />
               <Route path="/career" element={<Career />} />
             </Routes>
           </Router>

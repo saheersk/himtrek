@@ -25,18 +25,16 @@ function Contact() {
         name,
         message,
         email,
-        organization_name: organization ? (organization) : "",
+        organization_name: organization ? organization : "",
         contact_number,
       })
       .then((response) => {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(contactSuccess(data));
-        }
-        else {
+        } else {
           dispatch(contactFailure(data));
         }
-
       })
       .catch((error) => {
         console.log(error);
@@ -81,12 +79,13 @@ function Contact() {
                   type="text"
                   placeholder="Organization(Optional)"
                 />
-                <label htmlFor="message">Your Message</label>
-                <textarea
+                <input
+                  type="text"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  id="message"
-                ></textarea>
+                  className="message"
+                  placeholder="Message"
+                />
                 <input type="submit" value="Send" />
               </form>
             </div>

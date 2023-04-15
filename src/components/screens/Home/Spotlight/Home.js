@@ -3,7 +3,6 @@ import "./Home.css";
 import Header from "../../Header/Header";
 import About from "../About/About";
 
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Typewriter from "typewriter-effect";
 
@@ -50,7 +49,7 @@ function Home() {
                 <Typewriter
                   options={{
                     strings: [
-                      "Distinations...",
+                      "Destinations...",
                       "Trips...",
                       "Vibes...",
                       "Trek...",
@@ -71,7 +70,7 @@ function Home() {
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                <form action="" onSubmit={(e) => handleSubmit(e)}>
+                 <form action="" onSubmit={(e) => handleSubmit(e)}>
                   <div className="items">
                     <div className="item">
                       <h5>
