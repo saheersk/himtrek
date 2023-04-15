@@ -48,7 +48,7 @@
 #banner .cover-img .text-box h3 {
     font-size: 30px;
     margin-bottom: 10px;
-    color: var(--orenge);
+    color: #fff;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -56,7 +56,7 @@
 #banner .cover-img .text-box p {
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #000;
+    color: #fff;
 
 }
 
@@ -118,7 +118,8 @@
 
 }
 
-#banner .detials-box .item.price span:hover {
+#banner .detials-box .item.price span:hover,
+#banner .info-footer button:hover {
     background: #653810;
 
 }
