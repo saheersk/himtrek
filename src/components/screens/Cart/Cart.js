@@ -8,7 +8,7 @@ import CartGear from "./CartGear";
 
 function Cart() {
   const product = useSelector((cart) => cart.cart.products);
-
+  
   const package_price_per_person = useSelector((cart) => cart.cart.package_price_per_person);
   const package_price_per_children = useSelector((cart) => cart.cart.package_price_per_children);
   const package_price_family_of_four = useSelector((cart) => cart.cart.package_price_family_of_four);

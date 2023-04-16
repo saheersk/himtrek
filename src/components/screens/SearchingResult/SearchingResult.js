@@ -1,16 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import PlaceCard from "./PlaceCard";
 
 import "./SearchingResult.css";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCategory } from "../../../Redux/Home/category";
+import { fetchState } from "../../../Redux/Home/state";
 
 function SearchingResult() {
+  const dispatch = useDispatch();
+  const category = useSelector((category) => category.category.categories);
+  const states = useSelector((state) => state.state.states);
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    dispatch(fetchCategory());
+    dispatch(fetchState());
+  }, [dispatch]);
 
   return (
     <>
@@ -32,45 +44,60 @@ function SearchingResult() {
           </div>
 
           {/* filter-bar */}
-          <div className={`filter-container ${isOpen ? "open" : ""}`}>
-            <div className="head">
-              <span onClick={toggleMenu}>
-                <img
-                  src={require("../../assets/images/left-arrow.svg").default}
-                  alt="Images"
-                />
-              </span>
-              <h5>Filter</h5>
-            </div>
-            <div className="content-box">
-              <form action="">
-                <h4>Price Range</h4>
-                <div className="item">
-                  <input type="checkbox" name="one-price" />
-                  <label htmlFor="one-price">Above 10,000</label>
-                </div>
-                <div className="item">
-                  <input type="checkbox" name="two-price" />
-                  <label htmlFor="two-price">below 10,000</label>
-                </div>
-                <div className="item">
-                  <input type="checkbox" name="three-price" />
-                  <label htmlFor="three-price">Above 4.5</label>
-                </div>
+          {isOpen && (
+            <div className={`filter-container ${isOpen ? "open" : ""}`}>
+              <div className="head">
+                <span onClick={toggleMenu}>
+                  <img
+                    src={require("../../assets/images/left-arrow.svg").default}
+                    alt="Images"
+                  />
+                </span>
+                <h5>Filter</h5>
+              </div>
+              <div className="content-box">
+                <form action="">
+                  <h4>Price Range</h4>
+                  <div className="item">
+                    <input type="checkbox" value="high-to-low" name="sort" />
+                    <label htmlFor="high-to-low">High to Low Price</label>
+                  </div>
+                  <div className="item">
+                    <input type="checkbox" value="low-to-high" name="sort" />
+                    <label htmlFor="low-to-high">Low to High Price</label>
+                  </div>
+                  <h4>Category</h4>
+                  {category.map((item) => {
+                    return (
+                      <div className="item" key={item?.id}>
+                        <input
+                          type="checkbox"
+                          value={item?.title}
+                          name="category"
+                        />
+                        <label htmlFor={item?.title}>{item?.title}</label>
+                      </div>
+                    );
+                  })}
 
-                <h4>Rating</h4>
-                <div className="item">
-                  <input type="checkbox" name="one-rate" />
-                  <label htmlFor="one-rate">Above 3.5</label>
-                </div>
-                <div className="item">
-                  <input type="checkbox" name="two-rate" />
-                  <label htmlFor="two-rate">below 3.0</label>
-                </div>
-                <button>Show Results</button>
-              </form>
+                  <h4>State</h4>
+                  {states.map((item) => {
+                    return (
+                      <div className="item" key={item?.id}>
+                        <input
+                          type="checkbox"
+                          value={item?.state}
+                          name="state"
+                        />
+                        <label htmlFor={item?.state}>{item?.state}</label>
+                      </div>
+                    );
+                  })}
+                  <button>Show Results</button>
+                </form>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </section>
       <Footer />

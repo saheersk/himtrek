@@ -36,6 +36,7 @@ function Login() {
           dispatch(loginSuccess(data));
           navigate("/");
         } else {
+          console.log(response.data);
           dispatch(loginFailure(response.data));
         }
       })

@@ -5,13 +5,14 @@ import { BASE_URL } from "../../axiosConfig";
 
 export const fetchPackage = createAsyncThunk(
   "events/fetchPackage",
-  async ({ month, state, category, city }) => {
+  async ({ month, state, category, city, sort }) => {
     const response = await axios.get(`${BASE_URL}/packages/travel-packages/`, {
       params: {
         month,
         state,
         category,
         city,
+        sort,
       },
     });
     return response.data.data;

@@ -12,6 +12,7 @@ function CartGear() {
   const gearCart = useSelector((state) => state.gearCart.gearCart);
   const message = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
+  const is_Products = useSelector((cart) => cart.cart.is_Products);
 
   const [updatedDays, setUpdatedDays] = useState({});
 
@@ -25,12 +26,15 @@ function CartGear() {
   };
 
   const handleDays = (id, action) => {
-    const days = updatedDays[id] !== undefined ? updatedDays[id] : gearCart.find(item => item.id === id).days;
+    const days =
+      updatedDays[id] !== undefined
+        ? updatedDays[id]
+        : gearCart.find((item) => item.id === id).days;
     const newDays = action === Add ? days + 1 : days - 1;
-    setUpdatedDays({...updatedDays, [id]: newDays});
+    setUpdatedDays({ ...updatedDays, [id]: newDays });
 
-    if(newDays === 0) {
-      setUpdatedDays({...updatedDays, [id]: ""});
+    if (newDays === 0) {
+      setUpdatedDays({ ...updatedDays, [id]: "" });
     }
 
     dispatch(
@@ -51,63 +55,67 @@ function CartGear() {
 
   return (
     <>
-      <div className="slide-cart">
-        <div className="wrapper">
-          <h5>Gears</h5>
-          <div className="slide">
-            {gearCart.map((item) => {
-              const days =
-                updatedDays[item?.id] !== undefined
-                  ? updatedDays[item?.id]
-                  : item?.days;
-              return (
-                <div className="item" key={item?.id}>
-                  <div className="left">
-                    <div className="product-img">
-                      <img
-                        src={item?.gears?.image}
-                        alt={item?.gears?.product_name}
-                      />
-                    </div>
-                  </div>
-                  <h5>{item?.gears?.product_name}</h5>
-                  <div className="center">
-                    <div className="day-box">
-                      <div
-                        onClick={() => handleDays(item?.id, Sub)}
-                        className="image-box"
-                      >
+        <div className="slide-cart">
+          <div className="wrapper">
+            <h5>Gears</h5>
+      {is_Products ? (
+            <div className="slide">
+              {gearCart.map((item) => {
+                const days =
+                  updatedDays[item?.id] !== undefined
+                    ? updatedDays[item?.id]
+                    : item?.days;
+                return (
+                  <div className="item" key={item?.id}>
+                    <div className="left">
+                      <div className="product-img">
                         <img
-                          src={
-                            require("../../assets/images/minus-solid.svg")
-                              .default
-                          }
-                          alt="Location"
-                        />
-                      </div>
-                      <span>{days} Day</span>
-                      <div
-                        onClick={() => handleDays(item?.id, Add)}
-                        className="image-box"
-                      >
-                        <img
-                          src={
-                            require("../../assets/images/plus-solid.svg")
-                              .default
-                          }
-                          alt="Location"
+                          src={item?.gears?.image}
+                          alt={item?.gears?.product_name}
                         />
                       </div>
                     </div>
-                    <h6>₹ {item?.gears?.price_per_day} / Day</h6>
+                    <h5>{item?.gears?.product_name}</h5>
+                    <div className="center">
+                      <div className="day-box">
+                        <div
+                          onClick={() => handleDays(item?.id, Sub)}
+                          className="image-box"
+                        >
+                          <img
+                            src={
+                              require("../../assets/images/minus-solid.svg")
+                                .default
+                            }
+                            alt="Location"
+                          />
+                        </div>
+                        <span>{days} Day</span>
+                        <div
+                          onClick={() => handleDays(item?.id, Add)}
+                          className="image-box"
+                        >
+                          <img
+                            src={
+                              require("../../assets/images/plus-solid.svg")
+                                .default
+                            }
+                            alt="Location"
+                          />
+                        </div>
+                      </div>
+                      <h6>₹ {item?.gears?.price_per_day} / Day</h6>
+                    </div>
+                    <button onClick={() => handleGearCart(item?.id)}>
+                      Remove
+                    </button>
                   </div>
-                  <button onClick={() => handleGearCart(item?.id)}>
-                    Remove
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+      ) : (
+        <h1>Not Package Gears Added</h1>
+        )}
         </div>
       </div>
     </>

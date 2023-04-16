@@ -13,11 +13,13 @@ function PlaceCard() {
   const state = params.get('state');
   const month = params.get('month');
   const city = params.get('city');
+  const category = params.get('category');
+  const sort = params.get('sort');
 
   useEffect(() => {
-    dispatch(fetchPackage({month: month, state: state, city: city}));
+    dispatch(fetchPackage({month: month, state: state, city: city, category: category, sort: sort}));
 
-  }, [dispatch, month, state, city]);
+  }, [dispatch, month, state, city, category, sort]);
 
   return (
     <>
