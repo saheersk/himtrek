@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { fetchCartProduct, removeFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
-import "./Cart.css";
 import Swal from "sweetalert2";
+import "./Cart.css";
 import { fetchGearCart } from "../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
 
@@ -23,6 +23,7 @@ function Product() {
 
   const RemovePackage = (id) => {
     try {
+
       Swal.fire({
         title: `Are you sure you want to remove ${product?.package?.title}`,
         text: "Gears Also will be Removed",
@@ -35,6 +36,7 @@ function Product() {
           dispatch(removeFromCart({ productId: id, token: token }));
           navigate('/result/')
         }
+
       });
     } catch (error) {
       console.log("Error removing package from cart:", error);
@@ -72,7 +74,17 @@ function Product() {
           </div>
         </div>
       ) : (
-        <h1>Package not added</h1>
+        <>
+          <div className="empty-cart">
+            <div className="img-box">
+              <img
+                src={require("../../assets/images/empty-bag.png")}
+                alt="Empty"
+              />
+            </div>
+            <h1>Your cart is empty!</h1>
+          </div>
+        </>
       )}
     </>
   );

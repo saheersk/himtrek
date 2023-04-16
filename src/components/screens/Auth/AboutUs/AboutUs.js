@@ -45,7 +45,7 @@ function AboutUs() {
           <h6>Our Team</h6>
           <h3>Meet Our Team</h3>
           <div className="items">
-        <AboutMembers />
+            <AboutMembers />
           </div>
         </div>
       </section>

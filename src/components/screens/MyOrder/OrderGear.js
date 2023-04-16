@@ -1,17 +1,17 @@
 import React from "react";
 import "./MyOrder.css";
 
-function OrderItem() {
+function OrderGear() {
   return (
-    <>
+    <div>
       <div className="order-card">
         <div className="left-content">
           <div className="img-box">
-            <img src={require("../../assets/images/mumbai.png")} alt="Hero" />
+            <img src={require("../../assets/images/gopro.png")} alt="Hero" />
           </div>
           <div className="text-box">
-            <h4>Mumbai</h4>
-            <span>Maharashtra</span>
+            <h4>Gopro</h4>
+            <span>500/Day</span>
           </div>
         </div>
         <div className="date-container">
@@ -25,8 +25,8 @@ function OrderItem() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default OrderItem;
+export default OrderGear;

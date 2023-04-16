@@ -3,7 +3,7 @@
     --light-blue: #92ADBB;
     --shade-blue: #47758C;
     --content: #7A7A7A;
-    --orenge: #C77935;
+    --orange: #C77935;
 }
 
 #departure-info {
@@ -27,7 +27,7 @@
 
 .date-container h3 {
     text-align: center;
-    color: var(--orenge);
+    color: var(--orange);
     margin-bottom: 40px;
     font-size: 24px;
 }
@@ -46,14 +46,17 @@
 
 .date-container .confirmation-box .info-box {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
+    flex-direction: column;
     margin: 40px 0;
 }
 
 .date-container .confirmation-box h5 {
     font-size: 20px;
-    color: var(--orenge);
+    margin-bottom: 12px;
+    text-transform: capitalize;
+    color: var(--orange);
 }
 
 .date-container .confirmation-box span {
@@ -64,12 +67,12 @@
 
 .date-container .confirmation-box h2 {
     font-size: 18px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     color: #288321;
 }
 
 .date-container .confirmation-box a {
-    background: var(--orenge);
+    background: var(--orange);
     color: #fff;
     padding: 12px 20px;
     border-radius: 10px;
@@ -107,7 +110,7 @@
 #traveler-info .participant-info h3 {
     text-align: center;
     font-size: 20px;
-    color: var(--orenge);
+    color: var(--orange);
     margin-bottom: 40px;
 }
 
@@ -126,7 +129,7 @@
 #traveler-info .participant-info form .item input {
     padding: 12px 14px;
     border-radius: 10px;
-    border: 1px solid var(--orenge);
+    border: 1px solid var(--orange);
     width: 100%;
 }
 
@@ -147,18 +150,22 @@
 #traveler-info .participant-info .price-box {
     margin-top: 40px;
     text-align: center;
-    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    padding: 16px 20px;
+    background: #fff;
     border-radius: 10px;
 }
 
 #traveler-info .participant-info .price-box h4 {
-    font-size: 24px;
-    color: var(--orenge);
+    font-size: 16px;
+    color: var(--orange);
+    margin-right: 40px;
 }
 
 #traveler-info .participant-info .contact-detials h4 {
     font-size: 20px;
-    color: var(--orenge);
+    color: var(--orange);
     text-align: center;
     margin-top: 60px;
 }
@@ -184,7 +191,7 @@
 }
 
 #traveler-info .participant-info .additional-detials h4 {
-    color: var(--orenge);
+    color: var(--orange);
     font-size: 20px;
     text-align: center;
 }
@@ -217,7 +224,7 @@
 #traveler-info .participant-info .comments h4 {
     text-align: center;
     font-size: 20px;
-    color: var(--orenge);
+    color: var(--orange);
     margin-bottom: 12px;
 }
 
@@ -233,7 +240,7 @@
     margin: 0 auto;
     padding: 24px 20px;
     border-radius: 10px;
-    border: 1px solid var(--orenge);
+    border: 1px solid var(--orange);
 }
 
 
@@ -246,7 +253,7 @@
     font-size: 18px;
     margin-top: 40px;
     padding: 12px 20px;
-    background: var(--orenge);
+    background: var(--orange);
     color: #fff;
     border-radius: 10px;
     transition: .3s ease-in-out;
@@ -260,8 +267,10 @@
 #traveler-info .bottom {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
+
 
 #traveler-info .confirm-box {
     width: 50%;
@@ -307,13 +316,13 @@
 
 #traveler-info .confirm-box h4 {
     text-align: center;
-    color: var(--orenge);
+    color: var(--orange);
     font-size: 20px;
 }
 
 #traveler-info .confirm-box h3 {
     text-align: center;
-    color: var(--orenge);
+    color: var(--orange);
     margin-bottom: 50px;
 }
 
@@ -330,7 +339,7 @@
     cursor: pointer;
     border: none;
     padding: 12px 20px;
-    background: var(--orenge);
+    background: var(--orange);
     border-radius: 10px;
     color: #fff;
     width: 150px;
@@ -341,8 +350,8 @@
 
 #traveler-info .confirm-box .button button.back {
     background: #fff;
-    border: 1px solid var(--orenge);
-    color: var(--orenge);
+    border: 1px solid var(--orange);
+    color: var(--orange);
     margin-right: 20px;
 
 }
@@ -353,6 +362,16 @@
 
 /* responsive */
 @media all and (max-width: 980px) {
+    .date-container .content-box {
+        flex-direction: column;
+    }
+
+    .date-container .confirmation-box {
+        margin-left: 0;
+        margin-top: 50px;
+        width: 60%;
+    }
+
     .date-container {
         width: 100%;
         padding: 50px 0;
@@ -365,17 +384,26 @@
     #traveler-info .participant-info .additional-detials .item {
         width: 72%;
     }
+
+    #traveler-info .participant-info .price-box {
+        flex-direction: column;
+        align-items: start;
+        padding: 40px 30px;
+    }
+
+    #traveler-info .participant-info .price-box h4 {
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+
+    #traveler-info .participant-info .price-box h4:last-child {
+        margin-bottom: 0;
+    }
 }
 
 @media all and (max-width: 768px) {
-    .date-container .content-box {
-        flex-direction: column;
-    }
-
-    .date-container .confirmation-box {
-        margin-left: 0;
-        margin-top: 50px;
-        width: 60%;
+    .date-container .confirmation-box span {
+        font-size: 18px;
     }
 }
 
@@ -409,7 +437,19 @@
     }
 }
 
+@media all and (max-width: 560px) {
+    #traveler-info .participant-info form .item {
+        width: 100%;
+    }
+
+    #traveler-info .participant-info .additional-detials .item {
+        flex-direction: column;
+    }
+}
+
 @media all and (max-width: 480px) {
+
+
     #traveler-info .participant-info form .item {
         width: 100%;
     }

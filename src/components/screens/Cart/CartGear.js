@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
+import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GearItemAddOrSub,
   fetchGearCart,
   removeFromGearCart,
 } from "../../../Redux/Cart/gearCart";
-import Swal from "sweetalert2";
 
 function CartGear() {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function CartGear() {
   const Add = "add";
   const Sub = "sub";
 
+
   console.log(gearCart, 'gear');
 
   const handleGearCart = (id, name) => {
@@ -36,6 +37,7 @@ function CartGear() {
       if (result.value) {
         dispatch(removeFromGearCart({ productId: id, token: token }));
       }
+
     });
   };
 
@@ -73,6 +75,7 @@ function CartGear() {
         <div className="wrapper">
           <h5>Gears</h5>
           {is_gear ? (
+
             <div className="slide">
               {gearCart.map((item) => {
                 const days =
@@ -132,7 +135,16 @@ function CartGear() {
               })}
             </div>
           ) : (
-            <h1>Not Package Gears Added</h1>
+
+            <div className="empty-cart">
+              <div className="img-box">
+                <img
+                  src={require("../../assets/images/empty-bag.png")}
+                  alt="Empty"
+                />
+              </div>
+              <h1>You are not selected gears!</h1>
+            </div>
           )}
         </div>
       </div>

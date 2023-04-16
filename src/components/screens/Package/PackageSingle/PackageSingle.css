@@ -46,9 +46,9 @@
 }
 
 #banner .cover-img .text-box h3 {
-    font-size: 30px;
+    font-size: 34px;
     margin-bottom: 10px;
-    color: var(--orange);
+    color: #fff;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
@@ -288,11 +288,14 @@
 
 #banner .slide-container .item .product-img {
     width: 100%;
+    height: 100px;
     margin-bottom: 16px;
 }
 
 #banner .slide-container .item .product-img img {
     width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
 }
 

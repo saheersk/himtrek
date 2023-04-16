@@ -81,9 +81,12 @@ function App() {
               <Route path="/all-events/" element={<AllEvents />} />
               <Route path="/career/" element={<Career />} />
               <Route path="/career/view/:slug" element={<CareerSingle />} />
-              <Route path="/career-application/:slug" element={<CareerForm />} />
+              <Route
+                path="/career-application/:slug"
+                element={<CareerForm />}
+              />
               <Route path="/login-otp/" element={<LoginOtp />} />
-              <Route path="/my-orders/" element={<MyOrder />} /> */
+              <Route path="/my-orders/" element={<MyOrder />} />
             </Routes>
           </Router>
         )}

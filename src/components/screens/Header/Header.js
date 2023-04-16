@@ -10,8 +10,7 @@ function Header() {
   const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
   const data = useSelector((state) => state.user.data);
 
-  const [username, setUsername] = useState("")
-
+  const [username, setUsername] = useState("");
   let navigate = useNavigate();
 
   const handleLogout = () => {
@@ -21,7 +20,7 @@ function Header() {
 
   useEffect(() => {
     if (data) {
-      setUsername(data.username)
+      setUsername(data.username);
     }
   }, [data]);
 
@@ -107,7 +106,7 @@ function Header() {
             </select>
 
             {is_LoggedIn ? (
-              <div>
+              <div className="logged-box">
                 <li className="user-name">
                   <span>{username && username}</span>
                 </li>

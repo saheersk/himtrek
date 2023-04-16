@@ -4,7 +4,11 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../../../../axiosConfig";
 import { useDispatch, useSelector } from "react-redux";
-import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import {
+  clearMessage,
+  loginFailure,
+  loginSuccess,
+} from "../../../../Redux/Auth/auth";
 import AutoFillOTP from "../Otp/AutoFillOTP";
 
 export default function SignUp() {
@@ -35,15 +39,13 @@ export default function SignUp() {
       .then((response) => {
         const data = response.data;
         if (response.data.status_code === 6000) {
-          dispatch(loginSuccess({data}));
-          navigate('/otp/');
-          <AutoFillOTP  />
-        }
-        else  {
+          dispatch(loginSuccess({ data }));
+          navigate("/otp/");
+          <AutoFillOTP />;
+        } else {
           dispatch(loginFailure(data));
-          <AutoFillOTP  contact_number={contact_number} />
+          <AutoFillOTP contact_number={contact_number} />;
         }
-        
       })
       .catch((error) => {
         console.log(error);
@@ -64,7 +66,7 @@ export default function SignUp() {
                 Already a member?<Link to="/login/">Login</Link>
               </h6>
               <form action="" onSubmit={handleSubmit}>
-              <input
+                <input
                   value={full_name}
                   onChange={(e) => setFull_name(e.target.value)}
                   type="text"
@@ -100,7 +102,6 @@ export default function SignUp() {
                   type="password"
                   placeholder="Re-enter password"
                 />
-                {error_message && <p>{error_message}</p>}
                 <div className="singup-button">
                   <Link to="/">Go to Home</Link>
                   <input type="submit" value="Register" className="register" />
@@ -116,6 +117,7 @@ export default function SignUp() {
               </div>
             </div>
           </section>
+          {error_message && <p>{error_message}</p>}
         </div>
       </div>
     </>

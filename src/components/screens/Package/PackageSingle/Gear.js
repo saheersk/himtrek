@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
+import Swal from "sweetalert2";
+
 import "./PackageSingle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGear } from "../../../../Redux/Package/gears";
 import { addGearToCart, fetchGearCart } from "../../../../Redux/Cart/gearCart";
-import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { fetchCartProduct } from "../../../../Redux/Cart/cart";
 
@@ -18,6 +19,7 @@ function Gear({ slug }) {
   const token = userData?.data?.access;
 
   // console.log(message, "=====message");
+
 
   const navigate = useNavigate();
 
@@ -47,21 +49,26 @@ function Gear({ slug }) {
           text: "Successfully Added to Cart",
           icon: "success",
         });
+        dispatch(fetchCartProduct(token));
         dispatch(fetchGearCart({ token: token }));
       }
     } else {
+      dispatch(fetchCartProduct(token));
+      dispatch(fetchGearCart({ token: token }));
       Swal.fire({
         title: `No Package in Cart`,
         text: "Add Package then Gears",
         icon: "error",
       });
     }
+
   };
 
   useEffect(() => {
     dispatch(fetchGear(slug));
     dispatch(fetchCartProduct(token));
-  }, [slug, dispatch]);
+    dispatch(fetchGearCart({ token: token }));
+  }, [slug, dispatch, token]);
 
   return (
     <>
@@ -80,6 +87,7 @@ function Gear({ slug }) {
                   <button
                     onClick={() => handleGearCart(item?.id, item?.product_name)}
                   >
+
                     Add with Package
                   </button>
                 </div>

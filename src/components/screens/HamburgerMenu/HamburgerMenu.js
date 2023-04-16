@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./HamburgerMenu.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function HamburgerMenu({ handleLogout }) {
@@ -8,8 +8,7 @@ function HamburgerMenu({ handleLogout }) {
   const data = useSelector((state) => state.user.data);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [username, setUsername] = useState("")
-
+  const [username, setUsername] = useState("");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -17,7 +16,7 @@ function HamburgerMenu({ handleLogout }) {
 
   useEffect(() => {
     if (data) {
-      setUsername(data.username)
+      setUsername(data.username);
     }
   }, [data]);
 
@@ -43,15 +42,69 @@ function HamburgerMenu({ handleLogout }) {
             </h2>
           </div>
           <ul>
-            <Link to="/discover/">discover</Link>
-            <Link to="/about-us/">about</Link>
-            <Link to="/my-orders/">my order</Link>
-            <Link to="/packages/">packages</Link>
-            <Link to="/cart/">cart</Link>
-            <Link to="/contact/">contact</Link>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/discover"
+              >
+                discover
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/about-us"
+              >
+                about
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/result"
+              >
+                packages
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/my-orders"
+              >
+                my order
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/cart/"
+              >
+                cart
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/contact"
+              >
+                contact
+              </NavLink>
+            </li>
           </ul>
           <ul className="authentication">
-          {is_LoggedIn ? (
+            {is_LoggedIn ? (
               <div>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">

@@ -64,6 +64,12 @@
 
 #searching-results .top-box span {
     cursor: pointer;
+    width: 30px;
+}
+
+#searching-results .top-box span img {
+    width: 100%;
+    display: block;
 }
 
 .place-card {
@@ -116,7 +122,7 @@
 
 .place-card img {
     width: 100%;
-    height: 150px;
+    height: 100%;
     object-fit: cover;
     display: block;
     border-radius: 20px;
@@ -147,6 +153,7 @@
     position: fixed;
     height: 100vh;
     top: 0;
+    z-index: 55;
     right: -100%;
     padding: 50px 50px;
     transition: all .4s ease;
@@ -218,6 +225,7 @@
     border-radius: 10px;
     font-size: 18px;
     transition: .3s ease;
+    width: 100%;
 }
 
 .filter-container .content-box button:hover {
@@ -226,9 +234,35 @@
 
 
 /* responsive-screen */
+@media all and (max-width: 980px) {
+    .filter-container .head h5 {
+        font-size: 20px;
+    }
+
+    .filter-container span {
+        width: 20px;
+    }
+}
+
 @media all and (max-width: 768px) {
+    #searching-results .top-box span {
+        width: 20px;
+    }
+
+    .filter-container {
+        width: 40%;
+    }
+
+    .filter-container .head h5 {
+        font-size: 18px;
+    }
+
+    .filter-container .content-box button {
+        font-size: 16px;
+    }
+
     .place-card {
-        width: 200px;
+        width: 230px;
     }
 
     #searching-results .place-cards {
@@ -245,8 +279,38 @@
 }
 
 @media all and (max-width: 640px) {
-    .place-card {
-        width: 188px;
+
+
+    .filter-container {
+        width: 50%;
     }
 
+}
+
+@media all and (max-width: 480px) {
+    .filter-container {
+        width: 60%;
+    }
+
+    .place-card {
+        width: 180px;
+    }
+
+    .filter-container form .item input {
+        height: 18px;
+        width: 18px;
+    }
+
+    .place-card .image-box {
+        height: 110px;
+    }
+
+    .place-card .text-box h4 {
+        margin-bottom: 4px;
+    }
+
+    .place-card .text-box .bottom-box .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
