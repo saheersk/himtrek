@@ -3,15 +3,21 @@ import { createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'user',
   initialState: {
-    data: JSON.parse(localStorage.getItem('user_data')) || null,
-    message: '',
+    data: (() => {
+      try {
+        return JSON.parse(localStorage.getItem('user_data')) || null;
+      } catch {
+        return null;
+      }
+    })(),
+    message: "",
     is_LoggedIn: localStorage.getItem('user_data') ? true : false,
     phone: null,
   },
   reducers: {
     loginSuccess: (state, action) => {
       state.is_LoggedIn = true
-      // state.data = action.payload;
+      state.data = action.payload;
       state.message = '';
       localStorage.setItem('user_data', JSON.stringify(action.payload));
     },
