@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchPackageView } from "../../../../Redux/Package/packageView";
 import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
+import Swal from "sweetalert2";
+import { fetchCartProduct } from "../../../../Redux/Cart/cart";
 
 function PackageSingle() {
   const dispatch = useDispatch();
@@ -16,6 +18,9 @@ function PackageSingle() {
   const message = useSelector((state) => state.packageView.message);
   const gearMessage = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
+  const product = useSelector((cart) => cart.cart.products); 
+
+  // const [isCart, SetIsCart] = useState(false)
 
   const token = userData?.data?.access;
 
@@ -27,12 +32,34 @@ function PackageSingle() {
   const params = useParams();
   const slug = params.slug
 
-  const handleCart = () => {
+  const handleCart = (id) => {
     if(message === 401) {
       navigate("/login/");
     }
     else {
-      dispatch(addToCart({slug: slug, token: token}))
+      if (product?.package?.slug === id) {
+        Swal.fire({
+          title: `Already in Cart${packageView?.title}`,
+          text: `${packageView?.title} Moved to cart`,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Go to Cart",
+          cancelButtonText: "View",
+        }).then((result) => {
+          if (result.value) {
+              navigate("/cart/")
+          }
+        });
+      }
+      else {
+        dispatch(addToCart({slug: slug, token: token}))
+        Swal.fire({
+          title: `${packageView?.title} Added to Cart`,
+          text: "Successfully Added to Cart",
+          icon: "success",
+        })
+        dispatch(fetchCartProduct(token));
+      }
     }
   }
   
@@ -79,8 +106,8 @@ function PackageSingle() {
               <span>Next Trip On {packageView?.next_trip_date}</span>
             </div>
             <div className="item price">
-              <h6>₹ {packageView?.price}</h6>
-              <span onClick={()=> handleCart()}>book now</span>
+              <h6>₹ {packageView?.price_for_adult}</h6>
+              <span onClick={()=> handleCart(packageView?.slug)}>book now</span>
             </div>
           </div>
           <div className="content-box">
@@ -103,7 +130,7 @@ function PackageSingle() {
           <Gear slug={slug} />
         </div>
         <div className="info-footer">
-          <h5>Manali</h5>
+          <h5>{packageView?.title}</h5>
           <button onClick={()=> handleCart()}>Book Now</button>
         </div>
       </section>

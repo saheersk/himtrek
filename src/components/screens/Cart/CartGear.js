@@ -6,13 +6,14 @@ import {
   fetchGearCart,
   removeFromGearCart,
 } from "../../../Redux/Cart/gearCart";
+import Swal from "sweetalert2";
 
 function CartGear() {
   const dispatch = useDispatch();
   const gearCart = useSelector((state) => state.gearCart.gearCart);
   const message = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
-  const is_Products = useSelector((cart) => cart.cart.is_Products);
+  const is_gear = useSelector((cart) => cart.gearCart.is_gear);
 
   const [updatedDays, setUpdatedDays] = useState({});
 
@@ -21,8 +22,21 @@ function CartGear() {
   const Add = "add";
   const Sub = "sub";
 
-  const handleGearCart = (id) => {
-    dispatch(removeFromGearCart({ productId: id, token: token }));
+  console.log(gearCart, 'gear');
+
+  const handleGearCart = (id, name) => {
+    Swal.fire({
+      title: `Are you sure you want to remove ${name}`,
+      text: `${name} will be removed`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "OK",
+      cancelButtonText: "CANCEL",
+    }).then((result) => {
+      if (result.value) {
+        dispatch(removeFromGearCart({ productId: id, token: token }));
+      }
+    });
   };
 
   const handleDays = (id, action) => {
@@ -55,10 +69,10 @@ function CartGear() {
 
   return (
     <>
-        <div className="slide-cart">
-          <div className="wrapper">
-            <h5>Gears</h5>
-      {is_Products ? (
+      <div className="slide-cart">
+        <div className="wrapper">
+          <h5>Gears</h5>
+          {is_gear ? (
             <div className="slide">
               {gearCart.map((item) => {
                 const days =
@@ -106,16 +120,20 @@ function CartGear() {
                       </div>
                       <h6>₹ {item?.gears?.price_per_day} / Day</h6>
                     </div>
-                    <button onClick={() => handleGearCart(item?.id)}>
+                    <button
+                      onClick={() =>
+                        handleGearCart(item?.id, item?.gears?.product_name)
+                      }
+                    >
                       Remove
                     </button>
                   </div>
                 );
               })}
             </div>
-      ) : (
-        <h1>Not Package Gears Added</h1>
-        )}
+          ) : (
+            <h1>Not Package Gears Added</h1>
+          )}
         </div>
       </div>
     </>

@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { fetchCartProduct, removeFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
 import "./Cart.css";
+import Swal from "sweetalert2";
+import { fetchGearCart } from "../../../Redux/Cart/gearCart";
+import { useNavigate } from "react-router-dom";
 
 function Product() {
   const dispatch = useDispatch();
@@ -11,13 +14,28 @@ function Product() {
 
   const token = userData?.data?.access;
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     dispatch(fetchCartProduct(token));
+    dispatch(fetchGearCart({token: token}));
   }, [token, dispatch]);
 
   const RemovePackage = (id) => {
     try {
-      dispatch(removeFromCart({ productId: id, token: token }));
+      Swal.fire({
+        title: `Are you sure you want to remove ${product?.package?.title}`,
+        text: "Gears Also will be Removed",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "OK",
+        cancelButtonText: "CANCEL",
+      }).then((result) => {
+        if (result.value) {
+          dispatch(removeFromCart({ productId: id, token: token }));
+          navigate('/result/')
+        }
+      });
     } catch (error) {
       console.log("Error removing package from cart:", error);
     }
@@ -45,7 +63,7 @@ function Product() {
                 <small>₹</small> {product?.package?.price_for_adult}
               </span>
             </div>
-            <div className="delete" onClick={() => RemovePackage(product.id)}>
+            <div className="delete" onClick={() => RemovePackage(product?.id)}>
               <img
                 src={require("../../assets/images/delete.png")}
                 alt="Delete"

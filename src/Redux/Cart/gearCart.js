@@ -69,6 +69,7 @@ const gearCartSlice = createSlice({
   initialState: {
     gearCart: [],
     message: "",
+    is_gear: false,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -76,6 +77,13 @@ const gearCartSlice = createSlice({
       .addCase(fetchGearCart.pending, (state) => {})
       .addCase(fetchGearCart.fulfilled, (state, action) => {
         state.gearCart = action.payload;
+        console.log(state.gearCart.length, 'gearCart');
+        if (state.gearCart.length !== 0) {
+          state.is_gear = true;
+        }
+        else {
+          state.is_gear = false;
+        }
       })
       .addCase(fetchGearCart.rejected, (state, action) => {})
       .addCase(addGearToCart.pending, (state) => {})
@@ -87,6 +95,10 @@ const gearCartSlice = createSlice({
       .addCase(removeFromGearCart.fulfilled, (state, action) => {
         const productId = action.payload;
         state.gearCart = state.gearCart.filter((item) => item.id !== productId);
+        console.log(state.gearCart.length, "len");
+        if (state.gearCart.length === 0) {
+          state.is_gear = false;
+        }
       })
       .addCase(removeFromGearCart.rejected, (state, action) => {})
       .addCase(GearItemAddOrSub.pending, (state) => {})

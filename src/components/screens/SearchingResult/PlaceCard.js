@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./SearchingResult.css";
 import { fetchPackage } from "../../../Redux/Home/package";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function PlaceCard() {
   const dispatch = useDispatch();
@@ -26,6 +26,7 @@ function PlaceCard() {
     {package_item.map((item) => {
       return (
         <div className="place-card" key={item?.id}>
+        <Link to={`/package/view/${item?.slug}`}>
         <div className="image-box">
           <img
             src={item?.image}
@@ -39,9 +40,11 @@ function PlaceCard() {
             <span>
               <small>₹</small> {item?.price_for_adult} / Person
             </span>
-            <small className="button">Book Now</small>
+
+            <small className="button">View</small>
           </div>
         </div>
+      </Link>
       </div>
       )
     })}
