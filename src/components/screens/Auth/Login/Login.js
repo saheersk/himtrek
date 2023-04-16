@@ -4,14 +4,18 @@ import "./Login.css";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { BASE_URL } from "../../../../axiosConfig";
-import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import {
+  clearMessage,
+  loginFailure,
+  loginSuccess,
+} from "../../../../Redux/Auth/auth";
 
 function Login() {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.user.message);
 
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,12 +31,10 @@ function Login() {
         if (response.data.status_code === 6000) {
           const data = response.data;
           dispatch(loginSuccess(data));
-          navigate('/');
-        }
-        else  {
+          navigate("/");
+        } else {
           dispatch(loginFailure(response.data));
         }
-        
       })
       .catch((error) => {
         console.log(error);
@@ -55,7 +57,7 @@ function Login() {
             <div className="container">
               <h4>Login to Your account</h4>
               <form action="" onSubmit={handleSubmit}>
-                <label >Username</label>
+                <label>Username</label>
                 <input
                   onChange={(e) => setUsername(e.target.value)}
                   value={username}
@@ -73,8 +75,12 @@ function Login() {
                 {message && <p>{message.data}</p>}
                 <input type="submit" value="Login" />
               </form>
+<<<<<<< HEAD
               <Link to="/signup">Create Account</Link>
               <Link className="login-otp" to="/login-otp">Login with otp</Link>
+=======
+              <Link to="/sign-up">Create Account</Link>
+>>>>>>> 217b4ddb5e7d97b157f19948a0f585f2db5282c8
             </div>
           </section>
         </div>

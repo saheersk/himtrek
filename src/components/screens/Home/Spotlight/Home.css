@@ -55,13 +55,18 @@ section#spotlight .wrapper .image-container img {
 }
 
 section#spotlight .wrapper .filter-box {
-    width: 500px;
+    width: 580px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #ffffffb1;
     padding: 20px 30px;
     border-radius: 12px;
+}
+
+section#spotlight .wrapper .filter-box form {
+    display: flex;
+    align-items: center;
 }
 
 section#spotlight .wrapper .filter-box input[type="text"] {
@@ -117,7 +122,9 @@ section#spotlight .wrapper .filter-box .item select option {
 
 }
 
-section#spotlight .wrapper .filter-box .button a {
+section#spotlight .wrapper .filter-box button {
+    outline: none;
+    border: none;
     display: block;
     width: 130px;
     text-align: center;
@@ -138,7 +145,7 @@ section#spotlight .wrapper .filter-box .button a {
 
 }
 
-section#spotlight .wrapper .filter-box .button a:hover {
+section#spotlight .wrapper .filter-box button:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
