@@ -168,7 +168,12 @@ h6 {
 #career-form .form form label {
     display: block;
 }
-
+#career-form .form form input {
+    border-radius: 10px;
+    border: none;
+    background-color: #D9D9D9;
+    padding: 12px;
+}
 
 @media all and (max-width: 1192px) {
     .career-spoylight .left h2 {

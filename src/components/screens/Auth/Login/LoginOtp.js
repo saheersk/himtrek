@@ -5,20 +5,18 @@ import { Link } from "react-router-dom";
 function LoginOtp() {
   return (
     <>
-      <form action="" >
-                <label>Phone Number</label>
-                <input
-                  // onChange={(e) => setUsername(e.target.value)}
-                  // value={username}
-                  type="text"
-                  placeholder="Enter your username"
-                />
-                <Link className="forgot" to="/forgot-password">
-                  Forgot Your Password ?
-                </Link>
-                {/* {message && <p>{message.data}</p>} */}
-                <input type="submit" value="Login" />
-              </form>
+      <h4>Login with otp</h4>
+      <form action="">
+        <label>Phone Number</label>
+        <input
+          // onChange={(e) => setUsername(e.target.value)}
+          // value={username}
+          type="text"
+          placeholder="Enter your number"
+        />
+        {/* {message && <p>{message.data}</p>} */}
+        <input type="submit" value="Login" />
+      </form>
     </>
   );
 }
