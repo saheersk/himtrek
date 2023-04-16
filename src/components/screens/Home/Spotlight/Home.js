@@ -51,11 +51,7 @@ function Home() {
                 A team devoted and experienced tourism professionals will
                 provide you with the best advice and tips.
               </p>
-              <div
-                className="filter-box"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
+              <div className="filter-box">
                 <div className="items">
                   <div className="item">
                     <h5>

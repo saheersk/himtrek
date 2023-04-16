@@ -26,19 +26,13 @@ function SearchingResult() {
               />
             </span>
           </div>
-          <div className="loc-filter">
-            <ul>
-              <li className="active">All Package</li>
-              <li>State</li>
-              <li>Cities</li>
-            </ul>
-          </div>
+
           <div className="place-cards">
             <PlaceCard />
           </div>
 
           {/* filter-bar */}
-          <div className={`filter-box ${isOpen ? "open" : ""}`}>
+          <div className={`filter-container ${isOpen ? "open" : ""}`}>
             <div className="head">
               <span onClick={toggleMenu}>
                 <img
@@ -73,8 +67,8 @@ function SearchingResult() {
                   <input type="checkbox" name="two-rate" />
                   <label htmlFor="two-rate">below 3.0</label>
                 </div>
+                <button>Show Results</button>
               </form>
-              <button>Show Results</button>
             </div>
           </div>
         </div>
