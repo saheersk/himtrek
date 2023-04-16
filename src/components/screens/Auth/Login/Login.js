@@ -71,16 +71,16 @@ function Login() {
                   type="password"
                   placeholder="Enter your password"
                 />
-                <Link className="forgot" to="/forgot-password">Forgot Your Password ?</Link>
+                <Link className="forgot" to="/forgot-password">
+                  Forgot Your Password ?
+                </Link>
                 {message && <p>{message.data}</p>}
                 <input type="submit" value="Login" />
               </form>
-<<<<<<< HEAD
-              <Link to="/signup">Create Account</Link>
-              <Link className="login-otp" to="/login-otp">Login with otp</Link>
-=======
               <Link to="/sign-up">Create Account</Link>
->>>>>>> 217b4ddb5e7d97b157f19948a0f585f2db5282c8
+              <Link className="login-otp" to="/login-otp">
+                Login with otp
+              </Link>
             </div>
           </section>
         </div>
