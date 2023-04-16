@@ -94,9 +94,6 @@ header .wrapper ul li.register:focus {
 
 }
 
-header .wrapper .user-name {
-    display: none;
-}
 
 header .wrapper .user-name span {
     display: block;

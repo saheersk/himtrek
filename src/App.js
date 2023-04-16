@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/screens/Home/Spotlight/Home";
 import { Helmet } from "react-helmet";
+import Cart from "./components/screens/Cart/Cart";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/screens/Auth/Login/Login";
 import SignUp from "./components/screens/Auth/SignUp/SignUp";
 import AboutUs from "./components/screens/Auth/AboutUs/AboutUs";
-import Cart from "./components/screens/Cart/Cart";
 import PackageSingle from "./components/screens/Package/PackageSingle/PackageSingle";
 import Privacy from "./components/screens/Agreement/Privacy";
 import Cancellation from "./components/screens/Agreement/Cancellation";
@@ -23,7 +23,9 @@ import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassw
 import AllEvents from "./components/screens/Events/AllEvents";
 import Career from "./components/screens/Career/Career";
 import CareerSingle from "./components/screens/Career/CareerSingle";
+import CareerForm from "./components/screens/Career/CareerForm";
 import MyOrder from "./components/screens/MyOrder/MyOrder";
+import LoginOtp from "./components/screens/Auth/Login/LoginOtp";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -78,8 +80,10 @@ function App() {
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/all-events" element={<AllEvents />} />
               <Route path="/career" element={<Career />} />
-              <Route path="/my-orders" element={<MyOrder />} />
               <Route path="/career/view/:slug" element={<CareerSingle />} />
+              <Route path="/career-form" element={<CareerForm />} />
+              <Route path="/login-otp" element={<LoginOtp />} />
+              <Route path="/my-orders" element={<MyOrder />} />
             </Routes>
           </Router>
         )}

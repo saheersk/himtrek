@@ -58,8 +58,10 @@
     font-size: 18px;
 }
 
-#otp .otp-verification form h5 {
+#otp .otp-verification form span {
+    display: block;
     font-size: 16px;
+    font-weight: 700;
     margin-bottom: 20px;
     text-align: center;
     color: #cf0000;
@@ -78,7 +80,6 @@
     background-color: #fff;
     border: 2px solid #021f3e;
 }
-
 /* responsive start */
 
 @media all and (max-width: 1250px) {

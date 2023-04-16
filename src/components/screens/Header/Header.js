@@ -100,7 +100,7 @@ function Header() {
             {is_LoggedIn ? (
               <div>
                 <li className="user-name">
-                  <span>Adam John</span>
+                  <span>{}</span>
                 </li>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">

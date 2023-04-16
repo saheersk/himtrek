@@ -6,6 +6,7 @@ const userSlice = createSlice({
     data: JSON.parse(localStorage.getItem('user_data')) || null,
     message: '',
     is_LoggedIn: localStorage.getItem('user_data') ? true : false,
+    phone: null,
   },
   reducers: {
     loginSuccess: (state, action) => {
@@ -17,7 +18,8 @@ const userSlice = createSlice({
     loginFailure: (state, action) => {
       state.is_LoggedIn = false
       state.data = null;
-      state.message = action.payload;
+      state.message = action.payload.data;
+      state.phone = action.payload.contact_number;
     },
     clearMessage: (state) => {
       state.is_LoggedIn = false
