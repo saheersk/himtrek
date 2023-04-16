@@ -11,8 +11,6 @@ function Header() {
   const data = useSelector((state) => state.user.data);
 
   const [username, setUsername] = useState("");
-  console.log(username);
-
   let navigate = useNavigate();
 
   const handleLogout = () => {
@@ -110,13 +108,7 @@ function Header() {
             {is_LoggedIn ? (
               <div className="logged-box">
                 <li className="user-name">
-                  <span>
-                    {username && username}
-                    <img
-                      src={require("../../assets/images/angle-up-solid.png")}
-                      alt=""
-                    />
-                  </span>
+                  <span>{username && username}</span>
                 </li>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">

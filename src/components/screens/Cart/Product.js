@@ -54,7 +54,17 @@ function Product() {
           </div>
         </div>
       ) : (
-        <h1>Package not added</h1>
+        <>
+          <div className="empty-cart">
+            <div className="img-box">
+              <img
+                src={require("../../assets/images/empty-bag.png")}
+                alt="Empty"
+              />
+            </div>
+            <h1>Your cart is empty!</h1>
+          </div>
+        </>
       )}
     </>
   );

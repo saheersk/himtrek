@@ -25,12 +25,15 @@ function CartGear() {
   };
 
   const handleDays = (id, action) => {
-    const days = updatedDays[id] !== undefined ? updatedDays[id] : gearCart.find(item => item.id === id).days;
+    const days =
+      updatedDays[id] !== undefined
+        ? updatedDays[id]
+        : gearCart.find((item) => item.id === id).days;
     const newDays = action === Add ? days + 1 : days - 1;
-    setUpdatedDays({...updatedDays, [id]: newDays});
+    setUpdatedDays({ ...updatedDays, [id]: newDays });
 
-    if(newDays === 0) {
-      setUpdatedDays({...updatedDays, [id]: ""});
+    if (newDays === 0) {
+      setUpdatedDays({ ...updatedDays, [id]: "" });
     }
 
     dispatch(
