@@ -22,7 +22,6 @@ function Event() {
             <div className="text-container">
               <div className="text box">
                 <h4>{event?.title}</h4>
-                <p>{event?.description}</p>
               </div>
               <div className="date">
                 <span>{event?.added_date}</span>

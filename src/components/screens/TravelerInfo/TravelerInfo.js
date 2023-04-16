@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./TravelerInfo.css";
 import "react-calendar/dist/Calendar.css";
 import { fetchCartProduct } from "../../../Redux/Cart/cart";
+import { fetchGearCart } from "../../../Redux/Cart/gearCart";
 
 function TravelerInfo() {
   const dispatch = useDispatch();
@@ -20,12 +21,15 @@ function TravelerInfo() {
   const package_price_per_children = useSelector((cart) => cart.cart.package_price_per_children);
   const package_price_family_of_four = useSelector((cart) => cart.cart.package_price_family_of_four);
   const product = useSelector((cart) => cart.cart.products);
+  const gearCart = useSelector((state) => state.gearCart.gearCart);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
 
   const [date, setDate] = useState(format(new Date(), "dd MMM Y"));
   const [endDate, setEndDate] = useState(format(new Date(), "dd MMM Y"));
+
+  const [isOpen, setIsOpen] = useState(false);
 
   const [adults, setAdults] = useState("");
   const [family, setFamily] = useState("");
@@ -35,9 +39,15 @@ function TravelerInfo() {
   const [phone, setPhone] = useState("");
   const [requirements, setRequirements] = useState("");
   const [comments, setComments] = useState("");
+  const [gearTotal, setGearTotal] = useState(0);
 
   const params = useParams();
-  const slug = params.id
+  const slug = params.slug
+
+  const total_gear_price = gearCart.reduce((acc, item) => {
+    const price = item?.gears?.price_per_day * parseInt(item?.days);
+    return acc + price;
+  }, 0);
 
   let total_price_adult = package_price_per_person * parseInt(adults) 
   let total_price_children = package_price_per_children * parseInt(children) 
@@ -67,12 +77,13 @@ function TravelerInfo() {
 
   useEffect(() => {
     dispatch(fetchCartProduct(token));
+    dispatch(fetchGearCart({ token: token }))
   }, [token, dispatch]);
 
   const confirmHandle = (e) => {
     e.preventDefault();
     toggleMenu();
-
+    setGearTotal(total_gear_price);
     axios
       .post(`${BASE_URL}/packages/checkout/${slug}/`, {
         selected_date: date,
@@ -85,6 +96,7 @@ function TravelerInfo() {
         children_count: children,
         health_requirement: requirements,
         special_requests: comments,
+        total_price_for_gear: gearTotal,
       },{
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -113,7 +125,7 @@ function TravelerInfo() {
       });
   };
 
-  const [isOpen, setIsOpen] = useState(false);
+  
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -273,6 +285,12 @@ function TravelerInfo() {
                       <h4>Total per Adult : {package_price_per_person}</h4>
                       <h4>Total per Children : {package_price_per_children}</h4>
                       <h4>Total Family of 4 : {package_price_family_of_four}</h4>
+                      <h3>Total Gear Price : {total_gear_price}</h3>
+                      {gearCart.map((item) => {
+                        return (
+                          <h3 key={item?.id}>{item?.gears.product_name} Gear  per day {item?.gears?.price_per_day} : {item?.gears?.price_per_day * parseInt(item?.days) }</h3>
+                        )
+                      })}
                     </div>
                     <div className="button">
                       <input type="submit" value={"Preview"} />
@@ -298,6 +316,7 @@ function TravelerInfo() {
           toggleMenu={toggleMenu}
           confirmHandle={confirmHandle}
           total_price={total_price}
+          gearTotal={gearTotal}
         />
       </section>
     </>

@@ -14,16 +14,18 @@ function PackageSingle() {
   const dispatch = useDispatch();
   const packageView = useSelector((state) => state.packageView.package);
   const message = useSelector((state) => state.packageView.message);
+  const gearMessage = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
 
   console.log(message, "===message");
+  console.log(gearMessage, "===gearMessage");
 
  const navigate = useNavigate()
 
   const params = useParams();
-  const slug = params.id
+  const slug = params.slug
 
   const handleCart = () => {
     if(message === 401) {
@@ -96,7 +98,7 @@ function PackageSingle() {
             <QuickFacts slug={slug} />
           </div>
           <Questions slug={slug} />
-            <Additions slug={slug}/>
+          <Additions slug={slug}/>
           <Itinerary slug={slug} />
           <Gear slug={slug} />
         </div>

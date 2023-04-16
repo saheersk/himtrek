@@ -14,7 +14,8 @@ function CategoryTab() {
 
   useEffect(() => {
     dispatch(fetchCategory());
-  }, [dispatch]);
+    navigate(`/?category=trekking`);
+  }, [dispatch, navigate]);
 
   const handleCategory = (id, title) => {
     setActiveCategory(id);

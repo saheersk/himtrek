@@ -35,7 +35,7 @@ function Cart() {
             <span><small>₹</small> {package_price_family_of_four}</span>
           </div>
           <div className="right">
-            <Link to={`/traveler-info/${product?.package?.slug}`}>
+            <Link to={`/traveler-info/${product?.package?.slug}/`}>
             <button>Checkout</button>
             </Link>
           </div>

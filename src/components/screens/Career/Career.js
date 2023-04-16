@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./Career.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCareer } from "../../../Redux/Career/career";
+import { Link } from "react-router-dom";
 
 function Career() {
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ function Career() {
           <ul>
             {career.map((item) => {
               return (
-                <li key={item?.id}>
+                <div key={item?.id}>
+                <Link to={`/career/view/${item?.slug}/`}>
+                <li>
               <div className="text-box">
                 <h4>{item?.title}</h4>
                 <p>{item?.designation}</p>
@@ -43,6 +46,8 @@ function Career() {
                 <button>Apply Now</button>
               </div>
             </li>
+              </Link>
+            </div>
               )
             })}
             

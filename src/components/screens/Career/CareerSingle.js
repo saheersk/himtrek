@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Career.css";
 import Header from "../Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchCareerView } from "../../../Redux/Career/careerView";
 
 function CareerSingle() {
+  const dispatch = useDispatch();
+  const careerView = useSelector((state) => state.careerView.careerView);
+  const requirements = useSelector((state) => state.careerView.requirements);
+
+  const params = useParams();
+  const slug = params.slug;
+
+  useEffect(() => {
+    dispatch(fetchCareerView({ slug: slug }));
+  }, [dispatch, slug]);
+
   return (
     <>
       <Header />
@@ -11,36 +25,20 @@ function CareerSingle() {
           <div className="career-card">
             <div className="head-content">
               <div className="left">
-                <h2>Graphic Designer</h2>
-                <h6>Kochi Kerala</h6>
+                <h2>{careerView?.title}</h2>
+                <h6>{careerView?.location_of_job}</h6>
               </div>
               <div className="right">
-                <h3>2 Year Experience</h3>
-                <h5>Deceember 20, 2023</h5>
+                <h3>{careerView?.experience} Year Experience</h3>
+                <h5>Published Date: {careerView?.added_date}</h5>
               </div>
             </div>
             <ul>
-              <li>
-                Basics Knowledge of Photoshop, Adobe Illustration and Premire
-                Pro
-              </li>
-              <li>Communication Skill</li>
-              <li>Best Creative Knowledge</li>
-              <li>Own Laptop</li>
+              {requirements.map((item) => {
+                return <li key={item?.id}>{item?.requirements}</li>;
+              })}
             </ul>
-            <p>
-              HimTrek is hiring Graphics Designer, Sed sit amet orci nec erat
-              hendrerit congue. Ut laoreet id lacus ac euismod. Integer viverra
-              commodo diam. Cras mattis erat vitae neque molestie facilisis.
-              Nunc lacus mauris, aliquam nec suscipit a, congue sit amet lorem.
-              Praesent mattis, sem dignissim fermentum elementum, massa enim
-              vulputate enim, nec faucibus leo arcu in velit. Vivamus id leo vel
-              sem lobortis finibus. Vestibulum efficitur felis et enim tincidunt
-              eleifend. Aenean fermentum dapibus libero at tincidunt. Nullam a
-              malesuada nibh, vel rutrum nibh. Nulla est nibh, laoreet ac
-              volutpat non, semper eget magna. Aenean tempus lectus eget magna
-              vestibulum commodo eu quis orci. Ut a commodo nisi.
-            </p>
+            <p>{careerView?.description}</p>
             <button>Apply Now</button>
           </div>
         </div>

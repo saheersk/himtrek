@@ -16,6 +16,8 @@ import careerReducer from "./Career/career";
 import passwordReducer from "./Auth/forgotPassword";
 import categoryReducer from "./Home/category";
 import cityReducer from "./Home/city";
+import gearCartReducer from "./Cart/gearCart";
+import careerViewReducer from "./Career/careerView";
 
 const store = configureStore({
   reducer: {
@@ -36,6 +38,8 @@ const store = configureStore({
     password: passwordReducer,
     category: categoryReducer,
     city: cityReducer,
+    gearCart: gearCartReducer,
+    careerView: careerViewReducer,
   },
 });
 
