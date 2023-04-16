@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./Career.css";
 import Header from "../Header/Header";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchCareerView } from "../../../Redux/Career/careerView";
 
 function CareerSingle() {
@@ -39,7 +39,9 @@ function CareerSingle() {
               })}
             </ul>
             <p>{careerView?.description}</p>
+            <Link to={`/career-application/${careerView?.slug}`}>
             <button>Apply Now</button>
+            </Link>
           </div>
         </div>
       </section>

@@ -2,7 +2,7 @@ import React from "react";
 import "./AboutUs.css";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
-import TeamMember from "./TeamMember";
+import AboutMembers from "./AboutMembers";
 function AboutUs() {
   return (
     <>
@@ -45,10 +45,7 @@ function AboutUs() {
           <h6>Our Team</h6>
           <h3>Meet Our Team</h3>
           <div className="items">
-            <TeamMember />
-            <TeamMember />
-            <TeamMember />
-            <TeamMember />
+            <AboutMembers />
           </div>
         </div>
       </section>

@@ -8,6 +8,7 @@ import "./Header.css";
 function Header() {
   const dispatch = useDispatch();
   const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
+  const data = useSelector((state) => state.user.data);
 
   let navigate = useNavigate();
 
@@ -100,7 +101,7 @@ function Header() {
             {is_LoggedIn ? (
               <div>
                 <li className="user-name">
-                  <span>{}</span>
+                  <span>{data && data.username}</span>
                 </li>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">

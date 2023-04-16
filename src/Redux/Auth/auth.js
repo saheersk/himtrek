@@ -4,14 +4,13 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     data: JSON.parse(localStorage.getItem('user_data')) || null,
-    message: '',
+    message: "",
     is_LoggedIn: localStorage.getItem('user_data') ? true : false,
     phone: null,
   },
   reducers: {
     loginSuccess: (state, action) => {
       state.is_LoggedIn = true
-      // state.data = action.payload;
       state.message = '';
       localStorage.setItem('user_data', JSON.stringify(action.payload));
     },
