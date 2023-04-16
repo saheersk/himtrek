@@ -9,9 +9,9 @@ function Header() {
   const dispatch = useDispatch();
   const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
   const data = useSelector((state) => state.user.data);
-  console.log(data);
 
-  const [username, setUsername] = useState("")
+  const [username, setUsername] = useState("");
+  console.log(username);
 
   let navigate = useNavigate();
 
@@ -22,7 +22,7 @@ function Header() {
 
   useEffect(() => {
     if (data) {
-      setUsername(data.username)
+      setUsername(data.username);
     }
   }, [data]);
 
@@ -110,17 +110,13 @@ function Header() {
             {is_LoggedIn ? (
               <div className="logged-box">
                 <li className="user-name">
-<<<<<<< HEAD
                   <span>
-                    {data && data.username}
+                    {username && username}
                     <img
                       src={require("../../assets/images/angle-up-solid.png")}
                       alt=""
                     />
                   </span>
-=======
-                  <span>{username && username}</span>
->>>>>>> 51c190961934607e6d2473e2cf08e98cda1603d7
                 </li>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">
