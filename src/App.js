@@ -83,7 +83,7 @@ function App() {
               <Route path="/career/view/:slug" element={<CareerSingle />} />
               <Route path="/career-application/:slug" element={<CareerForm />} />
               <Route path="/login-otp" element={<LoginOtp />} />
-              <Route path="/my-orders" element={<MyOrder />} />
+              <Route path="/my-orders" element={<MyOrder />} /> */}
             </Routes>
           </Router>
         )}
