@@ -145,6 +145,31 @@ h6 {
     background: #653810;
 }
 
+#career-form {
+    padding: 50px 0;
+}
+
+#career-form .form {
+    padding: 50px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 14px;
+    width: 80%;
+    margin: 0 auto;
+}
+#career-form .form h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+#career-form .form form{
+    display: flex;
+    flex-wrap: wrap;
+}
+#career-form .form form label {
+    display: block;
+}
+
+
 @media all and (max-width: 1192px) {
     .career-spoylight .left h2 {
         width: 72%;
@@ -161,14 +186,17 @@ h6 {
     .career-spoylight .left h2 {
         width: 90%;
     }
+
     #career-single .career-card ul li {
         font-size: 16px;
         margin-bottom: 8px;
     }
-    #career-single .career-card p{
+
+    #career-single .career-card p {
         font-size: 16px;
     }
-    #career-single .career-card button{
+
+    #career-single .career-card button {
         width: 30%;
     }
 }
@@ -181,6 +209,7 @@ h6 {
     .available-jobs li {
         width: 75%;
     }
+
     #career-single .career-card {
         width: 90%;
     }
@@ -194,18 +223,23 @@ h6 {
     .available-jobs li {
         width: 85%;
     }
+
     #career-single .career-card {
         width: 100%;
     }
+
     #career-single .career-card ul li {
         font-size: 14px;
     }
-    #career-single .career-card p{
+
+    #career-single .career-card p {
         font-size: 14px;
     }
-    #career-single .career-card .head-content h2{
+
+    #career-single .career-card .head-content h2 {
         font-size: 20px;
     }
+
     #career-single .career-card .head-content h3 {
         font-size: 18px;
     }
@@ -257,16 +291,20 @@ h6 {
         text-align: right;
     }
 }
-@media all and (max-width: 540px){
-    #career-single .career-card .head-content{
+
+@media all and (max-width: 540px) {
+    #career-single .career-card .head-content {
         flex-direction: column;
     }
+
     #career-single .career-card .head-content .left {
         margin-bottom: 14px;
     }
+
     #career-single .career-card .head-content {
         margin-bottom: 40px;
     }
+
     #career-single .career-card button {
         width: 40%;
     }
@@ -302,6 +340,7 @@ h6 {
     .available-jobs li .button {
         font-size: 12px;
     }
+
     #career-single .career-card button {
         width: 60%;
     }

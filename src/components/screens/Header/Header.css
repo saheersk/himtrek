@@ -61,6 +61,7 @@ header .wrapper ul a.register {
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    margin-right: 0;
 }
 
 header .wrapper ul.auth select {

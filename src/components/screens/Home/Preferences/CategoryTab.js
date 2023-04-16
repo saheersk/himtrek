@@ -24,7 +24,7 @@ function CategoryTab() {
 
   return (
     <>
-      <ul>
+      <ul id="preferred-category">
         {category.map((item) => {
           return (
             <li

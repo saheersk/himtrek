@@ -131,8 +131,8 @@ function AutoFillOTP({contact_number}) {
                     />
                   );
                 })}
-                {/* <h5>Resent OTP</h5> */}
                 {message && <p>{message.data}</p>}
+                <span>Resent OTP</span>
                 <input
                   className="btn btn-primary"
                   onClick={(e) => handleSubmit(e)}

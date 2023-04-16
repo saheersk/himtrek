@@ -23,6 +23,8 @@ import ForgotPassword from "./components/screens/Auth/ForgotPassword/ForgotPassw
 import AllEvents from "./components/screens/Events/AllEvents";
 import Career from "./components/screens/Career/Career";
 import CareerSingle from "./components/screens/Career/CareerSingle";
+import CareerForm from "./components/screens/Career/CareerForm";
+import MyOrder from "./components/screens/MyOrder/MyOrder";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -78,6 +80,9 @@ function App() {
               <Route path="/all-events" element={<AllEvents />} />
               <Route path="/career" element={<Career />} />
               <Route path="/career/view/:slug" element={<CareerSingle />} />
+              <Route path="/career-form" element={<CareerForm />} />
+              <Route path="/login-otp" element={<CareerForm />} />
+              <Route path="/my-orders" element={<MyOrder />} />
             </Routes>
           </Router>
         )}

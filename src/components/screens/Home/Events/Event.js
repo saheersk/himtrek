@@ -15,7 +15,7 @@ function Event() {
     <>
       {event.map((event) => {
         return (
-          <li data-aos="fade-up" key={event?.id}>
+          <li data-aos="fade-up" key={event?.id} className="xs-card">
             <div className="preview">
               <img src={event?.image} alt={event?.title} />
             </div>

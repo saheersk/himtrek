@@ -30,32 +30,62 @@ function Header() {
           </h1>
           <ul className="nav">
             <li>
-              <NavLink exact activeClassName="active" to="/discover">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/discover"
+              >
                 discover
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/about-us">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/about-us"
+              >
                 about
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/result">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/result"
+              >
                 packages
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/discover">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/my-orders"
+              >
                 my order
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/cart/">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/cart/"
+              >
                 cart
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/contact">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/contact"
+              >
                 contact
               </NavLink>
             </li>

@@ -70,9 +70,10 @@ section#events ul li .text-container {
     justify-content: space-between;
 }
 
-section#events ul li .text-container h4 {
-    font-size: 20px;
-    margin-bottom: 20px;
+section#events ul li.xs-card .text-container h4 {
+    font-size: 18px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 section#events ul li .text-container p {

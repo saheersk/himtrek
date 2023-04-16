@@ -154,53 +154,53 @@
 
 }
 
-.filter-box.open {
+.filter-container.open {
     right: 0;
 }
 
-.filter-container.content-box {
+.filter-container .content-box {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     height: 70vh;
 }
 
-.filter-container.head {
+.filter-container .head {
     display: flex;
     align-items: center;
     width: 100%;
     margin-bottom: 50px;
 }
 
-.filter-container.head h5 {
+.filter-container .head h5 {
     font-size: 24px;
     text-align: center;
     width: 100%;
 }
 
-.filter-containerspan img {
+.filter-container span img {
     width: 100%;
     display: block;
 }
 
-.filter-containerspan {
+.filter-container span {
     cursor: pointer;
     width: 30px;
     display: block;
 }
 
-.filter-containerh4 {
+.filter-container h4 {
     margin-bottom: 20px;
     color: var(--orenge);
 }
 
-.filter-containerform .item {
+.filter-container form .item {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
 }
 
-.filter-containerform .item input {
+.filter-container form .item input {
     padding: 20px;
     height: 24px;
     width: 24px;
@@ -209,7 +209,7 @@
     border: 1px solid var(--orenge);
 }
 
-.filter-container.content-box button {
+.filter-container .content-box button {
     cursor: pointer;
     padding: 12px 20px;
     border: none;
@@ -220,7 +220,7 @@
     transition: .3s ease;
 }
 
-.filter-container.content-box button:hover {
+.filter-container .content-box button:hover {
     background-color: #7f420c;
 }
 
@@ -248,4 +248,5 @@
     .place-card {
         width: 188px;
     }
+
 }

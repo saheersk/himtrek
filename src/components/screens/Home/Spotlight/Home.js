@@ -70,7 +70,7 @@ function Home() {
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                 <form action="" onSubmit={(e) => handleSubmit(e)}>
+                <form action="" onSubmit={(e) => handleSubmit(e)}>
                   <div className="items">
                     <div className="item">
                       <h5>
