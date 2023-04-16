@@ -8,7 +8,7 @@ function CareerForm() {
     <section id="career-form">
         <div className="wrapper">
             <div className="form">
-                <h2>Complete Your Application</h2>
+                <h2>Complete Your Job Application</h2>
                 <form action="">
                     <label htmlFor="">Career</label>
                     <input type="text" />
