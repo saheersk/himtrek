@@ -28,7 +28,6 @@ export const addToCart = createAsyncThunk(
   }
 );
 
-
 const PackageViewSlice = createSlice({
   name: 'packageView',
   initialState: {

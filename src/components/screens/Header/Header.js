@@ -40,7 +40,7 @@ function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink activeClassName="active" to="/searchingresult">
+              <NavLink activeClassName="active" to="/result">
                 packages
               </NavLink>
             </li>

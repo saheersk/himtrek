@@ -13,6 +13,7 @@ import "./TravelerInfo.css";
 import "react-calendar/dist/Calendar.css";
 import { fetchCartProduct } from "../../../Redux/Cart/cart";
 import { fetchGearCart } from "../../../Redux/Cart/gearCart";
+import { fetchPackageView } from "../../../Redux/Package/packageView";
 
 function TravelerInfo() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ function TravelerInfo() {
   const package_price_family_of_four = useSelector((cart) => cart.cart.package_price_family_of_four);
   const product = useSelector((cart) => cart.cart.products);
   const gearCart = useSelector((state) => state.gearCart.gearCart);
+  const packageView = useSelector((state) => state.packageView.package);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
@@ -60,13 +62,12 @@ function TravelerInfo() {
     let select_date = format(value, "dd MMM Y");
     let dateObj = new Date(select_date);
 
-    dateObj.setDate(dateObj.getDate() + 5);
+    dateObj.setDate(dateObj.getDate() + packageView.days);
     let end_date = format(dateObj, "dd MMM Y");
 
     setDate(select_date);
     setEndDate(end_date);
   }
-
 
   const navigate = useNavigate();
 
@@ -78,7 +79,8 @@ function TravelerInfo() {
   useEffect(() => {
     dispatch(fetchCartProduct(token));
     dispatch(fetchGearCart({ token: token }))
-  }, [token, dispatch]);
+    dispatch(fetchPackageView(slug));
+  }, [token, dispatch, slug]);
 
   const confirmHandle = (e) => {
     e.preventDefault();

@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../../../../axiosConfig";
 import { useDispatch, useSelector } from "react-redux";
 import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import AutoFillOTP from "../Otp/AutoFillOTP";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -32,13 +33,15 @@ export default function SignUp() {
         contact_number,
       })
       .then((response) => {
+        const data = response.data;
         if (response.data.status_code === 6000) {
-          const data = response.data;
-          dispatch(loginSuccess(data));
+          dispatch(loginSuccess({data}));
           navigate('/otp/');
+          <AutoFillOTP  />
         }
         else  {
-          dispatch(loginFailure(response.data));
+          dispatch(loginFailure(data));
+          <AutoFillOTP  contact_number={contact_number} />
         }
         
       })

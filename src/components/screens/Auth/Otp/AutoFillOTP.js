@@ -2,12 +2,16 @@ import React, { useState, useRef } from "react";
 import swal from "sweetalert2";
 import { BASE_URL } from "../../../../axiosConfig";
 import axios from "axios";
-import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import {
+  clearMessage,
+  loginFailure,
+  loginSuccess,
+} from "../../../../Redux/Auth/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./Otp.css";
 
-function AutoFillOTP() {
+function AutoFillOTP({contact_number}) {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.user.message);
 
@@ -20,39 +24,50 @@ function AutoFillOTP() {
     e.preventDefault();
     dispatch(clearMessage());
 
-    const num = otp.join(''); 
+    const num = otp.join("");
 
     console.log(num);
 
     axios
       .post(`${BASE_URL}/auth/verify/`, {
         otp: num,
+        contact_number: contact_number,
       })
       .then((response) => {
         if (response.data.status_code === 6000) {
           const data = response.data;
-          localStorage.setItem('user_data', JSON.stringify(data));
+          localStorage.setItem("user_data", JSON.stringify(data));
           dispatch(loginSuccess(data));
           setOtp(["", "", "", "", "", ""]);
-          swal.fire({
-            title: 'Successful',
-            text: 'OTP verified.',
-            icon: 'success',
-            confirmButtonText: 'Ok',
-          }).then((result) => {
-            if (result.value) {
-              navigate('/');
-            }
-          });
-          
-        }
-        else  {
+          swal
+            .fire({
+              title: "Successful",
+              text: "OTP verified.",
+              icon: "success",
+              confirmButtonText: "Ok",
+            })
+            .then((result) => {
+              if (result.value) {
+                navigate("/");
+              }
+            });
+        } else {
           dispatch(loginFailure(response.data));
+          swal
+            .fire({
+              title: "Otp",
+              text: "OTP Limit excceded.",
+              icon: "error",
+              confirmButtonText: "Ok",
+            })
+            .then((result) => {
+              if (result.value) {
+                navigate("/otp/");
+              }
+            });
         }
-        
       })
       .catch((error) => {
-        console.log(error);
         if (error.response.status_code === 6001) {
           dispatch(loginFailure(error.response.data));
         }
@@ -117,7 +132,7 @@ function AutoFillOTP() {
                   );
                 })}
                 {/* <h5>Resent OTP</h5> */}
-                {message && <p>{message}</p>}
+                {message && <p>{message.data}</p>}
                 <input
                   className="btn btn-primary"
                   onClick={(e) => handleSubmit(e)}
