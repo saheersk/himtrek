@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { useSelector, useDispatch } from "react-redux";
@@ -11,12 +11,20 @@ function Header() {
   const data = useSelector((state) => state.user.data);
   console.log(data);
 
+  const [username, setUsername] = useState("")
+
   let navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(logoutUser());
     navigate("/");
   };
+
+  useEffect(() => {
+    if (data) {
+      setUsername(data.username)
+    }
+  }, [data]);
 
   return (
     <>
@@ -102,6 +110,7 @@ function Header() {
             {is_LoggedIn ? (
               <div className="logged-box">
                 <li className="user-name">
+<<<<<<< HEAD
                   <span>
                     {data && data.username}
                     <img
@@ -109,6 +118,9 @@ function Header() {
                       alt=""
                     />
                   </span>
+=======
+                  <span>{username && username}</span>
+>>>>>>> 51c190961934607e6d2473e2cf08e98cda1603d7
                 </li>
                 <li className="authentication">
                   <small onClick={() => handleLogout()} className="register">

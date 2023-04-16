@@ -1,22 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { clearMessage, loginFailure, loginSuccess } from "../../../../Redux/Auth/auth";
+import { BASE_URL } from "../../../../axiosConfig";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-function LoginOtp() {
+function LoginOtp({toggleOtp}) {
+  const dispatch = useDispatch();
+  const message = useSelector((state) => state.user.message);
+
+  const [contactNumber, setContactNumber] = useState("");
+
+  const navigate = useNavigate();
+
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(clearMessage());
+    axios
+      .post(`${BASE_URL}/auth/login/number/`, {
+        contact_number: contactNumber,
+      })
+      .then((response) => {
+        console.log(response.data);
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          dispatch(loginSuccess(data));
+          navigate("/otp/");
+        } else {
+          dispatch(loginFailure(response.data));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(loginFailure(error.response.data));
+        }
+      });
+  };
+
   return (
     <>
       <h4>Login with otp</h4>
-      <form action="">
+      <form action="" onSubmit={(e) => handleSubmit(e)}>
         <label>Phone Number</label>
         <input
-          // onChange={(e) => setUsername(e.target.value)}
-          // value={username}
+          onChange={(e) => setContactNumber(e.target.value)}
+          value={contactNumber}
           type="text"
           placeholder="Enter your number"
         />
-        {/* {message && <p>{message.data}</p>} */}
+        {message && <p>{message.data}</p>}
         <input type="submit" value="Login" />
       </form>
+      <span onClick={() => toggleOtp()} className="login-otp">
+        Login With Username
+      </span>
     </>
   );
 }

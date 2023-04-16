@@ -89,13 +89,12 @@ function Login() {
                   <span
                     onClick={() => toggleOtp()}
                     className="login-otp"
-                    to="/login-otp"
                   >
                     Login with otp
                   </span>
                 </>
               ) : (
-                <LoginOtp />
+                <LoginOtp toggleOtp={toggleOtp} />
               )}
               <Link to="/sign-up">Create Account</Link>
             </div>
