@@ -2,6 +2,7 @@ import React from "react";
 import "./AboutUs.css";
 import Header from "../../Header/Header";
 import Footer from "../../Footer/Footer";
+import TeamMember from "./TeamMember";
 function AboutUs() {
   return (
     <>
@@ -44,57 +45,10 @@ function AboutUs() {
           <h6>Our Team</h6>
           <h3>Meet Our Team</h3>
           <div className="items">
-            <div className="item">
-              <div className="team-member">
-                <img src={require("../../../assets/images/john.png")} alt="" />
-              </div>
-              <div className="text-box">
-                <h5>Jully</h5>
-                <p>Director</p>
-                <img
-                  src={require("../../../assets/images/facebook.png")}
-                  alt=""
-                />
-                <img
-                  src={require("../../../assets/images/instagram.png")}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="item">
-              <div className="team-member">
-                <img src={require("../../../assets/images/john.png")} alt="" />
-              </div>
-              <div className="text-box">
-                <h5>John</h5>
-                <p>Director</p>
-                <img
-                  src={require("../../../assets/images/facebook.png")}
-                  alt=""
-                />
-                <img
-                  src={require("../../../assets/images/instagram.png")}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="item">
-              <div className="team-member">
-                <img src={require("../../../assets/images/jomes.png")} alt="" />
-              </div>
-              <div className="text-box">
-                <h5>Jomes</h5>
-                <p>Director</p>
-                <img
-                  src={require("../../../assets/images/facebook.png")}
-                  alt=""
-                />
-                <img
-                  src={require("../../../assets/images/instagram.png")}
-                  alt=""
-                />
-              </div>
-            </div>
+            <TeamMember />
+            <TeamMember />
+            <TeamMember />
+            <TeamMember />
           </div>
         </div>
       </section>

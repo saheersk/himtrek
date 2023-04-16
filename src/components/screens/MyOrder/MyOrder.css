@@ -6,6 +6,10 @@
     --orange: #C77935;
 }
 
+#order-container {
+    padding: 50px 0;
+}
+
 #order-container .head {
     padding: 40px 0;
 }
@@ -89,7 +93,7 @@
     color: var(--content);
 }
 
-#order-container .order-content .button {
+#order-container .button {
     text-align: center;
     display: block;
     display: flex;
@@ -98,7 +102,7 @@
     margin-top: 40px;
 }
 
-#order-container .order-content .button a {
+#order-container .button a {
     padding: 14px 26px;
     border-radius: 25px;
     background-color: var(--orange);
@@ -106,6 +110,6 @@
     transition: .3s ease;
 }
 
-#order-container .order-content .button a:hover {
+#order-container .button a:hover {
     background-color: #603713;
 }

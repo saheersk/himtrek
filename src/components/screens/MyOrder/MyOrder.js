@@ -3,6 +3,7 @@ import "./MyOrder.css";
 import Header from "../Header/Header";
 import OrderItem from "./OrderItem";
 import { Link } from "react-router-dom";
+import OrderGear from "./OrderGear";
 
 function MyOrder() {
   return (
@@ -16,9 +17,15 @@ function MyOrder() {
           <div className="order-content">
             <OrderItem />
             <OrderItem />
-            <div className="button">
-              <Link to="/">Go Home</Link>
+            <div className="head">
+              <h3>My Gears</h3>
             </div>
+            <OrderGear />
+            <OrderGear />
+          </div>
+
+          <div className="button">
+            <Link to="/">Go Home</Link>
           </div>
         </div>
       </section>

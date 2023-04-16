@@ -6,7 +6,10 @@ import QuickFacts from "./QuickFacts";
 import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, fetchPackageView } from "../../../../Redux/Package/packageView";
+import {
+  addToCart,
+  fetchPackageView,
+} from "../../../../Redux/Package/packageView";
 import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
 
@@ -22,24 +25,23 @@ function PackageSingle() {
   console.log(message, "===message");
   console.log(gearMessage, "===gearMessage");
 
- const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const params = useParams();
-  const slug = params.slug
+  const slug = params.slug;
 
   const handleCart = () => {
-    if(message === 401) {
+    if (message === 401) {
       navigate("/login/");
+    } else {
+      dispatch(addToCart({ slug: slug, token: token }));
     }
-    else {
-      dispatch(addToCart({slug: slug, token: token}))
-    }
-  }
-  
+  };
+
   useEffect(() => {
     dispatch(fetchPackageView(slug));
   }, [slug, dispatch]);
-  
+
   return (
     <>
       <Header />
@@ -47,10 +49,7 @@ function PackageSingle() {
         <div className="wrapper">
           <div className="cover-img">
             <div className="img-box">
-              <img
-                src={packageView?.image}
-                alt={packageView?.title}
-              />
+              <img src={packageView?.image} alt={packageView?.title} />
             </div>
             <div className="text-box">
               <h3>{packageView?.title}</h3>
@@ -80,31 +79,26 @@ function PackageSingle() {
             </div>
             <div className="item price">
               <h6>₹ {packageView?.price}</h6>
-              <span onClick={()=> handleCart()}>book now</span>
+              <span onClick={() => handleCart()}>book now</span>
             </div>
           </div>
           <div className="content-box">
             <div className="overview">
               <h3>Overview</h3>
-              <p>
-              {packageView?.description}
-              </p>
-              <p>
-
-              </p>
-              <p>
-              </p>
+              <p>{packageView?.description}</p>
+              <p></p>
+              <p></p>
             </div>
             <QuickFacts slug={slug} />
           </div>
           <Questions slug={slug} />
-          <Additions slug={slug}/>
+          <Additions slug={slug} />
           <Itinerary slug={slug} />
           <Gear slug={slug} />
         </div>
         <div className="info-footer">
           <h5>Manali</h5>
-          <button onClick={()=> handleCart()}>Book Now</button>
+          <button onClick={() => handleCart()}>Book Now</button>
         </div>
       </section>
     </>

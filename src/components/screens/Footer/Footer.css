@@ -141,6 +141,7 @@ section#footer .link-container .social {
 section#footer .link-container .social span {
     cursor: pointer;
     width: 30px;
+    height: 30px;
     display: block;
     margin-right: 30px;
     position: relative;
@@ -170,8 +171,13 @@ section#footer .link-container .social span:hover::after {
 
 }
 
+section#footer .link-container .social span:hover img {
+    filter: invert(1);
+}
+
 section#footer .link-container .social span img {
     width: 100%;
+    height: 100%;
     display: block;
 }
 
