@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Cart.css";
+import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GearItemAddOrSub,
@@ -23,6 +24,11 @@ function CartGear() {
 
   const handleGearCart = (id) => {
     dispatch(removeFromGearCart({ productId: id, token: token }));
+    Swal.fire({
+      icon: "success",
+      title: "Gear removed!",
+      text: " This gear removed successfully",
+    });
   };
 
   const handleDays = (id, action) => {

@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { fetchCartProduct, removeFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+
 import "./Cart.css";
 
 function Product() {
@@ -18,6 +20,11 @@ function Product() {
   const RemovePackage = (id) => {
     try {
       dispatch(removeFromCart({ productId: id, token: token }));
+      Swal.fire({
+        icon: "success",
+        title: "Package removed!",
+        text: " This Package removed successfully",
+      });
     } catch (error) {
       console.log("Error removing package from cart:", error);
     }

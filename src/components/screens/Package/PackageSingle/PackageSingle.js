@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Header from "../../Header/Header";
 import Gear from "./Gear";
+import Swal from "sweetalert2";
+
 import Itinerary from "./Itinerary";
 import QuickFacts from "./QuickFacts";
 import Questions from "./Questions";
@@ -35,6 +37,11 @@ function PackageSingle() {
       navigate("/login/");
     } else {
       dispatch(addToCart({ slug: slug, token: token }));
+      Swal.fire({
+        icon: "success",
+        title: "Package added to Cart",
+        text: " Your Package added successfully",
+      });
     }
   };
 

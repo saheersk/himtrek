@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Swal from "sweetalert2";
+
 import "./PackageSingle.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchGear } from "../../../../Redux/Package/gears";
@@ -15,8 +17,13 @@ function Gear({ slug }) {
   // console.log(message, "=====message");
 
   const handleGearCart = (id) => {
-    dispatch(addGearToCart({productId: id, token: token}))
-  }
+    dispatch(addGearToCart({ productId: id, token: token }));
+    Swal.fire({
+      icon: "success",
+      title: "Gear added to Cart",
+      text: " This gear added with this package.",
+    });
+  };
 
   useEffect(() => {
     dispatch(fetchGear(slug));
@@ -31,19 +38,17 @@ function Gear({ slug }) {
             {gear.map((item) => {
               return (
                 <div className="item" key={item?.id}>
-              <div className="product-img">
-                <img
-                  src={item?.image}
-                  alt={item?.product_name}
-                />
-              </div>
-              <h6>{item?.product_name}</h6>
-              <span>₹ {item?.price_per_day} / Day</span>
-              <button onClick={() => handleGearCart(item?.id)}>Add with Package</button>
-            </div>
-              )
+                  <div className="product-img">
+                    <img src={item?.image} alt={item?.product_name} />
+                  </div>
+                  <h6>{item?.product_name}</h6>
+                  <span>₹ {item?.price_per_day} / Day</span>
+                  <button onClick={() => handleGearCart(item?.id)}>
+                    Add with Package
+                  </button>
+                </div>
+              );
             })}
-            
           </div>
         </div>
       </div>
