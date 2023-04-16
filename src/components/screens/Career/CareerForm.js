@@ -34,24 +34,6 @@ function CareerForm() {
             </form>
             <button>Submit</button>
           </div>
-            <div className="form">
-                <h2>Complete Your Job Application</h2>
-                <form action="">
-                    <label htmlFor="">Career</label>
-                    <input type="text" />
-                    <label htmlFor="">Full Name</label>
-                    <input type="text" />
-                    <label htmlFor="">Email</label>
-                    <input type="text" />
-                    <label htmlFor="">Phone Number</label>
-                    <input type="text" />
-                    <label htmlFor="">Upload Resume</label>
-                    <input type="file" />
-                    <label htmlFor="">Introduction</label>
-                    <input type="text" />
-                </form>
-                <button>Submit</button>
-            </div>
         </div>
       </section>
     </>
