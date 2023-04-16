@@ -13,25 +13,30 @@ function AboutMembers() {
 
   return (
     <>
-    {member.map((item) => {
+      {member.map((item) => {
         return (
-            <div className="item" key={item?.key}>
-        <div className="team-member">
-          <img src={item?.image} alt={item?.name} />
-        </div>
-        <div className="text-box">
-          <h5>{item?.name}</h5>
-          <p>{item?.designation}</p>
-          <Link to={item?.facebook_link}>
-          <img src={require("../../../assets/images/facebook.png")} alt="" />
-          </Link>
-          <Link to={item?.instagram_link}></Link>
-          <img src={require("../../../assets/images/instagram.png")} alt="" />
-        </div>
-      </div>
-        )
-    })}
-      
+          <div className="item" key={item?.key}>
+            <div className="team-member">
+              <img src={item?.image} alt={item?.name} />
+            </div>
+            <div className="text-box">
+              <h5>{item?.name}</h5>
+              <p>{item?.designation}</p>
+              <Link to={item?.facebook_link}>
+                <img
+                  src={require("../../../assets/images/facebook.png")}
+                  alt=""
+                />
+              </Link>
+              <Link to={item?.instagram_link}></Link>
+              <img
+                src={require("../../../assets/images/instagram.png")}
+                alt=""
+              />
+            </div>
+          </div>
+        );
+      })}
     </>
   );
 }

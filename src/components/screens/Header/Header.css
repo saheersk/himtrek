@@ -94,13 +94,32 @@ header .wrapper ul li.register:focus {
 
 }
 
+header .wrapper .logged-box {
+    display: flex;
+
+}
 
 header .wrapper .user-name span {
-    display: block;
+    display: flex;
+    align-items: center;
     font-weight: 600;
+    text-transform: capitalize;
     color: var(--dark-blue);
     font-size: 18px;
     margin-right: 20px;
+}
+
+header .wrapper .user-name span img {
+    width: 20px;
+    transform: rotate(-180deg);
+    margin-left: 10px;
+}
+
+header .wrapper ul.auth small.register {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--orange);
 }
 
 header .wrapper .hamburger {

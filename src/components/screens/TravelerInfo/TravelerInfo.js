@@ -6,7 +6,10 @@ import Calendar from "react-calendar";
 import Swal from "sweetalert2";
 import TravelerPreview from "./TravelerPreview";
 import axios from "axios";
-import { travelerFailure, travelerSuccess } from "../../../Redux/TravelerInfo/travelInfo";
+import {
+  travelerFailure,
+  travelerSuccess,
+} from "../../../Redux/TravelerInfo/travelInfo";
 import { BASE_URL } from "../../../axiosConfig";
 import { useDispatch, useSelector } from "react-redux";
 import "./TravelerInfo.css";
@@ -18,9 +21,15 @@ import { fetchPackageView } from "../../../Redux/Package/packageView";
 function TravelerInfo() {
   const dispatch = useDispatch();
 
-  const package_price_per_person = useSelector((cart) => cart.cart.package_price_per_person);
-  const package_price_per_children = useSelector((cart) => cart.cart.package_price_per_children);
-  const package_price_family_of_four = useSelector((cart) => cart.cart.package_price_family_of_four);
+  const package_price_per_person = useSelector(
+    (cart) => cart.cart.package_price_per_person
+  );
+  const package_price_per_children = useSelector(
+    (cart) => cart.cart.package_price_per_children
+  );
+  const package_price_family_of_four = useSelector(
+    (cart) => cart.cart.package_price_family_of_four
+  );
   const product = useSelector((cart) => cart.cart.products);
   const gearCart = useSelector((state) => state.gearCart.gearCart);
   const packageView = useSelector((state) => state.packageView.package);
@@ -44,19 +53,19 @@ function TravelerInfo() {
   const [gearTotal, setGearTotal] = useState(0);
 
   const params = useParams();
-  const slug = params.slug
+  const slug = params.slug;
 
   const total_gear_price = gearCart.reduce((acc, item) => {
     const price = item?.gears?.price_per_day * parseInt(item?.days);
     return acc + price;
   }, 0);
 
-  let total_price_adult = package_price_per_person * parseInt(adults) 
-  let total_price_children = package_price_per_children * parseInt(children) 
-  let total_price_family = package_price_family_of_four * parseInt(family) 
+  let total_price_adult = package_price_per_person * parseInt(adults);
+  let total_price_children = package_price_per_children * parseInt(children);
+  let total_price_family = package_price_family_of_four * parseInt(family);
 
-  let total_price = total_price_adult + total_price_children + total_price_family
-
+  let total_price =
+    total_price_adult + total_price_children + total_price_family;
 
   function handleDateChange(value) {
     let select_date = format(value, "dd MMM Y");
@@ -78,7 +87,7 @@ function TravelerInfo() {
 
   useEffect(() => {
     dispatch(fetchCartProduct(token));
-    dispatch(fetchGearCart({ token: token }))
+    dispatch(fetchGearCart({ token: token }));
     dispatch(fetchPackageView(slug));
   }, [token, dispatch, slug]);
 
@@ -87,21 +96,25 @@ function TravelerInfo() {
     toggleMenu();
     setGearTotal(total_gear_price);
     axios
-      .post(`${BASE_URL}/packages/checkout/${slug}/`, {
-        selected_date: date,
-        end_date: endDate,
-        adults_count: adults,
-        family_count: family,
-        email,
-        full_name: fullName,
-        contact_number: phone,
-        children_count: children,
-        health_requirement: requirements,
-        special_requests: comments,
-        total_price_for_gear: gearTotal,
-      },{
-        headers: { Authorization: `Bearer ${token}` },
-      })
+      .post(
+        `${BASE_URL}/packages/checkout/${slug}/`,
+        {
+          selected_date: date,
+          end_date: endDate,
+          adults_count: adults,
+          family_count: family,
+          email,
+          full_name: fullName,
+          contact_number: phone,
+          children_count: children,
+          health_requirement: requirements,
+          special_requests: comments,
+          total_price_for_gear: gearTotal,
+        },
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
       .then((response) => {
         const data = response.data;
         if (response.data.status_code === 6000) {
@@ -111,13 +124,11 @@ function TravelerInfo() {
             title: "Added Successfully",
             text: " Your details are added successfully",
           });
-      
+
           navigate("/");
-        }
-        else  {
+        } else {
           dispatch(travelerFailure(data));
         }
-        
       })
       .catch((error) => {
         console.log(error);
@@ -127,12 +138,9 @@ function TravelerInfo() {
       });
   };
 
-  
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
 
   return (
     <>
@@ -155,13 +163,21 @@ function TravelerInfo() {
                     />
                   </div>
                   <div className="confirmation-box">
-                    <h4>Available options for {product?.package?.next_trip_date}</h4>
+                    <h4>
+                      Available options for {product?.package?.next_trip_date}
+                    </h4>
                     <div className="package-info">
                       <div className="info-box">
                         <h5>{product?.package?.title}</h5>
-                        <span>Total per Adult : {package_price_per_person}</span>
-                      <span>Total per Children : {package_price_per_children}</span>
-                      <span>Total Family of 4 : {package_price_family_of_four}</span>
+                        <span>
+                          Total per Adult : {package_price_per_person}
+                        </span>
+                        <span>
+                          Total per Children : {package_price_per_children}
+                        </span>
+                        <span>
+                          Total Family of 4 : {package_price_family_of_four}
+                        </span>
                       </div>
                       <h2>Selected date {date}</h2>
                       <h2>End date {endDate}</h2>
@@ -224,7 +240,7 @@ function TravelerInfo() {
                           id="name"
                           required
                           onChange={(e) => setFullName(e.target.value)}
-                        value={fullName}
+                          value={fullName}
                         />
                       </div>
                       <div className="item">
@@ -286,12 +302,18 @@ function TravelerInfo() {
                     <div className="price-box">
                       <h4>Total per Adult : {package_price_per_person}</h4>
                       <h4>Total per Children : {package_price_per_children}</h4>
-                      <h4>Total Family of 4 : {package_price_family_of_four}</h4>
-                      <h3>Total Gear Price : {total_gear_price}</h3>
+                      <h4>
+                        Total Family of 4 : {package_price_family_of_four}
+                      </h4>
+                      <h4>Total Gear Price : {total_gear_price}</h4>
                       {gearCart.map((item) => {
                         return (
-                          <h3 key={item?.id}>{item?.gears.product_name} Gear  per day {item?.gears?.price_per_day} : {item?.gears?.price_per_day * parseInt(item?.days) }</h3>
-                        )
+                          <h3 key={item?.id}>
+                            {item?.gears.product_name} Gear per day{" "}
+                            {item?.gears?.price_per_day} :{" "}
+                            {item?.gears?.price_per_day * parseInt(item?.days)}
+                          </h3>
+                        );
                       })}
                     </div>
                     <div className="button">

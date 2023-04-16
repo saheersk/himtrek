@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HamburgerMenu.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,11 +31,66 @@ function HamburgerMenu() {
             </h2>
           </div>
           <ul>
-            <Link to="/discover">my order</Link>
-            <Link to="/discover">discover</Link>
-            <Link to="/about-us">about</Link>
-            <Link to="/packages">packages</Link>
-            <Link to="/contact">contact</Link>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/discover"
+              >
+                discover
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/about-us"
+              >
+                about
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/result"
+              >
+                packages
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/my-orders"
+              >
+                my order
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/cart/"
+              >
+                cart
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/contact"
+              >
+                contact
+              </NavLink>
+            </li>
           </ul>
           <ul className="authentication">
             <Link to="/login">login</Link>

@@ -68,10 +68,18 @@
     font-size: 16px;
 }
 
+#order-container .order-content .order-card .date-container {
+    display: flex;
+}
 
 #order-container .order-content .order-card .date-box {
     margin-right: 20px;
     text-align: center;
+}
+
+#order-container .order-content .order-card .date-box.order {
+    margin-right: 0;
+    margin-left: 40px;
 }
 
 #order-container .order-content .order-card .date-box h5 {
@@ -112,4 +120,80 @@
 
 #order-container .button a:hover {
     background-color: #603713;
+}
+
+@media all and (max-width: 980px) {
+    #order-container .order-content .order-card .img-box {
+        width: 120px;
+        height: 90px;
+    }
+
+    #order-container .order-content .order-card {
+        padding: 14px 16px;
+    }
+}
+
+@media all and (max-width: 640px) {
+
+    #order-container .order-content .order-card .left-content h4,
+    #order-container .order-content .order-card .date-box h5 {
+        font-size: 16px;
+    }
+
+    #order-container .order-content .order-card .left-content span {
+        font-size: 14px;
+    }
+
+    #order-container .order-content {
+        padding: 20px 16px;
+    }
+}
+
+@media all and (max-width: 560px) {
+    #order-container .order-content .order-card .left-content {
+        flex-direction: column;
+    }
+
+    #order-container .order-content .order-card .left-content h4 {
+        margin-bottom: 4px;
+    }
+
+    #order-container .order-content .order-card .left-content .text-box {
+        margin-top: 14px;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    #order-container .order-content .order-card .img-box {
+        margin: 0 auto;
+    }
+
+    #order-container .order-content .order-card .date-container {
+        flex-direction: column;
+        align-items: end;
+    }
+
+    #order-container .order-content .order-card .date-container .date-box {
+        text-align: right;
+        margin-right: 0;
+        margin-bottom: 24px;
+    }
+
+    #order-container .order-content .order-card .date-container .date-box.order {
+        margin-left: 0;
+
+    }
+
+    .date-container {
+        padding: 20px 0;
+    }
+
+    #order-container .order-content .order-card .img-box {
+        width: 140px;
+        height: 110px;
+    }
+
+    #order-container .order-content .order-card .date-box h5 {
+        margin-bottom: 6px;
+    }
 }

@@ -14,13 +14,15 @@ function OrderItem() {
             <span>Maharashtra</span>
           </div>
         </div>
-        <div className="date-box">
-          <h5>Trip Date</h5>
-          <small>April 15 </small>
-        </div>
-        <div className="date-box order">
-          <h5>Order Date</h5>
-          <small className="gray">April 1</small>
+        <div className="date-container">
+          <div className="date-box">
+            <h5>Trip Date</h5>
+            <small>April 15 </small>
+          </div>
+          <div className="date-box order">
+            <h5>Order Date</h5>
+            <small className="gray">April 1</small>
+          </div>
         </div>
       </div>
     </>
