@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HamburgerMenu.css";
 import { Link, NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function HamburgerMenu() {
+function HamburgerMenu({ handleLogout }) {
+  const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
+  const data = useSelector((state) => state.user.data);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState("");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    if (data) {
+      setUsername(data.username);
+    }
+  }, [data]);
 
   return (
     <>
@@ -27,7 +38,7 @@ function HamburgerMenu() {
         <nav className={`hamburger-menu__nav ${isOpen ? "open" : ""}`}>
           <div className="name-box">
             <h2>
-              <span>Hey</span> Adam
+              <span>Hey</span> {username && username}
             </h2>
           </div>
           <ul>
@@ -93,10 +104,26 @@ function HamburgerMenu() {
             </li>
           </ul>
           <ul className="authentication">
-            <Link to="/login">login</Link>
+            {is_LoggedIn ? (
+              <div>
+                <li className="authentication">
+                  <small onClick={() => handleLogout()} className="register">
+                    Logout
+                  </small>
+                </li>
+              </div>
+            ) : (
+              <div>
+                <Link to="/login/">login</Link>
+                <Link to="/sign-up/" className="register">
+                  register
+                </Link>
+              </div>
+            )}
+            {/* <Link to="/login">login</Link>
             <Link to="/signup" className="register">
               register
-            </Link>
+            </Link> */}
           </ul>
         </nav>
       </div>

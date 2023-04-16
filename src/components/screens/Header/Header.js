@@ -42,7 +42,7 @@ function Header() {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to="/discover"
+                to="/discover/"
               >
                 discover
               </NavLink>
@@ -52,7 +52,7 @@ function Header() {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to="/about-us"
+                to="/about-us/"
               >
                 about
               </NavLink>
@@ -62,7 +62,7 @@ function Header() {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to="/result"
+                to="/result/"
               >
                 packages
               </NavLink>
@@ -72,7 +72,7 @@ function Header() {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to="/my-orders"
+                to="/my-orders/"
               >
                 my order
               </NavLink>
@@ -92,7 +92,7 @@ function Header() {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
-                to="/contact"
+                to="/contact/"
               >
                 contact
               </NavLink>
@@ -119,13 +119,13 @@ function Header() {
             ) : (
               <div>
                 <Link to="/login">login</Link>
-                <Link to="/sign-up" className="register">
+                <Link to="/sign-up/" className="register">
                   register
                 </Link>
               </div>
             )}
           </ul>
-          <HamburgerMenu />
+          <HamburgerMenu handleLogout={handleLogout} />
         </div>
       </header>
     </>
