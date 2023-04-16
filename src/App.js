@@ -64,22 +64,24 @@ function App() {
               <Route path="*" element={<NotFoundPage />} />
               <Route path="/cart/" element={<Cart />} />
               <Route path="/result" element={<SearchingResult />} />
-              <Route path="/package/view/:slug" element={<PackageSingle />} />
+              <Route path="/package/view/:id" element={<PackageSingle />} />
               <Route path="/privacy/" element={<Privacy />} />
               <Route path="/cancellation/" element={<Cancellation />} />
               <Route path="/contact-us/" element={<Contact />} />
               <Route path="/discover/" element={<Discover />} />
               <Route path="/login/" element={<Login />} />
-              <Route path="/sign-up" element={<SignUp />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/otp/" element={<AutoFillOTP />} />
               <Route path="/about-us" element={<AboutUs />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/payment-success" element={<PaymentSuccess />} />
-              <Route path="/traveler-info/:slug" element={<TravelerInfo />} />
+              <Route path="/traveler-info/:id" element={<TravelerInfo />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/all-events" element={<AllEvents />} />
               <Route path="/career" element={<Career />} />
               <Route path="/career-single" element={<CareerSingle />} />
+              <Route path="/career-form" element={<CareerForm />} />
+              <Route path="/login-otp" element={<LoginOtp />} />
             </Routes>
           </Router>
         )}
