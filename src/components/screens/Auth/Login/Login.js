@@ -62,40 +62,42 @@ function Login() {
               </div>
             </div>
             <div className="container">
-              <h4>Login to Your account</h4>
               {phoneNumber ? (
-                <form action="" onSubmit={handleSubmit}>
-                  <label>Username</label>
-                  <input
-                    onChange={(e) => setUsername(e.target.value)}
-                    value={username}
-                    type="text"
-                    placeholder="Enter your username"
-                  />
-                  <label htmlFor="">Password</label>
-                  <input
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    type="password"
-                    placeholder="Enter your password"
-                  />
-                  <Link className="forgot" to="/forgot-password">
-                    Forgot Your Password ?
-                  </Link>
-                  {message && <p>{message.data}</p>}
-                  <input type="submit" value="Login" />
-                </form>
+                <>
+                  <h4>Login to Your account</h4>
+                  <form action="" onSubmit={handleSubmit}>
+                    <label>Username</label>
+                    <input
+                      onChange={(e) => setUsername(e.target.value)}
+                      value={username}
+                      type="text"
+                      placeholder="Enter your username"
+                    />
+                    <label htmlFor="">Password</label>
+                    <input
+                      onChange={(e) => setPassword(e.target.value)}
+                      value={password}
+                      type="password"
+                      placeholder="Enter your password"
+                    />
+                    <Link className="forgot" to="/forgot-password">
+                      Forgot Your Password ?
+                    </Link>
+                    {message && <p>{message.data}</p>}
+                    <input type="submit" value="Login" />
+                  </form>
+                  <span
+                    onClick={() => toggleOtp()}
+                    className="login-otp"
+                    to="/login-otp"
+                  >
+                    Login with otp
+                  </span>
+                </>
               ) : (
                 <LoginOtp />
               )}
               <Link to="/sign-up">Create Account</Link>
-              <span
-                onClick={() => toggleOtp()}
-                className="login-otp"
-                to="/login-otp"
-              >
-                Login with otp
-              </span>
             </div>
           </section>
         </div>
