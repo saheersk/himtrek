@@ -69,11 +69,12 @@ function Login() {
                   type="password"
                   placeholder="Enter your password"
                 />
-                <span>Forgot Your Password ?</span>
+                <Link className="forgot" to="/forgot-password">Forgot Your Password ?</Link>
                 {message && <p>{message.data}</p>}
                 <input type="submit" value="Login" />
               </form>
               <Link to="/signup">Create Account</Link>
+              <Link className="login-otp" to="/login-otp">Login with otp</Link>
             </div>
           </section>
         </div>

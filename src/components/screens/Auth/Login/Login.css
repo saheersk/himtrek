@@ -58,7 +58,7 @@
   border: 1px solid #000;
 }
 
-#login .container form span {
+#login .container form a.forgot {
   display: block;
   text-align: right;
   color: red;
@@ -71,7 +71,7 @@
   border-radius: 46px;
   display: flex;
   justify-content: center;
-  margin: 30px auto;
+  margin: 20px auto;
   border: 2px solid #021f3e;
   color: #021f3e;
   font-size: 16px;
@@ -79,13 +79,67 @@
 }
 
 #login .container a {
-  display: flex;
-  justify-content: center;
+text-align: center;
   color: #949494;
+  display: block;
+  margin-bottom: 10px;
 }
+#login .container a.login-otp{
+    font-size: 18px;
+    font-weight: 600;
+}
+.login-otp-page{
+    padding: 100px 50px;
+    width: 60%;
+    margin: 0 auto;
+}
+.login-otp-page .login-otp{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 40px;
+  padding: 50px;
+}
+.login-otp-page .login-otp h4 {
+    font-size: 26px;
+    text-align: center;
+}
+.login-otp-page .login-otp form {
+    width: 80%;
+    padding: 50px 0;
+    margin: 0 auto;
+}
+.login-otp-page .login-otp form label{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+}
+.login-otp-page .login-otp form input {
+    border-radius: 20px;
+  padding: 14px 16px;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: 2px solid #949494;
+}
+.login-otp-page .login-otp a {
+    width: 30%;
+    padding: 12px 18px;
+    border-radius: 46px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    border: 2px solid #021f3e;
+    color: #021f3e;
+    font-size: 16px;
+    font-weight: 600;
+  }
 
 /* responsive start */
-
+@media all and (max-width: 1280px){
+    .login-otp-page{
+        width: 75%;
+    }
+}
 @media all and (max-width: 1150px) {
     #login {
         width: 90%;
@@ -104,9 +158,18 @@
     #login .container {
         width: 80%;
     }
+    .login-otp-page{
+        width: 85%;
+    }
 }
 @media all and (max-width: 850px){
     #login .container {
+        width: 100%;
+    }
+    .login-otp-page .login-otp form {
+        width: 90%;
+    }
+    .login-otp-page{
         width: 100%;
     }
 
@@ -140,7 +203,28 @@
     #login .container{
         padding: 30px 20px;
     }
+    .login-otp-page{
+        padding: 100px 0;
+    }
+    .login-otp-page .login-otp form {
+        width: 100%;
+    }
 }
+@media all and (max-width: 480px){
+    .login-otp-page .login-otp{
+        padding: 50px 20px;
+    }
+    .login-otp-page .login-otp h4{
+        font-size: 22px;
+    }
+    .login-otp-page .login-otp form input{
+        padding:12px 16px;
+    }
+    .login-otp-page .login-otp a {
+        font-size: 14px;
+    }
+}
+
 @media all and (max-width: 380px){
     .login-page{
         padding: 100px 0;

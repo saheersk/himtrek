@@ -116,7 +116,7 @@ function AutoFillOTP() {
                     />
                   );
                 })}
-                {/* <h5>Resent OTP</h5> */}
+                <span>Resent OTP</span>
                 {message && <p>{message}</p>}
                 <input
                   className="btn btn-primary"
