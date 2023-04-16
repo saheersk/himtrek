@@ -1,5 +1,6 @@
 import React from "react";
 import Package from "./Package";
+import { Link } from "react-router-dom";
 import "./PackageList.css";
 
 function PackageList() {
@@ -14,7 +15,9 @@ function PackageList() {
             <Package />
           </div>
           <div className="button">
-            <span>view all packages</span>
+            <Link to="/result/">
+              <span>view all packages</span>
+            </Link>
           </div>
         </div>
       </section>

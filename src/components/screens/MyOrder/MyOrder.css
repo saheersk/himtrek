@@ -1,0 +1,111 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orange: #C77935;
+}
+
+#order-container .head {
+    padding: 40px 0;
+}
+
+#order-container .order-content {
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    padding: 50px 50px;
+    border-radius: 20px;
+}
+
+#order-container .order-content .order-card {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--orange);
+    padding: 20px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    transition: .3s ease;
+}
+
+#order-container .order-content .order-card:hover {
+    background: #fff9f4;
+    transform: scale(1.01);
+}
+
+#order-container .order-content .order-card .img-box {
+    width: 160px;
+    height: 130px;
+    margin-right: 20px;
+}
+
+#order-container .order-content .order-card .img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+#order-container .order-content .order-card .left-content {
+    display: flex;
+    align-items: center;
+}
+
+#order-container .order-content .order-card .left-content h4 {
+    text-transform: capitalize;
+    color: var(--dark-blue);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#order-container .order-content .order-card .left-content span {
+    color: var(--content);
+    font-size: 16px;
+}
+
+
+#order-container .order-content .order-card .date-box {
+    margin-right: 20px;
+    text-align: center;
+}
+
+#order-container .order-content .order-card .date-box h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--dark-blue);
+    text-transform: capitalize;
+}
+
+#order-container .order-content .order-card .date-box small {
+    text-transform: capitalize;
+    color: var(--orange);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+#order-container .order-content .order-card .date-box.order small,
+#order-container .order-content .order-card .date-box.order h5 {
+    color: var(--content);
+}
+
+#order-container .order-content .button {
+    text-align: center;
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#order-container .order-content .button a {
+    padding: 14px 26px;
+    border-radius: 25px;
+    background-color: var(--orange);
+    color: #fff;
+    transition: .3s ease;
+}
+
+#order-container .order-content .button a:hover {
+    background-color: #603713;
+}

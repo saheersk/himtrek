@@ -4,6 +4,7 @@ import "./Cart.css";
 import Product from "./Product"
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import CartGear from "./CartGear";
 
 function Cart() {
   const product = useSelector((cart) => cart.cart.products);
@@ -22,6 +23,7 @@ function Cart() {
         <div className="cart-box">
           <Product />
         </div>
+        <CartGear/>
       </section>
         <div className="checkout-banner">
           <div className="left">
@@ -33,7 +35,7 @@ function Cart() {
             <span><small>₹</small> {package_price_family_of_four}</span>
           </div>
           <div className="right">
-            <Link to={`/traveler-info/${product?.package?.slug}`}>
+            <Link to={`/traveler-info/${product?.package?.slug}/`}>
             <button>Checkout</button>
             </Link>
           </div>

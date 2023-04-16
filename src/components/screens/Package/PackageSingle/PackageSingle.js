@@ -7,24 +7,33 @@ import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, fetchPackageView } from "../../../../Redux/Package/packageView";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
 
 function PackageSingle() {
   const dispatch = useDispatch();
   const packageView = useSelector((state) => state.packageView.package);
   const message = useSelector((state) => state.packageView.message);
+  const gearMessage = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
 
   console.log(message, "===message");
+  console.log(gearMessage, "===gearMessage");
+
+ const navigate = useNavigate()
 
   const params = useParams();
-  const slug = params.id
+  const slug = params.slug
 
   const handleCart = () => {
-    dispatch(addToCart({slug: slug, token: token}))
+    if(message === 401) {
+      navigate("/login/");
+    }
+    else {
+      dispatch(addToCart({slug: slug, token: token}))
+    }
   }
   
   useEffect(() => {
@@ -89,7 +98,7 @@ function PackageSingle() {
             <QuickFacts slug={slug} />
           </div>
           <Questions slug={slug} />
-            <Additions slug={slug}/>
+          <Additions slug={slug}/>
           <Itinerary slug={slug} />
           <Gear slug={slug} />
         </div>

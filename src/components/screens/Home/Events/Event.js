@@ -15,14 +15,13 @@ function Event() {
     <>
       {event.map((event) => {
         return (
-          <li data-aos="fade-up" key={event?.id}>
+          <li data-aos="fade-up" key={event?.id} className="xs-card">
             <div className="preview">
               <img src={event?.image} alt={event?.title} />
             </div>
             <div className="text-container">
               <div className="text box">
                 <h4>{event?.title}</h4>
-                <p>{event?.description}</p>
               </div>
               <div className="date">
                 <span>{event?.added_date}</span>

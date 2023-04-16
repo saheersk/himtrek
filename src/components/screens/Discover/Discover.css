@@ -44,7 +44,7 @@
 #discover .main-city .city-item {
     cursor: pointer;
     width: 300px;
-    max-height: 220px;
+    height: 220px;
     margin: 0 10px 20px 10px;
     border-radius: 30px;
     position: relative;
@@ -95,9 +95,14 @@
 #discover .main-city .city-item img,
 #discover .main-city .big-item img {
     width: 100%;
+    height: 100%;
     display: block;
     border-radius: 35px;
     transition: .3s ease-in-out;
+}
+
+#discover .main-city .city-item .image-box {
+    height: 100%;
 }
 
 #discover .wrapper .button {

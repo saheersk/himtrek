@@ -2,8 +2,12 @@ import React from "react";
 import "./Preferences.css";
 
 import "react-tabs/style/react-tabs.css";
-import PreferedPackage from "./PreferedPackage";
+
+import { Link } from "react-router-dom";
+
+import PreferredPackage from "./PreferredPackage";
 import CategoryTab from "./CategoryTab";
+
 
 function Preferences() {
   return (
@@ -16,9 +20,10 @@ function Preferences() {
           <div className="content-container">
             <CategoryTab />
             <div className="content-cards">
-              <PreferedPackage />
+              <PreferredPackage />
             </div>
           </div>
+          <Link to="/result/">
           <div className="button">
             <h5>explore</h5>
             <small>
@@ -28,6 +33,7 @@ function Preferences() {
               />
             </small>
           </div>
+          </Link>
         </div>
       </section>
     </>
