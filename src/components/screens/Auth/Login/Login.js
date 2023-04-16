@@ -9,6 +9,7 @@ import {
   loginFailure,
   loginSuccess,
 } from "../../../../Redux/Auth/auth";
+import LoginOtp from "./LoginOtp";
 
 function Login() {
   const dispatch = useDispatch();
@@ -16,6 +17,8 @@ function Login() {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [phoneNumber, setPhoneNumber] = useState(true);
 
   const navigate = useNavigate();
 
@@ -44,6 +47,10 @@ function Login() {
       });
   };
 
+  const toggleOtp = () => {
+    setPhoneNumber(!phoneNumber);
+  };
+
   return (
     <>
       <div className="login-page">
@@ -56,31 +63,39 @@ function Login() {
             </div>
             <div className="container">
               <h4>Login to Your account</h4>
-              <form action="" onSubmit={handleSubmit}>
-                <label>Username</label>
-                <input
-                  onChange={(e) => setUsername(e.target.value)}
-                  value={username}
-                  type="text"
-                  placeholder="Enter your username"
-                />
-                <label htmlFor="">Password</label>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
-                  type="password"
-                  placeholder="Enter your password"
-                />
-                <Link className="forgot" to="/forgot-password">
-                  Forgot Your Password ?
-                </Link>
-                {message && <p>{message.data}</p>}
-                <input type="submit" value="Login" />
-              </form>
+              {phoneNumber ? (
+                <form action="" onSubmit={handleSubmit}>
+                  <label>Username</label>
+                  <input
+                    onChange={(e) => setUsername(e.target.value)}
+                    value={username}
+                    type="text"
+                    placeholder="Enter your username"
+                  />
+                  <label htmlFor="">Password</label>
+                  <input
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    type="password"
+                    placeholder="Enter your password"
+                  />
+                  <Link className="forgot" to="/forgot-password">
+                    Forgot Your Password ?
+                  </Link>
+                  {message && <p>{message.data}</p>}
+                  <input type="submit" value="Login" />
+                </form>
+              ) : (
+                <LoginOtp />
+              )}
               <Link to="/sign-up">Create Account</Link>
-              <Link className="login-otp" to="/login-otp">
+              <span
+                onClick={() => toggleOtp()}
+                className="login-otp"
+                to="/login-otp"
+              >
                 Login with otp
-              </Link>
+              </span>
             </div>
           </section>
         </div>

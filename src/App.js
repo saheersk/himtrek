@@ -25,6 +25,7 @@ import Career from "./components/screens/Career/Career";
 import CareerSingle from "./components/screens/Career/CareerSingle";
 import CareerForm from "./components/screens/Career/CareerForm";
 import MyOrder from "./components/screens/MyOrder/MyOrder";
+import LoginOtp from "./components/screens/Auth/Login/LoginOtp";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -81,7 +82,7 @@ function App() {
               <Route path="/career" element={<Career />} />
               <Route path="/career/view/:slug" element={<CareerSingle />} />
               <Route path="/career-form" element={<CareerForm />} />
-              <Route path="/login-otp" element={<CareerForm />} />
+              <Route path="/login-otp" element={<LoginOtp />} />
               <Route path="/my-orders" element={<MyOrder />} />
             </Routes>
           </Router>
