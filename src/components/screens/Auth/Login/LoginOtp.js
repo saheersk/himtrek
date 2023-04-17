@@ -14,8 +14,6 @@ function LoginOtp({toggleOtp}) {
 
   const navigate = useNavigate();
 
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearMessage());
@@ -28,7 +26,7 @@ function LoginOtp({toggleOtp}) {
         if (response.data.status_code === 6000) {
           const data = response.data;
           dispatch(loginSuccess(data));
-          navigate("/otp/");
+          navigate("/otp/", { state: { contactNumber: contactNumber } } );
         } else {
           dispatch(loginFailure(response.data));
         }

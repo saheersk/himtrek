@@ -33,6 +33,7 @@ function Cart() {
   const toggleMenu = () => {
     setAllPrice(!allPrice);
   };
+  
   return (
     <>
       <Header />

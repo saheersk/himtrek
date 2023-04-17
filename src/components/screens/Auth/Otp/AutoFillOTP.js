@@ -8,10 +8,11 @@ import {
   loginSuccess,
 } from "../../../../Redux/Auth/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import "./Otp.css";
+import { resendFailure, resendSuccess } from "../../../../Redux/Auth/resendOtp";
 
-function AutoFillOTP({contact_number}) {
+function AutoFillOTP() {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.user.message);
 
@@ -19,6 +20,29 @@ function AutoFillOTP({contact_number}) {
   const refs = useRef([]);
 
   const navigate = useNavigate();
+  const location = useLocation();
+  const contactNumber = location.state.contactNumber;
+
+  const handleResend = () => {
+    axios
+      .post(`${BASE_URL}/auth/resend/otp/`, {
+        contact_number: contactNumber,
+      })
+      .then((response) => {
+        if (response.data.status_code === 6000) {
+          const data = response.data;
+          dispatch(resendSuccess(data));
+        } else {
+          dispatch(resendFailure(response.data));
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        if (error.response.status_code === 6001) {
+          dispatch(resendFailure(error.response.data));
+        }
+      });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +55,7 @@ function AutoFillOTP({contact_number}) {
     axios
       .post(`${BASE_URL}/auth/verify/`, {
         otp: num,
-        contact_number: contact_number,
+        contact_number: contactNumber,
       })
       .then((response) => {
         if (response.data.status_code === 6000) {
@@ -132,7 +156,7 @@ function AutoFillOTP({contact_number}) {
                   );
                 })}
                 {message && <p>{message.data}</p>}
-                <span>Resent OTP</span>
+                <span onClick={() => handleResend()}>Resent OTP</span>
                 <input
                   className="btn btn-primary"
                   onClick={(e) => handleSubmit(e)}

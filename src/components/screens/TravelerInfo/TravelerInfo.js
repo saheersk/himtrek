@@ -87,10 +87,14 @@ function TravelerInfo() {
   };
 
   useEffect(() => {
+    if(token){
     dispatch(fetchCartProduct(token));
     dispatch(fetchGearCart({ token: token }));
     dispatch(fetchPackageView(slug));
-  }, [token, dispatch, slug]);
+    }else {
+      navigate('/login/')
+    }
+  }, [token, dispatch, slug, navigate]);
 
   const confirmHandle = (e) => {
     e.preventDefault();

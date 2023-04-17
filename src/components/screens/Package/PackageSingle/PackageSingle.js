@@ -41,15 +41,6 @@ function PackageSingle() {
     if (message === 401) {
       navigate("/login/");
     }
-    // else {
-    //   dispatch(addToCart({ slug: slug, token: token }));
-    //   Swal.fire({
-    //     icon: "success",
-    //     title: "Package added to Cart",
-    //     text: " Your Package added successfully",
-    //   });
-    // }
-
     else {
       if (product?.package?.slug === id) {
         Swal.fire({

@@ -9,7 +9,6 @@ import {
   loginFailure,
   loginSuccess,
 } from "../../../../Redux/Auth/auth";
-import AutoFillOTP from "../Otp/AutoFillOTP";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -40,11 +39,9 @@ export default function SignUp() {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(loginSuccess({ data }));
-          navigate("/otp/");
-          <AutoFillOTP />;
+          navigate("/otp/", { state: { contactNumber: contact_number } } );
         } else {
           dispatch(loginFailure(data));
-          <AutoFillOTP contact_number={contact_number} />;
         }
       })
       .catch((error) => {
