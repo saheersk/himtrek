@@ -15,26 +15,26 @@ import { resendFailure, resendSuccess } from "../../../../Redux/Auth/resendOtp";
 function AutoFillOTP() {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.user.message);
+  // const userData = useSelector((state) => state.user.data);
 
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const refs = useRef([]);
 
   const navigate = useNavigate();
-  
-  const contactNumber = "";
-  const location = useLocation();
-  
-  useEffect(() => {
-  if(location.state.contactNumber) {
-   contactNumber = location.state.contactNumber;
-  }
 
-  }, [])
+  const contactNumber = useRef("");
+  const location = useLocation();
+
+  useEffect(() => {
+    if (contactNumber.current === "") {
+      contactNumber.current = location.state.contactNumber;
+    }
+  }, [location.state.contactNumber]);
 
   const handleResend = () => {
     axios
       .post(`${BASE_URL}/auth/resend/otp/`, {
-        contact_number: contactNumber,
+        contact_number: contactNumber ? contactNumber : "",
       })
       .then((response) => {
         if (response.data.status_code === 6000) {
@@ -63,7 +63,7 @@ function AutoFillOTP() {
     axios
       .post(`${BASE_URL}/auth/verify/`, {
         otp: num,
-        contact_number: contactNumber,
+        contact_number: contactNumber ? contactNumber : "",
       })
       .then((response) => {
         if (response.data.status_code === 6000) {
