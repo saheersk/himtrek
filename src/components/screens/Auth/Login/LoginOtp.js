@@ -17,9 +17,16 @@ function LoginOtp({toggleOtp}) {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearMessage());
+
+    let formattedContactNumber = contactNumber;
+
+    if (!contactNumber.startsWith("+91") && !contactNumber.startsWith("91")) {
+      formattedContactNumber = "+91" + contactNumber;
+    }
+
     axios
       .post(`${BASE_URL}/auth/login/number/`, {
-        contact_number: contactNumber,
+        contact_number: formattedContactNumber,
       })
       .then((response) => {
         console.log(response.data);

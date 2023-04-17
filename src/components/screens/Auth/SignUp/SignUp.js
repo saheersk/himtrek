@@ -26,6 +26,13 @@ export default function SignUp() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(clearMessage());
+
+    let formattedContactNumber = contact_number;
+
+    if (!contact_number.startsWith("+91") && !contact_number.startsWith("91")) {
+      formattedContactNumber = "+91" + contact_number;
+    }
+
     axios
       .post(`${BASE_URL}/auth/register/`, {
         username,
@@ -33,7 +40,7 @@ export default function SignUp() {
         re_password,
         email,
         full_name,
-        contact_number,
+        contact_number: formattedContactNumber,
       })
       .then((response) => {
         const data = response.data;
