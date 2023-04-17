@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import swal from "sweetalert2";
 import { BASE_URL } from "../../../../axiosConfig";
 import axios from "axios";
@@ -19,9 +19,18 @@ function AutoFillOTP() {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const refs = useRef([]);
 
+  
+  useEffect(() => {
   const navigate = useNavigate();
   const location = useLocation();
-  const contactNumber = location.state.contactNumber;
+
+  const contactNumber = "";
+  if(location.state.contactNumber) {
+    contactNumber = location.state.contactNumber;
+    
+  }
+
+  }, [])
 
   const handleResend = () => {
     axios

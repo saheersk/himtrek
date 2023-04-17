@@ -196,18 +196,21 @@ section#preference .button small img {
 
 /* responsive-screen */
 @media all and (max-width: 768px) {
+    section#preference .content-container .card {
+        width: 240px;
+        height: 300px;
+        margin-bottom: 20px;
+
+    }
+
     section#preference .content-container .cards {
         flex-wrap: wrap;
     }
 
-    section#preference .content-container .card {
-        width: 265px;
-        margin-bottom: 20px;
-    }
 
-    section#preference .content-container ul {
+    /* section#preference .content-container ul {
         width: 100%;
-    }
+    } */
 
     section#preference .content-container ul li {
         padding: 16px 27px;
@@ -226,9 +229,6 @@ section#preference .button small img {
         font-size: 20px;
     }
 
-    section#preference .content-container ul {
-        flex-direction: column;
-    }
 
     section#preference .content-container ul li {
         width: 100%;
@@ -240,7 +240,9 @@ section#preference .button small img {
     }
 
     section#preference .content-container .card {
-        width: 210px;
+        width: 200px;
+        height: 250px;
+
     }
 
     section#preference .button h5 {
@@ -250,7 +252,8 @@ section#preference .button small img {
 
 @media all and (max-width: 480px) {
     section#preference .content-container .card {
-        width: 140px;
+        width: 180px;
+        height: 222px;
     }
 
     section#preference .content-container .card .text-box h4 {
