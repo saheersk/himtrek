@@ -64,9 +64,10 @@ function TravelerInfo() {
   let total_price_children = package_price_per_children * parseInt(children);
   let total_price_family = package_price_family_of_four * parseInt(family);
 
-  let total_price = total_price_adult + total_price_children + total_price_family;
+  let total_price =
+    total_price_adult + total_price_children + total_price_family;
 
-  const total =  total_gear_price + (total_price ? total_price : 0 )
+  const total = total_gear_price + (total_price ? total_price : 0);
 
   function handleDateChange(value) {
     let select_date = format(value, "dd MMM Y");
@@ -87,12 +88,12 @@ function TravelerInfo() {
   };
 
   useEffect(() => {
-    if(token){
-    dispatch(fetchCartProduct(token));
-    dispatch(fetchGearCart({ token: token }));
-    dispatch(fetchPackageView(slug));
-    }else {
-      navigate('/login/')
+    if (token) {
+      dispatch(fetchCartProduct(token));
+      dispatch(fetchGearCart({ token: token }));
+      dispatch(fetchPackageView(slug));
+    } else {
+      navigate("/login/");
     }
   }, [token, dispatch, slug, navigate]);
 
@@ -331,12 +332,12 @@ function TravelerInfo() {
                           <h4>Total Gear Price : {total_gear_price}</h4>
                           {gearCart.map((item) => {
                             return (
-                              <h3 key={item?.id}>
+                              <h4 key={item?.id}>
                                 {item?.gears.product_name} Gear per day{" "}
                                 {item?.gears?.price_per_day} :{" "}
                                 {item?.gears?.price_per_day *
                                   parseInt(item?.days)}
-                              </h3>
+                              </h4>
                             );
                           })}
                         </div>
