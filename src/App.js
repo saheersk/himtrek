@@ -44,16 +44,7 @@ function App() {
           rel="icon"
           href={require("./components/assets/images/himtrek-logo.svg").default}
         />
-        <meta
-          name="description"
-          content="Himtrek is a family of passionate travel enthusiasts who come together to provide India's best treks, vacations, stays, and more. We guarantee one in a million kinds of experiences, adrenaline rush like never before, and memories of a lifetime. "
-        />
-        <meta name="keywords" content="" />
-        <meta
-          property="og:description"
-          content="Himtrek is a family of passionate travel enthusiasts who come together to provide India's best treks, vacations, stays, and more. We guarantee one in a million kinds of experiences, adrenaline rush like never before, and memories of a lifetime. "
-        />
-        <meta property="og:title" content="HimTrek" />
+
         <meta
           property="og:image"
           content={
