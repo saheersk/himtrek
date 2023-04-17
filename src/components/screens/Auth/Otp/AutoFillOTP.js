@@ -19,15 +19,14 @@ function AutoFillOTP() {
   const [otp, setOtp] = useState(new Array(6).fill(""));
   const refs = useRef([]);
 
+  const navigate = useNavigate();
+  
+  const contactNumber = "";
+  const location = useLocation();
   
   useEffect(() => {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const contactNumber = "";
   if(location.state.contactNumber) {
-    contactNumber = location.state.contactNumber;
-    
+   contactNumber = location.state.contactNumber;
   }
 
   }, [])
