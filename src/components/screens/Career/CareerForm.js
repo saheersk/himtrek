@@ -45,12 +45,19 @@ function CareerForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let formattedContactNumber = contactNumber;
+
+    if (!contactNumber.startsWith("+91") && !contactNumber.startsWith("91")) {
+      formattedContactNumber = "+91" + contactNumber;
+    }
+
     axios
       .post(
         `${BASE_URL}/web/career/application/${slug}/`,
         {
           full_name: fullName,
-          contact_number: contactNumber,
+          contact_number: formattedContactNumber,
           introduction: description,
           email,
           resume,
