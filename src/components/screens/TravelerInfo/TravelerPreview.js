@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 
-function TravelerPreview({ adults, fullName, email, family, requirements, comments, phone, children, date, endDate, isOpen, toggleMenu, confirmHandle, total_price, gearTotal }) {
+function TravelerPreview({ adults, fullName, email, family, requirements, comments, phone, children, date, endDate, isOpen, toggleMenu, confirmHandle, total_price, gearTotal, total }) {
   const product = useSelector((cart) => cart.cart.products);
 
   return (
@@ -69,8 +69,9 @@ function TravelerPreview({ adults, fullName, email, family, requirements, commen
               <h4>{date} to {endDate}</h4>
             </div>
             <div className="item-box-date">
-              <h4>Total Price to {total_price}</h4>
+              <h4>Total Price for Package {total_price}</h4>
               <h4>Total Price for Gears {gearTotal}</h4>
+              <h4>Total Price {total}</h4>
             </div>
             <div className="button">
               <button onClick={toggleMenu} className="back">

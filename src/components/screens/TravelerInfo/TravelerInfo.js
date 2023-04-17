@@ -64,8 +64,9 @@ function TravelerInfo() {
   let total_price_children = package_price_per_children * parseInt(children);
   let total_price_family = package_price_family_of_four * parseInt(family);
 
-  let total_price =
-    total_price_adult + total_price_children + total_price_family;
+  let total_price = total_price_adult + total_price_children + total_price_family;
+
+  const total =  total_gear_price + (total_price ? total_price : 0 )
 
   function handleDateChange(value) {
     let select_date = format(value, "dd MMM Y");
@@ -305,7 +306,8 @@ function TravelerInfo() {
                   </div>
                   <div className="bottom">
                     <h3 onClick={priceHandler}>
-                      Total 2000{" "}
+                      Price Per 1 Person: {package_price_per_person}
+                      Total Price for Gear: {total_gear_price}
                       <img
                         src={require("../../assets/images/angle-up-solid.png")}
                         alt="Images"
@@ -364,6 +366,7 @@ function TravelerInfo() {
           confirmHandle={confirmHandle}
           total_price={total_price}
           gearTotal={gearTotal}
+          total={total}
         />
       </section>
     </>

@@ -8,10 +8,9 @@ import CartGear from "./CartGear";
 
 function Cart() {
   const product = useSelector((cart) => cart.cart.products);
-  const [allPrice, setAllPrice] = useState(false);
-  const toggleMenu = () => {
-    setAllPrice(!allPrice);
-  };
+  const gearCart = useSelector((state) => state.gearCart.gearCart);
+
+  console.log(gearCart, '==gear');
 
   const package_price_per_person = useSelector(
     (cart) => cart.cart.package_price_per_person
@@ -23,6 +22,17 @@ function Cart() {
     (cart) => cart.cart.package_price_family_of_four
   );
 
+  const total_gear_price = gearCart.reduce((acc, item) => {
+    const price = item?.gears?.price_per_day * parseInt(item?.days);
+    return acc + price;
+  }, 0);
+
+  console.log(total_gear_price, 'gaer price');
+
+  const [allPrice, setAllPrice] = useState(false);
+  const toggleMenu = () => {
+    setAllPrice(!allPrice);
+  };
   return (
     <>
       <Header />
@@ -38,11 +48,12 @@ function Cart() {
       <div className="checkout-banner">
         <div className="left">
           <h3 onClick={toggleMenu}>
-            Total Price <span> ₹ 2000</span>
+            Package for 1 Person Price <span> ₹ {package_price_per_person}</span>
+            Total price for Gear <span> ₹ {total_gear_price}</span>
             <img
               src={require("../../assets/images/angle-up-solid.png")}
               alt="Images"
-            />
+              />
           </h3>
           {allPrice ? (
             <>
