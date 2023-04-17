@@ -342,7 +342,7 @@
     font-size: 22px;
     text-transform: capitalize;
     color: var(--orange);
-    
+
 }
 
 /* responsive-screen */
@@ -364,6 +364,14 @@
 }
 
 @media all and (max-width: 670px) {
+    #banner .cover-img .text-box h3 {
+        font-size: 28px;
+    }
+
+    #banner .cover-img .text-box p {
+        font-size: 18px;
+    }
+
     #banner .additions .container-item {
         flex-direction: column;
     }
@@ -372,9 +380,43 @@
         margin-bottom: 30px;
         width: 100%;
     }
+
+    #banner .cover-img {
+        max-height: 325px;
+    }
+
+    #banner .detials-box {
+        width: 97%;
+        padding: 25px;
+    }
 }
 
 @media all and (max-width: 590px) {
+    #banner .cover-img {
+        max-height: 276px;
+    }
+
+    #banner .detials-box .item h6 {
+        font-size: 16px;
+    }
+
+    #banner .content-box .overview h3,
+    #banner .content-box .quick-facts h3,
+    #banner .additions h2,
+    #banner .bottom h5 {
+        font-size: 18px;
+    }
+
+    #banner .additions h5,
+    #banner .additions .container-item .item h6,
+    #banner .additions .container-item .item h6,
+    #banner .slide-container h5,
+    #banner .slide-container .item h6,
+    #banner .info-footer h5,
+    #banner .info-footer button {
+        font-size: 16px;
+    }
+
     #banner .detials-box {
         flex-direction: column;
         width: 70%;
@@ -392,9 +434,23 @@
     #banner .info-footer {
         padding: 30px 50px;
     }
+
+    #banner .slide-container .item {
+        padding: 20px;
+    }
+
+    #banner .slide-container .item button,
+    #banner .slide-container .item span,
+    #banner .questions .item h3,
+    #banner .bottom h6 {
+        font-size: 14px;
+    }
+
 }
 
 @media all and (max-width: 480px) {
+
+
     #banner .detials-box {
         flex-direction: column;
         width: 90%;

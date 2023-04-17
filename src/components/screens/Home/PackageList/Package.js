@@ -11,7 +11,7 @@ function Package() {
   );
 
   useEffect(() => {
-    dispatch(fetchPackage({ month: "", state: ""}));
+    dispatch(fetchPackage({ month: "", state: "" }));
   }, [dispatch]);
 
   return (
@@ -30,7 +30,6 @@ function Package() {
                     <p>{item?.title}</p>
                   </div>
                   <ul>
-                    <li className="wrapper-box">
                       <li className="time">
                         <img
                           src={
@@ -43,7 +42,6 @@ function Package() {
                       <li className="location">
                         <span>{item?.state}</span>
                       </li>
-                    </li>
                   </ul>
                 </div>
               </div>

@@ -120,7 +120,7 @@ function Header() {
               <div>
                 <Link to="/login">login</Link>
                 <Link to="/sign-up/" className="register">
-                  register
+                  Register
                 </Link>
               </div>
             )}

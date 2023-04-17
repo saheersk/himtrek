@@ -201,7 +201,7 @@ section#footer .copyright small {
 
 @media all and (max-width: 980px) {
     section#footer .link-container .item {
-        width: 180px;
+        width: 150px;
     }
 
     section#footer .link-container .item ul {
@@ -231,6 +231,12 @@ section#footer .copyright small {
         font-size: 14px;
     }
 
+}
+
+@media all and (max-width: 640px) {
+    section#footer .link-container .item {
+        width: 180px;
+    }
 }
 
 @media all and (max-width: 560px) {
