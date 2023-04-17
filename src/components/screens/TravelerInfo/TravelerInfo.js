@@ -142,6 +142,11 @@ function TravelerInfo() {
     setIsOpen(!isOpen);
   };
 
+  const [allPrice, setAllPrice] = useState(true);
+  const priceHandler = () => {
+    setAllPrice(!allPrice);
+  };
+
   return (
     <>
       <section id="traveler-info">
@@ -299,23 +304,41 @@ function TravelerInfo() {
                     />
                   </div>
                   <div className="bottom">
-                    <div className="price-box">
-                      <h4>Total per Adult : {package_price_per_person}</h4>
-                      <h4>Total per Children : {package_price_per_children}</h4>
-                      <h4>
-                        Total Family of 4 : {package_price_family_of_four}
-                      </h4>
-                      <h4>Total Gear Price : {total_gear_price}</h4>
-                      {gearCart.map((item) => {
-                        return (
-                          <h3 key={item?.id}>
-                            {item?.gears.product_name} Gear per day{" "}
-                            {item?.gears?.price_per_day} :{" "}
-                            {item?.gears?.price_per_day * parseInt(item?.days)}
-                          </h3>
-                        );
-                      })}
-                    </div>
+                    <h3 onClick={priceHandler}>
+                      Total 2000{" "}
+                      <img
+                        src={require("../../assets/images/angle-up-solid.png")}
+                        alt="Images"
+                        className={allPrice ? "active" : ""}
+                      />
+                    </h3>
+                    {allPrice ? (
+                      <>
+                        <div className="price-box">
+                          <h4>Total per Adult : {package_price_per_person}</h4>
+                          <h4>
+                            Total per Children : {package_price_per_children}
+                          </h4>
+                          <h4>
+                            Total Family of 4 : {package_price_family_of_four}
+                          </h4>
+                          <h4>Total Gear Price : {total_gear_price}</h4>
+                          {gearCart.map((item) => {
+                            return (
+                              <h3 key={item?.id}>
+                                {item?.gears.product_name} Gear per day{" "}
+                                {item?.gears?.price_per_day} :{" "}
+                                {item?.gears?.price_per_day *
+                                  parseInt(item?.days)}
+                              </h3>
+                            );
+                          })}
+                        </div>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+
                     <div className="button">
                       <input type="submit" value={"Preview"} />
                     </div>

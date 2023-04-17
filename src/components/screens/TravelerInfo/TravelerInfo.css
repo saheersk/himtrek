@@ -111,7 +111,20 @@
     text-align: center;
     font-size: 20px;
     color: var(--orange);
-    margin-bottom: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+}
+
+#traveler-info .participant-info h3 img {
+    width: 20px;
+    margin-left: 10px;
+    transition: .3s ease-in-out;
+}
+
+#traveler-info .participant-info h3 img.active {
+    transform: rotate(-180deg);
 }
 
 #traveler-info .participant-info form .participant-detials {
@@ -149,18 +162,22 @@
 
 #traveler-info .participant-info .price-box {
     margin-top: 40px;
-    text-align: center;
-    display: flex;
-    align-items: center;
     padding: 16px 20px;
     background: #fff;
     border-radius: 10px;
+    position: fixed;
+    left: 150px;
+    bottom: 180px;
 }
 
 #traveler-info .participant-info .price-box h4 {
     font-size: 16px;
     color: var(--orange);
-    margin-right: 40px;
+    margin-bottom: 20px;
+}
+
+#traveler-info .participant-info .price-box h4:last-child {
+    margin-bottom: 0;
 }
 
 #traveler-info .participant-info .contact-detials h4 {
@@ -267,8 +284,8 @@
 #traveler-info .bottom {
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
     align-items: center;
+    margin-top: 40px;
 }
 
 

@@ -237,6 +237,10 @@ section#spotlight .wrapper .branding-text span {
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     }
 
+    section#spotlight .wrapper .filter-box form {
+        flex-direction: column;
+    }
+
     section#spotlight .wrapper .filter-box .button span {
         display: block;
         font-size: 16px;

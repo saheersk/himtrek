@@ -107,7 +107,7 @@ function HamburgerMenu({ handleLogout }) {
             {is_LoggedIn ? (
               <div>
                 <li className="authentication">
-                  <small onClick={() => handleLogout()} className="register">
+                  <small onClick={() => handleLogout()} className="register logout">
                     Logout
                   </small>
                 </li>

@@ -340,7 +340,9 @@
 
 #banner .info-footer h5 {
     font-size: 22px;
+    text-transform: capitalize;
     color: var(--orange);
+    
 }
 
 /* responsive-screen */

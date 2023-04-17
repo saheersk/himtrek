@@ -99,6 +99,16 @@ ul.authentication a {
     text-align: center;
 }
 
+ul.authentication .logout {
+    color: #fff;
+    background-color: var(--orenge);
+    padding: 12px 20px;
+    border-radius: 10px;
+    width: 100%;
+    display: block;
+    text-align: center;
+}
+
 .overlay {
     position: fixed;
     top: 0;
