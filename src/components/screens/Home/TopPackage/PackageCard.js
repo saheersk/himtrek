@@ -1,7 +1,8 @@
+
 import React from "react";
-import { usePlace } from "../../../../Redux/Home/state";
 import { Link } from "react-router-dom";
-import "./ToPackage.css";
+import { usePlace } from "../../../../Redux/Home/state";
+import "./TopPackage.css";
 
 function PackageCard() {
   // const dispatch = useDispatch();

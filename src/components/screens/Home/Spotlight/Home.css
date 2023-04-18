@@ -114,6 +114,7 @@ section#spotlight .wrapper .filter-box .item select {
     outline: none;
     font-size: 18px;
     background: none;
+    color: var(--dark-blue);
 }
 
 section#spotlight .wrapper .filter-box .item select option {

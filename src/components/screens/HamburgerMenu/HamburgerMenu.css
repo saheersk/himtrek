@@ -17,6 +17,10 @@
     font-size: 16px;
 }
 
+.hamburger-menu .name-box h2 {
+    text-transform: capitalize;
+}
+
 .hamburger-menu .name-box span {
     color: var(--orenge);
 }
@@ -82,7 +86,7 @@
 
 .hamburger-menu__nav ul li,
 .hamburger-menu__nav ul a {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #021F3E;
 }
 
@@ -159,5 +163,11 @@ ul.authentication .logout {
 
     header .wrapper ul a {
         font-size: 16px;
+    }
+}
+
+@media all and (max-width: 360px) {
+    .hamburger-menu__nav {
+        width: 100%;
     }
 }

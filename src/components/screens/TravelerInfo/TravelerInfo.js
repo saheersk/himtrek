@@ -94,9 +94,7 @@ function TravelerInfo() {
       dispatch(fetchCartProduct(token));
       dispatch(fetchGearCart({ token: token }));
       dispatch(fetchPackageView(slug));
-    } else {
-      navigate("/login/");
-    }
+    } 
   }, [token, dispatch, slug, navigate]);
 
   const confirmHandle = (e) => {
@@ -318,34 +316,56 @@ function TravelerInfo() {
                       value={comments}
                     />
                   </div>
-                  <div className="bottom">
-                    <h3 onClick={priceHandler}>
-                      Price Per 1 Person: {package_price_per_person}
-                      Total Price for Gear: {total_gear_price}
-                      <img
-                        src={require("../../assets/images/angle-up-solid.png")}
-                        alt="Images"
-                        className={allPrice ? "active" : ""}
-                      />
-                    </h3>
+                  <div className="bottom" onClick={priceHandler}>
+                    <div className="info-price">
+                      <div className="amount">
+                        <h3>
+                          Price Per 1 Person:{" "}
+                          <span> {package_price_per_person}</span>
+                        </h3>
+                        <h3>
+                          {" "}
+                          Total Price for Gear: <span>{total_gear_price}</span>
+                        </h3>
+                      </div>
+                      <div className="small-img">
+                        <img
+                          src={require("../../assets/images/angle-up-solid.png")}
+                          alt="Images"
+                          className={allPrice ? "active" : ""}
+                        />
+                      </div>
+                    </div>
+
                     {allPrice ? (
                       <>
                         <div className="price-box">
-                          <h4>Total per Adult : {package_price_per_person}</h4>
                           <h4>
-                            Total per Children : {package_price_per_children}
+                            Total per Adult
+                            <span>₹{package_price_per_person}</span>
                           </h4>
                           <h4>
-                            Total Family of 4 : {package_price_family_of_four}
+                            Total per Children
+                            <span>₹{package_price_per_children}</span>
                           </h4>
-                          <h4>Total Gear Price : {total_gear_price}</h4>
+                          <h4>
+                            Total Family of 4
+                            <span>₹{package_price_family_of_four}</span>
+                          </h4>
+                          <h4>
+                            Total Gear Price <span>₹{total_gear_price}</span>
+                          </h4>
                           {gearCart?.map((item) => {
                             return (
                               <h4 key={item?.id}>
-                                {item?.gears.product_name} Gear per day{" "}
-                                {item?.gears?.price_per_day} :{" "}
-                                {item?.gears?.price_per_day *
-                                  parseInt(item?.days)}
+                                {item?.gears.product_name} Gear per day {"-"}₹
+                                {item?.gears?.price_per_day}
+                                <span>
+                                  {" "}
+                                  ₹
+                                  {item?.gears?.price_per_day *
+                                    parseInt(item?.days)}
+                                </span>
                               </h4>
                             );
                           })}

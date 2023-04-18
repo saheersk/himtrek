@@ -41,7 +41,13 @@
     margin-bottom: 12px;
     display: block;
     outline: none;
-    border: 2px solid #000;
+    border: 1px solid #021f3e;
+    transition: .3s ease;
+}
+
+#signup .signup-form form input:focus {
+    border: 1px solid #c77935;
+
 }
 
 #signup .signup-form form .singup-button {
@@ -65,11 +71,12 @@
 }
 
 #signup .signup-form form .singup-button input.register {
-    background-color: #021f3e;
+    background-color: #c77935;
+    border: none;
     color: #fff;
     font-weight: 600;
     font-size: 16px;
-    padding: 10px;
+    padding: 12px;
     margin: 0 0 0 10px;
     width: 40%;
 }
@@ -123,6 +130,7 @@
 
     #signup {
         width: 70%;
+        height: auto;
     }
 
     #signup .signup-form {
@@ -131,10 +139,32 @@
     }
 }
 
+@media all and (max-width: 640px) {
+    .signup-page {
+        padding-top: 30px;
+    }
+
+    #signup .signup-form h2 {
+        text-align: center;
+        font-size: 30px;
+        margin-bottom: 30px;
+    }
+
+    #signup {
+        box-shadow: none;
+    }
+
+    #signup .signup-form form .singup-button {
+        margin-top: 30px;
+    }
+
+}
+
 @media all and (max-width: 600px) {
     #signup {
         width: 90%;
     }
+
 }
 
 @media all and (max-width: 480px) {
@@ -144,13 +174,8 @@
 }
 
 @media all and (max-width: 390px) {
-    #signup {
-        height: auto;
-    }
 
-    #signup .signup-form h2 {
-        font-size: 18px;
-    }
+
 
     #signup .signup-form form .singup-button input {
         font-size: 12px;
@@ -158,11 +183,11 @@
     }
 
     #signup .signup-form form .singup-button input.register {
-        font-size: 14px;
-        padding: 8px;
+
+        padding: 12px;
         margin-bottom: 12px;
         margin-left: 0;
-        width: 40%;
+        width: 50%;
     }
 
     #signup .signup-form form a {

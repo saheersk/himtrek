@@ -41,7 +41,7 @@ function Product() {
     } catch (error) {
       console.log("Error removing package from cart:", error);
     }
-  };
+  }
 
   return (
     <>

@@ -9,6 +9,7 @@ function HamburgerMenu({ handleLogout }) {
 
   const [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState("");
+  const [timeOfDay, setTimeOfDay] = useState("");
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -19,6 +20,19 @@ function HamburgerMenu({ handleLogout }) {
       setUsername(data.username);
     }
   }, [data]);
+
+  useEffect(() => {
+    const date = new Date();
+    const hour = date.getHours();
+
+    if (hour >= 5 && hour < 12) {
+      setTimeOfDay("Good Morning");
+    } else if (hour >= 12 && hour < 18) {
+      setTimeOfDay("Good Afternoon");
+    } else {
+      setTimeOfDay("Good Evening");
+    }
+  }, []);
 
   return (
     <>
@@ -37,11 +51,27 @@ function HamburgerMenu({ handleLogout }) {
         </div>
         <nav className={`hamburger-menu__nav ${isOpen ? "open" : ""}`}>
           <div className="name-box">
-            <h2>
-              <span>Hey</span> {username && username}
-            </h2>
+            {is_LoggedIn ? (
+              <h2>
+                <span>Hey</span> {username && username}
+              </h2>
+            ) : (
+              <h2>
+                <span>{timeOfDay}</span>
+              </h2>
+            )}
           </div>
           <ul>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
+                to="/"
+              >
+                home
+              </NavLink>
+            </li>
             <li>
               <NavLink
                 className={({ isActive, isPending }) =>
@@ -107,7 +137,10 @@ function HamburgerMenu({ handleLogout }) {
             {is_LoggedIn ? (
               <div>
                 <li className="authentication">
-                  <small onClick={() => handleLogout()} className="register logout">
+                  <small
+                    onClick={() => handleLogout()}
+                    className="register logout"
+                  >
                     Logout
                   </small>
                 </li>

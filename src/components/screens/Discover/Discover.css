@@ -153,7 +153,6 @@
     text-align: center;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    margin-right: 20px;
 }
 
 #client-box .client-slider .client-card .avatar {
@@ -212,7 +211,96 @@
     font-weight: 600;
 }
 
+/* review-section */
+.review-container {
+    padding: 50px 0;
+
+}
+
+.review-container .container {
+    position: relative;
+
+}
+
+.review-container .img-box {
+    width: 100%;
+    max-height: 100%;
+
+}
+
+.review-container .img-box img {
+    width: 100%;
+    height: 750px;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
+
+.review-container .form-box {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    margin: 0 auto;
+    background: #ffffff66;
+    padding: 40px 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.review-container .form-box h2 {
+    color: var(--orenge);
+}
+
+.review-container form input,
+.review-container form select,
+.review-container form textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 14px 16px;
+    resize: none;
+    outline: none;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: .3s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+}
+
+.review-container form input:focus,
+.review-container form textarea:focus {
+    border: 2px solid var(--orenge);
+}
+
+.review-container form button {
+    cursor: pointer;
+    padding: 12px 12px;
+    font-size: 16px;
+    color: #fff;
+    width: 120px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--orenge);
+    transition: .3s ease;
+}
+
+.review-container form button:hover {
+    width: 130px;
+    background-color: #784316;
+}
+
+
+@media all and (max-width: 980px) {
+    .review-container .form-box {
+        width: 60%;
+    }
+}
+
 @media all and (max-width: 768px) {
+
     #discover .main-city .cards {
         flex-wrap: wrap;
     }
@@ -224,22 +312,43 @@
     #discover .main-city .city-item {
         width: 47%;
     }
+
+    .review-container .form-box {
+        width: 75%;
+    }
 }
 
 @media all and (max-width: 640px) {
 
     #discover .head h4,
-    #client-box .head h4 {
+    #client-box .head h4,
+    .review-container .form-box h2 {
         font-size: 20px;
     }
 
     #discover .main-city .city-item {
         width: 46%;
     }
+
+    .review-container form input,
+    .review-container form select,
+    .review-container form textarea {
+        font-size: 14px;
+    }
 }
 
 @media all and (max-width: 480px) {
     #discover .main-city .city-item {
         width: 100%;
+    }
+
+    .review-container .img-box img {
+        visibility: hidden;
+    }
+
+    .review-container .form-box {
+        width: 97%;
+        padding: 34px 30px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     }
 }

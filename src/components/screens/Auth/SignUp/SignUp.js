@@ -46,7 +46,7 @@ export default function SignUp() {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(loginSuccess({ data }));
-          navigate("/otp/", { state: { contactNumber: contact_number } } );
+          navigate("/otp/", { state: { contactNumber: contact_number } });
         } else {
           dispatch(loginFailure(data));
         }

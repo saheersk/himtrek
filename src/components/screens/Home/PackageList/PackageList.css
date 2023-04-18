@@ -196,6 +196,7 @@ section#package-list .button span:hover {
 
     section#package-list .package-box .package .price {
         height: 70px;
+        display: none;
     }
 
     section#package-list .package-box .package .price h4 {
@@ -211,11 +212,6 @@ section#package-list .button span:hover {
     }
 
     section#package-list .package-box .package .left-box {
-        margin-bottom: 14px;
-    }
-
-    section#package-list .package-box .package .left-box {
-        margin-bottom: 24px;
         width: 100%;
     }
 
@@ -336,5 +332,9 @@ section#package-list .button span:hover {
 
     section#package-list .button span {
         padding: 14px 20px;
+    }
+
+    section#package-list .package-box .package .text-box ul li span {
+        font-size: 12px;
     }
 }
