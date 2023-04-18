@@ -67,7 +67,7 @@ function Login() {
             <div className="container">
               {phoneNumber ? (
                 <>
-                  <h4>Login</h4>
+                  <h4>Login.</h4>
                   <form action="" onSubmit={handleSubmit}>
                     <label>Username</label>
                     <input

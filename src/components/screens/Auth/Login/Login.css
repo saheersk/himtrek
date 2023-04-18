@@ -254,9 +254,3 @@
         font-size: 14px;
     }
 }
-
-@media all and (max-width: 380px) {
-    .login-page {
-        padding: 100px 0;
-    }
-}
