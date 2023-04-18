@@ -9,6 +9,7 @@ import {
   loginFailure,
   loginSuccess,
 } from "../../../../Redux/Auth/auth";
+import Header from "../../Header/Header";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -46,7 +47,7 @@ export default function SignUp() {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(loginSuccess({ data }));
-          navigate("/otp/", { state: { contactNumber: contact_number } } );
+          navigate("/otp/", { state: { contactNumber: contact_number } });
         } else {
           dispatch(loginFailure(data));
         }
@@ -61,6 +62,7 @@ export default function SignUp() {
 
   return (
     <>
+      <Header />
       <div className="signup-page">
         <div className="wrapper">
           <section id="signup">

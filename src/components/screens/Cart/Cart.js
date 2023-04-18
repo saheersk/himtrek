@@ -10,7 +10,7 @@ function Cart() {
   const product = useSelector((cart) => cart.cart.products);
   const gearCart = useSelector((state) => state.gearCart.gearCart);
 
-  console.log(gearCart, '==gear');
+  console.log(gearCart, "==gear");
 
   const package_price_per_person = useSelector(
     (cart) => cart.cart.package_price_per_person
@@ -27,13 +27,13 @@ function Cart() {
     return acc + price;
   }, 0);
 
-  console.log(total_gear_price, 'gaer price');
+  console.log(total_gear_price, "gaer price");
 
   const [allPrice, setAllPrice] = useState(false);
   const toggleMenu = () => {
     setAllPrice(!allPrice);
   };
-  
+
   return (
     <>
       <Header />
@@ -47,15 +47,22 @@ function Cart() {
         <CartGear />
       </section>
       <div className="checkout-banner">
-        <div className="left">
-          <h3 onClick={toggleMenu}>
-            Package for 1 Person Price <span> ₹ {package_price_per_person}</span>
-            Total price for Gear <span> ₹ {total_gear_price}</span>
+        <div className="left" onClick={toggleMenu}>
+          <div className="amount">
+            <h3>
+              Package for 1 Person Price{" "}
+              <span> ₹ {package_price_per_person}</span>
+            </h3>
+            <h3>
+              Total price for Gear <span> ₹ {total_gear_price}</span>
+            </h3>
+          </div>
+          <div className="small-img">
             <img
               src={require("../../assets/images/angle-up-solid.png")}
               alt="Images"
-              />
-          </h3>
+            />
+          </div>
           {allPrice ? (
             <>
               <div className="price-list">

@@ -10,6 +10,7 @@ import {
   loginSuccess,
 } from "../../../../Redux/Auth/auth";
 import LoginOtp from "./LoginOtp";
+import Header from "../../Header/Header";
 
 function Login() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function Login() {
 
   return (
     <>
+      <Header />
       <div className="login-page">
         <div className="wrapper">
           <section id="login">
@@ -65,7 +67,7 @@ function Login() {
             <div className="container">
               {phoneNumber ? (
                 <>
-                  <h4>Login to Your account</h4>
+                  <h4>Login</h4>
                   <form action="" onSubmit={handleSubmit}>
                     <label>Username</label>
                     <input
@@ -87,10 +89,7 @@ function Login() {
                     {message && <p>{message.data}</p>}
                     <input type="submit" value="Login" />
                   </form>
-                  <span
-                    onClick={() => toggleOtp()}
-                    className="login-otp"
-                  >
+                  <span onClick={() => toggleOtp()} className="login-otp">
                     Login with otp
                   </span>
                 </>

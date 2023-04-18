@@ -110,11 +110,21 @@
 #traveler-info .participant-info h3 {
     text-align: center;
     font-size: 20px;
-    display: block;
-    color: var(--orange);
+    display: flex;
+    justify-content: space-between;
+    color: var(--dark-blue);
     margin-bottom: 30px;
     cursor: pointer;
 
+}
+
+#traveler-info .participant-info h3:last-child {
+    margin-bottom: 0;
+}
+
+#traveler-info .participant-info h3 span {
+    color: var(--orange);
+    margin-left: 10px;
 }
 
 #traveler-info .participant-info h3 img {
@@ -161,19 +171,23 @@
 }
 
 #traveler-info .participant-info .price-box {
+    width: 400px;
     margin-top: 40px;
     padding: 16px 20px;
     background: #fff;
     border-radius: 10px;
     position: absolute;
     left: 0;
-    bottom: 70px;
+    bottom: 124px;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
 #traveler-info .participant-info .price-box h4 {
     font-size: 16px;
     color: var(--orange);
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 #traveler-info .participant-info .price-box h4:last-child {
@@ -268,7 +282,6 @@
     width: 150px;
     display: inline-block;
     font-size: 18px;
-    margin-top: 40px;
     padding: 12px 20px;
     background: var(--orange);
     color: #fff;
@@ -286,7 +299,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 60px;
+}
+
+#traveler-info .bottom .info-price {
+    display: flex;
+    align-items: center;
+}
+
+#traveler-info .bottom .small-img {
+    width: 30px;
+    margin-left: 20px;
+}
+
+#traveler-info .bottom .small-img img {
+    width: 100%;
 }
 
 
@@ -423,6 +450,26 @@
     .date-container .confirmation-box span {
         font-size: 18px;
     }
+
+    #traveler-info .bottom {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #traveler-info .bottom .info-price {
+        margin-bottom: 24px;
+        width: 100%;
+    }
+
+    #traveler-info .participant-info .price-box {
+        bottom: 160px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    #traveler-info .participant-info {
+        padding: 50px 0;
+    }
 }
 
 @media all and (max-width: 640px) {
@@ -457,6 +504,10 @@
     .date-container .confirmation-box h5 {
         font-size: 16px;
     }
+
+    #traveler-info .all-container {
+        padding: 70px 30px;
+    }
 }
 
 @media all and (max-width: 560px) {
@@ -466,6 +517,10 @@
 
     #traveler-info .participant-info .additional-detials .item {
         flex-direction: column;
+    }
+
+    .date-container .confirmation-box {
+        width: 100%;
     }
 }
 
@@ -486,7 +541,26 @@
         font-size: 14px;
     }
 
+    #traveler-info .participant-info .comments h4,
+    #traveler-info .participant-info .additional-detials h4,
+    #traveler-info .participant-info .contact-detials h4,
+    #traveler-info .participant-info h3,
+    .date-container h3 {
+        font-size: 16px;
+    }
+
+    .date-container .confirmation-box h2 {
+        font-size: 16px;
+    }
+}
+
+@media all and (max-width: 420px) {
+
     #traveler-info .participant-info .price-box h4 {
-        font-size: 20px;
+        font-size: 14px;
+    }
+
+    #traveler-info .participant-info .price-box {
+        width: 330px;
     }
 }

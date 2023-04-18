@@ -67,6 +67,16 @@ function HamburgerMenu({ handleLogout }) {
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "active" : ""
                 }
+                to="/"
+              >
+                home
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "active" : ""
+                }
                 to="/discover"
               >
                 discover
