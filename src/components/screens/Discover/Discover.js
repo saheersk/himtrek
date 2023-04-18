@@ -6,6 +6,7 @@ import "./Discover.css";
 import Footer from "../Footer/Footer";
 import ClientCard from "./ClientCard";
 import CityCards from "./CityCards";
+import Review from "./Review";
 
 function Discover() {
   const breakPoints = [
@@ -46,6 +47,7 @@ function Discover() {
               <ClientCard />
             </Carousel>
           </ul>
+          <Review />
         </div>
       </section>
       <Footer />
