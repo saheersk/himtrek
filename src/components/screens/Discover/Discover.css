@@ -153,7 +153,6 @@
     text-align: center;
     border-radius: 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
-    margin-right: 20px;
 }
 
 #client-box .client-slider .client-card .avatar {
@@ -293,9 +292,15 @@
     background-color: #784316;
 }
 
-.review-container form select {}
+
+@media all and (max-width: 980px) {
+    .review-container .form-box {
+        width: 60%;
+    }
+}
 
 @media all and (max-width: 768px) {
+
     #discover .main-city .cards {
         flex-wrap: wrap;
     }
@@ -307,22 +312,43 @@
     #discover .main-city .city-item {
         width: 47%;
     }
+
+    .review-container .form-box {
+        width: 75%;
+    }
 }
 
 @media all and (max-width: 640px) {
 
     #discover .head h4,
-    #client-box .head h4 {
+    #client-box .head h4,
+    .review-container .form-box h2 {
         font-size: 20px;
     }
 
     #discover .main-city .city-item {
         width: 46%;
     }
+
+    .review-container form input,
+    .review-container form select,
+    .review-container form textarea {
+        font-size: 14px;
+    }
 }
 
 @media all and (max-width: 480px) {
     #discover .main-city .city-item {
         width: 100%;
+    }
+
+    .review-container .img-box img {
+        visibility: hidden;
+    }
+
+    .review-container .form-box {
+        width: 97%;
+        padding: 34px 30px;
+        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
     }
 }

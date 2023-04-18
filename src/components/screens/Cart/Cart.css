@@ -29,10 +29,11 @@
 }
 
 .cart-container .cart-box {
-    background-color: var(--bg-light-blue);
     border-radius: 20px;
-    /* margin-bottom: 40px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
+
+
 
 .cart-container .cart-box .item-container {
     display: flex;
@@ -151,7 +152,7 @@
     height: 0px;
     border-radius: 50%;
     display: block;
-    background-color: #fff;
+    background-color: var(--light-blue);
     position: absolute;
     top: 50%;
     left: 50%;
