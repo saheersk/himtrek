@@ -3,6 +3,7 @@ import "./Career.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCareer } from "../../../Redux/Career/career";
 import { Link } from "react-router-dom";
+import Footer from "../Footer/Footer";
 
 function Career() {
   const dispatch = useDispatch();
@@ -54,6 +55,7 @@ function Career() {
           </ul>
         </div>
       </section>
+      <Footer/>
     </>
   );
 }

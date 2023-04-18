@@ -38,7 +38,7 @@
 }
 
 .available-jobs {
-    padding: 50px 0 0 0;
+    padding: 50px 0 80px 0;
 }
 
 .available-jobs h3 {
@@ -304,7 +304,7 @@ h6 {
     }
 
     .available-jobs {
-        padding: 0;
+        padding: 0 0 50px 0;
     }
 
     .available-jobs li {
