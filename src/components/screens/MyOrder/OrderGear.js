@@ -7,7 +7,7 @@ function OrderGear() {
       <div className="order-card">
         <div className="left-content">
           <div className="img-box">
-            <img src={require("../../assets/images/gopro.png")} alt="Hero" />
+            {/* <img src={require("../../assets/images/gopro.png")} alt="Hero" /> */}
           </div>
           <div className="text-box">
             <h4>Gopro</h4>

@@ -5,7 +5,7 @@ import { BASE_URL } from '../../axiosConfig';
 export const fetchCareerView = createAsyncThunk(
     'events/fetchCareerView',
     async ({slug}) => {
-        const response = await axios.post(`${BASE_URL}/web/career/${slug}/`);
+        const response = await axios.get(`${BASE_URL}/web/career/${slug}/`);
         return response.data.data;
     }
   );

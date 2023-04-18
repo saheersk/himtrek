@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEvent } from "../../../Redux/Home/event";
 import "./AllEvents.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchEvent } from "../../../Redux/Home/event";
 
 function EventCard() {
-  const dispatch = useDispatch();
-  const event = useSelector((event) => event.event.events);
+  // const dispatch = useDispatch();
+  // const event = useSelector((event) => event.event.events);
 
-  useEffect(() => {
-    dispatch(fetchEvent());
-  }, [dispatch]); 
+  // useEffect(() => {
+  //   dispatch(fetchEvent());
+  // }, [dispatch]); 
+
+  const { data: event = [] } = useEvent();
 
   return (
     <>
-    {event.map((item) => {
+    {event?.map((item) => {
       return (
         <li key={item?.id}>
         <div className="preview">

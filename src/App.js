@@ -44,7 +44,6 @@ function App() {
           rel="icon"
           href={require("./components/assets/images/himtrek-logo.svg").default}
         />
-
         <meta
           property="og:image"
           content={

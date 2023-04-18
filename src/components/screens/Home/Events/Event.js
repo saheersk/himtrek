@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useEvent } from "../../../../Redux/Home/event";
 import "./Events.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchEvent } from "../../../../Redux/Home/event";
 
 function Event() {
-  const dispatch = useDispatch();
-  const event = useSelector((event) => event.event.events);
+  // const dispatch = useDispatch();
+  // const event = useSelector((event) => event.event.events);
 
-  useEffect(() => {
-    dispatch(fetchEvent());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchEvent());
+  // }, [dispatch]);
+
+  const { data: event = [] } = useEvent();
+
 
   return (
     <>
-      {event.map((event) => {
+      {event?.map((event) => {
         return (
           <li data-aos="fade-up" key={event?.id} className="xs-card">
             <div className="preview">

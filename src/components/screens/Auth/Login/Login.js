@@ -11,6 +11,8 @@ import {
 } from "../../../../Redux/Auth/auth";
 import LoginOtp from "./LoginOtp";
 
+
+
 function Login() {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.user.message);
@@ -46,7 +48,7 @@ function Login() {
           dispatch(loginFailure(error.response.data));
         }
       });
-  };
+    }
 
   const toggleOtp = () => {
     setPhoneNumber(!phoneNumber);

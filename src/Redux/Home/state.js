@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchState = createAsyncThunk(
   'states/fetchState',
@@ -33,5 +34,16 @@ const statesSlice = createSlice({
       });
   }
 });
+
+export const { setData } = statesSlice.actions;
+
+export const usePlace = () => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/state/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default statesSlice.reducer;

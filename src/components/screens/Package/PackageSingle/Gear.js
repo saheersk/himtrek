@@ -3,14 +3,14 @@ import Swal from "sweetalert2";
 
 import "./PackageSingle.css";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchGear } from "../../../../Redux/Package/gears";
+import { fetchGear, useGear } from "../../../../Redux/Package/gears";
 import { addGearToCart, fetchGearCart } from "../../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
 import { fetchCartProduct } from "../../../../Redux/Cart/cart";
 
 function Gear({ slug }) {
   const dispatch = useDispatch();
-  const gear = useSelector((state) => state.gear.gear);
+  // const gear = useSelector((state) => state.gear.gear);
   const gearCart = useSelector((state) => state.gearCart.gearCart);
   // const message = useSelector((state) => state.gear.message);
   const userData = useSelector((state) => state.user.data);
@@ -20,14 +20,13 @@ function Gear({ slug }) {
 
   // console.log(message, "=====message");
 
+  // console.log(gear, "gear");
+
 
   const navigate = useNavigate();
 
   const handleGearCart = (id, product) => {
-    console.log(gearCart, "cart");
     const item = gearCart.find((item) => item.gears.id === id);
-    console.log(is_Products, "id");
-
     if (is_Products) {
       if (item) {
         Swal.fire({
@@ -70,24 +69,25 @@ function Gear({ slug }) {
     dispatch(fetchGearCart({ token: token }));
   }, [slug, dispatch, token]);
 
+  const { data: gear = [] } = useGear({ slug: slug  });
+
   return (
     <>
       <div className="slide-container">
         <div className="wrapper">
           <h5>We provide rental products</h5>
           <div className="slide">
-            {gear.map((item) => {
+            {gear?.map((item) => {
               return (
-                <div className="item" key={item?.id}>
+                <div className="item" key={item?.gear?.id}>
                   <div className="product-img">
-                    <img src={item?.image} alt={item?.product_name} />
+                    <img src={item?.gear?.image} alt={item?.gear?.product_name} />
                   </div>
-                  <h6>{item?.product_name}</h6>
-                  <span>₹ {item?.price_per_day} / Day</span>
+                  <h6>{item?.gear?.product_name}</h6>
+                  <span>₹ {item?.rental_price} / Day</span>
                   <button
-                    onClick={() => handleGearCart(item?.id, item?.product_name)}
+                    onClick={() => handleGearCart(item?.gear?.id, item?.gear?.product_name)}
                   >
-
                     Add with Package
                   </button>
                 </div>

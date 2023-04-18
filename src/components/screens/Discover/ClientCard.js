@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useReview } from "../../../Redux/Discover/clientCard";
 import "./Discover.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchReview } from "../../../Redux/Discover/clientCard";
 
 function ClientCard() {
-  const dispatch = useDispatch();
-  const review = useSelector((state) => state.review.review);
+  // const dispatch = useDispatch();
+  // const review = useSelector((state) => state.review.review);
 
-  useEffect(() => {
-    dispatch(fetchReview());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchReview());
+  // }, [dispatch]);
+
+  const { data: review = [] } = useReview();
+
 
   return (
     <>
-    {review.map((item) => {
+    {review?.map((item) => {
       return (
         <div className="client-card" key={item?.id}>
         <div className="avatar">

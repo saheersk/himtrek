@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchGear = createAsyncThunk(
     'gears/fetchGear',
@@ -9,7 +10,6 @@ export const fetchGear = createAsyncThunk(
         return response.data.data;
     }
   );
-
 
 const gearSlice = createSlice({
   name: 'gear',
@@ -26,5 +26,16 @@ const gearSlice = createSlice({
       .addCase(fetchGear.rejected, (state, action) => {})
   }
 });
+
+export const { setData } = gearSlice.actions;
+
+export const useGear = ({ slug }) => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/gears/${slug}/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default gearSlice.reducer;

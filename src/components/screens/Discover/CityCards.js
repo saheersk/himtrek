@@ -1,16 +1,15 @@
-import React, { useEffect } from "react";
-import "./Discover.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCity } from "../../../Redux/Home/city";
+import React from "react";
+import { useCity } from "../../../Redux/Home/city";
 import { useNavigate } from "react-router-dom";
+import "./Discover.css";
 
 function CityCards() {
-  const dispatch = useDispatch();
-  const cities = useSelector((state) => state.city.cities);
+  // const dispatch = useDispatch();
+  // const cities = useSelector((state) => state.city.cities);
 
-  useEffect(() => {
-    dispatch(fetchCity());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchCity());
+  // }, [dispatch]);
 
   const navigate = useNavigate();
 
@@ -19,10 +18,12 @@ function CityCards() {
     navigate(`/result/?city=${title}`);
   };
 
+  const { data: cities = [] } = useCity();
+
   return (
     <>
       <div className="cards">
-        {cities.map((item) => {
+        {cities?.map((item) => {
           return (
             <div onClick={() => handleCity(item?.city) }  className="city-item" key={item?.id}>
           <div className="image-box">

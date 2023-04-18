@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchCareer = createAsyncThunk(
     'events/fetchCareer',
@@ -10,20 +11,34 @@ export const fetchCareer = createAsyncThunk(
     }
   );
 
-const questionSlice = createSlice({
+const careerSlice = createSlice({
   name: 'career',
   initialState: {
     career: [],
   },
-  reducers: {},
+  reducers: {
+    setData: (state, action) => {
+      state.career = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCareer.pending, (state) => {})
       .addCase(fetchCareer.fulfilled, (state, action) => {
-        state.career = action.payload;
       })
       .addCase(fetchCareer.rejected, (state, action) => {});
   }
 });
 
-export default questionSlice.reducer;
+export const { setData } = careerSlice.actions;
+
+export const useCareer = () => {
+  const { data, error } = useSWR(`${BASE_URL}/web/career/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
+
+export default careerSlice.reducer;

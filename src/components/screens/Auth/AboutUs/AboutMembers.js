@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMembers } from "../../../../Redux/About/aboutMembers";
+import React from "react";
+import { useAbout } from "../../../../Redux/About/aboutMembers";
 import { Link } from "react-router-dom";
 
 function AboutMembers() {
-  const dispatch = useDispatch();
-  const member = useSelector((state) => state.member.members);
+  // const dispatch = useDispatch();
+  // const member = useSelector((state) => state.member.members);
 
-  useEffect(() => {
-    dispatch(fetchMembers());
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchMembers());
+  // }, [dispatch]);
+
+  const { data: member = [] } = useAbout();
+
 
   return (
     <>
-      {member.map((item) => {
+      {member?.map((item) => {
         return (
           <div className="item" key={item?.key}>
             <div className="team-member">

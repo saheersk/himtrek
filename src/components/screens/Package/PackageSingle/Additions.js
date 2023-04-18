@@ -1,17 +1,20 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchTravelDos, fetchTravelWonts } from "../../../../Redux/Package/TravelIncludes";
+import React from "react";
+import { useDos, useWont } from "../../../../Redux/Package/TravelIncludes";
 import "./PackageSingle.css";
 
 function Additions({ slug }) {
-  const dispatch = useDispatch();
-  const dos = useSelector((state) => state.travelInclude.dos);
-  const wonts = useSelector((state) => state.travelInclude.wonts);
+  // const dispatch = useDispatch();
+  // const dos = useSelector((state) => state.travelInclude.dos);
+  // const wonts = useSelector((state) => state.travelInclude.wonts);
 
-  useEffect(() => {
-    dispatch(fetchTravelDos(slug));
-    dispatch(fetchTravelWonts(slug));
-  }, [slug, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchTravelDos(slug));
+  //   dispatch(fetchTravelWonts(slug));
+  // }, [slug, dispatch]);
+
+  const { data: dos = [] } = useDos({ slug: slug });
+  const { data: wonts = [] } = useWont({ slug: slug });
+
 
   return <>
      <div className="additions">

@@ -7,7 +7,7 @@ function OrderItem() {
       <div className="order-card">
         <div className="left-content">
           <div className="img-box">
-            <img src={require("../../assets/images/mumbai.png")} alt="Hero" />
+            {/* <img src={require("../../assets/images/mumbai.png")} alt="Hero" /> */}
           </div>
           <div className="text-box">
             <h4>Mumbai</h4>

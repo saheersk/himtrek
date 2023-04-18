@@ -55,6 +55,8 @@ function TravelerInfo() {
   const params = useParams();
   const slug = params.slug;
 
+  console.log(endDate, 'end');
+
   const total_gear_price = gearCart.reduce((acc, item) => {
     const price = item?.gears?.price_per_day * parseInt(item?.days);
     return acc + price;
@@ -101,6 +103,13 @@ function TravelerInfo() {
     e.preventDefault();
     toggleMenu();
     setGearTotal(total_gear_price);
+
+    let formattedContactNumber = phone;
+
+    if (!phone.startsWith("+91") && !phone.startsWith("91")) {
+      formattedContactNumber = "+91" + phone;
+    }
+
     axios
       .post(
         `${BASE_URL}/packages/checkout/${slug}/`,
@@ -111,7 +120,7 @@ function TravelerInfo() {
           family_count: family,
           email,
           full_name: fullName,
-          contact_number: phone,
+          contact_number: formattedContactNumber,
           children_count: children,
           health_requirement: requirements,
           special_requests: comments,
@@ -330,7 +339,7 @@ function TravelerInfo() {
                             Total Family of 4 : {package_price_family_of_four}
                           </h4>
                           <h4>Total Gear Price : {total_gear_price}</h4>
-                          {gearCart.map((item) => {
+                          {gearCart?.map((item) => {
                             return (
                               <h4 key={item?.id}>
                                 {item?.gears.product_name} Gear per day{" "}
@@ -370,7 +379,7 @@ function TravelerInfo() {
           toggleMenu={toggleMenu}
           confirmHandle={confirmHandle}
           total_price={total_price}
-          gearTotal={gearTotal}
+          gearTotal={total_gear_price}
           total={total}
         />
       </section>

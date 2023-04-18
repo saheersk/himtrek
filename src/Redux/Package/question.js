@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchQuestion = createAsyncThunk(
     'events/fetchQuestion',
@@ -25,5 +26,16 @@ const questionSlice = createSlice({
       .addCase(fetchQuestion.rejected, (state, action) => {});
   }
 });
+
+export const { setData } = questionSlice.actions;
+
+export const useQuestion = ({ slug }) => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/question/${slug}/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default questionSlice.reducer;

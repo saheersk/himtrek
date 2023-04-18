@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchReview = createAsyncThunk(
     'events/fetchReview',
@@ -25,5 +26,16 @@ const reviewSlice = createSlice({
       .addCase(fetchReview.rejected, (state, action) => {});
   }
 });
+
+export const { setData } = reviewSlice.actions;
+
+export const useReview = () => {
+  const { data, error } = useSWR(`${BASE_URL}/web/review/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default reviewSlice.reducer;

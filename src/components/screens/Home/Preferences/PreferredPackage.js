@@ -1,27 +1,29 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPackage } from "../../../../Redux/Home/package";
+import React from "react";
+import { usePackage } from "../../../../Redux/Home/package";
 import { Link, useLocation } from "react-router-dom";
 import "./Preferences.css";
 import "react-tabs/style/react-tabs.css";
 
 function PreferredPackage() {
-  const dispatch = useDispatch();
-  const package_item = useSelector(
-    (package_item) => package_item.package.packages
-  );
+  // const dispatch = useDispatch();
+  // const package_item = useSelector(
+  //   (package_item) => package_item.package.packages
+  // );
 
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
 
-  useEffect(() => {
-    dispatch(fetchPackage({category: category }));
-  }, [dispatch, category]);
+  // useEffect(() => {
+  //   dispatch(fetchPackage({category: category }));
+  // }, [dispatch, category]);
+
+  const { data: packages = [] } = usePackage({category: category || "Trekking"});
+
 
   return (
     <>
-      {package_item.map((item) => {
+      {packages?.map((item) => {
         return (
           <div className="card" key={item?.id}>
             <Link to={`/package/view/${item?.slug}`}>

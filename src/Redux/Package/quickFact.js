@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchQuickFact = createAsyncThunk(
   'events/fetchQuickFact',
@@ -9,7 +10,6 @@ export const fetchQuickFact = createAsyncThunk(
     return response.data.data[0];
   }
 );
-
 
 const quickFactSlice = createSlice({
   name: 'quickFactView',
@@ -26,5 +26,16 @@ const quickFactSlice = createSlice({
       .addCase(fetchQuickFact.rejected, (state, action) => {});
   }
 });
+
+export const { setData } = quickFactSlice.actions;
+
+export const useQuickFact = ({ slug }) => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/quick-fact/${slug}/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data[0];
+  });
+
+  return { data, error };
+};
 
 export default quickFactSlice.reducer;

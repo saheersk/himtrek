@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import "./SearchingResult.css";
-import { fetchPackage } from "../../../Redux/Home/package";
+import { usePackage } from "../../../Redux/Home/package";
 import { Link, useLocation } from "react-router-dom";
 
 function PlaceCard() {
-  const dispatch = useDispatch();
-  const package_item = useSelector((package_item) => package_item.package.packages);
+  // const dispatch = useDispatch();
+  // const package_item = useSelector((package_item) => package_item.package.packages);
 
   const location = useLocation();
   const params = new URLSearchParams(location.search);
@@ -16,14 +15,18 @@ function PlaceCard() {
   const category = params.get('category');
   const sort = params.get('sort');
 
-  useEffect(() => {
-    dispatch(fetchPackage({month: month, state: state, city: city, category: category, sort: sort}));
+  // useEffect(() => {
+  //   dispatch(fetchPackage({month: month, state: state, city: city, category: category, sort: sort}));
 
-  }, [dispatch, month, state, city, category, sort]);
+  // }, [dispatch, month, state, city, category, sort]);
+
+  const { data: packages = [] } = usePackage({month: month || "", state: state || "", city: city || "" , sort: sort || "", category: category || ""});
+
+  console.log(packages, 'PACK');
 
   return (
     <>
-    {package_item.map((item) => {
+    {packages?.map((item) => {
       return (
         <div className="place-card" key={item?.id}>
         <Link to={`/package/view/${item?.slug}`}>

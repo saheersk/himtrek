@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchTravelDos = createAsyncThunk(
     'events/fetchTravelDos',
@@ -39,5 +40,26 @@ const TravelIncludeSlice = createSlice({
       .addCase(fetchTravelWonts.rejected, (state, action) => {});
   }
 });
+export const { setDos } = TravelIncludeSlice.actions;
+
+export const useDos = ({ slug }) => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/dos/${slug}/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
+
+export const { setWonts } = TravelIncludeSlice.actions;
+
+export const useWont = ({ slug }) => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/wonts/${slug}/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default TravelIncludeSlice.reducer;

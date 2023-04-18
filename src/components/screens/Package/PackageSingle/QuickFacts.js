@@ -1,15 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useQuickFact } from "../../../../Redux/Package/quickFact";
 import "./PackageSingle.css";
-import { fetchQuickFact } from "../../../../Redux/Package/quickFact";
-import { useDispatch, useSelector } from "react-redux";
 
 function QuickFacts({ slug }) {
-  const dispatch = useDispatch();
-  const quickFact = useSelector((state) => state.quickFact.quickFact);
+  // const dispatch = useDispatch();
+  // const quickFact = useSelector((state) => state.quickFact.quickFact);
   
-  useEffect(() => {
-    dispatch(fetchQuickFact(slug));
-  }, [slug, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchQuickFact(slug));
+  // }, [slug, dispatch]);
+  const { data: quickFact = [] } = useQuickFact({ slug: slug });
 
   return (
     <>  

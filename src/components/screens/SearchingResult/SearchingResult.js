@@ -59,7 +59,7 @@ function SearchingResult() {
                 <form action="">
                   <h4>Price Range</h4>
                   <div className="item">
-                    <input type="checkbox" value="high-to-low" name="sort" />
+                    <input  type="checkbox" value="high-to-low" name="sort" />
                     <label htmlFor="high-to-low">High to Low Price</label>
                   </div>
                   <div className="item">

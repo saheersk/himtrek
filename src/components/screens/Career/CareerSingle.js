@@ -34,7 +34,7 @@ function CareerSingle() {
               </div>
             </div>
             <ul>
-              {requirements.map((item) => {
+              {requirements?.map((item) => {
                 return <li key={item?.id}>{item?.requirements}</li>;
               })}
             </ul>

@@ -1,22 +1,23 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchPackage } from "../../../../Redux/Home/package";
+import { usePackage } from "../../../../Redux/Home/package";
 import "./PackageList.css";
 
 function Package() {
-  const dispatch = useDispatch();
-  const package_item = useSelector(
-    (package_item) => package_item.package.packages
-  );
+  // const dispatch = useDispatch();
+  // const packages = useSelector(
+  //   (packages) => packages.package.packages
+  // );
 
-  useEffect(() => {
-    dispatch(fetchPackage({ month: "", state: "" }));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchPackage({ month: "", state: "" }));
+  // }, [dispatch]);
+
+  const { data: packages = [] } = usePackage();
 
   return (
     <>
-      {package_item.map((item) => {
+      {packages?.map((item) => {
         return (
           <div className="package" key={item?.id}>
             <Link to={`/package/view/${item.slug}/`}>

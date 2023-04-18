@@ -77,7 +77,7 @@ function CartGear() {
           {is_gear ? (
 
             <div className="slide">
-              {gearCart.map((item) => {
+              {gearCart?.map((item) => {
                 const days =
                   updatedDays[item?.id] !== undefined
                     ? updatedDays[item?.id]

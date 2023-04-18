@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchEvent = createAsyncThunk(
   'events/fetchEvent',
@@ -25,5 +26,17 @@ const eventSlice = createSlice({
       .addCase(fetchEvent.rejected, (state, action) => {});
   }
 });
+
+export const { setData } = eventSlice.actions;
+
+export const useEvent = () => {
+  const { data, error } = useSWR(`${BASE_URL}/web/upcoming-events/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
+
 
 export default eventSlice.reducer;

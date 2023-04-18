@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
+import useSWR from 'swr';
 
 export const fetchCategory = createAsyncThunk(
   'categories/fetchCategory',
@@ -15,7 +16,11 @@ const statesSlice = createSlice({
   initialState: {
     categories: [],
   },
-  reducers: {},
+  reducers: {
+    setData: (state, action) => {
+      state.categories = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchCategory.pending, (state) => {
@@ -28,5 +33,16 @@ const statesSlice = createSlice({
       });
   }
 });
+
+export const { setData } = statesSlice.actions;
+
+export const useStates = () => {
+  const { data, error } = useSWR(`${BASE_URL}/packages/category/`, async (url) => {
+    const response = await axios.get(url);
+    return response.data.data;
+  });
+
+  return { data, error };
+};
 
 export default statesSlice.reducer;

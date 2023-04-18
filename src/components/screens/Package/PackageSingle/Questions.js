@@ -1,20 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
+import { useQuestion } from "../../../../Redux/Package/question";
 import "./PackageSingle.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchQuestion } from "../../../../Redux/Package/question";
 
 function Questions({ slug }) {
-  const dispatch = useDispatch();
-  const question = useSelector((state) => state.question.question);
+  // const dispatch = useDispatch();
+  // const question = useSelector((state) => state.question.question);
 
-  useEffect(() => {
-    dispatch(fetchQuestion(slug));
-  }, [slug, dispatch]);
+  // useEffect(() => {
+  //   dispatch(fetchQuestion(slug));
+  // }, [slug, dispatch]);
+  const { data: question = [] } = useQuestion({ slug: slug });
+
 
   return (
     <>
       <div className="questions">
-    {question.map((item) => {
+    {question?.map((item) => {
       return (
         <div className="item" key={item?.id}>
           <h3>{item?.question}</h3>
