@@ -19,6 +19,7 @@ function PackageSingle() {
   const dispatch = useDispatch();
   const message = useSelector((state) => state.packageView.message);
   const userData = useSelector((state) => state.user.data);
+  const isProduct = useSelector((cart) => cart.cart.isProducts);
   const product = useSelector((cart) => cart.cart.products);
   
   const token = userData?.data?.access;
@@ -35,11 +36,10 @@ function PackageSingle() {
       navigate("/login/");
     }
     else {
-      console.log(product?.package?.slug, 'slug');
-      if (product?.package?.slug === id) {
+      if (isProduct) {
         Swal.fire({
-          title: `Already in Cart ${packageView?.title}`,
-          text: `${packageView?.title} Moved to cart`,
+          title: `${product?.package?.title} in Cart `,
+          text: `${product?.package?.title} Moved to cart`,
           icon: "warning",
           showCancelButton: true,
           confirmButtonText: "Go to Cart",
@@ -51,14 +51,12 @@ function PackageSingle() {
         });
       }
       else {
-        // dispatch(addToCart({slug: slug, token: token}))
         AddToCartHandler({ slug: slug, token: token, dispatch})
         Swal.fire({
           title: `${packageView?.title} Added to Cart`,
           text: "Successfully Added to Cart",
           icon: "success",
         })
-      // const { data: product = [] } = useCartProduct({ token: token , dispatch: dispatch });
       }
     }
   

@@ -34,8 +34,6 @@ function SearchingResult() {
           <div className="place-cards">
             <PlaceCard />
           </div>
-
-          {/* filter-bar */}
           {isOpen && (
             <div className={`filter-container ${isOpen ? "open" : ""}`}>
               <div className="head">

@@ -71,7 +71,6 @@ export const useAddToGearCart = ({ token }) => {
 
 export const useRemoveFromGearCart = ({ token }) => {
   const dispatch = useDispatch();
-
   const { data } = useGearCartProduct({ token: token, dispatch });
 
   const removeFromGearCartHandler = async ({ productId, token }) => {
@@ -81,7 +80,6 @@ export const useRemoveFromGearCart = ({ token }) => {
       };
       await axios.delete(
         `${BASE_URL}/packages/cart/gear/remove/${productId}/`,
-        null,
         config
       );
       mutate(`${BASE_URL}/packages/cart/gears/`);

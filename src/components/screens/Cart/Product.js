@@ -2,7 +2,7 @@ import React from "react";
 import { useCartProduct, useRemoveFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { useGearCartProduct } from "../../../Redux/Cart/gearCart";
+// import { useGearCartProduct } from "../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
@@ -16,7 +16,7 @@ function Product() {
   const navigate = useNavigate();
 
   const { data: product = [] } = useCartProduct({ token: token , dispatch: dispatch });
-  useGearCartProduct({ token: token , dispatch: dispatch }); 
+  // const { data: gearCart = [] } = useGearCartProduct({ token: token , dispatch: dispatch }); 
 
   const { removeFromCartHandler } = useRemoveFromCart({ token })
   

@@ -235,6 +235,10 @@
 
 /* responsive-screen */
 @media all and (max-width: 980px) {
+    #searching-results .place-cards {
+        justify-content: center;
+    }
+
     .filter-container .head h5 {
         font-size: 20px;
     }
@@ -242,9 +246,25 @@
     .filter-container span {
         width: 20px;
     }
+
+    .place-card {
+        width: 235px;
+    }
+}
+
+@media all and (max-width: 840px) {
+    #searching-results .place-card {
+        width: 200px;
+    }
+
+    .place-card .image-box {
+        height: 120px;
+    }
 }
 
 @media all and (max-width: 768px) {
+
+
     #searching-results .top-box span {
         width: 20px;
     }
@@ -276,14 +296,30 @@
     .place-card .text-box .bottom-box span {
         font-size: 16px;
     }
+
+    .filter-container form .item input {
+        height: 18px;
+        width: 18px;
+    }
 }
 
 @media all and (max-width: 640px) {
+    #searching-results .place-card {
+        width: 240px;
+    }
 
+    .place-card .image-box {
+        height: 140px;
+    }
 
     .filter-container {
-        width: 50%;
+        width: 60%;
     }
+
+    .filter-container span {
+        width: 15px;
+    }
+
 
 }
 
@@ -312,5 +348,8 @@
     .place-card .text-box .bottom-box .button {
         padding: 10px 20px;
         font-size: 14px;
+    }
+    .filter-container {
+        width: 80%;
     }
 }

@@ -27,8 +27,6 @@ function CartGear() {
   const { removeFromGearCartHandler } = useRemoveFromGearCart({ token });
   const { gearItemAddOrSubHandler } = useGearItemAddOrSub({ token });
 
-  console.log(gearCart, "gear");
-
   const handleGearCart = (id, name) => {
     Swal.fire({
       title: `Are you sure you want to remove ${name}`,
