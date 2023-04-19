@@ -4,9 +4,6 @@ import { usePackage } from "../../../Redux/Home/package";
 import { Link, useLocation } from "react-router-dom";
 
 function PlaceCard() {
-  // const dispatch = useDispatch();
-  // const package_item = useSelector((package_item) => package_item.package.packages);
-
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const state = params.get('state');
@@ -15,14 +12,7 @@ function PlaceCard() {
   const category = params.get('category');
   const sort = params.get('sort');
 
-  // useEffect(() => {
-  //   dispatch(fetchPackage({month: month, state: state, city: city, category: category, sort: sort}));
-
-  // }, [dispatch, month, state, city, category, sort]);
-
   const { data: packages = [] } = usePackage({month: month || "", state: state || "", city: city || "" , sort: sort || "", category: category || ""});
-
-  console.log(packages, 'PACK');
 
   return (
     <>

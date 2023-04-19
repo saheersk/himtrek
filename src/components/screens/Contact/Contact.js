@@ -27,7 +27,6 @@ function Contact() {
       formattedContactNumber = "+91" + contact_number;
     }
 
-
     axios
       .post(`${BASE_URL}/web/contact/`, {
         name,

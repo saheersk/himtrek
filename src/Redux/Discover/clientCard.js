@@ -1,41 +1,39 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { BASE_URL } from '../../axiosConfig';
-import useSWR from 'swr';
-
-export const fetchReview = createAsyncThunk(
-    'events/fetchReview',
-    async () => {
-        const response = await axios.get(`${BASE_URL}/web/review/`);
-        return response.data.data;
-    }
-  );
+import { createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { BASE_URL } from "../../axiosConfig";
+import useSWR from "swr";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 const reviewSlice = createSlice({
-  name: 'review',
+  name: "review",
   initialState: {
     review: [],
   },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchReview.pending, (state) => {})
-      .addCase(fetchReview.fulfilled, (state, action) => {
-        state.review = action.payload;
-      })
-      .addCase(fetchReview.rejected, (state, action) => {});
-  }
+  reducers: {
+    setReview: (state, action) => {
+      state.review = action.payload;
+    },
+  },
 });
 
-export const { setData } = reviewSlice.actions;
-
 export const useReview = () => {
+  const dispatch = useDispatch();
+
   const { data, error } = useSWR(`${BASE_URL}/web/review/`, async (url) => {
     const response = await axios.get(url);
     return response.data.data;
   });
 
+  useEffect(() => {
+    if (data) {
+      dispatch(setReview(data));
+    }
+  }, [data, dispatch]);
+
   return { data, error };
 };
+
+export const { setReview } = reviewSlice.actions;
 
 export default reviewSlice.reducer;

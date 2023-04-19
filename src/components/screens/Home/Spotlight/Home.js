@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
 import Header from "../../Header/Header";
 import About from "../About/About";
-
 import "react-datepicker/dist/react-datepicker.css";
 import Typewriter from "typewriter-effect";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
 import TopPackage from "../TopPackage/TopPackage";
@@ -15,12 +12,11 @@ import Preferences from "../Preferences/Preferences";
 import Workspace from "../Workspace/Workspace";
 import Footer from "../../Footer/Footer";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchState } from "../../../../Redux/Home/state";
+import { usePlace } from "../../../../Redux/Home/state";
+import "./Home.css";
 
 function Home() {
-  const dispatch = useDispatch();
-  const travel_state = useSelector((state) => state.state.states);
+  const { data: places } = usePlace();
 
   const [state, setState] = useState("");
   const [month, setMonth] = useState("");
@@ -34,8 +30,7 @@ function Home() {
 
   useEffect(() => {
     AOS.init();
-    dispatch(fetchState());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -89,7 +84,7 @@ function Home() {
                         onChange={(e) => setState(e.target.value)}
                       >
                         <option value="">Select State</option>
-                        {travel_state.map((item) => {
+                        {places?.map((item) => {
                           return (
                             <option key={item?.id} value={item?.state}>
                               {item?.state}

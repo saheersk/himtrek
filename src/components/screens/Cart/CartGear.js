@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Cart.css";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  GearItemAddOrSub,
-  fetchGearCart,
-  removeFromGearCart,
+  useGearCartProduct,
+  useGearItemAddOrSub,
+  useRemoveFromGearCart,
 } from "../../../Redux/Cart/gearCart";
 
 function CartGear() {
   const dispatch = useDispatch();
-  const gearCart = useSelector((state) => state.gearCart.gearCart);
-  const message = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
-  const is_gear = useSelector((cart) => cart.gearCart.is_gear);
+  const isGear = useSelector((cart) => cart.gearCart.isGear);
 
   const [updatedDays, setUpdatedDays] = useState({});
 
@@ -22,8 +20,14 @@ function CartGear() {
   const Add = "add";
   const Sub = "sub";
 
+  const { data: gearCart = [] } = useGearCartProduct({
+    token: token,
+    dispatch: dispatch,
+  });
+  const { removeFromGearCartHandler } = useRemoveFromGearCart({ token });
+  const { gearItemAddOrSubHandler } = useGearItemAddOrSub({ token });
 
-  console.log(gearCart, 'gear');
+  console.log(gearCart, "gear");
 
   const handleGearCart = (id, name) => {
     Swal.fire({
@@ -35,9 +39,8 @@ function CartGear() {
       cancelButtonText: "CANCEL",
     }).then((result) => {
       if (result.value) {
-        dispatch(removeFromGearCart({ productId: id, token: token }));
+        removeFromGearCartHandler({ productId: id, token: token });
       }
-
     });
   };
 
@@ -53,29 +56,19 @@ function CartGear() {
       setUpdatedDays({ ...updatedDays, [id]: "" });
     }
 
-    dispatch(
-      GearItemAddOrSub({
-        productId: id,
-        token: token,
-        action: action,
-        onSuccess: () => {},
-      })
-    );
+    gearItemAddOrSubHandler({
+      productId: id,
+      token: token,
+      action: action,
+    });
   };
-
-  console.log(message, "====");
-
-  useEffect(() => {
-    dispatch(fetchGearCart({ token: token }));
-  }, [dispatch, token, updatedDays]);
 
   return (
     <>
       <div className="slide-cart">
         <div className="wrapper">
           <h5>Gears</h5>
-          {is_gear ? (
-
+          {isGear ? (
             <div className="slide">
               {gearCart?.map((item) => {
                 const days =
@@ -135,7 +128,6 @@ function CartGear() {
               })}
             </div>
           ) : (
-
             <div className="empty-cart">
               <div className="img-box">
                 <img

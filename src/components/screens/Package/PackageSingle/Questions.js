@@ -3,12 +3,6 @@ import { useQuestion } from "../../../../Redux/Package/question";
 import "./PackageSingle.css";
 
 function Questions({ slug }) {
-  // const dispatch = useDispatch();
-  // const question = useSelector((state) => state.question.question);
-
-  // useEffect(() => {
-  //   dispatch(fetchQuestion(slug));
-  // }, [slug, dispatch]);
   const { data: question = [] } = useQuestion({ slug: slug });
 
 

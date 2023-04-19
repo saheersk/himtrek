@@ -1,21 +1,15 @@
-import React, { useEffect } from "react";
-import "./Career.css";
+import React from "react";
 import Header from "../Header/Header";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { fetchCareerView } from "../../../Redux/Career/careerView";
+import { useCareerView } from "../../../Redux/Career/careerView";
+import "./Career.css";
 
-function CareerSingle() {
-  const dispatch = useDispatch();
-  const careerView = useSelector((state) => state.careerView.careerView);
-  const requirements = useSelector((state) => state.careerView.requirements);
-
+function CareerSingle() {  
   const params = useParams();
   const slug = params.slug;
 
-  useEffect(() => {
-    dispatch(fetchCareerView({ slug: slug }));
-  }, [dispatch, slug]);
+  const { data: careerView = [] } = useCareerView({ slug: slug });
+  const { data: { requirements } = [] } = useCareerView({ slug: slug });
 
   return (
     <>

@@ -1,15 +1,9 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
 import useSWR from 'swr';
-
-export const fetchCareer = createAsyncThunk(
-    'events/fetchCareer',
-    async () => {
-        const response = await axios.get(`${BASE_URL}/web/career/`);
-        return response.data.data;
-    }
-  );
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const careerSlice = createSlice({
   name: 'career',
@@ -17,28 +11,29 @@ const careerSlice = createSlice({
     career: [],
   },
   reducers: {
-    setData: (state, action) => {
+    setCareer: (state, action) => {
       state.career = action.payload;
     },
   },
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchCareer.pending, (state) => {})
-      .addCase(fetchCareer.fulfilled, (state, action) => {
-      })
-      .addCase(fetchCareer.rejected, (state, action) => {});
-  }
 });
 
-export const { setData } = careerSlice.actions;
-
 export const useCareer = () => {
+  const dispatch = useDispatch();
+
   const { data, error } = useSWR(`${BASE_URL}/web/career/`, async (url) => {
     const response = await axios.get(url);
     return response.data.data;
   });
 
+  useEffect(() => {
+    if (data) {
+      dispatch(setCareer(data));
+    }
+  }, [data, dispatch]);
+
   return { data, error };
 };
+
+export const { setCareer } = careerSlice.actions;
 
 export default careerSlice.reducer;

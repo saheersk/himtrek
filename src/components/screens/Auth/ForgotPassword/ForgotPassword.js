@@ -10,7 +10,6 @@ import { passwordFailure, passwordSuccess } from "../../../../Redux/Auth/forgotP
 
 function ForgotPassword() {
   const dispatch = useDispatch();
-  // const error_message = useSelector((state) => state.user.message);
 
   const [isOpen, setIsOpen] = useState(false);
   const [phone, setPhone] = useState("");

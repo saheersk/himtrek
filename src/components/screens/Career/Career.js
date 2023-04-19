@@ -1,20 +1,12 @@
 import React from "react";
 import "./Career.css";
-// import { useDispatch, useSelector } from "react-redux";
 import { useCareer } from "../../../Redux/Career/career";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-
 function Career() {
-  // const dispatch = useDispatch();
-  // const career = useSelector((state) => state.career.career);
   const { data: career = [] } = useCareer();
-
-  // useEffect(() => {
-  //   dispatch(fetchCareer());
-  // }, [dispatch]);
 
   return (
     <>

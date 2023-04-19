@@ -5,21 +5,11 @@ import "./Preferences.css";
 import "react-tabs/style/react-tabs.css";
 
 function PreferredPackage() {
-  // const dispatch = useDispatch();
-  // const package_item = useSelector(
-  //   (package_item) => package_item.package.packages
-  // );
-
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const category = params.get('category');
 
-  // useEffect(() => {
-  //   dispatch(fetchPackage({category: category }));
-  // }, [dispatch, category]);
-
   const { data: packages = [] } = usePackage({category: category || "Trekking"});
-
 
   return (
     <>

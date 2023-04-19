@@ -3,12 +3,6 @@ import { useItinerary } from "../../../../Redux/Package/itinerary";
 import "./PackageSingle.css";
 
 function Itinerary({ slug }) {
-  // const dispatch = useDispatch();
-  // const itinerary = useSelector((state) => state.itinerary.itineraries);
-
-  // useEffect(() => {
-  //   dispatch(fetchItinerary(slug));
-  // }, [slug, dispatch]);
   const { data: itinerary = [] } = useItinerary({ slug : slug });
 
   return (

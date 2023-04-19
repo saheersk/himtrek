@@ -19,6 +19,7 @@ import cityReducer from "./Home/city";
 import gearCartReducer from "./Cart/gearCart";
 import careerViewReducer from "./Career/careerView";
 import memberReducer from "./About/aboutMembers";
+import reviewFormReducer from "./Discover/ReviewForm";
 
 const store = configureStore({
   reducer: {
@@ -42,6 +43,7 @@ const store = configureStore({
     gearCart: gearCartReducer,
     careerView: careerViewReducer,
     member: memberReducer,
+    reviewForm: reviewFormReducer,
   },
 });
 

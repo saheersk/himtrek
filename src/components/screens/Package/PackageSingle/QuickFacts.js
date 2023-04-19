@@ -3,12 +3,6 @@ import { useQuickFact } from "../../../../Redux/Package/quickFact";
 import "./PackageSingle.css";
 
 function QuickFacts({ slug }) {
-  // const dispatch = useDispatch();
-  // const quickFact = useSelector((state) => state.quickFact.quickFact);
-  
-  // useEffect(() => {
-  //   dispatch(fetchQuickFact(slug));
-  // }, [slug, dispatch]);
   const { data: quickFact = [] } = useQuickFact({ slug: slug });
 
   return (

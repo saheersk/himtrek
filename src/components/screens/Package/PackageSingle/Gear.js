@@ -1,33 +1,28 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Swal from "sweetalert2";
 
 import "./PackageSingle.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchGear, useGear } from "../../../../Redux/Package/gears";
-import { addGearToCart, fetchGearCart } from "../../../../Redux/Cart/gearCart";
+import { useSelector } from "react-redux";
+import { useGear } from "../../../../Redux/Package/gears";
+import { useAddToGearCart } from "../../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
-import { fetchCartProduct } from "../../../../Redux/Cart/cart";
 
 function Gear({ slug }) {
-  const dispatch = useDispatch();
-  // const gear = useSelector((state) => state.gear.gear);
+  const { data: gear = [] } = useGear({ slug: slug  });
+
   const gearCart = useSelector((state) => state.gearCart.gearCart);
-  // const message = useSelector((state) => state.gear.message);
   const userData = useSelector((state) => state.user.data);
-  const is_Products = useSelector((cart) => cart.cart.is_Products);
+  const isProducts = useSelector((cart) => cart.cart.isProducts);
 
   const token = userData?.data?.access;
 
-  // console.log(message, "=====message");
-
-  // console.log(gear, "gear");
-
+  const { AddToGearCartHandler } = useAddToGearCart({ token })
 
   const navigate = useNavigate();
 
   const handleGearCart = (id, product) => {
     const item = gearCart.find((item) => item.gears.id === id);
-    if (is_Products) {
+    if (isProducts) {
       if (item) {
         Swal.fire({
           title: `Already in Cart ${product}`,
@@ -42,18 +37,14 @@ function Gear({ slug }) {
           }
         });
       } else {
-        dispatch(addGearToCart({ productId: id, token: token }));
+        AddToGearCartHandler({ productId: id, token: token, slug: slug })
         Swal.fire({
           title: `${product} Added to Cart`,
           text: "Successfully Added to Cart",
           icon: "success",
         });
-        dispatch(fetchCartProduct(token));
-        dispatch(fetchGearCart({ token: token }));
       }
     } else {
-      dispatch(fetchCartProduct(token));
-      dispatch(fetchGearCart({ token: token }));
       Swal.fire({
         title: `No Package in Cart`,
         text: "Add Package then Gears",
@@ -62,14 +53,6 @@ function Gear({ slug }) {
     }
 
   };
-
-  useEffect(() => {
-    dispatch(fetchGear(slug));
-    dispatch(fetchCartProduct(token));
-    dispatch(fetchGearCart({ token: token }));
-  }, [slug, dispatch, token]);
-
-  const { data: gear = [] } = useGear({ slug: slug  });
 
   return (
     <>

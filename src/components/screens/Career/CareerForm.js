@@ -10,7 +10,6 @@ import Swal from "sweetalert2";
 
 function CareerForm() {
   const dispatch = useDispatch();
-  // const error_message = useSelector((state) => state.user.message);
 
   const [description, setDescription] = useState("");
   const [resume, setResume] = useState("");
@@ -30,12 +29,10 @@ function CareerForm() {
     const formData = new FormData();
     console.log(file, formData, "formData");
     formData.append("file", file, file.name);
-    // setResume(event.target.files[0]);
 
     const reader = new FileReader();
     reader.onload = () => {
       const filePath = URL.createObjectURL(file);
-      // Use the filePath to send it to the API
       setResume(filePath);
       console.log(filePath, "filePath");
     };
@@ -150,7 +147,6 @@ function CareerForm() {
                   rows="8"
                 ></textarea>
               </div>
-              {/* <button type="submit">Submit</button> */}
               <input type="submit" value="submit" />
             </form>
           </div>

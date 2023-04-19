@@ -3,15 +3,7 @@ import { useAbout } from "../../../../Redux/About/aboutMembers";
 import { Link } from "react-router-dom";
 
 function AboutMembers() {
-  // const dispatch = useDispatch();
-  // const member = useSelector((state) => state.member.members);
-
-  // useEffect(() => {
-  //   dispatch(fetchMembers());
-  // }, [dispatch]);
-
   const { data: member = [] } = useAbout();
-
 
   return (
     <>

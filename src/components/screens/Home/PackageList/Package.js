@@ -4,15 +4,6 @@ import { usePackage } from "../../../../Redux/Home/package";
 import "./PackageList.css";
 
 function Package() {
-  // const dispatch = useDispatch();
-  // const packages = useSelector(
-  //   (packages) => packages.package.packages
-  // );
-
-  // useEffect(() => {
-  //   dispatch(fetchPackage({ month: "", state: "" }));
-  // }, [dispatch]);
-
   const { data: packages = [] } = usePackage();
 
   return (
