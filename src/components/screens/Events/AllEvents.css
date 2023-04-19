@@ -27,9 +27,12 @@ section#events ul {
 }
 
 section#events ul li {
+    display: flex;
+    align-items: center;
     cursor: pointer;
     background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
-    width: 300px;
+    width: 400px;
+    height: 200px;
     margin-bottom: 20px;
     margin-right: 20px;
     border-radius: 20px;
@@ -46,24 +49,26 @@ section#events ul li:hover .preview img {
 
 
 section#events ul li .preview {
-    width: 100%;
+    width: 50%;
+    height: 100%;
     margin-right: 20px;
     overflow: hidden;
-    border-radius: 20px;
 
 }
 
 section#events ul li .preview img {
     width: 100%;
     display: block;
-    border-radius: 20px;
+    object-fit: cover;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
     transition: .3s ease-in-out;
 
 }
 
 section#events ul li .text-container {
-    padding: 20px 0;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -155,10 +160,10 @@ section#events .button small img {
 }
 
 /* responsive-screen */
-@media all and (max-width: 980px) {
 
+@media all and (max-width: 768px) {
     section#events ul li {
-        width: 250px;
+        height: 170px;
     }
 }
 

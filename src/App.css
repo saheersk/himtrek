@@ -4,6 +4,7 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: 'metricregular';
 }
 
 .wrapper {
@@ -13,11 +14,10 @@
 }
 
 
-
 @font-face {
-    font-family: 'poppinsbold';
-    src: url('./components/assets/fonts/poppins-bold-webfont.woff2') format('woff2'),
-        url('./components/assets/fonts/poppins-bold-webfont.woff') format('woff');
+    font-family: 'metricsemibold';
+    src: url('./components/assets/fonts/metric-semibold-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/metric-semibold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -27,9 +27,9 @@
 
 
 @font-face {
-    font-family: 'poppinsmedium';
-    src: url('./components/assets/fonts/poppins-medium-webfont.woff2') format('woff2'),
-        url('./components/assets/fonts/poppins-medium-webfont.woff') format('woff');
+    font-family: 'metricbold';
+    src: url('./components/assets/fonts/metric-bold-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/metric-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -39,25 +39,15 @@
 
 
 @font-face {
-    font-family: 'poppinsregular';
-    src: url('./components/assets/fonts/poppins-regular-webfont.woff2') format('woff2'),
-        url('./components/assets/fonts/poppins-regular-webfont.woff') format('woff');
+    font-family: 'metricregular';
+    src: url('./components/assets/fonts/metric-regular-webfont.woff2') format('woff2'),
+        url('./components/assets/fonts/metric-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
 
-
-
-
-@font-face {
-    font-family: 'poppinssemibold';
-    src: url('./components/assets/fonts/poppins-semibold-webfont.woff2') format('woff2'),
-        url('./components/assets/fonts/poppins-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
+/* fonts-end */
 
 h1,
 h2,
@@ -65,11 +55,16 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'poppinsbold';
+    font-family: 'metricregular';
+    font-weight: 600;
+}
+
+p {
+    font-family: 'metricregular';
 }
 
 body {
-    font-family: 'poppinsregular';
+    font-family: 'metricregular';
 }
 
 .loader-box {

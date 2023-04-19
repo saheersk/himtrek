@@ -41,6 +41,7 @@ function SearchingResult() {
 
           <div className="place-cards">
             <PlaceCard />
+            <PlaceCard />
           </div>
 
           {/* filter-bar */}
