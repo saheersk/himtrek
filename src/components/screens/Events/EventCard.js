@@ -3,13 +3,6 @@ import { useEvent } from "../../../Redux/Home/event";
 import "./AllEvents.css";
 
 function EventCard() {
-  // const dispatch = useDispatch();
-  // const event = useSelector((event) => event.event.events);
-
-  // useEffect(() => {
-  //   dispatch(fetchEvent());
-  // }, [dispatch]); 
-
   const { data: event = [] } = useEvent();
 
   return (

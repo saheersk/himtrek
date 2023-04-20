@@ -2,16 +2,18 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import "./Cart.css";
 import Product from "./Product";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import CartGear from "./CartGear";
 import Swal from "sweetalert2";
+import { useCartProduct } from "../../../Redux/Cart/cart";
 
 function Cart() {
-  const product = useSelector((cart) => cart.cart.products);
+  const dispatch = useDispatch();
   const gearCart = useSelector((state) => state.gearCart.gearCart);
+  const userData = useSelector((state) => state.user.data);
 
-  console.log(gearCart, "==gear");
+  const token = userData?.data?.access;
 
   const package_price_per_person = useSelector(
     (cart) => cart.cart.package_price_per_person
@@ -31,6 +33,8 @@ function Cart() {
   const [allPrice, setAllPrice] = useState(false);
 
   const navigate = useNavigate();
+
+  const { data: product = [] } = useCartProduct({ token: token , dispatch: dispatch });
 
   const toggleMenu = () => {
     setAllPrice(!allPrice);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Header from "../Header/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
@@ -14,9 +14,8 @@ import { BASE_URL } from "../../../axiosConfig";
 import { useDispatch, useSelector } from "react-redux";
 import "./TravelerInfo.css";
 import "react-calendar/dist/Calendar.css";
-import { fetchCartProduct } from "../../../Redux/Cart/cart";
-import { fetchGearCart } from "../../../Redux/Cart/gearCart";
-import { fetchPackageView } from "../../../Redux/Package/packageView";
+import { useGearCartProduct } from "../../../Redux/Cart/gearCart";
+import { usePackageView } from "../../../Redux/Package/packageView";
 
 function TravelerInfo() {
   const dispatch = useDispatch();
@@ -31,8 +30,6 @@ function TravelerInfo() {
     (cart) => cart.cart.package_price_family_of_four
   );
   const product = useSelector((cart) => cart.cart.products);
-  const gearCart = useSelector((state) => state.gearCart.gearCart);
-  const packageView = useSelector((state) => state.packageView.package);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
@@ -55,7 +52,8 @@ function TravelerInfo() {
   const params = useParams();
   const slug = params.slug;
 
-  console.log(endDate, 'end');
+  const { data: packageView = [] } = usePackageView({ slug : slug });
+  const { data: gearCart = [] } = useGearCartProduct({ token: token , dispatch: dispatch }); 
 
   const total_gear_price = gearCart.reduce((acc, item) => {
     const price = item?.gears?.price_per_day * parseInt(item?.days);
@@ -88,14 +86,6 @@ function TravelerInfo() {
     e.preventDefault();
     toggleMenu();
   };
-
-  useEffect(() => {
-    if (token) {
-      dispatch(fetchCartProduct(token));
-      dispatch(fetchGearCart({ token: token }));
-      dispatch(fetchPackageView(slug));
-    } 
-  }, [token, dispatch, slug, navigate]);
 
   const confirmHandle = (e) => {
     e.preventDefault();

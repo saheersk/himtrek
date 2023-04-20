@@ -1,49 +1,38 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
 import useSWR from 'swr';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
-export const fetchState = createAsyncThunk(
-  'states/fetchState',
-  async () => {
-    const response = await axios.get(`${BASE_URL}/packages/state/`);
-    return response.data.data;
-  }
-);
-
-const statesSlice = createSlice({
+const placeSlice = createSlice({
   name: 'states',
   initialState: {
-    states: [],
-    status: false,
-    error: null
+    places: [],
   },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchState.pending, (state) => {
-        state.status = true;
-      })
-      .addCase(fetchState.fulfilled, (state, action) => {
-        state.status = false;
-        state.states = action.payload;
-      })
-      .addCase(fetchState.rejected, (state, action) => {
-        state.status = false;
-        state.error = action.payload.data;
-      });
-  }
+  reducers: {
+    setPlaces: (state, action) => {
+      state.places = action.payload;
+    },
+  },
 });
 
-export const { setData } = statesSlice.actions;
-
 export const usePlace = () => {
+  const dispatch = useDispatch();
+
   const { data, error } = useSWR(`${BASE_URL}/packages/state/`, async (url) => {
     const response = await axios.get(url);
     return response.data.data;
   });
+  useEffect(() => {
+    if (data) {
+      dispatch(setPlaces(data));
+    }
+  }, [data, dispatch]);
 
   return { data, error };
 };
 
-export default statesSlice.reducer;
+export const { setPlaces } = placeSlice.actions;
+
+export default placeSlice.reducer;

@@ -1,29 +1,27 @@
-import React, { useEffect } from "react";
-import { fetchCartProduct, removeFromCart } from "../../../Redux/Cart/cart";
+import React from "react";
+import { useCartProduct, useRemoveFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import "./Cart.css";
-import { fetchGearCart } from "../../../Redux/Cart/gearCart";
+// import { useGearCartProduct } from "../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
+import "./Cart.css";
 
 function Product() {
   const dispatch = useDispatch();
-  const product = useSelector((cart) => cart.cart.products);
-  const is_Products = useSelector((cart) => cart.cart.is_Products);
+  const isProducts = useSelector((cart) => cart.cart.isProducts);
   const userData = useSelector((state) => state.user.data);
 
   const token = userData?.data?.access;
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(fetchCartProduct(token));
-    dispatch(fetchGearCart({token: token}));
-  }, [token, dispatch]);
+  const { data: product = [] } = useCartProduct({ token: token , dispatch: dispatch });
+  // const { data: gearCart = [] } = useGearCartProduct({ token: token , dispatch: dispatch }); 
 
-  const RemovePackage = (id) => {
+  const { removeFromCartHandler } = useRemoveFromCart({ token })
+  
+  const RemovePackage = async (id) => {
     try {
-
       Swal.fire({
         title: `Are you sure you want to remove ${product?.package?.title}`,
         text: "Gears Also will be Removed",
@@ -33,10 +31,9 @@ function Product() {
         cancelButtonText: "CANCEL",
       }).then((result) => {
         if (result.value) {
-          dispatch(removeFromCart({ productId: id, token: token }));
+          removeFromCartHandler({ productId: id, token: token });
           navigate('/result/')
         }
-
       });
     } catch (error) {
       console.log("Error removing package from cart:", error);
@@ -45,7 +42,7 @@ function Product() {
 
   return (
     <>
-      {is_Products ? (
+      {isProducts ? (
         <div className="item-container" key={product?.id}>
           <div className="left">
             <div className="item-img">

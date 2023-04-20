@@ -3,15 +3,7 @@ import { useReview } from "../../../Redux/Discover/clientCard";
 import "./Discover.css";
 
 function ClientCard() {
-  // const dispatch = useDispatch();
-  // const review = useSelector((state) => state.review.review);
-
-  // useEffect(() => {
-  //   dispatch(fetchReview());
-  // }, [dispatch]);
-
   const { data: review = [] } = useReview();
-
 
   return (
     <>

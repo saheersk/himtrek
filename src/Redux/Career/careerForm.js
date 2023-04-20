@@ -18,7 +18,6 @@ const CareerFormSlice = createSlice({
   },
 });
 
-export const { careerSuccess, careerFailure, } =
-  CareerFormSlice.actions;
+export const { careerSuccess, careerFailure } = CareerFormSlice.actions;
 
 export default CareerFormSlice.reducer;

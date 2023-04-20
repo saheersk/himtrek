@@ -1,41 +1,39 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { BASE_URL } from '../../axiosConfig';
 import useSWR from 'swr';
-
-export const fetchGear = createAsyncThunk(
-    'gears/fetchGear',
-    async (slug) => {
-        const response = await axios.get(`${BASE_URL}/packages/travel-packages/gears/${slug}/`);
-        return response.data.data;
-    }
-  );
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const gearSlice = createSlice({
   name: 'gear',
   initialState: {
     gear: [],
   },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchGear.pending, (state) => {})
-      .addCase(fetchGear.fulfilled, (state, action) => {
-        state.gear = action.payload;
-      })
-      .addCase(fetchGear.rejected, (state, action) => {})
-  }
+  reducers: {
+    setGear: (state, action) => {
+      state.gear = action.payload;
+    },
+  },
 });
 
-export const { setData } = gearSlice.actions;
-
 export const useGear = ({ slug }) => {
+  const dispatch = useDispatch();
+
   const { data, error } = useSWR(`${BASE_URL}/packages/travel-packages/gears/${slug}/`, async (url) => {
     const response = await axios.get(url);
     return response.data.data;
   });
 
+  useEffect(() => {
+    if (data) {
+      dispatch(setGear(data));
+    }
+  }, [data, dispatch]);
+
   return { data, error };
 };
+
+export const { setGear } = gearSlice.actions;
 
 export default gearSlice.reducer;

@@ -1,28 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import PlaceCard from "./PlaceCard";
-
+import { useCategory } from "../../../Redux/Home/category";
+import { usePlace } from "../../../Redux/Home/state";
 import "./SearchingResult.css";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCategory } from "../../../Redux/Home/category";
-import { fetchState } from "../../../Redux/Home/state";
 
 function SearchingResult() {
-  const dispatch = useDispatch();
-  const category = useSelector((category) => category.category.categories);
-  const states = useSelector((state) => state.state.states);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  useEffect(() => {
-    dispatch(fetchCategory());
-    dispatch(fetchState());
-  }, [dispatch]);
+  const { data: category } = useCategory();
+  const { data: places } = usePlace();
 
   return (
     <>
@@ -42,8 +34,6 @@ function SearchingResult() {
           <div className="place-cards">
             <PlaceCard />
           </div>
-
-          {/* filter-bar */}
           {isOpen && (
             <div className={`filter-container ${isOpen ? "open" : ""}`}>
               <div className="head">
@@ -81,7 +71,7 @@ function SearchingResult() {
                   })}
 
                   <h4>State</h4>
-                  {states.map((item) => {
+                  {places.map((item) => {
                     return (
                       <div className="item" key={item?.id}>
                         <input

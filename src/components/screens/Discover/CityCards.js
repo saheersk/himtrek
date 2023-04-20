@@ -4,12 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./Discover.css";
 
 function CityCards() {
-  // const dispatch = useDispatch();
-  // const cities = useSelector((state) => state.city.cities);
-
-  // useEffect(() => {
-  //   dispatch(fetchCity());
-  // }, [dispatch]);
+  const { data: cities = [] } = useCity();
 
   const navigate = useNavigate();
 
@@ -17,8 +12,6 @@ function CityCards() {
     console.log(title);
     navigate(`/result/?city=${title}`);
   };
-
-  const { data: cities = [] } = useCity();
 
   return (
     <>

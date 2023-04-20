@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "../../Header/Header";
 import Gear from "./Gear";
 import Swal from "sweetalert2";
@@ -9,43 +9,37 @@ import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  addToCart,
-  fetchPackageView,
+  usePackageView,
 } from "../../../../Redux/Package/packageView";
 import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
-import { fetchCartProduct } from "../../../../Redux/Cart/cart";
+import { useAddToCart } from "../../../../Redux/Cart/cart";
 
 function PackageSingle() {
   const dispatch = useDispatch();
-  const packageView = useSelector((state) => state.packageView.package);
   const message = useSelector((state) => state.packageView.message);
-  const gearMessage = useSelector((state) => state.gearCart.message);
   const userData = useSelector((state) => state.user.data);
-  const product = useSelector((cart) => cart.cart.products); 
-
-  // const [isCart, SetIsCart] = useState(false)
-
+  const isProduct = useSelector((cart) => cart.cart.isProducts);
+  const product = useSelector((cart) => cart.cart.products);
+  
   const token = userData?.data?.access;
 
-  console.log(message, "===message");
-  console.log(gearMessage, "===gearMessage");
+  const { AddToCartHandler } = useAddToCart({ token })
 
   const navigate = useNavigate();
 
   const params = useParams();
   const slug = params.slug;
 
-
   const handleCart = (id) => {
     if (message === 401) {
       navigate("/login/");
     }
     else {
-      if (product?.package?.slug === id) {
+      if (isProduct) {
         Swal.fire({
-          title: `Already in Cart${packageView?.title}`,
-          text: `${packageView?.title} Moved to cart`,
+          title: `${product?.package?.title} in Cart `,
+          text: `${product?.package?.title} Moved to cart`,
           icon: "warning",
           showCancelButton: true,
           confirmButtonText: "Go to Cart",
@@ -57,13 +51,12 @@ function PackageSingle() {
         });
       }
       else {
-        dispatch(addToCart({slug: slug, token: token}))
+        AddToCartHandler({ slug: slug, token: token, dispatch})
         Swal.fire({
           title: `${packageView?.title} Added to Cart`,
           text: "Successfully Added to Cart",
           icon: "success",
         })
-        dispatch(fetchCartProduct(token));
       }
     }
   
@@ -71,10 +64,7 @@ function PackageSingle() {
 
   };
 
-
-  useEffect(() => {
-    dispatch(fetchPackageView(slug));
-  }, [slug, dispatch]);
+  const { data: packageView = [] } = usePackageView({ slug : slug });
 
   return (
     <>

@@ -3,15 +3,7 @@ import { useEvent } from "../../../../Redux/Home/event";
 import "./Events.css";
 
 function Event() {
-  // const dispatch = useDispatch();
-  // const event = useSelector((event) => event.event.events);
-
-  // useEffect(() => {
-  //   dispatch(fetchEvent());
-  // }, [dispatch]);
-
   const { data: event = [] } = useEvent();
-
 
   return (
     <>
