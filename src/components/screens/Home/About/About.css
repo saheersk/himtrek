@@ -62,6 +62,7 @@ section#about .wrapper .text-container ul li {
 
 section#about .wrapper .text-container ul li h4 {
     font-size: 24px;
+    font-weight: 600;
     margin-bottom: 16px;
     color: var(--dark-blue);
 }

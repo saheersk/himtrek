@@ -156,30 +156,37 @@ h6 {
     width: 70%;
     margin: 0 auto;
 }
+
 #career-form .form h2 {
     font-size: 24px;
     margin-bottom: 24px;
     text-align: center;
 }
-#career-form .form form{
+
+#career-form .form form {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 #career-form .form form .item {
     margin: 0 24px 24px 0;
     width: 45%;
 }
-#career-form .form form .item-intro{
+
+#career-form .form form .item-intro {
     margin-bottom: 24px;
 }
-#career-form .form form .item:nth-child(2n){
-   margin-right: 0;
+
+#career-form .form form .item:nth-child(2n) {
+    margin-right: 0;
 }
+
 #career-form .form form label {
     display: block;
     margin-bottom: 6px;
 }
+
 #career-form .form form input {
     border-radius: 10px;
     border: 2px solid #D9D9D9;
@@ -187,7 +194,8 @@ h6 {
     outline: none;
     width: 100%;
 }
-#career-form .form form textarea{
+
+#career-form .form form textarea {
     resize: none;
     padding: 10px;
     outline: none;
@@ -195,8 +203,9 @@ h6 {
     border: 2px solid #D9D9D9;
     font-family: Arial, Helvetica, sans-serif;
 }
-#career-form .form button{
-   padding: 12px 14px;
+
+#career-form .form button {
+    padding: 12px 14px;
     color: #fff;
     background-color: var(--orenge);
     border: none;
@@ -256,6 +265,7 @@ h6 {
     #career-single .career-card {
         width: 90%;
     }
+
     #career-form .form {
         width: 90%;
     }
@@ -289,6 +299,7 @@ h6 {
     #career-single .career-card .head-content h3 {
         font-size: 18px;
     }
+
     #career-form .form {
         width: 100%;
     }
@@ -357,7 +368,8 @@ h6 {
     #career-single .career-card button {
         width: 40%;
     }
-    #career-form .form form .item{
+
+    #career-form .form form .item {
         width: 70%;
         margin: 0 0 24px 0;
     }
@@ -371,14 +383,17 @@ h6 {
     .available-jobs li .text-box p {
         line-height: 1.3em;
     }
-    #career-form .form h2{
+
+    #career-form .form h2 {
         font-size: 22px;
         line-height: 1.3em;
     }
+
     #career-form .form button {
         width: 30%;
     }
-    #career-form .form form label{
+
+    #career-form .form form label {
         font-size: 14px;
     }
 }
@@ -407,6 +422,7 @@ h6 {
     #career-single .career-card button {
         width: 60%;
     }
+
     #career-form .form form .item {
         width: 85%;
     }
