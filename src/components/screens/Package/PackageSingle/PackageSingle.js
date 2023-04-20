@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Header from "../../Header/Header";
 import Gear from "./Gear";
 import Swal from "sweetalert2";
@@ -21,6 +21,8 @@ function PackageSingle() {
   const userData = useSelector((state) => state.user.data);
   const isProduct = useSelector((cart) => cart.cart.isProducts);
   const product = useSelector((cart) => cart.cart.products);
+
+  // const [slug, setSlug] = useState('');
   
   const token = userData?.data?.access;
 
@@ -30,6 +32,11 @@ function PackageSingle() {
 
   const params = useParams();
   const slug = params.slug;
+  // const slugCallback = useCallback(()=>{
+  //   setSlug(id)
+  // }, [setSlug])
+
+  // console.log(slug, 'id');
 
   const handleCart = (id) => {
     if (message === 401) {

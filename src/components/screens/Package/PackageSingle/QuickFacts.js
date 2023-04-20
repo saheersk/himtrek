@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useQuickFact } from "../../../../Redux/Package/quickFact";
 import "./PackageSingle.css";
 
@@ -44,4 +44,4 @@ function QuickFacts({ slug }) {
   );
 }
 
-export default QuickFacts;
+export default memo(QuickFacts);

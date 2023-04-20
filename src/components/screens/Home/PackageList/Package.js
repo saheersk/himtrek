@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { usePackage } from "../../../../Redux/Home/package";
 import "./PackageList.css";
@@ -52,4 +52,4 @@ function Package() {
   );
 }
 
-export default Package;
+export default memo(Package);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Workspace.css";
 
 function Workspace() {
@@ -74,4 +74,4 @@ function Workspace() {
   );
 }
 
-export default Workspace;
+export default memo(Workspace);

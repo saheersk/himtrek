@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Footer.css";
 
 import { Link } from "react-router-dom";
@@ -129,4 +129,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default memo(Footer);

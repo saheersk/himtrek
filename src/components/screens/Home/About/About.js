@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import "./About.css";
 
 import AOS from "aos";
@@ -9,6 +9,7 @@ function About() {
   useEffect(() => {
     AOS.init();
   }, []);
+
   return (
     <>
       <section id="about">
@@ -78,4 +79,4 @@ function About() {
   );
 }
 
-export default About;
+export default memo(About);

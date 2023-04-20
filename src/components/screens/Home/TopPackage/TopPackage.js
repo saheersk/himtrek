@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import "./TopPackage.css";
 
 import AOS from "aos";
@@ -39,4 +39,4 @@ function TopPackage() {
   );
 }
 
-export default TopPackage;
+export default memo(TopPackage);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useItinerary } from "../../../../Redux/Package/itinerary";
 import "./PackageSingle.css";
 
@@ -28,4 +28,4 @@ function Itinerary({ slug }) {
   );
 }
 
-export default Itinerary;
+export default memo(Itinerary);

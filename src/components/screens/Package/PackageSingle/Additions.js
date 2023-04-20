@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useDos, useWont } from "../../../../Redux/Package/TravelIncludes";
 import "./PackageSingle.css";
 
@@ -50,4 +50,4 @@ function Additions({ slug }) {
   </>;
 }
 
-export default Additions;
+export default memo(Additions);

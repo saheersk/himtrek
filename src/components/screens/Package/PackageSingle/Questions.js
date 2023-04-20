@@ -1,10 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 import { useQuestion } from "../../../../Redux/Package/question";
 import "./PackageSingle.css";
 
 function Questions({ slug }) {
   const { data: question = [] } = useQuestion({ slug: slug });
-
 
   return (
     <>
@@ -25,4 +24,4 @@ function Questions({ slug }) {
   );
 }
 
-export default Questions;
+export default memo(Questions);

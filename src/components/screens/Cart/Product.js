@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useCartProduct, useRemoveFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
@@ -87,4 +87,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default memo(Product);

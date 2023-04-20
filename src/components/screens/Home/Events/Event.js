@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useEvent } from "../../../../Redux/Home/event";
 import "./Events.css";
 
@@ -28,4 +28,4 @@ function Event() {
   );
 }
 
-export default Event;
+export default memo(Event);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import "./HamburgerMenu.css";
 import { Link, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -53,7 +53,7 @@ function HamburgerMenu({ handleLogout }) {
           <div className="name-box">
             {is_LoggedIn ? (
               <h2>
-                <span>Hey</span> {username && username}
+                <span>Hey</span>{timeOfDay}, {username && username}
               </h2>
             ) : (
               <h2>
@@ -164,4 +164,4 @@ function HamburgerMenu({ handleLogout }) {
   );
 }
 
-export default HamburgerMenu;
+export default memo(HamburgerMenu);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { Link, useNavigate, NavLink } from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { useSelector, useDispatch } from "react-redux";
@@ -142,4 +142,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);

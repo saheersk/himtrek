@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useCity } from "../../../Redux/Home/city";
 import { useNavigate } from "react-router-dom";
 import "./Discover.css";
@@ -31,4 +31,4 @@ function CityCards() {
   );
 }
 
-export default CityCards;
+export default memo(CityCards);
