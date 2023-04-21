@@ -7,6 +7,7 @@ import {
 } from "../../../Redux/Discover/ReviewForm";
 import axios from "axios";
 import { BASE_URL } from "../../../axiosConfig";
+import Swal from "sweetalert2";
 
 function Review() {
   const dispatch = useDispatch();
@@ -41,14 +42,29 @@ function Review() {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(reviewSuccess(data));
+          Swal.fire({
+            title: `Successfully reviewed`,
+            text: "Review completed successfully",
+            icon: "success",
+          })
         } else {
           dispatch(reviewFailure(data));
+          Swal.fire({
+            title: `Check your details`,
+            text: "Error in some content",
+            icon: "error",
+          })
         }
       })
       .catch((error) => {
         console.log(error);
         if (error.response.status_code === 6001) {
           dispatch(reviewFailure(error.response.data));
+          Swal.fire({
+            title: `Check your details`,
+            text: "Error in some content",
+            icon: "error",
+          })
         }
       });
   };

@@ -11,28 +11,28 @@ const userSlice = createSlice({
       }
     })(),
     message: "",
-    is_LoggedIn: localStorage.getItem('user_data') ? true : false,
+    isLoggedIn: localStorage.getItem('user_data') ? true : false,
     phone: null,
   },
   reducers: {
     loginSuccess: (state, action) => {
-      state.is_LoggedIn = true
+      state.isLoggedIn = true
       state.data = action.payload;
       state.message = '';
       localStorage.setItem('user_data', JSON.stringify(action.payload));
     },
     loginFailure: (state, action) => {
-      state.is_LoggedIn = false
+      state.isLoggedIn = false
       state.data = null;
       state.message = action.payload.data;
       state.phone = action.payload.contact_number;
     },
     clearMessage: (state) => {
-      state.is_LoggedIn = false
+      state.isLoggedIn = false
       state.message = '';
     },
     logoutUser: (state) => {
-      state.is_LoggedIn = false
+      state.isLoggedIn = false
       state.data = null;
       state.message = '';
       localStorage.removeItem('user_data');

@@ -7,7 +7,7 @@ import "./Header.css";
 
 function Header() {
   const dispatch = useDispatch();
-  const is_LoggedIn = useSelector((state) => state.user.is_LoggedIn);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const data = useSelector((state) => state.user.data);
 
   const [username, setUsername] = useState("");
@@ -115,7 +115,7 @@ function Header() {
               <option value="eng">ENG</option>
             </select>
 
-            {is_LoggedIn ? (
+            {isLoggedIn ? (
               <div className="logged-box">
                 <li className="user-name">
                   <span>{username && username}</span>

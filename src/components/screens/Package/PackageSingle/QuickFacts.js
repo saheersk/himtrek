@@ -1,10 +1,12 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { useQuickFact } from "../../../../Redux/Package/quickFact";
+import { SlugContext } from "./PackageSingle";
 import "./PackageSingle.css";
 
-function QuickFacts({ slug }) {
-  const { data: quickFact = [] } = useQuickFact({ slug: slug });
+function QuickFacts() {
+  const param = useContext(SlugContext);
 
+  const { data: quickFact = [] } = useQuickFact({ slug: param });
   return (
     <>  
       <div className="quick-facts">

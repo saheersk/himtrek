@@ -1,10 +1,13 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { useDos, useWont } from "../../../../Redux/Package/TravelIncludes";
+import {SlugContext} from "./PackageSingle"
 import "./PackageSingle.css";
 
-function Additions({ slug }) {
-  const { data: dos = [] } = useDos({ slug: slug });
-  const { data: wonts = [] } = useWont({ slug: slug });
+function Additions() {
+  const param = useContext(SlugContext);
+
+  const { data: dos = [] } = useDos({ slug: param });
+  const { data: wonts = [] } = useWont({ slug: param });
 
   return <>
      <div className="additions">

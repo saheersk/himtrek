@@ -56,13 +56,13 @@ export const useCartProduct = ({ token, dispatch }) => {
 export const useRemoveFromCart = ({ token }) => {
   const dispatch = useDispatch();
 
-  const { data: product = []  } = useCartProduct({ token: token, dispatch });
+  const { data: product = [] } = useCartProduct({ token: token, dispatch });
 
   const removeFromCartHandler = async ({ productId, token }) => {
     let newData = [{ ...product }];
 
-    newData = newData.filter(product => product.id !== productId);
-    
+    newData = newData.filter((product) => product.id !== productId);
+
     mutate(`${BASE_URL}/packages/cart/`, newData, false);
     try {
       const config = {

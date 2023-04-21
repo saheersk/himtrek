@@ -1,9 +1,12 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import { useItinerary } from "../../../../Redux/Package/itinerary";
 import "./PackageSingle.css";
+import { SlugContext } from "./PackageSingle";
 
-function Itinerary({ slug }) {
-  const { data: itinerary = [] } = useItinerary({ slug : slug });
+function Itinerary() {
+  const param = useContext(SlugContext);
+
+  const { data: itinerary = [] } = useItinerary({ slug : param });
 
   return (
     <>

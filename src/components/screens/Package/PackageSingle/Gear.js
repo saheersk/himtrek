@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
 import Swal from "sweetalert2";
 
 import "./PackageSingle.css";
@@ -9,13 +9,17 @@ import {
   useGearCartProduct,
 } from "../../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
+import { SlugContext } from "./PackageSingle";
 
-function Gear({ slug }) {
+function Gear() {
   const dispatch = useDispatch();
 
-  const { data: gear = [] } = useGear({ slug: slug });
+  const param = useContext(SlugContext);
+
+  const { data: gear = [] } = useGear({ slug: param });
 
   const userData = useSelector((state) => state.user.data);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const isProduct = useSelector((cart) => cart.cart.isProducts);
   const product = useSelector((cart) => cart.cart.products);
 
@@ -30,6 +34,7 @@ function Gear({ slug }) {
   const navigate = useNavigate();
 
   const handleGearCart = (id, gearName) => {
+    if(isLoggedIn){
     if (isProduct) {
     let packName = "";
     for (let i = 0; i < gearCart.length; i++) {
@@ -80,6 +85,9 @@ function Gear({ slug }) {
       });
 
     }
+  }else {
+    navigate('/login')
+  }
   };
 
   return (

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Header from "../../Header/Header";
 import Gear from "./Gear";
 import Swal from "sweetalert2";
@@ -8,41 +8,39 @@ import QuickFacts from "./QuickFacts";
 import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  usePackageView,
-} from "../../../../Redux/Package/packageView";
+import { usePackageView } from "../../../../Redux/Package/packageView";
 import { useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
 import { useAddToCart } from "../../../../Redux/Cart/cart";
 
+export const SlugContext = createContext();
+
 function PackageSingle() {
   const dispatch = useDispatch();
-  const message = useSelector((state) => state.packageView.message);
+  // const message = useSelector((state) => state.packageView.message);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
   const userData = useSelector((state) => state.user.data);
   const isProduct = useSelector((cart) => cart.cart.isProducts);
   const product = useSelector((cart) => cart.cart.products);
 
-  // const [slug, setSlug] = useState('');
-  
   const token = userData?.data?.access;
 
-  const { AddToCartHandler } = useAddToCart({ token })
+  const { AddToCartHandler } = useAddToCart({ token });
 
   const navigate = useNavigate();
+  
+  const { slug } = useParams();
+  const [param, setParam] = useState(slug);
 
-  const params = useParams();
-  const slug = params.slug;
-  // const slugCallback = useCallback(()=>{
-  //   setSlug(id)
-  // }, [setSlug])
+  useEffect(() => {
+    setParam(slug);
+  }, [slug]);
 
-  // console.log(slug, 'id');
-
-  const handleCart = (id) => {
-    if (message === 401) {
+  const handleCart = () => {
+    if (isLoggedIn === false) {
       navigate("/login/");
-    }
-    else {
+    } else {
       if (isProduct) {
         Swal.fire({
           title: `${product?.package?.title} in Cart `,
@@ -53,25 +51,21 @@ function PackageSingle() {
           cancelButtonText: "View",
         }).then((result) => {
           if (result.value) {
-              navigate("/cart/")
+            navigate("/cart/");
           }
         });
-      }
-      else {
-        AddToCartHandler({ slug: slug, token: token, dispatch})
+      } else {
+        AddToCartHandler({ slug: param, token: token, dispatch });
         Swal.fire({
           title: `${packageView?.title} Added to Cart`,
           text: "Successfully Added to Cart",
           icon: "success",
-        })
+        });
       }
     }
-  
-  
-
   };
 
-  const { data: packageView = [] } = usePackageView({ slug : slug });
+  const { data: packageView = [] } = usePackageView({ slug: param });
 
   return (
     <>
@@ -110,9 +104,12 @@ function PackageSingle() {
             </div>
             <div className="item price">
               <h6>₹ {packageView?.price_for_adult}</h6>
-              <span onClick={()=> handleCart(packageView?.slug)}>book now</span>
+              <span onClick={() => handleCart(packageView?.slug)}>
+                book now
+              </span>
             </div>
           </div>
+          <SlugContext.Provider value={param}>
           <div className="content-box">
             <div className="overview">
               <h3>Overview</h3>
@@ -120,17 +117,19 @@ function PackageSingle() {
               <p></p>
               <p></p>
             </div>
-            <QuickFacts slug={slug} />
+            <QuickFacts />
           </div>
-          <Questions slug={slug} />
-          <Additions slug={slug} />
-          <Itinerary slug={slug} />
-          <Gear slug={slug} />
+            <Questions />
+            <Additions />
+            <Itinerary />
+            <Gear />
+          </SlugContext.Provider>
         </div>
         <div className="info-footer">
           <h5>{packageView?.title}</h5>
-          <button onClick={()=> handleCart(packageView?.slug)}>Book Now</button>
-
+          <button onClick={() => handleCart(packageView?.slug)}>
+            Book Now
+          </button>
         </div>
       </section>
     </>
