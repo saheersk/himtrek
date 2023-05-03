@@ -21,20 +21,6 @@ function Package() {
                     <h3>{item?.title}</h3>
                     <p>{item?.title}</p>
                   </div>
-                  <ul>
-                      <li className="time">
-                        <img
-                          src={
-                            require("../../../assets/images/clock.svg").default
-                          }
-                          alt="Package"
-                        />
-                        <span>{item?.days} Days</span>
-                      </li>
-                      <li className="location">
-                        <span>{item?.state}</span>
-                      </li>
-                  </ul>
                 </div>
               </div>
               <div className="price">

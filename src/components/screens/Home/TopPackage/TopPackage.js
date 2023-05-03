@@ -22,16 +22,16 @@ function TopPackage() {
               <PackageCard />
             </ul>
           </div>
-            <Link to="/result/">
-          <div className="button">
-            <h5>explore</h5>
-            <small>
-              <img
-                src={require("../../../assets/images/arrow-right-solid.png")}
-                alt="Arrow"
-              />
-            </small>
-          </div>
+          <Link to="/result/">
+            <div className="button">
+              <h5>explore</h5>
+              <small>
+                <img
+                  src={require("../../../assets/images/arrow-right-solid.png")}
+                  alt="Arrow"
+                />
+              </small>
+            </div>
           </Link>
         </div>
       </section>

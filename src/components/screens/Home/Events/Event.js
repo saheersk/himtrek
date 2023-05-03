@@ -3,13 +3,20 @@ import { useEvent } from "../../../../Redux/Home/event";
 import "./Events.css";
 
 function Event() {
+  // const dispatch = useDispatch();
+  // const event = useSelector((event) => event.event.events);
+
+  // useEffect(() => {
+  //   dispatch(fetchEvent());
+  // }, [dispatch]);
+
   const { data: event = [] } = useEvent();
 
   return (
     <>
       {event?.map((event) => {
         return (
-          <li data-aos="fade-up" key={event?.id} className="xs-card">
+          <li key={event?.id} className="xs-card">
             <div className="preview">
               <img src={event?.image} alt={event?.title} />
             </div>

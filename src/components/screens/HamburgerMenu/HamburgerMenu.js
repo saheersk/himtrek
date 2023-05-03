@@ -52,13 +52,13 @@ function HamburgerMenu({ handleLogout }) {
         <nav className={`hamburger-menu__nav ${isOpen ? "open" : ""}`}>
           <div className="name-box">
             {is_LoggedIn ? (
-              <h2>
+              <h1>
                 <span>Hey</span> {username && username}
-              </h2>
+              </h1>
             ) : (
-              <h2>
+              <h1>
                 <span>{timeOfDay}</span>
-              </h2>
+              </h1>
             )}
           </div>
           <ul>

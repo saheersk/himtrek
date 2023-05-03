@@ -21,7 +21,7 @@ function Discover() {
       <section id="discover">
         <div className="wrapper">
           <div className="head">
-            <h4>find & book your ideal trip</h4>
+            <h3>find & book your ideal trip</h3>
           </div>
           <div className="content-box">
             <div className="main-city">

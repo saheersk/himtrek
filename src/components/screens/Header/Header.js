@@ -28,14 +28,14 @@ function Header() {
     <>
       <header>
         <div className="wrapper">
-          <h1 className="logo">
+          <div className="logo">
             <Link to="/">
               <img
                 src={require("../../assets/images/himtrek-logo.svg").default}
                 alt=""
               />
             </Link>
-          </h1>
+          </div>
           <ul className="nav">
             <li>
               <NavLink

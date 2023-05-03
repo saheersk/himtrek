@@ -19,7 +19,7 @@ function Footer() {
               <p>Lorem ipsum, dolor sit amet consectetur</p>
             </div>
             <div className="right-container">
-              <h4>contact</h4>
+              <h3>contact</h3>
               <hr />
               <span>hello@himtrek.com</span>
               <span>+91 999 999 999</span>
@@ -29,7 +29,7 @@ function Footer() {
             <div className="inter-links">
               <div className="nav-links">
                 <div className="item">
-                  <h5>quick links</h5>
+                  <h4>quick links</h4>
                   <span>
                     <Link to="/about-us/">about</Link>
                   </span>
@@ -44,7 +44,7 @@ function Footer() {
                   </span>
                 </div>
                 <div className="item">
-                  <h5>privacy</h5>
+                  <h4>privacy</h4>
                   <span>
                     <Link to="/cancellation/">cancellation policy</Link>
                   </span>
@@ -54,7 +54,7 @@ function Footer() {
                   </span>
                 </div>
                 <div className="item">
-                  <h5>others</h5>
+                  <h4>others</h4>
                   <span>
                     <Link to="/career/">Career</Link>
                   </span>
@@ -65,7 +65,7 @@ function Footer() {
                 </div>
               </div>
               <div className="item foot-print">
-                <h5>our footprints</h5>
+                <h4>our footprints</h4>
                 <ul>
                   <li>
                     <img

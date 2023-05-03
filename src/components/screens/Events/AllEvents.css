@@ -1,4 +1,4 @@
-:root {
+/* :root {
     --dark-blue: #021F3E;
     --light-blue: #92ADBB;
     --shade-blue: #47758C;
@@ -49,7 +49,7 @@ section#events ul li:hover .preview img {
 
 
 section#events ul li .preview {
-    width: 50%;
+    width: 40%;
     height: 100%;
     margin-right: 20px;
     overflow: hidden;

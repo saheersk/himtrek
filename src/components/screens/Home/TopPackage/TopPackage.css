@@ -7,7 +7,7 @@
 }
 
 section#top-package {
-    padding: 80px 0;
+    padding: 50px 0;
     background-image: url("../../../assets/images/trip-mesh.png");
     background-position: bottom right;
     background-size: contain;
@@ -16,7 +16,7 @@ section#top-package {
 
 section#top-package .head {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
 }
 
 section#top-package .head h3 {
@@ -27,19 +27,37 @@ section#top-package .head h3 {
 
 section#top-package .content ul {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 section#top-package .content ul li {
     cursor: pointer;
     width: 300px;
-    max-height: 380px;
+    max-height: 350px;
+    margin-bottom: 20px;
     margin-right: 40px;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
+
 }
+
+section#top-package .content ul::-webkit-scrollbar {
+    height: 5px;
+}
+
+section#top-package .content ul::-webkit-scrollbar-thumb,
+section#top-package .content ul::-webkit-scrollbar-track {
+    border-radius: 92px;
+}
+
+section#top-package .content ul::-webkit-scrollbar-thumb {
+    background: #dedede;
+}
+
+section#top-package .content ul::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
 
 section#top-package .content ul li .image-box {
     border-radius: 20px;
@@ -145,10 +163,26 @@ section#top-package .button small img {
 }
 
 /* responsive-screen */
-@media all and (max-width: 7680px) {
+
+@media all and (max-width: 980px) {
+    section#top-package .content ul {
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+    }
+
+    section#top-package .content ul li {
+        flex: 0 0 25%;
+        scroll-snap-align: start;
+        width: 200px;
+
+    }
+}
+
+@media all and (max-width: 768px) {
     section#top-package .content ul li {
         width: 240px;
-        height: 320px;
+        height: 300px;
     }
 
     section#top-package .content ul li img {

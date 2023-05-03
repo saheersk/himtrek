@@ -18,12 +18,14 @@ function About() {
         <div className="wrapper">
           <div className="text-container">
             <p data-aos="fade-up">
-              Donec a ex nec justo euismod ornare. Vivamus sed blandit sapien.
-              Vivamus aliquam condimentum mattis. Nullam lobortis ligula ut
-              libero cursus, ac mattis tellus semper. Donec dictum ex dui, sed
-              posuere ante congue id. Etiam tincidunt enim sem, eget fermentum
-              lacus iaculis sed. Suspendisse potenti. Mauris sodales tellus
-              malesuada velit pellentesque, non dictum diam facilisis.
+              Himtrek is a family of passionate travel enthusiasts who come
+              together to provide India's best treks, vacations, stays, and
+              more. We guarantee one in a million kinds of experiences,
+              adrenaline rush like never before, and memories of a lifetime. We
+              believe in providing the utmost adventure with a tint of homely
+              vibes! Come, dwell with us along the open skies and shake hands
+              with nature, wildlife, treks, adventure expeditions, and
+              everything crazy!
             </p>
             <ul className="cards">
               <li data-aos="fade-up">
@@ -39,16 +41,16 @@ function About() {
                 <span>year of experience</span>
               </li>
             </ul>
-              <Link to="/about-us" >
-            <button>
+            <Link to="/about-us">
+              <button>
                 {" "}
                 more about{" "}
                 <img
                   src={require("../../../assets/images/arrow-right-solid.png")}
                   alt="Arrow"
                 />
-            </button>
-              </Link>
+              </button>
+            </Link>
           </div>
           <div className="image-container">
             <div className="hero-image">

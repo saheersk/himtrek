@@ -36,7 +36,7 @@ section#footer .top-container .left-container p {
 
 }
 
-section#footer .top-container .right-container h4 {
+section#footer .top-container .right-container h3 {
     font-size: 20px;
     text-transform: capitalize;
     margin-bottom: 6px;
@@ -87,7 +87,7 @@ section#footer .link-container .item {
     width: 300px;
 }
 
-section#footer .link-container .item h5 {
+section#footer .link-container .item h4 {
     color: var(--dark-blue);
     text-transform: capitalize;
     margin-bottom: 16px;

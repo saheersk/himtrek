@@ -7,8 +7,11 @@
 }
 
 section#events {
-    padding: 80px 0;
+    padding: 50px 0;
+    max-width: 1400px;
+    margin: 0 auto;
 }
+
 
 section#events .head {
     text-align: center;
@@ -23,22 +26,27 @@ section#events .head h3 {
 
 section#events ul {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
 }
 
 section#events ul li {
+    flex: 0 0 30%;
+    scroll-snap-align: start;
     display: flex;
     align-items: center;
     cursor: pointer;
     background: linear-gradient(232.95deg, #92ADBB 10.02%, #E6E6E6 100%);
     width: 400px;
     height: 200px;
-    margin-bottom: 20px;
     margin-right: 20px;
+    margin-bottom: 20px;
     border-radius: 20px;
     transition: .3s ease-in;
 }
+
 
 section#events ul li:hover {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -110,6 +118,24 @@ section#events ul li:hover .date {
     transform: rotateX(360deg);
 }
 
+section#events ul::-webkit-scrollbar {
+    height: 5px;
+}
+
+section#events ul::-webkit-scrollbar-thumb,
+section#events ul::-webkit-scrollbar-track {
+    border-radius: 92px;
+}
+
+section#events ul::-webkit-scrollbar-thumb {
+    background: #dedede;
+}
+
+section#events ul::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+
 section#events .button a {
     display: flex;
     width: fit-content;
@@ -162,10 +188,9 @@ section#events .button small img {
 
 /* responsive-screen */
 @media all and (max-width: 980px) {
-
     section#events ul li {
-        width: 500px;
-        margin-right: 0;
+        flex: 0 0 50%;
+        width: 200px;
     }
 }
 
