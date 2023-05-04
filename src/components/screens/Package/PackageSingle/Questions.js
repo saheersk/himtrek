@@ -1,10 +1,12 @@
-import React from "react";
+import React, { memo, useContext } from "react";
 import { useQuestion } from "../../../../Redux/Package/question";
 import "./PackageSingle.css";
+import { SlugContext } from "./PackageSingle";
 
-function Questions({ slug }) {
-  const { data: question = [] } = useQuestion({ slug: slug });
+function Questions() {
+  const param = useContext(SlugContext);
 
+  const { data: question = [] } = useQuestion({ slug: param });
 
   return (
     <>
@@ -25,4 +27,4 @@ function Questions({ slug }) {
   );
 }
 
-export default Questions;
+export default memo(Questions);

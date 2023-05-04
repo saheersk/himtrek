@@ -42,7 +42,7 @@ function Cart() {
 
   const handleClick = (slug) => {
     if (slug) {
-      navigate(`/travel-info/${slug}/`);
+      navigate(`/traveler-info/${slug}/`);
     } else {
       Swal.fire({
         title: `Cart is empty`,

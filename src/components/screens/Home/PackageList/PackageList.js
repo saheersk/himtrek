@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Package from "./Package";
 import { Link } from "react-router-dom";
 import "./PackageList.css";
@@ -25,4 +25,4 @@ function PackageList() {
   );
 }
 
-export default PackageList;
+export default memo(PackageList);

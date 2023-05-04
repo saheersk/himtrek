@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import "./Cart.css";
 import Swal from "sweetalert2";
 import { useDispatch, useSelector } from "react-redux";
@@ -142,4 +142,4 @@ function CartGear() {
   );
 }
 
-export default CartGear;
+export default memo(CartGear);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { usePlace } from "../../../../Redux/Home/state";
 import "./TopPackage.css";
@@ -8,9 +8,9 @@ function PackageCard() {
 
   return (
     <>
-      {states?.map((item) => {
+      {states?.map((item, key) => {
         return (
-          <li data-aos="fade-up" key={item?.id}>
+          <li data-aos="fade-up" key={key}>
             <Link to={`/result/?state=${item?.state}`}>
               <div className="image-box">
                 <img src={item?.image} alt={item?.state} />
@@ -26,4 +26,4 @@ function PackageCard() {
   );
 }
 
-export default PackageCard;
+export default memo(PackageCard);

@@ -18,7 +18,6 @@ const careerViewSlice = createSlice({
       const { careerView, requirements } = action.payload;
       state.careerView = careerView;
       state.requirements = requirements;
-      console.log(state.requirements, "require");
     },
   },
 });

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo, useContext } from "react";
 import Swal from "sweetalert2";
 
 import "./PackageSingle.css";
@@ -9,13 +9,17 @@ import {
   useGearCartProduct,
 } from "../../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
+import { SlugContext } from "./PackageSingle";
 
-function Gear({ slug }) {
+function Gear() {
   const dispatch = useDispatch();
 
-  const { data: gear = [] } = useGear({ slug: slug });
+  const param = useContext(SlugContext);
+
+  const { data: gear = [] } = useGear({ slug: param });
 
   const userData = useSelector((state) => state.user.data);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const isProduct = useSelector((cart) => cart.cart.isProducts);
   const product = useSelector((cart) => cart.cart.products);
 
@@ -29,41 +33,48 @@ function Gear({ slug }) {
 
   const navigate = useNavigate();
 
-  const handleGearCart = (id, gear) => {
-    let pack;
-    const item = gearCart.find((item) => item.gears.id === id);
-    const prod = gearCart.map((item) => {
-      return (pack = item.package);
-    });
-    if (prod.length === 0) {
-      pack = product.package;
-    }
+  const handleGearCart = (id, gearName) => {
+    if(isLoggedIn){
     if (isProduct) {
-      if (item) {
+    let packName = "";
+    for (let i = 0; i < gearCart.length; i++) {
+      if (gearCart[i].gears.product_name === gearName) {
         Swal.fire({
-          title: `Already in Cart ${gear}`,
-          text: `${gear} Moved to cart`,
-          icon: "warning",
+          title: `Already in Cart`,
+          text: "This gear is already exists",
+          icon: "error",
           showCancelButton: true,
-          confirmButtonText: "Go to Cart",
-          cancelButtonText: "View",
+          confirmButtonText: "Go To Cart",
+          cancelButtonText: "CANCEL",
         }).then((result) => {
           if (result.value) {
-            navigate("/cart/");
+            navigate('/cart/')
           }
         });
-      } else if (product.package.id === pack.id) {
+        return;
+      }
+    }
+    gear?.map((item) => {
+      return(
+      packName = item.package.id
+      )
+    });
+      if (packName === product.package.id) {
+        AddToGearCartHandler({
+          productId: id,
+          token: token,
+          slug: product.package.slug,
+        });
+        Swal.fire({
+          title: `${gearName} Added to Cart`,
+          text: "Successfully Added to Cart",
+          icon: "success",
+        })
+      } else {
         Swal.fire({
           title: `${product?.package?.title} Already in Cart`,
           text: `This gear is not belong to ${product?.package?.title} Package`,
           icon: "error",
-        });
-      } else {
-        AddToGearCartHandler({ productId: id, token: token, slug: slug });
-        Swal.fire({
-          title: `${gear} Added to Cart`,
-          text: "Successfully Added to Cart",
-          icon: "success",
         });
       }
     } else {
@@ -72,7 +83,11 @@ function Gear({ slug }) {
         text: "Add Package then Gears",
         icon: "error",
       });
+
     }
+  }else {
+    navigate('/login')
+  }
   };
 
   return (
@@ -94,7 +109,7 @@ function Gear({ slug }) {
                   <span>₹ {item?.rental_price} / Day</span>
                   <button
                     onClick={() =>
-                      handleGearCart(item?.gear?.id, item?.gear?.product_name)
+                      handleGearCart(item?.id, item?.gear?.product_name)
                     }
                   >
                     Add with Package
@@ -109,4 +124,4 @@ function Gear({ slug }) {
   );
 }
 
-export default Gear;
+export default memo(Gear);

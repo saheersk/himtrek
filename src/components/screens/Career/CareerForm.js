@@ -22,22 +22,11 @@ function CareerForm() {
   const params = useParams();
   const slug = params.slug;
 
-  console.log(resume, "resume");
-
-  const handleFileInputChange = (event) => {
-    const file = event.target.files[0];
+  const handleFileInputChange = (e) => {
+    const file = e.target.files[0];
     const formData = new FormData();
-    console.log(file, formData, "formData");
     formData.append("file", file, file.name);
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      const filePath = URL.createObjectURL(file);
-      setResume(filePath);
-      console.log(filePath, "filePath");
-    };
-
-    reader.readAsDataURL(file);
+    setResume(file)
   };
 
   const handleSubmit = (e) => {
@@ -57,7 +46,7 @@ function CareerForm() {
           contact_number: formattedContactNumber,
           introduction: description,
           email,
-          resume,
+          resume: resume,
         },
         {
           headers: {
@@ -82,12 +71,22 @@ function CareerForm() {
           })
         } else {
           dispatch(careerFailure(data));
+          Swal.fire({
+            title: "Error",
+            text: "Check your content",
+            icon: "error",
+          })
         }
       })
       .catch((error) => {
         console.log(error);
         if (error.response.status_code === 6001) {
           dispatch(careerFailure(error.response.data));
+          Swal.fire({
+            title: "Error",
+            text: "Check your request",
+            icon: "error",
+          })
         }
       });
   };
@@ -102,7 +101,7 @@ function CareerForm() {
             <form
               action=""
               onSubmit={(e) => handleSubmit(e)}
-              encType="multipart/form-data"
+              enctype="multipart/form-data"
             >
               <div className="item">
                 <label htmlFor="">Full Name</label>
@@ -131,7 +130,7 @@ function CareerForm() {
               <div className="item">
                 <label htmlFor="">Upload Resume</label>
                 <input
-                  onChange={handleFileInputChange}
+                  onChange={(e) => handleFileInputChange(e)}
                   accept=".pdf,.doc,.docx"
                   type="file"
                 />

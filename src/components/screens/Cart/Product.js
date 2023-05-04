@@ -1,8 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { useCartProduct, useRemoveFromCart } from "../../../Redux/Cart/cart";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-// import { useGearCartProduct } from "../../../Redux/Cart/gearCart";
 import { useNavigate } from "react-router-dom";
 import "./Cart.css";
 
@@ -87,4 +86,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default memo(Product);

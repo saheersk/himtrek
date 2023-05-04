@@ -84,9 +84,9 @@ function Home() {
                         onChange={(e) => setState(e.target.value)}
                       >
                         <option value="">Select State</option>
-                        {places?.map((item) => {
+                        {places?.map((item, key) => {
                           return (
-                            <option key={item?.id} value={item?.state}>
+                            <option key={key} value={item?.state}>
                               {item?.state}
                             </option>
                           );

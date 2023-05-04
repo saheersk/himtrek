@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useReview } from "../../../Redux/Discover/clientCard";
 import "./Discover.css";
 
@@ -36,4 +36,4 @@ function ClientCard() {
   );
 }
 
-export default ClientCard;
+export default memo(ClientCard);

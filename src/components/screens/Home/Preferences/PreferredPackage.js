@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { usePackage } from "../../../../Redux/Home/package";
 import { Link, useLocation } from "react-router-dom";
 import "./Preferences.css";
@@ -41,4 +41,4 @@ function PreferredPackage() {
   );
 }
 
-export default PreferredPackage;
+export default memo(PreferredPackage);

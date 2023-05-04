@@ -1,9 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 import Event from "./Event";
 import "./Events.css";
 import { Link } from "react-router-dom";
 
 function Events() {
+  
   return (
     <>
       <section id="events">
@@ -31,4 +32,4 @@ function Events() {
   );
 }
 
-export default Events;
+export default memo(Events);

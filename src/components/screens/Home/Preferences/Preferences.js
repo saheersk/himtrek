@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import "./Preferences.css";
 
 import "react-tabs/style/react-tabs.css";
@@ -40,4 +40,4 @@ function Preferences() {
   );
 }
 
-export default Preferences;
+export default memo(Preferences);

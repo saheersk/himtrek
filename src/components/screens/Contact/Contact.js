@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../../../axiosConfig";
 import { contactFailure, contactSuccess } from "../../../Redux/Contact/contact";
 import "./Contact.css";
+import Swal from "sweetalert2";
 
 function Contact() {
   const dispatch = useDispatch();
@@ -39,14 +40,29 @@ function Contact() {
         const data = response.data;
         if (response.data.status_code === 6000) {
           dispatch(contactSuccess(data));
+          Swal.fire({
+            title: `Successfully created your request`,
+            text: "Will we contact you",
+            icon: "success",
+          })
         } else {
           dispatch(contactFailure(data));
+          Swal.fire({
+            title: `Check your details`,
+            text: "Error in some content",
+            icon: "error",
+          })
         }
       })
       .catch((error) => {
         console.log(error);
         if (error.response.status_code === 6001) {
           dispatch(contactFailure(error.response.data));
+          Swal.fire({
+            title: `Check your Mobile Number and Email`,
+            text: "Email or Mobile Number is Error",
+            icon: "error",
+          })
         }
       });
   };
