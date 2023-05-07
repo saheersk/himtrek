@@ -8,6 +8,7 @@ import {
 import axios from "axios";
 import { BASE_URL } from "../../../axiosConfig";
 import Swal from "sweetalert2";
+import { Rating } from "react-simple-star-rating";
 
 function Review() {
   const dispatch = useDispatch();
@@ -19,7 +20,6 @@ function Review() {
   const [city, setCity] = useState("");
   const [message, setMessage] = useState("");
   const [visited, setVisited] = useState("");
-  const [rating, setRating] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,14 +46,14 @@ function Review() {
             title: `Successfully reviewed`,
             text: "Review completed successfully",
             icon: "success",
-          })
+          });
         } else {
           dispatch(reviewFailure(data));
           Swal.fire({
             title: `Check your details`,
             text: "Error in some content",
             icon: "error",
-          })
+          });
         }
       })
       .catch((error) => {
@@ -64,10 +64,26 @@ function Review() {
             title: `Check your details`,
             text: "Error in some content",
             icon: "error",
-          })
+          });
         }
       });
   };
+
+  //   star-rating
+  const [rating, setRating] = useState(0);
+
+  // Catch Rating value
+  const handleRating = (rate: number) => {
+    setRating(rate);
+    console.log(rate);
+
+    // other logic
+  };
+  // Optinal callback functions
+  const onPointerEnter = () => console.log("Enter");
+  const onPointerLeave = () => console.log("Leave");
+  const onPointerMove = (value: number, index: number) =>
+    console.log(value, index);
 
   return (
     <>
@@ -111,19 +127,18 @@ function Review() {
                 rows="10"
                 placeholder="Your Review"
               ></textarea>
-              <select
-                value={rating}
-                onChange={(e) => setRating(e.target.value)}
-                name="rating"
-                id="rating"
-              >
-                <option value="Rating">Rating</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+              <div className="rating">
+                <h4>Rating</h4>
+                <div className="star-box">
+                  <Rating
+                    onClick={handleRating}
+                    onPointerEnter={onPointerEnter}
+                    onPointerLeave={onPointerLeave}
+                    onPointerMove={onPointerMove}
+                    /* Available Props */
+                  />
+                </div>
+              </div>
               <button type="submit">Send</button>
             </form>
           </div>

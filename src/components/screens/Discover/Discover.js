@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../Header/Header";
 import Carousel from "react-elastic-carousel";
 
@@ -15,6 +15,7 @@ function Discover() {
     { width: 768, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
   ];
+  
   return (
     <>
       <Header />
@@ -48,6 +49,7 @@ function Discover() {
             </Carousel>
           </ul>
           <Review />
+         
         </div>
       </section>
       <Footer />

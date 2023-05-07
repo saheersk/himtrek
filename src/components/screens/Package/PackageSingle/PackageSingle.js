@@ -9,9 +9,12 @@ import Questions from "./Questions";
 import Additions from "./Additions";
 import { useDispatch, useSelector } from "react-redux";
 import { usePackageView } from "../../../../Redux/Package/packageView";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./PackageSingle.css";
 import { useAddToCart } from "../../../../Redux/Cart/cart";
+
+import { format } from "date-fns";
+import Calendar from "react-calendar";
 
 export const SlugContext = createContext();
 
@@ -29,9 +32,12 @@ function PackageSingle() {
   const { AddToCartHandler } = useAddToCart({ token });
 
   const navigate = useNavigate();
-  
+
   const { slug } = useParams();
   const [param, setParam] = useState(slug);
+
+  const [date, setDate] = useState(format(new Date(), "dd MMM Y"));
+  const [endDate, setEndDate] = useState(format(new Date(), "dd MMM Y"));
 
   useEffect(() => {
     setParam(slug);
@@ -63,6 +69,21 @@ function PackageSingle() {
         });
       }
     }
+  };
+
+  function handleDateChange(value) {
+    let select_date = format(value, "dd MMM Y");
+    let dateObj = new Date(select_date);
+
+    dateObj.setDate(dateObj.getDate() + packageView.days);
+    let end_date = format(dateObj, "dd MMM Y");
+
+    setDate(select_date);
+    setEndDate(end_date);
+  }
+  const [isOpen, setIsOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   const { data: packageView = [] } = usePackageView({ slug: param });
@@ -102,24 +123,21 @@ function PackageSingle() {
               </h6>
               <span>Next Trip On {packageView?.next_trip_date}</span>
             </div>
-            
             <div className="item price">
               <h6>₹ {packageView?.price_for_adult}</h6>
-              <span onClick={() => handleCart(packageView?.slug)}>
-                book now
-              </span>
+              <span onClick={toggleMenu}>book now</span>
             </div>
           </div>
           <SlugContext.Provider value={param}>
-          <div className="content-box">
-            <div className="overview">
-              <h3>Overview</h3>
-              <p>{packageView?.description}</p>
-              <p></p>
-              <p></p>
+            <div className="content-box">
+              <div className="overview">
+                <h3>Overview</h3>
+                <p>{packageView?.description}</p>
+                <p></p>
+                <p></p>
+              </div>
+              <QuickFacts />
             </div>
-            <QuickFacts />
-          </div>
             <Questions />
             <Additions />
             <Itinerary />
@@ -132,6 +150,38 @@ function PackageSingle() {
             Book Now
           </button>
         </div>
+        <div className={`date-popup ${isOpen ? "active" : ""} `}>
+          <Calendar
+            value={date}
+            onChange={handleDateChange}
+            minDate={new Date()}
+          />
+          <div className="date-box">
+            <div className="date-content">
+              <h4>Select your date.</h4>
+              <span>
+                Trip Start date : <small className="start"> {date}</small>
+              </span>
+              <span>
+                Trip End Date : <small className="end"> {endDate}</small>
+              </span>
+            </div>
+            <small
+              onClick={() => handleCart(packageView?.slug)}
+              className="button"
+            >
+              Book Now
+            </small>
+
+            <h5 className="close" onClick={toggleMenu}>
+              X
+            </h5>
+          </div>
+        </div>
+        <div
+          className={`date-overlay ${isOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+        ></div>
       </section>
     </>
   );
