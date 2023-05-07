@@ -9,6 +9,8 @@ import axios from "axios";
 import { BASE_URL } from "../../../axiosConfig";
 import Swal from "sweetalert2";
 import { Rating } from "react-simple-star-rating";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function Review() {
   const dispatch = useDispatch();
@@ -87,6 +89,7 @@ function Review() {
 
   return (
     <>
+      <Header />
       <div className="review-container">
         <div className="container">
           <div className="img-box">
@@ -144,6 +147,7 @@ function Review() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

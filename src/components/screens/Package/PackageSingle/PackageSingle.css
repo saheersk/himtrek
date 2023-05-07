@@ -146,9 +146,30 @@
 }
 
 #banner .content-box .quick-facts h3 {
+    cursor: pointer;
     font-size: 22px;
     color: var(--dark-blue);
     margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#banner .content-box .quick-facts h3 img {
+    width: 25px;
+    margin-left: 20px;
+    transition: .3s ease;
+}
+
+#banner .content-box .quick-facts h3 span.active img {
+    transform: rotate(180deg);
+}
+
+#banner .content-box .quick-facts table {
+    display: none;
+}
+
+#banner .content-box .quick-facts table.active {
+    display: block;
 }
 
 #banner .content-box .quick-facts td {

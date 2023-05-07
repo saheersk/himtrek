@@ -22,7 +22,7 @@ function SearchingResult() {
         <Header />
         <div className="wrapper">
           <div className="top-box">
-            <h4>Searching results</h4>
+            <h4>Packages</h4>
             <span className={`${isOpen ? "open" : ""}`} onClick={toggleMenu}>
               <img
                 src={require("../../assets/images/filter.svg").default}
@@ -49,7 +49,7 @@ function SearchingResult() {
                 <form action="">
                   <h4>Price Range</h4>
                   <div className="item">
-                    <input  type="checkbox" value="high-to-low" name="sort" />
+                    <input type="checkbox" value="high-to-low" name="sort" />
                     <label htmlFor="high-to-low">High to Low Price</label>
                   </div>
                   <div className="item">

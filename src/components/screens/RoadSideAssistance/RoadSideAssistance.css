@@ -1,0 +1,110 @@
+:root {
+    --dark-blue: #021F3E;
+    --light-blue: #92ADBB;
+    --shade-blue: #47758C;
+    --content: #7A7A7A;
+    --orange: #C77935;
+}
+
+
+
+#assistance-container .as-content {
+    height: calc(100vh - 100px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#assistance-container .as-content .as-image-box {
+    width: 650px;
+    margin-right: 30px;
+}
+
+#assistance-container .as-content .as-image-box img {
+    width: 100%;
+    display: block;
+
+}
+
+#assistance-container .wrapper .as-text-box {
+    text-align: right;
+}
+
+#assistance-container .wrapper h3 {
+    font-size: 48px;
+
+    margin: 0 auto;
+    font-weight: 600;
+    color: var(--orange);
+    margin-bottom: 30px;
+}
+
+#assistance-container .wrapper .as-content p {
+    font-size: 20px;
+    margin: 0 auto;
+    color: var(--content);
+    line-height: 1.5em;
+}
+
+#assistance-container .wrapper h3 span {
+    color: var(--dark-blue);
+}
+
+#assistance-container .contact-detials {
+    display: flex;
+    align-items: center;
+    padding: 40px 0;
+
+}
+
+#assistance-container .contact-detials h4 {
+    font-size: 30px;
+    color: var(--dark-blue);
+    margin-bottom: 16px;
+}
+
+#assistance-container .contact-detials p {
+    color: var(--content);
+}
+
+#assistance-container .contact-detials .text-data {
+    width: 40%;
+}
+
+#assistance-container .contact-detials .form-data {
+    width: 60%;
+    border-radius: 20px;
+    padding: 40px 60px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+#assistance-container .contact-detials input {
+    padding: 12px 20px;
+    width: 49%;
+    font-size: 16px;
+    border: 1px solid var(--orange);
+    border-radius: 10px;
+}
+
+#assistance-container .contact-detials .dual-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+#assistance-container .contact-detials input[type="tel"] {
+    width: 100%;
+    margin: 20px 0;
+}
+
+#assistance-container .contact-detials button {
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px 20px;
+    border: none;
+    display: block;
+    border-radius: 10px;
+    background-color: var(--orange);
+    color: #fff;
+    font-size: 16px;
+}

@@ -62,6 +62,12 @@ function Footer() {
                   <span>
                     <Link to="/all-events/">Event</Link>
                   </span>
+                  <span>
+                    <Link to="review/">Review</Link>
+                  </span>
+                  <span>
+                    <Link to="/assistance">Trip Assistance</Link>
+                  </span>
                 </div>
               </div>
               <div className="item foot-print">

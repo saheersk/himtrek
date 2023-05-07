@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import { useNavigate, useParams } from "react-router-dom";
 import { format } from "date-fns";
-import Calendar from "react-calendar";
 import Swal from "sweetalert2";
 import TravelerPreview from "./TravelerPreview";
 import axios from "axios";
@@ -52,8 +51,11 @@ function TravelerInfo() {
   const params = useParams();
   const slug = params.slug;
 
-  const { data: packageView = [] } = usePackageView({ slug : slug });
-  const { data: gearCart = [] } = useGearCartProduct({ token: token , dispatch: dispatch }); 
+  const { data: packageView = [] } = usePackageView({ slug: slug });
+  const { data: gearCart = [] } = useGearCartProduct({
+    token: token,
+    dispatch: dispatch,
+  });
 
   const total_gear_price = gearCart.reduce((acc, item) => {
     const price = item?.gears?.price_per_day * parseInt(item?.days);
@@ -69,16 +71,16 @@ function TravelerInfo() {
 
   const total = total_gear_price + (total_price ? total_price : 0);
 
-  function handleDateChange(value) {
-    let select_date = format(value, "dd MMM Y");
-    let dateObj = new Date(select_date);
+  //   function handleDateChange(value) {
+  //     let select_date = format(value, "dd MMM Y");
+  //     let dateObj = new Date(select_date);
 
-    dateObj.setDate(dateObj.getDate() + packageView.days);
-    let end_date = format(dateObj, "dd MMM Y");
+  //     dateObj.setDate(dateObj.getDate() + packageView.days);
+  //     let end_date = format(dateObj, "dd MMM Y");
 
-    setDate(select_date);
-    setEndDate(end_date);
-  }
+  //     setDate(select_date);
+  //     setEndDate(end_date);
+  //   }
 
   const navigate = useNavigate();
 
@@ -159,41 +161,6 @@ function TravelerInfo() {
             <h3>Complete your details</h3>
           </div>
           <div className="all-container">
-            <section id="departure-info">
-              <div className="date-container">
-                <h3>Pick a departure date</h3>
-                <div className="content-box">
-                  <div className="calender-box">
-                    <Calendar
-                      value={date}
-                      onChange={handleDateChange}
-                      minDate={new Date()}
-                    />
-                  </div>
-                  <div className="confirmation-box">
-                    <h4>
-                      Available options for {product?.package?.next_trip_date}
-                    </h4>
-                    <div className="package-info">
-                      <div className="info-box">
-                        <h5>{product?.package?.title}</h5>
-                        <span>
-                          Total per Adult : {package_price_per_person}
-                        </span>
-                        <span>
-                          Total per Children : {package_price_per_children}
-                        </span>
-                        <span>
-                          Total Family of 4 : {package_price_family_of_four}
-                        </span>
-                      </div>
-                      <h2>Selected date {date}</h2>
-                      <h2>End date {endDate}</h2>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
             <div className="participant-info">
               <h3>How many participants?</h3>
               <div className="content-container">
@@ -201,37 +168,58 @@ function TravelerInfo() {
                   <div className="participant-detials">
                     <div className="item">
                       <label htmlFor="adults">Adults</label>
-                      <input
-                        type="number"
+                      <select
                         name="adults"
                         id="adults"
                         onChange={(e) => setAdults(e.target.value)}
                         value={adults}
                         required
-                      />
+                      >
+                        <option value="Select">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
                     </div>
                     <div className="item">
                       <label htmlFor="family">Family</label>
-                      <input
-                        type="number"
+                      <select
                         name="family"
                         id="family"
                         onChange={(e) => setFamily(e.target.value)}
                         value={family}
                         required
-                      />
+                      >
+                        <option value="Select">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
                     </div>
                     <div className="item">
                       <label htmlFor="children">Children</label>
-                      <input
-                        type="number"
+                      <select
                         name="children"
                         id="children"
-                        placeholder="Below 6 years only"
                         onChange={(e) => setChildren(e.target.value)}
                         value={children}
                         required
-                      />
+                      >
+                        <option value="Select">Select</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                      </select>
+
                       <span>*Only below 6 years </span>
                     </div>
                   </div>

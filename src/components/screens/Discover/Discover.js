@@ -6,7 +6,7 @@ import "./Discover.css";
 import Footer from "../Footer/Footer";
 import ClientCard from "./ClientCard";
 import CityCards from "./CityCards";
-import Review from "./Review";
+import Tabs from "./Tabs";
 
 function Discover() {
   const breakPoints = [
@@ -15,7 +15,7 @@ function Discover() {
     { width: 768, itemsToShow: 3 },
     { width: 1200, itemsToShow: 4 },
   ];
-  
+
   return (
     <>
       <Header />
@@ -23,6 +23,7 @@ function Discover() {
         <div className="wrapper">
           <div className="head">
             <h3>find & book your ideal trip</h3>
+            <Tabs />
           </div>
           <div className="content-box">
             <div className="main-city">
@@ -48,8 +49,6 @@ function Discover() {
               <ClientCard />
             </Carousel>
           </ul>
-          <Review />
-         
         </div>
       </section>
       <Footer />

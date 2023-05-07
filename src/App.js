@@ -14,6 +14,7 @@ import Contact from "./components/screens/Contact/Contact";
 
 import { ColorRing } from "react-loader-spinner";
 import Discover from "./components/screens/Discover/Discover";
+import Review from "./components/screens/Discover/Review";
 import NotFoundPage from "./components/screens/NotFoundPage/NotFoundPage";
 import SearchingResult from "./components/screens/SearchingResult/SearchingResult";
 import AutoFillOTP from "./components/screens/Auth/Otp/AutoFillOTP";
@@ -28,6 +29,7 @@ import MyOrder from "./components/screens/MyOrder/MyOrder";
 import ScrollToTop from "./ScrollControl";
 import PrivateRoute from "./components/PrivateRoute";
 import { useSelector } from "react-redux";
+import RoadSideAssistance from "./components/screens/RoadSideAssistance/RoadSideAssistance";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
@@ -126,6 +128,8 @@ function App() {
                   </PrivateRoute>
                 }
               />
+              <Route path="/review" element={<Review />} />
+              <Route path="/assistance" element={<RoadSideAssistance />} />
             </Routes>
           </Router>
         )}

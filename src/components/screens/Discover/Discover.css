@@ -215,6 +215,8 @@
 /* review-section */
 .review-container {
     padding: 50px 0;
+    width: 90%;
+    margin: 0 AUTO;
 
 }
 
@@ -252,8 +254,10 @@
 }
 
 .review-container .form-box h2 {
+    margin-bottom: 20px;
     color: var(--orenge);
 }
+
 
 .review-container form input,
 .review-container form select,
@@ -303,6 +307,33 @@
 .review-container form button:hover {
     width: 130px;
     background-color: #784316;
+}
+
+
+/* tabs */
+#preferred-category {
+    display: flex;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: var(--light-blue);
+    width: fit-content;
+    margin: 20px auto 0;
+
+
+}
+
+#preferred-category li {
+    font-size: 18px;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: .3s ease-in;
+}
+
+#preferred-category li.active,
+#preferred-category li:hover {
+    background-color: var(--dark-blue);
+    color: #fff;
 }
 
 

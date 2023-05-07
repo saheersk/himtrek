@@ -1,17 +1,30 @@
-import React, { memo, useContext } from "react";
+import React, { memo, useContext, useState } from "react";
 import { useQuickFact } from "../../../../Redux/Package/quickFact";
 import { SlugContext } from "./PackageSingle";
 import "./PackageSingle.css";
 
 function QuickFacts() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
   const param = useContext(SlugContext);
 
   const { data: quickFact = [] } = useQuickFact({ slug: param });
   return (
-    <>  
+    <>
       <div className="quick-facts">
-        <h3>Quick Fact</h3>
-        <table>
+        <h3 onClick={toggleMenu}>
+          Quick Fact{" "}
+          <span className={`${isOpen ? "active" : ""}`}>
+            <img
+              src={require("../../../assets/images/angle-up-solid.png")}
+              alt="Location"
+            />
+          </span>
+        </h3>
+        <table className={`${isOpen ? "active" : ""}`}>
           <tr>
             <td className="bold">Region:</td>
             <td>{quickFact?.region}</td>
