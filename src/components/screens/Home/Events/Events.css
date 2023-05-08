@@ -26,15 +26,13 @@ section#events .head h3 {
 
 section#events ul {
     display: flex;
-    width: 90%;
-    margin: 0 auto;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 section#events ul li {
-    flex: 0 0 30%;
-    scroll-snap-align: start;
+
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -118,23 +116,6 @@ section#events ul li:hover .date {
     transform: rotateX(360deg);
 }
 
-section#events ul::-webkit-scrollbar {
-    height: 5px;
-}
-
-section#events ul::-webkit-scrollbar-thumb,
-section#events ul::-webkit-scrollbar-track {
-    border-radius: 92px;
-}
-
-section#events ul::-webkit-scrollbar-thumb {
-    background: #dedede;
-}
-
-section#events ul::-webkit-scrollbar-track {
-    background: #f5f5f5;
-}
-
 
 section#events .button a {
     display: flex;
@@ -189,8 +170,11 @@ section#events .button small img {
 /* responsive-screen */
 @media all and (max-width: 980px) {
     section#events ul li {
-        flex: 0 0 50%;
-        width: 200px;
+        width: 420px;
+    }
+
+    section#events ul li:nth-child(2n) {
+        margin-right: 0;
     }
 }
 

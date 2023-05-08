@@ -18,9 +18,9 @@ function TopPackage() {
             <h3>let’s plan your next trip!</h3>
           </div>
           <div className="content">
-            <ul>
+            <div className="top-package-container">
               <PackageCard />
-            </ul>
+            </div>
           </div>
           <Link to="/result/">
             <div className="button">

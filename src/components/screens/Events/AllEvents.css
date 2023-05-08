@@ -164,6 +164,7 @@ section#events .button small img {
 @media all and (max-width: 768px) {
     section#events ul li {
         height: 170px;
+        margin-right: 0;
     }
 }
 
