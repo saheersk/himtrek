@@ -65,20 +65,25 @@ section#preference .content-container ul li:hover {
 
 section#preference .content-container .content-cards {
     margin-top: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 section#preference .content-container .card {
     cursor: pointer;
-    width: 270px;
-    height: 340px;
     position: relative;
+    border-radius: 20px;
+
+}
+
+section#preference .content-container .card a {
+    display: block;
+    margin: 10px;
+    width: 250px;
+    height: 340px;
     border-radius: 20px;
     margin: 0 10px 0 10px;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     overflow: hidden;
+
 }
 
 section#preference .content-container .card:hover .image-box img {
