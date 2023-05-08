@@ -1,24 +1,52 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { usePackage } from "../../../../Redux/Home/package";
-import Carousel from 'react-elastic-carousel';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./PackageList.css";
-
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
-];
 
 function Package() {
   const { data: packages = [] } = usePackage();
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    // initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
   return (
     <>
+    <Slider {...settings}>
       {packages?.map((item) => {
         return (
-          // <Carousel breakPoints={breakPoints}>
           <div className="package" key={item?.id}>
             <Link to={`/package/view/${item.slug}/`}>
               <div className="left-box">
@@ -41,9 +69,9 @@ function Package() {
               </div>
             </Link>
           </div>
-          // </Carousel>
         );
       })}
+    </Slider>
     </>
   );
 }

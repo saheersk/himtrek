@@ -15,6 +15,8 @@ function SearchingResult() {
 
   const { data: category } = useCategory();
   const { data: places } = usePlace();
+  const [search, setSearch] = useState();
+//   console.log(search);
 
   return (
     <>
@@ -23,7 +25,11 @@ function SearchingResult() {
         <div className="wrapper">
           <div className="top-box">
             <h4>Packages</h4>
-            <input type="search" placeholder="Search" className="search" />
+            <input
+              type="search"
+              placeholder="Search"
+              className="search"
+            />
             <span className={`${isOpen ? "open" : ""}`} onClick={toggleMenu}>
               <img
                 src={require("../../assets/images/filter.svg").default}

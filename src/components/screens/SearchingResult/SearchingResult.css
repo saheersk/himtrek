@@ -48,6 +48,7 @@
     outline: none;
     width: 400px;
     border-radius: 10px;
+    font-size: 16px;
 }
 
 #searching-results .loc-filter ul li:last-child {

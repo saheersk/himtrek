@@ -18,14 +18,11 @@ section#package-list .head h3 {
 }
 
 section#package-list .package-box {
-    display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
+    /* display: flex; */
 }
 
 section#package-list .package a {
-    flex: 0 0 30%;
-    scroll-snap-align: start;
+
     color: var(--dark-blue);
     margin: 0 auto;
     cursor: pointer;
@@ -35,7 +32,7 @@ section#package-list .package a {
     transition: .5s ease;
 }
 
-section#package-list .package-box::-webkit-scrollbar {
+/* section#package-list .package-box::-webkit-scrollbar {
     height: 5px;
 }
 
@@ -50,7 +47,7 @@ section#package-list .package-box::-webkit-scrollbar-thumb {
 
 section#package-list .package-box::-webkit-scrollbar-track {
     background: #f5f5f5;
-}
+} */
 
 section#package-list .package a:hover {
     transform: scale(1.01);
