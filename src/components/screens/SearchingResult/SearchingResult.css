@@ -42,6 +42,14 @@
 
 }
 
+#searching-results .search {
+    padding: 12px 20px;
+    border: 1px solid var(--orenge);
+    outline: none;
+    width: 400px;
+    border-radius: 10px;
+}
+
 #searching-results .loc-filter ul li:last-child {
     margin-right: 0;
 }
@@ -349,6 +357,7 @@
         padding: 10px 20px;
         font-size: 14px;
     }
+
     .filter-container {
         width: 80%;
     }
