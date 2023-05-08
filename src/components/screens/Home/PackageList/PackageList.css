@@ -19,13 +19,10 @@ section#package-list .head h3 {
 
 section#package-list .package-box {
     display: flex;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
 }
 
 section#package-list .package a {
-    flex: 0 0 30%;
-    scroll-snap-align: start;
+
     color: var(--dark-blue);
     margin: 0 auto;
     cursor: pointer;
