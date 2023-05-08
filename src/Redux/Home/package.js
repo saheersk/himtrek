@@ -18,13 +18,15 @@ const packageSlice = createSlice({
 });
 
 export const usePackage = ({
-  month = "",
-  state = "",
-  category = "",
-  city = "",
-  sort = "",
+  month = '',
+  state = '',
+  category = '',
+  city = '',
+  sort = '',
 } = {}) => {
   const dispatch = useDispatch();
+
+  console.log(category, "redux");
 
   const url = `${BASE_URL}/packages/travel-packages/?month=${month}&state=${state}&category=${category}&city=${city}&sort=${sort}`;
   const { data, error } = useSWR(url, async (url) => {

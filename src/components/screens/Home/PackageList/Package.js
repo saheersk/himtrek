@@ -1,7 +1,15 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { usePackage } from "../../../../Redux/Home/package";
+import Carousel from 'react-elastic-carousel';
 import "./PackageList.css";
+
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 4 },
+];
 
 function Package() {
   const { data: packages = [] } = usePackage();
@@ -10,6 +18,7 @@ function Package() {
     <>
       {packages?.map((item) => {
         return (
+          // <Carousel breakPoints={breakPoints}>
           <div className="package" key={item?.id}>
             <Link to={`/package/view/${item.slug}/`}>
               <div className="left-box">
@@ -32,6 +41,7 @@ function Package() {
               </div>
             </Link>
           </div>
+          // </Carousel>
         );
       })}
     </>
